@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/home"
+            android:title="@string/home">
+        </item>
+
+        <item
+            android:id="@+id/desposit"
+            android:title="@string/deposit">
+        </item>
+
+        <item
+            android:id="@+id/withdrawal"
+            android:title="@string/withdrawal">
+        </item>
+
+        <item
+            android:id="@+id/transfer"
+            android:title="@string/transfer">
+        </item>
+
+        <item
+            android:id="@+id/transaction"
+            android:title="@string/transactions">
+
+        </item>
+
+    </group>
+
+</menu>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_marginLeftPercent="5%"
+        android:layout_marginTop="30dp"
+        android:text="Transfer from"
+        android:textSize="25dp"/>
+
+    <Spinner
+        android:id="@+id/fromSpinner"
+        android:layout_centerHorizontal="true"
+        app:layout_widthPercent="90%"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/from"
+        android:layout_marginTop="5dp"
+        android:spinnerMode="dropdown"
+        android:background="@drawable/spinner_background">
+    </Spinner>
+
+    <TextView
+        android:id="@+id/to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_marginLeftPercent="5%"
+        android:layout_below="@+id/fromSpinner"
+        android:layout_marginTop="40dp"
+        android:text="Transfer to"
+        android:textSize="25dp"/>
+
+    <Spinner
+        android:id="@+id/toSpinner"
+        android:layout_centerHorizontal="true"
+        app:layout_widthPercent="90%"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/to"
+        android:layout_marginTop="5dp"
+        android:spinnerMode="dropdown"
+        android:background="@drawable/spinner_background">
+    </Spinner>
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_centerHorizontal="true"
+        app:layout_widthPercent="90%"
+        android:layout_height="wrap_content"
+        android:hint="Amount to transfer"
+        android:background="@drawable/edit_text_border"
+        android:layout_below="@+id/toSpinner"
+        android:layout_marginTop="50dp"
+        android:textSize="25dp"/>
+
+</android.support.percent.PercentRelativeLayout>

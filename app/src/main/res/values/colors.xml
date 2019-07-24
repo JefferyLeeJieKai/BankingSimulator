@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- login screen colors -->
+    <color name="loginButton">#08C53D</color>
+    <color name="loginButtonText">#FFFFFF</color>
+    <color name="loginErrorMessage">#F44336</color>
+    <color name="fingerprintBorder">#979797</color>
+
+    <!-- theme colors -->
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- navigation drawer colors -->
+    <color name="navHeaderText">#FAFAFA</color>
+
+    <!-- spinner background colors -->
+    <color name="spinnerBackground">#FFFFFF</color>
+    <color name="spinnerBorder">#979797</color>
+
+    <!-- edit text colors -->
+    <color name="editTextBackground">#FFFFFF</color>
+    <color name="editTextBorder">#979797</color>
+
+    <!-- spinner text border colors -->
+    <color name="spinnerBorderStartColor">#ff2632</color>
+    <color name="spinnerBorderCenterColor">#5797cf</color>
+    <color name="spinnerBorderEndColor">#d057d2</color>
+
+</resources>

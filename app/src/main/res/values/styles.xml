@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Login hint theme -->
+    <style name="LoginFloatingHintAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <!-- Login error theme -->
+    <style name="LoginErrorAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/loginErrorMessage</item>
+    </style>
+
+</resources>
