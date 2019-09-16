@@ -30,13 +30,20 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/usernameLbl"
             android:hint="Username" />
+
+        <TextView
+            android:id="@+id/errorUsernameLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="310dp"
         android:text="Account Number:" />
 
     <Spinner
@@ -44,13 +51,13 @@
         android:layout_width="280dp"
         android:layout_height="35dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="320dp" />
+        android:layout_marginTop="340dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="410dp"
         android:text="Amount:" />
 
     <TextView
@@ -58,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="455dp"
         android:text="currency" />
 
     <android.support.design.widget.TextInputLayout
@@ -66,12 +73,19 @@
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="398dp">
+        android:layout_marginTop="430dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Amount" />
+
+        <TextView
+            android:id="@+id/errorAmountLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -79,7 +93,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="280dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="540dp"
         android:text="Next" />
 
 </android.support.percent.PercentRelativeLayout>
