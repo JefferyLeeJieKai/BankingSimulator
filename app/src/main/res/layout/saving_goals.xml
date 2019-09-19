@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <android.support.v4.widget.DrawerLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -89,13 +88,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Saving Goal Name" />
+
+        <TextView
+            android:id="@+id/errorGoalNameLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="370dp"
         android:text="Item Cost:" />
 
     <TextView
@@ -103,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="400dp"
         android:text="currency" />
 
     <android.support.design.widget.TextInputLayout
@@ -111,7 +117,7 @@
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="358dp">
+        android:layout_marginTop="378dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -131,7 +137,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="482dp"
         android:text="Create" />
 
     <Button
@@ -139,7 +145,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="482dp"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>
