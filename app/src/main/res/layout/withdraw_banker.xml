@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="120dp"
+        android:text="Please provide withdrawal details:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="180dp"
+        android:text="Account Holder Name:" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/usernameLbl"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="200dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/usernameLbl"
+            android:hint="Username" />
+
+        <TextView
+            android:id="@+id/errorUsernameLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="error message (if any)" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="310dp"
+        android:text="Account Number:" />
+
+    <Spinner
+        android:id="@+id/accountDDL"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="340dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="410dp"
+        android:text="Amount:" />
+
+    <TextView
+        android:id="@+id/currencyLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="455dp"
+        android:text="currency" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/amountTxt"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="430dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount" />
+
+        <TextView
+            android:id="@+id/errorAmountLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="error message (if any)" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="540dp"
+        android:text="Next" />
+
+</android.support.percent.PercentRelativeLayout>
