@@ -27,24 +27,30 @@
         android:layout_marginLeft="110dp"
         android:layout_marginTop="180dp">
 
+        <TextView
+            android:id="@+id/usernameLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="195dp"
+            android:text="auto generate username" />
+
+        <TextView
+            android:id="@+id/accountNumberLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="235dp"
+            android:text="auto account number" />
+
+        <TextView
+            android:id="@+id/bankLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="255dp"
+            android:text="auto bank name" />
     </View>
-
-    <TextView
-        android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="210dp"
-        android:layout_marginTop="210dp"
-        android:text="auto generate username" />
-
-    <TextView
-        android:id="@+id/balanceLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="210dp"
-        android:layout_marginTop="245dp"
-        android:text="auto generate balance" />
-
 
     <ImageView
         android:id="@+id/ahAvatar"
