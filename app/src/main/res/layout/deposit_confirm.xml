@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="120dp"
+        android:text="Verify deposit details:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="180dp"
+        android:text="Deposit To:" />
+
+    <View
+        android:layout_width="265dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="180dp">
+
+    </View>
+
+    <TextView
+        android:id="@+id/usernameLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="210dp"
+        android:text="auto generate username" />
+
+    <TextView
+        android:id="@+id/balanceLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="245dp"
+        android:text="auto generate balance" />
+
+
+    <ImageView
+        android:id="@+id/ahAvatar"
+        android:layout_width="87dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="180dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="310dp"
+        android:text="Amount:" />
+
+    <TextView
+        android:id="@+id/currencyLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="310dp"
+        android:text="SGD" />
+
+    <TextView
+        android:id="@+id/amountLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="310dp"
+        android:text="$ auto generate amount" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="350dp"
+        android:text="Date:" />
+
+    <TextView
+        android:id="@+id/dateLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="350dp"
+        android:text="auto generate date" />
+
+    <Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="400dp"
+        android:text="Confirm" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="400dp"
+        android:text="Cancel" />
+
+</android.support.percent.PercentRelativeLayout>
