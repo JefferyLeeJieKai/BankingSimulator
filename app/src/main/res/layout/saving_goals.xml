@@ -100,7 +100,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="370dp"
         android:text="Item Cost:" />
 
@@ -108,7 +108,7 @@
         android:id="@+id/currencyLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="45dp"
         android:layout_marginTop="400dp"
         android:text="currency" />
 
