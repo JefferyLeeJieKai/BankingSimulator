@@ -33,7 +33,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WITHDRAW FUNDS"
+        android:text="ALL SAVING GOALS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/navHeaderText"
         android:textSize="25dp"
@@ -70,61 +70,11 @@
         android:layout_marginTop="215dp"
         android:text="auto generate balance" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/goalDetailsRv"
+        android:layout_width="338dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="290dp"
-        android:text="Account Number:" />
-
-    <Spinner
-        android:id="@+id/accountDDL"
-        android:layout_width="280dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="320dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="390dp"
-        android:text="Amount:" />
-
-    <TextView
-        android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="420dp"
-        android:text="currency" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/amountTxt"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="398dp">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Amount" />
-
-        <TextView
-            android:id="@+id/errorAmountLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="error message (if any)" />
-    </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:id="@+id/nextBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="500dp"
-        android:text="Next" />
+        android:layout_marginTop="275dp" />
 
 </android.support.percent.PercentRelativeLayout>

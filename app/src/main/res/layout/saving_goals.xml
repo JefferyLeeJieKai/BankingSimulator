@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v4.widget.DrawerLayout
@@ -30,43 +33,64 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DEPOSIT FUNDS"
+        android:text="SAVING GOALS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/navHeaderText"
         android:textSize="25dp"
         android:layout_marginLeft="120dp"
         android:layout_marginTop="10dp" />
 
+    <View
+        android:layout_width="280dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp" />
+
+    <ImageView
+        android:id="@+id/ahAvatar"
+        android:layout_width="87dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
+        android:id="@+id/usernameLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="120dp"
-        android:text="Please provide deposit details:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="180dp"
+        android:text="auto generate username" />
+
+    <TextView
+        android:id="@+id/balanceLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="215dp"
+        android:text="auto generate balance" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="180dp"
-        android:text="Account Holder Name:" />
+        android:layout_marginTop="292dp"
+        android:text="Goal Name:" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/usernameLbl"
-        android:layout_width="280dp"
+        android:id="@+id/goalNameTxt"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="200dp">
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="270dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/usernameLbl"
-            android:hint="Username" />
+            android:hint="Saving Goal Name" />
 
         <TextView
-            android:id="@+id/errorUsernameLbl"
+            android:id="@+id/errorGoalNameLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -77,37 +101,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="310dp"
-        android:text="Account Number:" />
-
-    <Spinner
-        android:id="@+id/accountDDL"
-        android:layout_width="280dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="340dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="410dp"
-        android:text="Amount:" />
+        android:layout_marginTop="370dp"
+        android:text="Item Cost:" />
 
     <TextView
         android:id="@+id/currencyLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="455dp"
+        android:layout_marginTop="400dp"
         android:text="currency" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="430dp">
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="378dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -123,11 +133,19 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/nextBtn"
+        android:id="@+id/createBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="540dp"
-        android:text="Next" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="482dp"
+        android:text="Create" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="482dp"
+        android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>
