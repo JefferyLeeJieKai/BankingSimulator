@@ -10,32 +10,31 @@
         android:layout_width="280dp"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="150dp" />
 
-        <ImageView
-            android:id="@+id/ahAvatar"
-            android:layout_width="87dp"
-            android:layout_height="110dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="150dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/ahAvatar"
+        android:layout_width="87dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/usernameLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="180dp"
-            android:text="auto generate username" />
+    <TextView
+        android:id="@+id/usernameLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="180dp"
+        android:text="auto generate username" />
 
-        <TextView
-            android:id="@+id/balanceLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="215dp"
-            android:text="auto generate balance" />
-    </View>
+    <TextView
+        android:id="@+id/balanceLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="215dp"
+        android:text="auto generate balance" />
 
     <TextView
         android:layout_width="wrap_content"
