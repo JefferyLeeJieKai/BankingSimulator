@@ -27,6 +27,14 @@
         android:layout_marginLeft="110dp"
         android:layout_marginTop="180dp">
 
+        <ImageView
+            android:id="@+id/ahAvatar"
+            android:layout_width="87dp"
+            android:layout_height="110dp"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="180dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <TextView
             android:id="@+id/usernameLbl"
             android:layout_width="wrap_content"
@@ -51,14 +59,6 @@
             android:layout_marginTop="255dp"
             android:text="auto bank name" />
     </View>
-
-    <ImageView
-        android:id="@+id/ahAvatar"
-        android:layout_width="87dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="180dp"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:layout_width="wrap_content"
