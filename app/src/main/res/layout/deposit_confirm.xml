@@ -40,6 +40,7 @@
         android:layout_marginLeft="120dp"
         android:layout_marginTop="10dp" />
 
+    //header
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,6 +49,7 @@
         android:text="Verify deposit details:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+    //display information starting from here
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,6 +57,7 @@
         android:layout_marginTop="180dp"
         android:text="Deposit To:" />
 
+    //display account holder's profile
     <View
         android:layout_width="265dp"
         android:layout_height="110dp"
