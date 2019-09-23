@@ -78,7 +78,7 @@
         android:text="auto generate username" />
 
     <TextView
-        android:id="@+id/accountNumberLbl"
+        android:id="@+id/accountLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="210dp"
