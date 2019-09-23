@@ -40,6 +40,7 @@
         android:layout_marginLeft="95dp"
         android:layout_marginTop="10dp" />
 
+    //header
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,6 +49,7 @@
         android:text="Verify withdrawal details:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+    //display information starting from here
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,6 +64,7 @@
         android:layout_marginTop="195dp"
         android:text="From:" />
 
+    //display account holder's profile
     <View
         android:layout_width="265dp"
         android:layout_height="110dp"
@@ -100,6 +103,7 @@
         android:layout_marginTop="255dp"
         android:text="auto bank name" />
 
+    //display amount
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -123,6 +127,7 @@
         android:layout_marginTop="310dp"
         android:text="$ auto generate amount" />
 
+    //display date
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -138,6 +143,7 @@
         android:layout_marginTop="350dp"
         android:text="auto generate date" />
 
+    //display buttons
     <Button
         android:id="@+id/confirmBtn"
         android:layout_width="110dp"

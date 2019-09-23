@@ -40,6 +40,7 @@
         android:layout_marginLeft="90dp"
         android:layout_marginTop="10dp" />
 
+    //display account holder's profile
     <View
         android:layout_width="270dp"
         android:layout_height="110dp"
@@ -70,6 +71,7 @@
         android:layout_marginTop="215dp"
         android:text="auto generate balance" />
 
+    //display amount legends
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,6 +88,7 @@
         android:textSize="12dp"
         android:text="Amount Remaining" />
 
+    //display amount progress bar
     <ProgressBar
         android:id="@+id/amountPB"
         style="?android:attr/progressBarStyleHorizontal"
@@ -94,6 +97,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="255dp" />
 
+    //display amount saved
     <View
         android:layout_width="350dp"
         android:layout_height="75dp"
@@ -124,6 +128,7 @@
         android:layout_marginTop="370dp"
         android:text="auto amount" />
 
+    //display amount remaining
     <View
         android:layout_width="350dp"
         android:layout_height="75dp"
@@ -154,6 +159,8 @@
         android:layout_marginTop="450dp"
         android:text="auto amount" />
 
+    //display information starting from here
+    //display goal name
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -169,6 +176,7 @@
         android:layout_marginTop="510dp"
         android:text="auto goal name" />
 
+    //display amount
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

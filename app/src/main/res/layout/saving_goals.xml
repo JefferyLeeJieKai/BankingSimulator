@@ -40,6 +40,7 @@
         android:layout_marginLeft="120dp"
         android:layout_marginTop="10dp" />
 
+    //display account holder's profile
     <View
         android:layout_width="280dp"
         android:layout_height="110dp"
@@ -70,6 +71,8 @@
         android:layout_marginTop="215dp"
         android:text="auto generate balance" />
 
+    //user input starting from here
+    //get goal name
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -97,6 +100,7 @@
             android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
+    //get amount
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,6 +136,7 @@
             android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
+    //display buttons
     <Button
         android:id="@+id/createBtn"
         android:layout_width="110dp"

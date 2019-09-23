@@ -40,6 +40,7 @@
         android:layout_marginLeft="95dp"
         android:layout_marginTop="10dp" />
 
+    //display account holder's profile
     <View
         android:layout_width="280dp"
         android:layout_height="110dp"
@@ -70,6 +71,7 @@
         android:layout_marginTop="215dp"
         android:text="auto generate balance" />
 
+    //display all saving goals
     <android.support.v7.widget.RecyclerView
         android:id="@+id/goalDetailsRv"
         android:layout_width="338dp"

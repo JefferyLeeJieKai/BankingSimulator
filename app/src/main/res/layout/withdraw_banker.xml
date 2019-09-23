@@ -37,6 +37,7 @@
         android:layout_marginLeft="95dp"
         android:layout_marginTop="10dp" />
 
+    //header
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,6 +46,8 @@
         android:text="Please provide withdrawal details:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+    //user input starting from here
+    //get account holder's username
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +56,7 @@
         android:text="Account Holder Name:" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/usernameLbl"
+        android:id="@+id/usernameTxt"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -62,7 +65,6 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/usernameLbl"
             android:hint="Username" />
 
         <TextView
@@ -73,6 +75,7 @@
             android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
+    //get account number
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,6 +90,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="340dp" />
 
+    //get amount
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -122,6 +126,7 @@
             android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
+    //display button
     <Button
         android:id="@+id/nextBtn"
         android:layout_width="110dp"

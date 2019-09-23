@@ -96,6 +96,7 @@
         android:layout_marginTop="255dp"
         android:text="auto bank name" />
 
+    //display amount
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,6 +120,7 @@
         android:layout_marginTop="310dp"
         android:text="$ auto generate amount" />
 
+    //display date
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -134,6 +136,7 @@
         android:layout_marginTop="350dp"
         android:text="auto generate date" />
 
+    //display buttons
     <Button
         android:id="@+id/confirmBtn"
         android:layout_width="110dp"
