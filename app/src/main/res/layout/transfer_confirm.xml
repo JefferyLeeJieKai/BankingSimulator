@@ -33,11 +33,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DEPOSIT FUNDS"
+        android:text="TRANSFER FUNDS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/navHeaderText"
         android:textSize="25dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginLeft="95dp"
         android:layout_marginTop="10dp" />
 
     //header
@@ -46,95 +46,180 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="120dp"
-        android:text="Verify deposit details:"
+        android:text="Verify transfer details:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     //display information starting from here
+    //display payer's profile
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="220dp"
-        android:text="Deposit To:" />
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="230dp"
+        android:text="From:" />
 
-    //display account holder's profile
     <View
         android:layout_width="265dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="115dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="180dp" />
 
     <ImageView
-        android:id="@+id/ahAvatar"
+        android:id="@+id/payerAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="115dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="180dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/usernameLbl"
+        android:id="@+id/payerLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="215dp"
+        android:layout_marginLeft="205dp"
         android:layout_marginTop="195dp"
         android:text="auto generate username" />
 
     <TextView
-        android:id="@+id/accountLbl"
+        android:id="@+id/payerAccountLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="215dp"
+        android:layout_marginLeft="205dp"
         android:layout_marginTop="235dp"
         android:text="auto account number" />
 
     <TextView
-        android:id="@+id/bankLbl"
+        android:id="@+id/payerBankLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="215dp"
+        android:layout_marginLeft="205dp"
         android:layout_marginTop="255dp"
+        android:text="auto bank name" />
+
+    //display payee's profile
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="360dp"
+        android:text="To:" />
+
+    <View
+        android:layout_width="265dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="310dp" />
+
+    <ImageView
+        android:id="@+id/payeeAvatar"
+        android:layout_width="87dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="310dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/payeeLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="325dp"
+        android:text="auto generate username" />
+
+    <TextView
+        android:id="@+id/payeeAccountLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="365dp"
+        android:text="auto account number" />
+
+    <TextView
+        android:id="@+id/payeeBankLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="385dp"
         android:text="auto bank name" />
 
     //display amount
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="440dp"
         android:text="Amount:" />
 
     <TextView
         android:id="@+id/currencyLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="115dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="440dp"
         android:text="SGD" />
 
     <TextView
         android:id="@+id/amountLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="440dp"
         android:text="$ auto generate amount" />
 
     //display date
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="470dp"
         android:text="Date:" />
 
     <TextView
         android:id="@+id/dateLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="115dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="470dp"
         android:text="auto generate date" />
+
+    //display additional comments
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="500dp"
+        android:text="Additional" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="515dp"
+        android:text="Comments:" />
+
+    <TextView
+        android:id="@+id/commentLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="500dp"
+        android:text="auto generate comments" />
+
+    //display purpose
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="570dp"
+        android:text="Purpose:" />
+
+    <TextView
+        android:id="@+id/purposeLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="570dp"
+        android:text="auto generate purpose" />
 
     //display buttons
     <Button
@@ -142,7 +227,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="620dp"
         android:text="Confirm" />
 
     <Button
@@ -150,7 +235,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="620dp"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

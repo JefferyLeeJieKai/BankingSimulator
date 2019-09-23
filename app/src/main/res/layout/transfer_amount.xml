@@ -43,7 +43,7 @@
     //display payee's information
     <View
         android:layout_width="345dp"
-        android:layout_height="140dp"
+        android:layout_height="135dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="150dp" />
 
@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="265dp"
         android:text="payee's username" />
 
     //display payer's information
@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="265dp"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="265dp"
         android:text="payer's username" />
 
     //user input starting from here
