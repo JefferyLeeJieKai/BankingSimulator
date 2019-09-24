@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:startColor="#00000000"
+    android:endColor="#FFFFFF"
+    android:angle="45">
 
-</LinearLayout>
+    <com.q42.android.scrollingimageview.ScrollingImageView
+
+        android:id="@+id/scrollingImageView"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:scaleType="center"
+        app:speed="0.2dp"
+        app:src="@drawable/scrollimage" />
+
+    <ImageButton
+        android:id="@+id/loginposb"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/fingerprint_border"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/loginposb" />
+
+    <ImageButton
+        android:id="@+id/transferposb"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/fingerprint_border"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/transferposb" />
+
+</RelativeLayout>

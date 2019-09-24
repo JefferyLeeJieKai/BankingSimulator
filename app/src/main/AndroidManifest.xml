@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme">
         
         <activity
-            android:name=".Spalsh"
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
 
