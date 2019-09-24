@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:scaleType="center"
         app:speed="0.2dp"
-        app:src="@drawable/great" />
+        app:src="@drawable/newimage" />
 
     <ImageButton
         android:id="@+id/loginposb"
