@@ -16,26 +16,27 @@
         android:layout_height="600dp"
         android:scaleType="center"
         app:speed="0.2dp"
-        app:src="@drawable/scrollimage" />
+        app:src="@drawable/great" />
 
     <ImageButton
         android:id="@+id/loginposb"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="350dp"
-        android:background="@drawable/fingerprint_border"
+        android:layout_marginTop="450dp"
+        android:background="@null"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/loginposb" />
+        app:srcCompat="@drawable/signin" />
 
     <ImageButton
         android:id="@+id/transferposb"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="350dp"
-        android:background="@drawable/fingerprint_border"
+        android:layout_marginTop="442dp"
+        android:background="@null"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/transferposb" />
+        android:visibility="visible"
+        app:srcCompat="@drawable/transferwhite" />
 
 </RelativeLayout>
