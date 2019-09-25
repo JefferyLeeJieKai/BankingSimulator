@@ -27,12 +27,12 @@
 
     <ImageButton
         android:id="@+id/savings"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
+        android:layout_width="87dp"
+        android:layout_height="88dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="320dp"
         android:background="@drawable/fingerprint_border"
+        android:scaleType="fitCenter"
         android:src="@drawable/savings" />
 
     <ImageButton
