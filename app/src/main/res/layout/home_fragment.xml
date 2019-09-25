@@ -4,13 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="264dp"
-        android:src="@drawable/blue" />
+    android:layout_height="match_parent"
+    android:background="@drawable/blue"
+    >
 
     <View
         android:layout_width="fill_parent"
@@ -19,6 +15,15 @@
         android:paddingBottom="10dip"
         android:layout_marginTop="260dp"
         />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="482dp"
+        android:layout_alignBottom="@drawable/white6"
+        android:layout_marginTop="262dp"
+        android:scaleType="center"
+        android:src="@drawable/white6" />
 
     <ImageButton
         android:id="@+id/savings"
