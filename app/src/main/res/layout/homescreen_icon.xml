@@ -2,8 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
 
+    >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="264dp"
+        app:srcCompat="@drawable/blue" />
 
     <View
         android:layout_width="fill_parent"
@@ -80,7 +87,9 @@
         android:layout_marginTop="150dp"
         android:layout_marginLeft="15dp"
         android:text="Welcome to KidzSmart, Bob"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textColorHighlight="#0E1010"
         android:textSize="30sp" />
+
+
 </RelativeLayout>

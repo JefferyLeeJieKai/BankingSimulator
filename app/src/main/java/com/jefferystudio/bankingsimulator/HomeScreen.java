@@ -16,12 +16,14 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class HomeScreen extends AppCompatActivity {
 
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
     private Fragment fragment;
+    private ImageButton buttontransfer;
 
     protected void onCreate(Bundle savedInstanceState) {
 
