@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:angle="45"
     android:background="@android:color/background_dark"
-    android:startColor="#00000000"
     android:endColor="#FFFFFF"
-    android:angle="45">
+    android:startColor="#00000000">
 
     <com.q42.android.scrollingimageview.ScrollingImageView
 
@@ -15,28 +16,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:speed="0.2dp"
         app:src="@drawable/newimage" />
 
     <ImageButton
         android:id="@+id/loginposb"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="400dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="608dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/signin" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login" />
 
     <ImageButton
         android:id="@+id/transferposb"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="392dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="608dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/transferwhite" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
