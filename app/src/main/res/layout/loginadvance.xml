@@ -46,4 +46,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/transferwhite" />
 
+    <ImageButton
+        android:id="@+id/signup"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="620dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/signup" />
+
 </android.support.constraint.ConstraintLayout>
