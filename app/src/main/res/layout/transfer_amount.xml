@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="265dp"
-        android:text="payee's username" />
+        android:text="payee's name" />
 
     //display payer's information
     <ImageView
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="265dp"
         android:layout_marginTop="265dp"
-        android:text="payer's username" />
+        android:text="payer's name" />
 
     //user input starting from here
     //get amount
