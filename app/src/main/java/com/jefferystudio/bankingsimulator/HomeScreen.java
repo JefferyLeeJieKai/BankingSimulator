@@ -73,9 +73,9 @@ public class HomeScreen extends AppCompatActivity {
 
                     fragment = new DepositAH();
 
-                    Bundle args = new Bundle();
-                    args.putInt("Status", 1);
-                    fragment.setArguments(args);
+//                    Bundle args = new Bundle();
+//                   args.putInt("Status", 1);
+//                    fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.withdrawalAH) {
 
