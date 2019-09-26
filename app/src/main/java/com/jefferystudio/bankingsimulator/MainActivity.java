@@ -11,26 +11,37 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton buttonlogin;
     private ImageButton buttonsignup;
+    private ImageButton buttontransfer;
 
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
          setContentView(R.layout.loginadvance);
 
+         buttonsignup =(ImageButton) findViewById(R.id.signup);
          buttonlogin = (ImageButton) findViewById(R.id.loginposb);
+         buttontransfer = (ImageButton) findViewById(R.id.transferposb) ;
+
          buttonlogin.setOnClickListener(new View.OnClickListener(){
              @Override
              public void onClick(View v){
                  LoginScreen();
              }
          });
-         buttonsignup =(ImageButton) findViewById(R.id.signup);
+
          buttonsignup.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
                  registrationpage1();
              }
          });
+
+        buttontransfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View viewtransfer) {
+                LoginScreen();
+            }
+        });
     }
 
     public void LoginScreen(){
