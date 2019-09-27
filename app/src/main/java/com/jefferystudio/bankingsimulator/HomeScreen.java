@@ -69,15 +69,15 @@ public class HomeScreen extends AppCompatActivity {
 
                     fragment = new HomeFragment();
                 }
-                else if(item.getItemId() == R.id.desposit) {
+                else if(item.getItemId() == R.id.depositAH) {
 
-                    fragment = new PerformTransactionFragment();
+                    fragment = new DepositAH();
 
-                    Bundle args = new Bundle();
-                    args.putInt("Status", 1);
-                    fragment.setArguments(args);
+//                    Bundle args = new Bundle();
+//                   args.putInt("Status", 1);
+//                    fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.withdrawal) {
+                else if(item.getItemId() == R.id.withdrawalAH) {
 
                     fragment = new PerformTransactionFragment();
 
@@ -85,7 +85,7 @@ public class HomeScreen extends AppCompatActivity {
                     args.putInt("Status", 2);
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.transfer) {
+                else if(item.getItemId() == R.id.transferAH) {
 
                     fragment = new PerformTransactionFragment();
 

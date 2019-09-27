@@ -9,17 +9,17 @@
         </item>
 
         <item
-            android:id="@+id/depositAH"
+            android:id="@+id/depositBanker"
             android:title="@string/deposit">
         </item>
 
         <item
-            android:id="@+id/withdrawalAH"
+            android:id="@+id/withdrawBanker"
             android:title="@string/withdrawal">
         </item>
 
         <item
-            android:id="@+id/transferAH"
+            android:id="@+id/transferBanker"
             android:title="@string/transfer">
         </item>
 
