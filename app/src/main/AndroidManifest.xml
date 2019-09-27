@@ -34,6 +34,17 @@
             android:name=".HomeScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".registration1"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".registration2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
     </application>
 
 </manifest>

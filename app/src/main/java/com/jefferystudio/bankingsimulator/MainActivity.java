@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
          buttonsignup.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 registrationpage1();
+                 registration1();
              }
          });
 
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void registrationpage1(){
-        Intent intent = new Intent(getApplicationContext(), registrationpage1.class);
+    public void registration1(){
+        Intent intent = new Intent(getApplicationContext(), registration1.class);
         startActivity(intent);
         finish();
     }
