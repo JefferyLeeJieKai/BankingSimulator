@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.widget.Toast;
 
@@ -77,15 +78,24 @@ public class SignInActivity extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
-        if(result.equals("True")) {
+        String[] resultArray = result.split(",");
+
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+
+        if(resultArray[0].equals("True")) {
 
             Intent intent = new Intent(context.getApplicationContext(), HomeScreen.class);
+
+            Bundle args = new Bundle();
+            args.putString("userID", resultArray[1]);
+            args.putString("currentBalance", resultArray[2]);
+            intent.putExtras(args);
 
             context.startActivity(intent);
             ((Activity)context).finish();
         }
 
-        else if(result.equals("False")){
+        else if(resultArray[0].equals("False")){
 
             usernameTextBox.setError("Invalid Username or Password");
             passwordTextBox.setError("Invalid Username or Password");

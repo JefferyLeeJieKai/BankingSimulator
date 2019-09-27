@@ -24,11 +24,18 @@ public class HomeScreen extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     private Fragment fragment;
     private ImageButton buttontransfer;
+    private Bundle args;
+    private String userID;
+    private String currentBalance;
 
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
+        args = new Bundle();
+        args = getIntent().getExtras();
+        userID = args.getString("userID");
+        currentBalance = args.getString("currentBalance");
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(homeScreenToolbar);
@@ -72,10 +79,7 @@ public class HomeScreen extends AppCompatActivity {
                 else if(item.getItemId() == R.id.depositAH) {
 
                     fragment = new DepositAH();
-
-//                    Bundle args = new Bundle();
-//                   args.putInt("Status", 1);
-//                    fragment.setArguments(args);
+                    fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.withdrawalAH) {
 
