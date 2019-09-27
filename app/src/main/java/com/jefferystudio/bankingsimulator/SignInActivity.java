@@ -80,7 +80,7 @@ public class SignInActivity extends AsyncTask<String, String, String> {
 
         String[] resultArray = result.split(",");
 
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
 
         if(resultArray[0].equals("True")) {
 

@@ -60,16 +60,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="180dp"
-        android:text="auto generate username" />
+        android:layout_marginTop="180dp" />
 
     <TextView
         android:id="@+id/balanceLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="215dp"
-        android:text="auto generate balance" />
+        android:layout_marginTop="215dp" />
 
     //user input starting from here
     //get account number
