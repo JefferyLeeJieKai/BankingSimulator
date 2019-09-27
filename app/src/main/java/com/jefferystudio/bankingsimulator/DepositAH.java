@@ -25,7 +25,7 @@ public class DepositAH extends Fragment
 
         View view = inflater.inflate(R.layout.deposit_ah, container, false);
 
-        args = new Bundle();
+        args = getArguments();
         currentID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
 

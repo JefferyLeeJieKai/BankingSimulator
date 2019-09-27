@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -32,7 +33,6 @@ public class HomeScreen extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-        args = new Bundle();
         args = getIntent().getExtras();
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
