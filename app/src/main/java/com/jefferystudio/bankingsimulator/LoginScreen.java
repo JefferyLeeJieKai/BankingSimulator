@@ -12,16 +12,9 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyStore;
@@ -61,54 +54,12 @@ public class LoginScreen extends AppCompatActivity {
 
     public void login(View v) {
 
-        StringBuilder sb = new StringBuilder();
-
-        try{
-            String link="http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/loginVerification.php";
-            String data  = URLEncoder.encode("username", "UTF-8") + "=" +
-                    URLEncoder.encode(username, "UTF-8");
-            data += "&" + URLEncoder.encode("password", "UTF-8") + "=" +
-                    URLEncoder.encode(password, "UTF-8");
-
-            URL url = new URL(link);
-            URLConnection connection = url.openConnection();
-
-            connection.setDoOutput(true);
-            OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-
-            wr.write(data);
-            wr.flush();
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-
-            String line = null;
-
-            // Read Server Response
-            while((line = reader.readLine()) != null) {
-                sb.append(line);
-                break;
-            }
-
-        }
-        catch(Exception e){
-        }
-
         if(!validateUsername() | !validatePassword()) {
 
             return;
         }
-        else if(sb.toString() == "True") {
 
-            Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
-
-            startActivity(intent);
-            finish();
-        }
-        else if(sb.toString() == "False"){
-
-                usernameTextBox.setError("Invalid Username or Password");
-                passwordTextBox.setError("Invalid Username or Password");
-        }
+        new SignInActivity(this, usernameTextBox, passwordTextBox).execute(username, password);
     }
 
     private boolean validateUsername() {
