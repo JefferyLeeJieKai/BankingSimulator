@@ -10,4 +10,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="logout">Logout</string>
 
+
+        <string name="hello">Hello World, MyAndroidAppActivity!</string>
+        <string name="radio_male">Male</string>
+        <string name="radio_female">Female</string>
+
 </resources>
