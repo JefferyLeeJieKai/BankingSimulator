@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import java.util.zip.Inflater;
 
-public class DespositConfirm extends Fragment {
+public class DepositConfirm extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 

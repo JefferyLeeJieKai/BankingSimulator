@@ -3,6 +3,7 @@ package com.jefferystudio.bankingsimulator;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,7 @@ public class DepositAH extends Fragment
         return view;
     }
 
-    public boolean validateAmount(String input) {
+    protected boolean validateAmount(String input) {
 
         if(input.isEmpty()) {
 
@@ -81,6 +82,15 @@ public class DepositAH extends Fragment
 
             if(input.length() - (befDec + 1) > 2) {
                 amountToDeposit.setError("Please enter the correct format");
+            }
+            else{
+
+                /*FragmentTransaction fragTransc = getChildFragmentManager().beginTransaction();
+                fragTransc.replace(R.id.outer_frame, new DepositConfirm());
+                fragTransc.addToBackStack(null);
+                fragTransc.commit();*/
+
+
             }
         }
         catch(NumberFormatException e) {

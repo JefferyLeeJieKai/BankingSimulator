@@ -61,7 +61,7 @@ public class HomeScreen extends AppCompatActivity {
         //getSupportActionBar().setHomeButtonEnabled(true);
 
         fragment = new HomeFragment();
-        FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
+        final FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
         homeTrans.replace(R.id.frame_layout, fragment);
         homeTrans.commit();
 
@@ -98,9 +98,8 @@ public class HomeScreen extends AppCompatActivity {
                     fragment.setArguments(args);
                 }
 
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, fragment);
-                transaction.commit();
+                homeTrans.replace(R.id.frame_layout, fragment);
+                homeTrans.commit();
                 drawer.closeDrawer(Gravity.START);
 
                 return true;
