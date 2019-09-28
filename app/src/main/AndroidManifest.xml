@@ -20,7 +20,7 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".registration2"
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -41,6 +41,11 @@
 
         <activity
             android:name=".registration1"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".registration2"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 

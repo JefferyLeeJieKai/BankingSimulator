@@ -121,7 +121,7 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/btnsubmit"
         android:layout_width="115dp"
         android:layout_height="59dp"
         android:layout_marginLeft="250dp"
