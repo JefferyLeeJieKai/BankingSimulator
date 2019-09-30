@@ -14,7 +14,6 @@ public class DepositAH extends Fragment
 {
     private Bundle args;
     private String currentID;
-    private String currentBalance;
     private TextView userID;
     private TextView userBalance;
     private TextInputLayout amountToDeposit;
@@ -27,12 +26,11 @@ public class DepositAH extends Fragment
 
         args = getArguments();
         currentID = args.getString("userID");
-        currentBalance = args.getString("currentBalance");
 
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);
         userID.setText(currentID);
-        userBalance.setText(currentBalance);
+        new UpdateBalanceAsync(getActivity(), userBalance).execute(currentID);
 
         amountToDeposit = view.findViewById(R.id.amountTxt);
         nextButton = view.findViewById(R.id.nextBtn);
@@ -42,25 +40,18 @@ public class DepositAH extends Fragment
 
                 input = amountToDeposit.getEditText().getText().toString().trim();
 
-                if(!validateAmount(input)) {
-
-                }
-                else{
-
-
-                }
+                validateAmount(input);
             }
         });
 
         return view;
     }
 
-    protected boolean validateAmount(String input) {
+    protected void validateAmount(String input) {
 
         if(input.isEmpty()) {
 
             amountToDeposit.setError("Amount cannot be empty");
-            return false;
         }
 
         try{
@@ -79,7 +70,7 @@ public class DepositAH extends Fragment
                 ++currentCount;
             }
 
-            if(input.length() - (befDec + 1) > 2) {
+            if(input.length() - (befDec + 1) != 2) {
                 amountToDeposit.setError("Please enter the correct format");
             }
             else{
@@ -95,14 +86,10 @@ public class DepositAH extends Fragment
         catch(NumberFormatException e) {
 
             amountToDeposit.setError("Please enter the correct format");
-            return false;
         }
         catch(Exception e) {
 
             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
         }
-
-        return true;
     }
-
 }

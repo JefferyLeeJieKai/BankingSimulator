@@ -6,62 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.widget.DrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/drawer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:context=".HomeScreen">
-
-        <include
-            layout="@layout/action_bar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <android.support.design.widget.NavigationView
-            android:id="@+id/navigation"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:menu="@menu/navigation_menu"
-            app:headerLayout="@layout/navi_drawer_header" />
-    </android.support.v4.widget.DrawerLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TRANSFER FUNDS"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/navHeaderText"
         android:textSize="25dp"
         android:layout_marginLeft="95dp"
         android:layout_marginTop="10dp" />
 
     //display payee's information
-    <View
-        android:layout_width="345dp"
-        android:layout_height="135dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp" />
 
     <ImageView
         android:id="@+id/payeeAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="120dp"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
+    <android.support.design.widget.TextInputLayout
         android:id="@+id/payeeLbl"
-        android:layout_width="wrap_content"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="265dp"
-        android:text="payee's name" />
+        android:layout_marginTop="235dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Payee AccNo. / Username" />
+    </android.support.design.widget.TextInputLayout>
 
     //display payer's information
     <ImageView
@@ -69,7 +43,7 @@
         android:layout_width="87dp"
         android:layout_height="110dp"
         android:layout_marginLeft="265dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="120dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -77,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="265dp"
-        android:layout_marginTop="265dp"
+        android:layout_marginTop="235dp"
         android:text="payer's name" />
 
     //user input starting from here
@@ -86,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="295dp"
         android:text="Amount:" />
 
     <TextView
@@ -94,27 +68,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="340dp"
-        android:text="currency" />
+        android:layout_marginTop="325dp"
+        android:text="SGD" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="320dp">
+        android:layout_marginTop="300dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Amount" />
-
-        <TextView
-            android:id="@+id/errorAmountLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     //display limit
@@ -122,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="370dp"
         android:text="Authorised Daily Limit:" />
 
     <TextView
@@ -130,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="370dp"
         android:text="auto limit" />
 
     //display remaining limit
@@ -138,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="400dp"
         android:text="Remaining Daily Limit:" />
 
     <TextView
@@ -146,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="400dp"
         android:text="auto limit" />
 
     //get purpose
@@ -154,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="440dp"
         android:text="Purpose:" />
 
     <Spinner
@@ -162,7 +129,7 @@
         android:layout_width="285dp"
         android:layout_height="35dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="520dp" />
+        android:layout_marginTop="470dp" />
 
     //display button
     <Button
@@ -170,7 +137,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="280dp"
-        android:layout_marginTop="575dp"
+        android:layout_marginTop="525dp"
         android:text="Next" />
 
 </android.support.percent.PercentRelativeLayout>

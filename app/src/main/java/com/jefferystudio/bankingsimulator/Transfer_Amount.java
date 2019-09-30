@@ -3,7 +3,6 @@ package com.jefferystudio.bankingsimulator;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.text.style.UpdateAppearance;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,35 +10,38 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WithdrawalAH extends Fragment
-{
+import org.w3c.dom.Text;
+
+public class Transfer_Amount extends Fragment{
+
     private Bundle args;
     private String currentID;
+    private String currentPayee;
     private TextView userID;
-    private TextView userBalance;
-    private TextInputLayout amountToWithdraw;
+    private TextInputLayout payee;
+    private TextInputLayout amountToTransfer;
     private String input;
     private Button nextButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.withdraw_ah, container, false);
+        View view = inflater.inflate(R.layout.transfer_amount, container, false);
 
         args = getArguments();
         currentID = args.getString("userID");
 
-        userID = view.findViewById(R.id.usernameLbl);
-        userBalance = view.findViewById(R.id.balanceLbl);
+        userID = view.findViewById(R.id.payerLbl);
         userID.setText(currentID);
-        new UpdateBalanceAsync(getActivity(), userBalance).execute(currentID);
 
-        amountToWithdraw = view.findViewById(R.id.amountTxt);
+        amountToTransfer = view.findViewById(R.id.amountTxt);
+        payee = view.findViewById(R.id.payeeLbl);
         nextButton = view.findViewById(R.id.nextBtn);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                input = amountToWithdraw.getEditText().getText().toString().trim();
+                currentPayee = payee.getEditText().getText().toString().trim();
+                input = amountToTransfer.getEditText().getText().toString().trim();
 
                 validateAmount(input);
             }
@@ -52,7 +54,7 @@ public class WithdrawalAH extends Fragment
 
         if(input.isEmpty()) {
 
-            amountToWithdraw.setError("Amount cannot be empty");
+            amountToTransfer.setError("Amount cannot be empty");
         }
 
         try{
@@ -71,8 +73,8 @@ public class WithdrawalAH extends Fragment
                 ++currentCount;
             }
 
-            if(input.length() - (befDec + 1) != 2) {
-                amountToWithdraw.setError("Please enter the correct format");
+            if(input.length() - (befDec + 1) > 2) {
+                amountToTransfer.setError("Please enter the correct format");
             }
             else{
 
@@ -81,12 +83,12 @@ public class WithdrawalAH extends Fragment
                 fragTransc.addToBackStack(null);
                 fragTransc.commit();*/
 
-                new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
+                new TransactionAsync(getActivity(),"TransferFundsUser").execute(currentID, currentPayee, input);
             }
         }
         catch(NumberFormatException e) {
 
-            amountToWithdraw.setError("Please enter the correct format");
+            amountToTransfer.setError("Please enter the correct format");
         }
         catch(Exception e) {
 

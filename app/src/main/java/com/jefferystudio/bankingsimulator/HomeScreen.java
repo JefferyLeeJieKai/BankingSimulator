@@ -90,10 +90,7 @@ public class HomeScreen extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.transferAH) {
 
-                    fragment = new PerformTransactionFragment();
-
-                    Bundle args = new Bundle();
-                    args.putInt("Status", 0);
+                    fragment = new Transfer_Amount();
                     fragment.setArguments(args);
                 }
 

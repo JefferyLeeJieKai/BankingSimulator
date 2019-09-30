@@ -22,6 +22,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
     private HomeScreen homeScreenActivity;
     private ArrayList<Exception> elist = new ArrayList<Exception>();
     private String userID;
+    private String payeeID;
     private String depositAmount;
     private String withdrawAmount;
     private String data;
@@ -115,6 +116,44 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                 elist.add(e);
             }
         }
+        else if(flag.equals("TransferFundsUser")) {
+
+            userID = args[0];
+            payeeID = args[1];
+            withdrawAmount = args[2];
+
+            try {
+                String link = "http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/transferfundsUser.php";
+                data = URLEncoder.encode("payeruserid", "UTF-8") + "=" +
+                        URLEncoder.encode(userID, "UTF-8");
+                data += "&" + URLEncoder.encode("payee", "UTF-8") + "=" +
+                        URLEncoder.encode(payeeID, "UTF-8");
+                data += "&" + URLEncoder.encode("transfer", "UTF-8") + "=" +
+                        URLEncoder.encode(withdrawAmount, "UTF-8");
+
+                URL url = new URL(link);
+                URLConnection connection = url.openConnection();
+
+                connection.setDoOutput(true);
+                OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
+
+                wr.write(data);
+                wr.flush();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+                String line = null;
+
+                // Read Server Response
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line);
+                    break;
+                }
+            } catch (Exception e) {
+
+                elist.add(e);
+            }
+        }
 
         return sb.toString();
     }
@@ -135,7 +174,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
         catch(InterruptedException e) {
 
         }*/
-        Toast.makeText(context, data, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, data, Toast.LENGTH_LONG).show();
         String[] resultArray = result.split(",");
 
         if(resultArray[0].equals("True")) {
@@ -149,7 +188,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
             builder.setTitle("DigiBank Alert");
-            builder.setMessage(resultArray[1] + "Do you want to retry your action?");
+            builder.setMessage(resultArray[1] + " Do you want to retry your action?");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
                 @Override
