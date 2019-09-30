@@ -10,20 +10,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DepositAH extends Fragment
+public class WithdrawalAH extends Fragment
 {
     private Bundle args;
     private String currentID;
     private String currentBalance;
     private TextView userID;
     private TextView userBalance;
-    private TextInputLayout amountToDeposit;
+    private TextInputLayout amountToWithdraw;
     private String input;
     private Button nextButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.deposit_ah, container, false);
+        View view = inflater.inflate(R.layout.withdraw_ah, container, false);
 
         args = getArguments();
         currentID = args.getString("userID");
@@ -34,13 +34,13 @@ public class DepositAH extends Fragment
         userID.setText(currentID);
         userBalance.setText(currentBalance);
 
-        amountToDeposit = view.findViewById(R.id.amountTxt);
+        amountToWithdraw = view.findViewById(R.id.amountTxt);
         nextButton = view.findViewById(R.id.nextBtn);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                input = amountToDeposit.getEditText().getText().toString().trim();
+                input = amountToWithdraw.getEditText().getText().toString().trim();
 
                 if(!validateAmount(input)) {
 
@@ -59,12 +59,12 @@ public class DepositAH extends Fragment
 
         if(input.isEmpty()) {
 
-            amountToDeposit.setError("Amount cannot be empty");
+            amountToWithdraw.setError("Amount cannot be empty");
             return false;
         }
 
         try{
-           
+
             float amount = Float.valueOf(input);
             int befDec = 0;
             int currentCount = 0;
@@ -80,7 +80,7 @@ public class DepositAH extends Fragment
             }
 
             if(input.length() - (befDec + 1) > 2) {
-                amountToDeposit.setError("Please enter the correct format");
+                amountToWithdraw.setError("Please enter the correct format");
             }
             else{
 
@@ -89,12 +89,12 @@ public class DepositAH extends Fragment
                 fragTransc.addToBackStack(null);
                 fragTransc.commit();*/
 
-                new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
+                new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
             }
         }
         catch(NumberFormatException e) {
 
-            amountToDeposit.setError("Please enter the correct format");
+            amountToWithdraw.setError("Please enter the correct format");
             return false;
         }
         catch(Exception e) {
@@ -104,5 +104,4 @@ public class DepositAH extends Fragment
 
         return true;
     }
-
 }

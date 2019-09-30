@@ -12,6 +12,8 @@ public class HomeFragment extends Fragment {
 
     private TextView currentAccountNo;
     private TextView currentUserBalance;
+    private Bundle args;
+    private String currentID;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -21,6 +23,10 @@ public class HomeFragment extends Fragment {
         currentAccountNo = view.findViewById(R.id.actualAccountNo);
         currentUserBalance = view.findViewById(R.id.actualCurrentBalance);
 
+        args = getArguments();
+        currentID = args.getString("userID");
+        currentAccountNo.setText(currentID);
+        new UpdateBalanceAsync(getActivity(), currentUserBalance).execute(currentID);
 
         return view;
     }

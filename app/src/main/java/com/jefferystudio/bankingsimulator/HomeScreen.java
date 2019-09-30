@@ -61,7 +61,8 @@ public class HomeScreen extends AppCompatActivity {
         //getSupportActionBar().setHomeButtonEnabled(true);
 
         fragment = new HomeFragment();
-        final FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
+        fragment.setArguments(args);
+        FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
         homeTrans.replace(R.id.frame_layout, fragment);
         homeTrans.commit();
 
@@ -75,6 +76,7 @@ public class HomeScreen extends AppCompatActivity {
                 if(item.getItemId() == R.id.home) {
 
                     fragment = new HomeFragment();
+                    fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.depositAH) {
 
@@ -83,10 +85,7 @@ public class HomeScreen extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.withdrawalAH) {
 
-                    fragment = new PerformTransactionFragment();
-
-                    Bundle args = new Bundle();
-                    args.putInt("Status", 2);
+                    fragment = new WithdrawalAH();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.transferAH) {
@@ -98,8 +97,9 @@ public class HomeScreen extends AppCompatActivity {
                     fragment.setArguments(args);
                 }
 
-                homeTrans.replace(R.id.frame_layout, fragment);
-                homeTrans.commit();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, fragment);
+                transaction.commit();
                 drawer.closeDrawer(Gravity.START);
 
                 return true;

@@ -17,13 +17,13 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SignInActivity extends AsyncTask<String, String, String> {
+public class SignInAsync extends AsyncTask<String, String, String> {
 
     private Context context;
     private TextInputLayout usernameTextBox;
     private TextInputLayout passwordTextBox;
 
-    public SignInActivity(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox) {
+    public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox) {
 
         this.context = context;
         this.usernameTextBox = usernameTextBox;

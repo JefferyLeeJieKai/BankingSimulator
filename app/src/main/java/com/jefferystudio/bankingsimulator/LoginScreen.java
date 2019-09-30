@@ -2,7 +2,6 @@ package com.jefferystudio.bankingsimulator;
 
 import android.app.KeyguardManager;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
@@ -59,7 +58,7 @@ public class LoginScreen extends AppCompatActivity {
             return;
         }
 
-        new SignInActivity(this, usernameTextBox, passwordTextBox).execute(username, password);
+        new SignInAsync(this, usernameTextBox, passwordTextBox).execute(username, password);
     }
 
     private boolean validateUsername() {
