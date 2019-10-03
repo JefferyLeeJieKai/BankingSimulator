@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,14 @@ public class Transfer_Amount extends Fragment{
 
         userID = view.findViewById(R.id.payerLbl);
         userID.setText(currentID);
+
+
+        Spinner purpose = (Spinner) view.findViewById(R.id.purposeDDL);
+        ArrayAdapter<String> purposeAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.transfer_purpose));
+        purposeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        purpose.setAdapter(purposeAdapter);
+        
 
         amountToTransfer = view.findViewById(R.id.amountTxt);
         payee = view.findViewById(R.id.payeeLbl);

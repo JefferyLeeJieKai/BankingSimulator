@@ -15,4 +15,13 @@
         <string name="radio_male">Male</string>
         <string name="radio_female">Female</string>
 
+    <string-array name="transfer_purpose">
+        <item>Make Payment</item>
+        <item>Return Money</item>
+        <item>Lend Money</item>
+        <item>Give Allowance</item>
+        <item>Transfer Money Between Own Accounts</item>
+        <item>Others</item>
+    </string-array>
+
 </resources>
