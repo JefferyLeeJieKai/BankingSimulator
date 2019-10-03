@@ -84,6 +84,7 @@ public class Transfer_Amount extends Fragment{
                 fragTransc.commit();*/
 
                 new TransactionAsync(getActivity(),"TransferFundsUser").execute(currentID, currentPayee, input);
+                new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, "Testing");
             }
         }
         catch(NumberFormatException e) {

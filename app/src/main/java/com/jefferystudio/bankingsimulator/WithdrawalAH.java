@@ -82,6 +82,7 @@ public class WithdrawalAH extends Fragment
                 fragTransc.commit();*/
 
                 new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
+                new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
             }
         }
         catch(NumberFormatException e) {

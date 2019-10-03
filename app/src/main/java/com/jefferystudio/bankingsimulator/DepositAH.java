@@ -81,6 +81,7 @@ public class DepositAH extends Fragment
                 fragTransc.commit();*/
 
                 new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
+                new UpdateTransAsync(getActivity(), "DepositFunds").execute(currentID, input);
             }
         }
         catch(NumberFormatException e) {
