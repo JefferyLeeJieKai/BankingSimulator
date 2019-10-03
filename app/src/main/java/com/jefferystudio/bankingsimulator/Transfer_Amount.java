@@ -41,7 +41,7 @@ public class Transfer_Amount extends Fragment{
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.transfer_purpose));
         purposeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         purpose.setAdapter(purposeAdapter);
-        
+
 
         amountToTransfer = view.findViewById(R.id.amountTxt);
         payee = view.findViewById(R.id.payeeLbl);
