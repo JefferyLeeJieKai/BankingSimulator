@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg6"
     android:orientation="vertical">
 
     <android.support.design.widget.TextInputLayout
@@ -73,7 +73,7 @@
         android:layout_height="85dp"
         android:layout_below="@id/password"
         android:layout_alignRight="@id/password"
-        android:layout_marginTop="297dp"
+        android:layout_marginTop="78dp"
         android:background="@drawable/fingerprint_border"
         android:onClick="fingerprintLogin"
         android:padding="5dp"
@@ -88,6 +88,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="90dp"
         android:text="KidzSmart"
+        android:textColor="#000000"
         app:autoSizeTextType="uniform" />
 
     <TextView
@@ -99,32 +100,8 @@
         android:layout_marginRight="60dp"
         android:linksClickable="true"
         android:text="Forgot USERID or Password?"
+        android:textColor="#000000"
         app:autoSizeTextType="uniform" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="331dp"
-        android:layout_height="49dp"
-        android:layout_marginLeft="37dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginRight="50dp"
-        android:text="-------New to KidzSmart-------"
-        app:autoSizeTextType="uniform" />
-
-    <Button
-        android:id="@+id/getstarted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/password"
-        android:layout_alignLeft="@id/password"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="216dp"
-        android:background="@drawable/rounded_buttons"
-        android:onClick="login"
-        android:padding="8dp"
-        android:text="Get Started"
-        android:textColor="@color/loginButtonText"
-        android:textSize="30dp" />
 
 
 </android.support.percent.PercentRelativeLayout
