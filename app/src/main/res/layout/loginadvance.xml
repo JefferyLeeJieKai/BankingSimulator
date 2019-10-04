@@ -5,10 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:angle="45"
-    android:background="@android:color/background_dark"
-    android:endColor="#FFFFFF"
-    android:startColor="#00000000">
+    android:angle="45">
 
     <com.q42.android.scrollingimageview.ScrollingImageView
 
@@ -16,10 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:speed="0.2dp"
-        app:src="@drawable/bg17" />
+        app:src="@drawable/bg24" />
 
     <ImageButton
         android:id="@+id/loginposb"
@@ -58,17 +53,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/signup" />
-
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="337dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="296dp"
-        android:text="Welcome to KidzSmart"
-        android:textSize="36sp"
-        android:textfontSize="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

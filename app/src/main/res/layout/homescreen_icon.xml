@@ -3,14 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/grey10"
 
     >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="264dp"
-        app:srcCompat="@drawable/blue" />
+
 
     <View
         android:layout_width="fill_parent"
@@ -19,6 +16,7 @@
         android:paddingBottom="10dip"
         android:layout_marginTop="260dp"
         />
+
 
     <ImageButton
         android:id="@+id/savings"
@@ -87,7 +85,7 @@
         android:layout_marginTop="150dp"
         android:layout_marginLeft="15dp"
         android:text="Welcome to KidzSmart, Bob"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHighlight="#0E1010"
         android:textSize="30sp" />
 
