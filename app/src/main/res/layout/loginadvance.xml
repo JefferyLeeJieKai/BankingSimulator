@@ -5,6 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:angle="45">
 
     <com.q42.android.scrollingimageview.ScrollingImageView
@@ -14,14 +15,16 @@
         android:layout_height="match_parent"
         android:scaleType="center"
         app:speed="0.2dp"
-        app:src="@drawable/bg24" />
+        app:src="@drawable/ddd"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="45dp" />
 
     <ImageButton
         android:id="@+id/loginposb"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="660dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +36,7 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="292dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="660dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
@@ -46,7 +49,7 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="188dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="660dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
