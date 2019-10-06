@@ -12,7 +12,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_gravity="center"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="220dp"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/happylogo1" />
 </LinearLayout>

@@ -6,25 +6,29 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.support.v4.content.ContextCompat.startActivity;
 
 public class launchpage extends Activity {
-/*
+
+    Timer timer;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.launchpage);
 
-
-        new Timer().schedule(new TimerTask() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(launchpage.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
-        }, 2000);
+        }, 5000);
+
     }
-    Timer.start();
-    */
 }
