@@ -2,6 +2,7 @@
 <LinearLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="176dp"
@@ -10,13 +11,25 @@
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
-    
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/displayphoto" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:background="@null"
         android:text="Welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/navHeaderText"
-        android:textSize="36dp"/>
+        android:textSize="18dp" />
+
+
 
 </LinearLayout>
