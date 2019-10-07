@@ -20,6 +20,7 @@ public class HomeFragment extends Fragment {
     private String currentID;
     private ImageButton btnsavings;
     private ImageButton btntransfer;
+    private ImageButton btnsettings;
 
 
     public HomeFragment(){
@@ -34,6 +35,7 @@ public class HomeFragment extends Fragment {
 
         btnsavings = view.findViewById(R.id.savings);
         btntransfer = view.findViewById(R.id.transferfunds);
+        btnsettings = view.findViewById(R.id.settings);
 
         btnsavings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +57,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        btnsettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Settings settings = new Settings();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, settings);
+                transaction.commit();
+            }
+        });
+
         currentAccountNo = view.findViewById(R.id.actualAccountNo);
         currentUserBalance = view.findViewById(R.id.actualCurrentBalance);
 
@@ -64,11 +76,7 @@ public class HomeFragment extends Fragment {
         new UpdateBalanceAsync(getActivity(), currentUserBalance).execute(currentID);
 
 
-
         return view;
-
-
     }
-
 }
 
