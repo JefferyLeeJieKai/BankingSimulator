@@ -22,6 +22,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     private Context context;
     private TextInputLayout usernameTextBox;
     private TextInputLayout passwordTextBox;
+    private String username;
 
     public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox) {
 
@@ -39,7 +40,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     protected String doInBackground(String[] args) {
 
         StringBuffer sb = new StringBuffer("");
-        String username = args[0];
+        username = args[0];
         String password = args[1];
 
         try{
@@ -89,6 +90,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
             Bundle args = new Bundle();
             args.putString("userID", resultArray[1]);
             args.putString("currentBalance", resultArray[2]);
+            args.putString("userName", username);
             intent.putExtras(args);
 
             context.startActivity(intent);
