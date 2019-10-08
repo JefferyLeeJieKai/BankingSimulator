@@ -3,6 +3,8 @@ package com.jefferystudio.bankingsimulator;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
@@ -179,9 +181,13 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
         if(resultArray[0].equals("True")) {
 
-            /*homeScreenActivity.getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frame_layout, new HomeFragment())
-                    .commit();*/
+            Fragment homeFrag = new HomeFragment();
+            Bundle args = new Bundle();
+            args.putString("userID", userID);
+
+            homeScreenActivity.getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frame_layout, homeFrag)
+                    .commit();
         }
         else if(resultArray[0].equals("False")) {
 
@@ -203,8 +209,11 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
+                    Fragment homeFrag = new HomeFragment();
+                    Bundle args = new Bundle();
+                    args.putString("userID", userID);
                     homeScreenActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frame_layout, new HomeFragment())
+                            .replace(R.id.frame_layout, homeFrag)
                             .commit();
                 }
             });
