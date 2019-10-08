@@ -93,6 +93,11 @@ public class HomeScreen extends AppCompatActivity {
                     fragment = new Transfer_Amount();
                     fragment.setArguments(args);
                 }
+                else if(item.getItemId() == R.id.addSavingGoals) {
+
+                    fragment = new SavingGoals();
+                    fragment.setArguments(args);
+                }
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, fragment);

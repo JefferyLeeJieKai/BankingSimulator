@@ -55,8 +55,6 @@ public class DepositConfirm extends Fragment {
             public void onClick(View v) {
 
                 Fragment homeFrag = new HomeFragment();
-                Bundle args = new Bundle();
-                args.putString("userID", currentID);
                 homeFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
