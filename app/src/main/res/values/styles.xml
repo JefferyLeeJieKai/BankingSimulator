@@ -20,4 +20,9 @@
         <item name="android:textColor">@color/loginErrorMessage</item>
     </style>
 
+    <!-- profile theme -->
+    <style name="profilepage" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+
 </resources>

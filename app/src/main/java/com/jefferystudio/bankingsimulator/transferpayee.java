@@ -36,5 +36,6 @@ public class transferpayee extends Fragment {
 
         return view;
     }
+
 }
 

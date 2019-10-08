@@ -3,24 +3,31 @@ package com.jefferystudio.bankingsimulator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class Settings extends Fragment {
+public class Settings extends AppCompatActivity {
 
-    private Button confirmBtn;
-    private Button cancelBtn;
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.settings);
 
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+        Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
+        homeScreenToolbar.setTitle("Settings");
+        setSupportActionBar(homeScreenToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        View view = inflater.inflate(R.layout.settings, container, false);
+    }
 
-        confirmBtn = view.findViewById(R.id.confirmBtn);
-        cancelBtn = view.findViewById(R.id.cancelBtn);
+    @Override
+    public boolean onSupportNavigateUp() {
 
-        return view;
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

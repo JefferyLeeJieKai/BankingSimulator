@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class HomeFragment extends Fragment {
     private ImageButton btnsettings;
 
 
+
     public HomeFragment(){
 
     }
@@ -37,13 +39,12 @@ public class HomeFragment extends Fragment {
         btntransfer = view.findViewById(R.id.transferfunds);
         btnsettings = view.findViewById(R.id.settings);
 
+
         btnsavings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                goalspage goalspages = new goalspage();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, goalspages);
-                transaction.commit();
+                Intent intent = new Intent(getActivity().getApplicationContext(), goalspage.class);
+                startActivity(intent);
             }
         });
 
@@ -60,10 +61,9 @@ public class HomeFragment extends Fragment {
         btnsettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Settings settings = new Settings();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, settings);
-                transaction.commit();
+                Intent intent = new Intent(getActivity().getApplicationContext(), Settings.class);
+                startActivity(intent);
+
             }
         });
 

@@ -1,130 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    tools:context=".HomeScreen"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bs"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="4dp"
+        app:layout_scrollFlags="scroll|enterAlways"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SETTINGS"
-        android:textSize="25dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="110dp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="76dp">
 
-    //get date
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATE:"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="auto-date"
+            android:textSize="20dp"
+            android:layout_marginLeft="47dp"/>
+
+        <ImageView
+            android:id="@+id/modeEditAutoDate"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="90dp"
+            android:background="@drawable/mode_edit"
+            android:backgroundTint="#D3D3D3" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="320dp"
+        android:layout_height="2dip"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#EEEEEE"
+        android:paddingBottom="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_marginTopPercent="20%"
-        app:layout_marginLeftPercent="18%"
-        android:textStyle="bold"
-        android:text="DATE:" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="79dp"
+            android:layout_marginTop="10dp"
+            android:text="TIME:"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="auto-time"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/modeEditAutoTime"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@drawable/mode_edit"
+            android:backgroundTint="#D3D3D3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="90dp"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="320dp"
+        android:layout_height="2dip"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#EEEEEE" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_marginTopPercent="20%"
-        app:layout_marginLeftPercent="35%"
-        android:text="auto-date" />
+        android:orientation="horizontal">
 
-    //get time
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="TIMEZONE:"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="auto-timezone"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/modeEditAutoTimezone"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@drawable/mode_edit"
+            android:backgroundTint="#D3D3D3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="46dp"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="320dp"
+        android:layout_height="2dip"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#EEEEEE" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_marginTopPercent="29%"
-        app:layout_marginLeftPercent="18%"
-        android:textStyle="bold"
-        android:text="TIME:" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="CURRENCY:"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="auto-currency"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="42dp"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/modeEditAutoCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@drawable/mode_edit"
+            android:backgroundTint="#D3D3D3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_marginTopPercent="29%"
-        app:layout_marginLeftPercent="35%"
-        android:text="auto-time" />
+        android:orientation="horizontal"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="70dp"
+        >
 
-    //get timezone
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_marginTopPercent="38%"
-        app:layout_marginLeftPercent="10%"
-        android:textStyle="bold"
-        android:text="TIMEZONE:" />
+        <Button
+            android:id="@+id/confirmBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_marginTopPercent="38%"
-        app:layout_marginLeftPercent="35%"
-        android:text="auto-timezone" />
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Cancel"
+            android:layout_marginLeft="80dp"
+            />
+    </LinearLayout>
 
-    //get currency
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_marginTopPercent="47%"
-        app:layout_marginLeftPercent="10%"
-        android:textStyle="bold"
-        android:text="CURRENCY:" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_marginTopPercent="47%"
-        app:layout_marginLeftPercent="35%"
-        android:text="auto-currency" />
-
-    //display buttons
-    <Button
-        android:id="@+id/editDateBtn"
-        android:layout_height="wrap_content"
-        app:layout_widthPercent="20%"
-        app:layout_marginTopPercent="18%"
-        app:layout_marginLeftPercent="70%"
-        android:text="Edit" />
-
-    <Button
-        android:id="@+id/editTimeBtn"
-        android:layout_height="wrap_content"
-        app:layout_widthPercent="20%"
-        app:layout_marginTopPercent="27%"
-        app:layout_marginLeftPercent="70%"
-        android:text="Edit" />
-
-    <Button
-        android:id="@+id/editTimezoneBtn"
-        android:layout_height="wrap_content"
-        app:layout_widthPercent="20%"
-        app:layout_marginTopPercent="36%"
-        app:layout_marginLeftPercent="70%"
-        android:text="Edit" />
-
-    <Button
-        android:id="@+id/editCurrencyBtn"
-        android:layout_height="wrap_content"
-        app:layout_widthPercent="20%"
-        app:layout_marginTopPercent="45%"
-        app:layout_marginLeftPercent="70%"
-        android:text="Edit" />
-
-    <Button
-        android:id="@+id/confirmBtn"
-        android:layout_height="wrap_content"
-        app:layout_widthPercent="31%"
-        app:layout_marginTopPercent="60%"
-        app:layout_marginLeftPercent="16%"
-        android:text="Confirm" />
-
-    <Button
-        android:id="@+id/cancelBtn"
-        android:layout_height="wrap_content"
-        app:layout_widthPercent="31%"
-        app:layout_marginTopPercent="60%"
-        app:layout_marginLeftPercent="56%"
-        android:text="Cancel" />
-
-</android.support.percent.PercentRelativeLayout>
+</LinearLayout>

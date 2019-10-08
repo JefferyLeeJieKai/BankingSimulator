@@ -2,8 +2,13 @@ package com.jefferystudio.bankingsimulator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,26 +22,22 @@ import java.util.Locale;
 
 public class profilepage extends AppCompatActivity {
 
-    private ImageButton buttonback;
-
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profilepage);
 
-        buttonback =(ImageButton) findViewById(R.id.backarrow);
+        Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
+        homeScreenToolbar.setTitle("Profile");
+        setSupportActionBar(homeScreenToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        buttonback.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                HomeFragment();
-            }
-        });
     }
 
-    public void HomeFragment(){
-        Intent intent = new Intent(getApplicationContext(), HomeFragment.class);
-        startActivity(intent);
-        finish();
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

@@ -28,6 +28,7 @@ public class HomeScreen extends AppCompatActivity {
     private Bundle args;
     private String userID;
     private String currentBalance;
+    private ImageButton btnprofile;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -102,7 +103,27 @@ public class HomeScreen extends AppCompatActivity {
                 return true;
             }
         });
+
+        btnprofile = (ImageButton) navigationView.getHeaderView(0).findViewById(R.id.profileBtn);
+
+        btnprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                fragment = new HomeFragment();
+                fragment.setArguments(args);
+                FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
+                homeTrans.replace(R.id.frame_layout, fragment);
+                homeTrans.commit();
+                Intent intent = new Intent(getApplicationContext(), profilepage.class);
+                startActivity(intent);
+                drawer.closeDrawer(Gravity.START);
+
+            }
+        });
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
