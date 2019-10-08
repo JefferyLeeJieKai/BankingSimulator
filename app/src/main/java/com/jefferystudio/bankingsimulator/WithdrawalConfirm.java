@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.zip.Inflater;
-
-public class DepositConfirm extends Fragment {
+public class WithdrawalConfirm extends Fragment {
 
     private String userName;
     private String currentID;
@@ -24,7 +22,7 @@ public class DepositConfirm extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.deposit_confirm, container, false);
+        View view = inflater.inflate(R.layout.withdraw_confirm, container, false);
 
         args = getArguments();
         userName = args.getString("userName");
@@ -45,8 +43,8 @@ public class DepositConfirm extends Fragment {
             @Override
             public void onClick(View v) {
 
-                new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
-                new UpdateTransAsync(getActivity(), "DepositFunds").execute(currentID, input);
+                new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
+                new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
             }
         });
 

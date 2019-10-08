@@ -26,7 +26,11 @@
         <item
             android:id="@+id/transaction"
             android:title="@string/transactions">
+        </item>
 
+        <item
+            android:id="@+id/addSavingGoals"
+            android:title="Add Saving Goals">
         </item>
 
     </group>

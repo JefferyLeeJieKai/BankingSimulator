@@ -11,16 +11,16 @@ import android.view.ViewGroup;
 
 public class goalspage extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.goalspage);
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
-        homeScreenToolbar.setTitle("Goals");
+        homeScreenToolbar.setTitle("Goal");
         setSupportActionBar(homeScreenToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override

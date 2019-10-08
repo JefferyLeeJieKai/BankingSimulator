@@ -3,6 +3,7 @@ package com.jefferystudio.bankingsimulator;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.style.UpdateAppearance;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,13 +77,16 @@ public class WithdrawalAH extends Fragment
             }
             else{
 
-                /*FragmentTransaction fragTransc = getChildFragmentManager().beginTransaction();
-                fragTransc.replace(R.id.outer_frame, new DepositConfirm());
-                fragTransc.addToBackStack(null);
-                fragTransc.commit();*/
+                Fragment withdrawalConfirmFrag = new WithdrawalConfirm();
+                args.putString("amount", input);
+                withdrawalConfirmFrag.setArguments(args);
 
-                new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
-                new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, withdrawalConfirmFrag)
+                        .commit();
+
+                //new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
+                //new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
             }
         }
         catch(NumberFormatException e) {
