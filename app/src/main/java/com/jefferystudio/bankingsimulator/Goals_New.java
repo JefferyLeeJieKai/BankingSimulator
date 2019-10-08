@@ -16,5 +16,4 @@ public class Goals_New extends Fragment {
 
         return view;
     }
-
 }
