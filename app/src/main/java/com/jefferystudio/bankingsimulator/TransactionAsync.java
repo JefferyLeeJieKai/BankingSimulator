@@ -184,6 +184,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             Fragment homeFrag = new HomeFragment();
             Bundle args = new Bundle();
             args.putString("userID", userID);
+            homeFrag.setArguments(args);
 
             homeScreenActivity.getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frame_layout, homeFrag)
@@ -212,6 +213,8 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     Fragment homeFrag = new HomeFragment();
                     Bundle args = new Bundle();
                     args.putString("userID", userID);
+                    homeFrag.setArguments(args);
+
                     homeScreenActivity.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_layout, homeFrag)
                             .commit();
