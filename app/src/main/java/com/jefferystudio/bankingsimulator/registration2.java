@@ -44,6 +44,5 @@ public class registration2 extends AppCompatActivity {
     public void MainActivity(){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        finish();
     }
 }
