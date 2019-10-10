@@ -1,17 +1,21 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Settings;
+import com.jefferystudio.bankingsimulator.goalspage;
+import com.jefferystudio.bankingsimulator.transferpayee;
 
 public class HomeFragment extends Fragment {
 

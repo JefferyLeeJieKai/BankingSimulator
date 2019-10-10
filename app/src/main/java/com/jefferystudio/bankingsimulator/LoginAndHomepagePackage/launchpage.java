@@ -1,16 +1,14 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 
-import java.sql.Time;
+import com.jefferystudio.bankingsimulator.MainActivity;
+import com.jefferystudio.bankingsimulator.R;
+
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static android.support.v4.content.ContextCompat.startActivity;
 
 public class launchpage extends Activity {
 

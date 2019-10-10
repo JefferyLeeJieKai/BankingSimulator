@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.CommonAsyncPackage;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -24,7 +24,7 @@ public class UpdateTransAsync extends AsyncTask<String, String, String> {
     private String purpose;
     private ArrayList<Exception> elist = new ArrayList<Exception>();
 
-    UpdateTransAsync(Context context, String flag) {
+    public UpdateTransAsync(Context context, String flag) {
 
         this.context = context;
         this.flag = flag;

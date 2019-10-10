@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.Manifest;
 import android.app.Activity;
@@ -9,6 +9,8 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
+
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreen;
 
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
 

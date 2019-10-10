@@ -12,7 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
 
 public class Transfer_Amount extends Fragment{
 

@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.CommonAsyncPackage;
 
 import android.content.Context;
 import android.os.AsyncTask;

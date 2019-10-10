@@ -1,16 +1,17 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.WithdrawalPackage;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.text.style.UpdateAppearance;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 
 public class WithdrawalAH extends Fragment
 {

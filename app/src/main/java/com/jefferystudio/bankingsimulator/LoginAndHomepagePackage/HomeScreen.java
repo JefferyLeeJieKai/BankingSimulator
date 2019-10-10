@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,7 +17,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
+
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
+import com.jefferystudio.bankingsimulator.Transfer_Amount;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
+import com.jefferystudio.bankingsimulator.profilepage;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -96,7 +103,12 @@ public class HomeScreen extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.addSavingGoals) {
 
-                    fragment = new SavingGoals();
+                    fragment = new SavingGoalsAdd();
+                    fragment.setArguments(args);
+                }
+                else if(item.getItemId() == R.id.viewSavingGoals) {
+
+                    fragment = new SavingGoalsAll();
                     fragment.setArguments(args);
                 }
 

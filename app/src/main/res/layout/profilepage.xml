@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:theme="@style/profilepage"
-    tools:context=".HomeScreen"
+    tools:context=".LoginAndHomepagePackage.HomeScreen"
     android:background="@drawable/bs"
     android:layout_height="match_parent">
 
