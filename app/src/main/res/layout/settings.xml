@@ -42,16 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="47dp"
             android:layout_marginTop="0dp"
-            android:text="auto-date"
             android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/modeEditAutoDate"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginLeft="90dp"
-            android:background="@drawable/mode_edit"
-            android:backgroundTint="#D3D3D3" />
 
     </LinearLayout>
 
@@ -83,18 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="48dp"
             android:layout_marginTop="10dp"
-            android:text="auto-time"
             android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/modeEditAutoTime"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:background="@drawable/mode_edit"
-            android:backgroundTint="#D3D3D3"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="90dp"
-            />
 
     </LinearLayout>
 
@@ -107,7 +87,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:orientation="horizontal">
 
         <TextView
@@ -126,7 +106,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="45dp"
             android:layout_marginTop="10dp"
-            android:text="auto-timezone"
             android:textSize="20dp" />
 
         <ImageView
