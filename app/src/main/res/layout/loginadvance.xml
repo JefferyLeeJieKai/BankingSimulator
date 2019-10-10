@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:scaleType="center"
         app:speed="0.2dp"
-        app:src="@drawable/ddd"
+        app:src="@drawable/beachchair"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="45dp" />
 
