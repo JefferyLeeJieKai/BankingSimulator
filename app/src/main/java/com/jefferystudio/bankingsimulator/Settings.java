@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -35,21 +36,22 @@ public class Settings extends AppCompatActivity {
 
         Calendar cal = Calendar.getInstance(t);
 
-        String strDate = String.format("%s", cal.get(Calendar.DATE));
+        String strDate = String.format("%s", cal.get(Calendar.DATE)) + "/" +
+                         String.format("%s", cal.get(Calendar.MONTH)) + "/" +
+                         String.format("%s", cal.get(Calendar.YEAR));
 
         date = (TextView) findViewById(R.id.dateLbl);
         date.setText(strDate);
 
         //set time
-        String strTime = String.format("%02d" , cal.get(Calendar.HOUR_OF_DAY)) + ":" +
-                String.format("%02d" , cal.get(Calendar.MINUTE)) + ":" +
-                String.format("%02d" , cal.get(Calendar.SECOND));
+        SimpleDateFormat sTime = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
+        String strTime = sTime.format(cal.getTime());
 
         time = (TextView) findViewById(R.id.timeLbl);
         time.setText(strTime);
 
         //set timezone
-        String strTimezone = t.getDisplayName(false, TimeZone.SHORT) + " - " +
+        String strTimezone = t.getDisplayName(false, TimeZone.SHORT) + " -\n" +
                              t.getID();
 
         timezone = (TextView) findViewById(R.id.timezoneLbl);
