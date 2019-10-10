@@ -37,12 +37,13 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/dateLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="47dp"
             android:layout_marginTop="0dp"
             android:text="auto-date"
-            android:textSize="20dp"
-            android:layout_marginLeft="47dp"/>
+            android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/modeEditAutoDate"
@@ -77,13 +78,13 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/timeLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="auto-time"
             android:layout_marginLeft="48dp"
             android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            />
+            android:text="auto-time"
+            android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/modeEditAutoTime"
@@ -120,13 +121,13 @@
             />
 
         <TextView
+            android:id="@+id/timezoneLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="auto-timezone"
             android:layout_marginLeft="45dp"
             android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            />
+            android:text="auto-timezone"
+            android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/modeEditAutoTimezone"
@@ -163,13 +164,13 @@
             />
 
         <TextView
+            android:id="@+id/currencyLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="auto-currency"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="42dp"
-            android:textSize="20dp"
-            />
+            android:layout_marginTop="10dp"
+            android:text="auto-currency"
+            android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/modeEditAutoCurrency"
