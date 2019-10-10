@@ -44,7 +44,7 @@ public class Settings extends AppCompatActivity {
         date.setText(strDate);
 
         //set time
-        SimpleDateFormat sTime = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
+        SimpleDateFormat sTime = new SimpleDateFormat("hh:mm:ss a");
         String strTime = sTime.format(cal.getTime());
 
         time = (TextView) findViewById(R.id.timeLbl);
