@@ -37,7 +37,7 @@ public class Settings extends AppCompatActivity {
         Calendar cal = Calendar.getInstance(t);
 
         String strDate = String.format("%s", cal.get(Calendar.DATE)) + "/" +
-                         String.format("%s", cal.get(Calendar.MONTH)) + "/" +
+                         String.format("%s", cal.get(Calendar.MONTH)+1) + "/" +
                          String.format("%s", cal.get(Calendar.YEAR));
 
         date = (TextView) findViewById(R.id.dateLbl);
