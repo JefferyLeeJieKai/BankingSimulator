@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -6,7 +6,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.widget.Toast;
+
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragment;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreen;
+import com.jefferystudio.bankingsimulator.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

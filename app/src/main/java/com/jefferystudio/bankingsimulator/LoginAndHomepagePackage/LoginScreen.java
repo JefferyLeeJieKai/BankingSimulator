@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.app.KeyguardManager;
 import android.content.DialogInterface;
@@ -12,6 +12,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import com.jefferystudio.bankingsimulator.R;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;

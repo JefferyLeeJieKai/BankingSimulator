@@ -33,6 +33,11 @@
             android:title="Add Saving Goals">
         </item>
 
+        <item
+            android:id="@+id/viewSavingGoals"
+            android:title="View Saving Goals">
+        </item>
+
     </group>
 
 </menu>
