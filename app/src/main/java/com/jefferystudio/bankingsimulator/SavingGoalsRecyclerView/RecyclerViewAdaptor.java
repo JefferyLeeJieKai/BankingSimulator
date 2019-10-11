@@ -75,6 +75,7 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
                 args.putString("userName", savingGoal.getUsername());
                 args.putString("currentBalance", savingGoal.getCurrentBalance());
                 args.putString("currentValue", savingGoal.getCurrentValue());
+                args.putString("goalID", savingGoal.getGoalID());
                 args.putString("goalName", savingGoal.getGoalName());
                 args.putString("itemCost", savingGoal.getItemCost());
 

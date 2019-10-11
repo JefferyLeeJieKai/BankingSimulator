@@ -24,37 +24,37 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="400dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login" />
+        android:src="@drawable/login" />
 
     <ImageButton
         android:id="@+id/transferposb"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="292dp"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="400dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/transferwhite" />
+        android:src="@drawable/transferwhite" />
 
     <ImageButton
         android:id="@+id/signup"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="188dp"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="400dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/signup" />
+        android:src="@drawable/signup" />
 
 </android.support.constraint.ConstraintLayout>

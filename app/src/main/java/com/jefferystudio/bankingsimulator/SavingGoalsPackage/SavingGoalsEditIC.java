@@ -1,6 +1,7 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +15,15 @@ public class SavingGoalsEditIC extends Fragment {
 
     private Bundle args;
     private String currentUsername;
+    private String currentUserID;
     private String currentBalance;
+    private String currentGoalID;
     private String currentItemCost;
     private TextView username;
     private TextView balance;
     private TextView itemCost;
+    private TextInputLayout newItemCost;
+    private Button confirmButton;
     private Button cancelButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,6 +33,8 @@ public class SavingGoalsEditIC extends Fragment {
         args = getArguments();
 
         currentUsername = args.getString("userName");
+        currentUserID = args.getString("userID");
+        currentGoalID = args.getString("goalID");
         currentBalance = args.getString("currentBalance");
         currentItemCost = args.getString("itemCost");
 
@@ -38,6 +45,8 @@ public class SavingGoalsEditIC extends Fragment {
         username.setText(currentUsername);
         balance.setText(currentBalance);
         itemCost.setText(currentItemCost);
+
+        newItemCost = view.findViewById(R.id.amountTxt);
 
         cancelButton = view.findViewById(R.id.cancelBtn);
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +59,17 @@ public class SavingGoalsEditIC extends Fragment {
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, allSavingGoalsFrag)
                         .commit();
+            }
+        });
+
+        confirmButton = view.findViewById(R.id.confirmBtn);
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                String toChange = newItemCost.getEditText().getText().toString().trim();
+
+                new UpdateSavingGoalsAsync(getActivity(), "EditItemCost").execute(currentUserID, currentGoalID, toChange);
             }
         });
 
