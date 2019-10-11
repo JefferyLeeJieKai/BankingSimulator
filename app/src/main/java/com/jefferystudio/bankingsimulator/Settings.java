@@ -25,7 +25,9 @@ public class Settings extends AppCompatActivity {
     private TextView date;
     private TextView time;
     private TextView timezone;
+    private TextView currency;
     private ImageView editTimeZone;
+    private ImageView editCurrency;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,9 +41,13 @@ public class Settings extends AppCompatActivity {
 
         //change this to link to database
         String strTZ = "Asia/Singapore";
+        String strCurrency = "SGD $";
 
         //call setDateTime() method
         setDateTime(TimeZone.getTimeZone(strTZ));
+
+        //call setCurrency() method
+        setCurrency(strCurrency);
 
         //edit timezone
         editTimeZone = (ImageView) findViewById(R.id.modeEditAutoTimezone);
@@ -67,6 +73,36 @@ public class Settings extends AppCompatActivity {
                         .show();
             }
         });
+
+        //edit currency
+        editCurrency = (ImageView) findViewById(R.id.modeEditAutoCurrency);
+        editCurrency.setOnClickListener(new View.OnClickListener() {
+            //create an AlertDialog
+            @Override
+            public void onClick(View v) {
+                //get a list of choices
+                final String[] currencyArr = { "SGD $", "MYR $", "IDR $",
+                        "USD $", "EUR $", "GBP $", "CAD $", "AUD $"};
+
+                //set choices
+                new AlertDialog.Builder(Settings.this)
+                        .setTitle("Edit Currency")
+                        .setItems(currencyArr, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int choice) {
+                                setCurrency(currencyArr[choice]);
+                            }
+                        })
+                        .show();
+            }
+        });
+    }
+
+    //set currency
+    public void setCurrency(String strCurrency)
+    {
+        currency = (TextView) findViewById(R.id.currencyLbl);
+        currency.setText(strCurrency);
     }
 
     //set date and time
