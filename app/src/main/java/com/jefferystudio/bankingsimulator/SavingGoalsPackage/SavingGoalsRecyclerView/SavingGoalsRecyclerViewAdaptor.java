@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator.SavingGoalsRecyclerView;
+package com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
 
 import java.util.List;
 
-public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdaptor.ViewHolder> {
+public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingGoalsRecyclerViewAdaptor.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -35,19 +35,19 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
     private List<SavingGoal> savingGoals;
     private Context context;
 
-    public RecyclerViewAdaptor(Context context, List<SavingGoal> savingGoals) {
+    public SavingGoalsRecyclerViewAdaptor(Context context, List<SavingGoal> savingGoals) {
 
         this.savingGoals = savingGoals;
         this.context = context;
     }
 
     @Override
-    public RecyclerViewAdaptor.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SavingGoalsRecyclerViewAdaptor.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.recycler_row_layout, parent, false);
+        View contactView = inflater.inflate(R.layout.saving_goals_recycler_row_layout, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);
@@ -56,7 +56,7 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
 
     // Involves populating data into the item through holder
     @Override
-    public void onBindViewHolder(RecyclerViewAdaptor.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(SavingGoalsRecyclerViewAdaptor.ViewHolder viewHolder, int position) {
         // Get the data model based on position
         final SavingGoal savingGoal = savingGoals.get(position);
 

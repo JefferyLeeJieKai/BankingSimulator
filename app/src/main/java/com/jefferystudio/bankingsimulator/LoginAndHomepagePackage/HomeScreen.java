@@ -23,6 +23,7 @@ import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.profilepage;
 
@@ -99,6 +100,11 @@ public class HomeScreen extends AppCompatActivity {
                 else if(item.getItemId() == R.id.transferAH) {
 
                     fragment = new Transfer_Amount();
+                    fragment.setArguments(args);
+                }
+                else if(item.getItemId() == R.id.transaction) {
+
+                    fragment = new ViewTransactions();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.addSavingGoals) {

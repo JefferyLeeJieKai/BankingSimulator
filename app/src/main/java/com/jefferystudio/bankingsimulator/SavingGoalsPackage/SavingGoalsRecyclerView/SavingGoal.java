@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator.SavingGoalsRecyclerView;
+package com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView;
 
 public class SavingGoal {
 

@@ -1,16 +1,16 @@
-package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
+package com.jefferystudio.bankingsimulator.ViewTransactionsPackage;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
 
-public class SavingGoalsAll extends Fragment {
+public class ViewTransactions extends Fragment {
 
     private Bundle args;
     private String currentUserID;
@@ -20,9 +20,9 @@ public class SavingGoalsAll extends Fragment {
     private TextView balance;
     private RecyclerView recyclerView;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle onSavedInstance) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.saving_goals_all, container, false);
+        View view = inflater.inflate(R.layout.view_transactions, container, false);
 
         args = getArguments();
         currentUserID = args.getString("userID");
@@ -31,10 +31,10 @@ public class SavingGoalsAll extends Fragment {
 
         userName = view.findViewById(R.id.usernameLbl);
         balance = view.findViewById(R.id.balanceLbl);
-        recyclerView = view.findViewById(R.id.goalDetailsRv);
+        recyclerView = view.findViewById(R.id.transactionsDetailsRv);
 
-        recyclerView = view.findViewById(R.id.goalDetailsRv);
-        new RetrieveSavingGoalsAsync(getActivity(), recyclerView).execute(currentUserID, currentUserName, currentBalance);
+        recyclerView = view.findViewById(R.id.transactionsDetailsRv);
+        new RetrieveTransactionsAsync(getActivity(), recyclerView).execute(currentUserID, currentUserName, currentBalance);
 
         userName.setText(currentUserName);
         balance.setText(currentBalance);

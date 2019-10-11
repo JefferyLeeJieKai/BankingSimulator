@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALL SAVING GOALS"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/navHeaderText"
+        android:textSize="25dp"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="10dp" />
+
+    //display account holder's profile
+    <View
+        android:layout_width="280dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp" />
+
+    <ImageView
+        android:id="@+id/ahAvatar"
+        android:layout_width="87dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/usernameLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="180dp"
+        android:text="auto generate username" />
+
+    <TextView
+        android:id="@+id/balanceLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="215dp"
+        android:text="auto generate balance" />
+
+    //display all saving goals
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/transactionsDetailsRv"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="275dp" />
+
+</android.support.percent.PercentRelativeLayout>
