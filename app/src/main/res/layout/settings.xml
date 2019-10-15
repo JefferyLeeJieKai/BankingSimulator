@@ -7,7 +7,7 @@
     tools:context=".LoginAndHomepagePackage.HomeScreen"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bs"
+    android:background="@drawable/beach3"
     >
 
     <android.support.v7.widget.Toolbar
@@ -113,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:background="@drawable/mode_edit"
-            android:backgroundTint="#D3D3D3"
+            android:backgroundTint="#A9A9A9"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="46dp"
             />
@@ -156,7 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:background="@drawable/mode_edit"
-            android:backgroundTint="#D3D3D3"
+            android:backgroundTint="#A9A9A9"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="50dp"
             />
@@ -175,15 +175,10 @@
             android:id="@+id/confirmBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="220dp"
             android:text="Confirm" />
 
-        <Button
-            android:id="@+id/cancelBtn"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="Cancel"
-            android:layout_marginLeft="80dp"
-            />
     </LinearLayout>
 
 
