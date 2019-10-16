@@ -9,24 +9,28 @@
         </item>
 
         <item
-            android:id="@+id/depositBanker"
+            android:id="@+id/deposit"
             android:title="@string/deposit">
         </item>
 
         <item
-            android:id="@+id/withdrawBanker"
+            android:id="@+id/withdraw"
             android:title="@string/withdrawal">
         </item>
 
         <item
-            android:id="@+id/transferBanker"
+            android:id="@+id/transfer"
             android:title="@string/transfer">
         </item>
 
         <item
             android:id="@+id/transaction"
             android:title="@string/transactions">
+        </item>
 
+        <item
+            android:id="@+id/issuenotes"
+            android:title="Issue notes">
         </item>
 
     </group>

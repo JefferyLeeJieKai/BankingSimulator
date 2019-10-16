@@ -6,10 +6,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragment;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreen;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.io.BufferedReader;
@@ -22,7 +21,7 @@ import java.net.URLEncoder;
 public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
 
     private Context context;
-    private HomeScreen homeScreenActivity;
+    private HomeScreenUser homeScreenUserActivity;
     private String userID;
     private String flag;
     private String link;
@@ -32,7 +31,7 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
 
         this.context = context;
         this.flag = flag;
-        homeScreenActivity = (HomeScreen)context;
+        homeScreenUserActivity = (HomeScreenUser)context;
     }
 
     @Override
@@ -114,12 +113,12 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                    Fragment homeFrag = new HomeFragment();
+                    Fragment homeFrag = new HomeFragmentUser();
                     Bundle args = new Bundle();
                     args.putString("userID", userID);
                     homeFrag.setArguments(args);
 
-                    homeScreenActivity.getSupportFragmentManager().beginTransaction()
+                    homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_layout, homeFrag)
                             .commit();
                 }
@@ -148,12 +147,12 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                    Fragment homeFrag = new HomeFragment();
+                    Fragment homeFrag = new HomeFragmentUser();
                     Bundle args = new Bundle();
                     args.putString("userID", userID);
                     homeFrag.setArguments(args);
 
-                    homeScreenActivity.getSupportFragmentManager().beginTransaction()
+                    homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_layout, homeFrag)
                             .commit();
                 }

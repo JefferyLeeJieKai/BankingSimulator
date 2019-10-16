@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
@@ -27,7 +28,7 @@ import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactio
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.profilepage;
 
-public class HomeScreen extends AppCompatActivity {
+public class HomeScreenBanker extends AppCompatActivity {
 
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
@@ -41,7 +42,7 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_screen);
+        setContentView(R.layout.home_screen_banker);
         args = getIntent().getExtras();
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
@@ -69,7 +70,7 @@ public class HomeScreen extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setHomeButtonEnabled(true);
 
-        fragment = new HomeFragment();
+        fragment = new HomeFragmentBanker();
         fragment.setArguments(args);
         FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
         homeTrans.replace(R.id.frame_layout, fragment);
@@ -84,20 +85,20 @@ public class HomeScreen extends AppCompatActivity {
 
                 if(item.getItemId() == R.id.home) {
 
-                    fragment = new HomeFragment();
+                    fragment = new HomeFragmentBanker();
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.depositAH) {
+                else if(item.getItemId() == R.id.deposit) {
 
-                    fragment = new DepositAH();
+                    fragment = new DepositBanker();
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.withdrawalAH) {
+                else if(item.getItemId() == R.id.withdraw) {
 
                     fragment = new WithdrawalAH();
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.transferAH) {
+                else if(item.getItemId() == R.id.transfer) {
 
                     fragment = new Transfer_Amount();
                     fragment.setArguments(args);
@@ -107,14 +108,9 @@ public class HomeScreen extends AppCompatActivity {
                     fragment = new ViewTransactions();
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.addSavingGoals) {
+                else if(item.getItemId() == R.id.issuenotes) {
 
                     fragment = new SavingGoalsAdd();
-                    fragment.setArguments(args);
-                }
-                else if(item.getItemId() == R.id.viewSavingGoals) {
-
-                    fragment = new SavingGoalsAll();
                     fragment.setArguments(args);
                 }
 
@@ -133,7 +129,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                fragment = new HomeFragment();
+                fragment = new HomeFragmentUser();
                 fragment.setArguments(args);
                 FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
                 homeTrans.replace(R.id.frame_layout, fragment);

@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 
-public class DepositAH extends Fragment
+public class DepositBanker extends Fragment
 {
     private Bundle args;
     private String currentID;
@@ -35,8 +35,6 @@ public class DepositAH extends Fragment
 
         accountNos = view.findViewById(R.id.accountDDLText);
         accounts = view.findViewById(R.id.accountDDL);
-        accountNos.setVisibility(View.GONE);
-        accounts.setVisibility(View.GONE);
 
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);
@@ -66,7 +64,7 @@ public class DepositAH extends Fragment
         }
 
         try{
-           
+
             float amount = Float.valueOf(input);
             int befDec = 0;
             int currentCount = 0;
@@ -108,3 +106,4 @@ public class DepositAH extends Fragment
         }
     }
 }
+

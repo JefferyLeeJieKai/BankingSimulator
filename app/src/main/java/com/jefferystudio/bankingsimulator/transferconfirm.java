@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragment;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 
 public class transferconfirm extends Fragment {
 
@@ -27,9 +27,9 @@ public class transferconfirm extends Fragment {
         BtnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                HomeFragment HomeFragments = new HomeFragment();
+                HomeFragmentUser homeFragmentsUser = new HomeFragmentUser();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, HomeFragments);
+                transaction.replace(R.id.frame_layout, homeFragmentsUser);
                 transaction.commit();
             }
         });
@@ -37,9 +37,9 @@ public class transferconfirm extends Fragment {
         BtnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                HomeFragment HomeFragments = new HomeFragment();
+                HomeFragmentUser homeFragmentsUser = new HomeFragmentUser();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, HomeFragments);
+                transaction.replace(R.id.frame_layout, homeFragmentsUser);
                 transaction.commit();
             }
         });

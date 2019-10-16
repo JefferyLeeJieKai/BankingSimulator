@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragment;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
@@ -57,7 +57,7 @@ public class WithdrawalConfirm extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment homeFrag = new HomeFragment();
+                Fragment homeFrag = new HomeFragmentUser();
                 homeFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
