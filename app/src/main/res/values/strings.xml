@@ -11,9 +11,9 @@
     <string name="logout">Logout</string>
 
 
-        <string name="hello">Hello World, MyAndroidAppActivity!</string>
-        <string name="radio_male">Male</string>
-        <string name="radio_female">Female</string>
+    <string name="hello">Hello World, MyAndroidAppActivity!</string>
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Female</string>
 
     <string-array name="transfer_purpose">
         <item>Make Payment</item>
