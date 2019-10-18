@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.Settings;
 import com.jefferystudio.bankingsimulator.goalspage;
+import com.jefferystudio.bankingsimulator.profilepage;
 import com.jefferystudio.bankingsimulator.transferpayee;
 
 public class HomeFragment extends Fragment {
@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment {
         btnsettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), Settings.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), profilepage.class);
                 startActivity(intent);
 
             }
