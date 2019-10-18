@@ -10,10 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ALL SAVING GOALS"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/navHeaderText"
+        android:textColor="#000000"
+        android:fontFamily="@font/titan_one"
         android:textSize="25dp"
-        android:layout_marginLeft="95dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="10dp" />
 
     //display account holder's profile
@@ -21,14 +21,14 @@
         android:layout_width="280dp"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp" />
+        android:layout_marginTop="60dp" />
 
     <ImageView
         android:id="@+id/ahAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="60dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="90dp"
         android:text="auto generate username" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="215dp"
+        android:layout_marginTop="125dp"
         android:text="auto generate balance" />
 
     //display all saving goals
@@ -54,5 +54,32 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="275dp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000000"
+        android:text="Description" />
+
+    <TextView
+        android:id="@+id/Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="220dp"
+        android:textColor="#000000"
+        android:text="Amount" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="#000000"
+        android:paddingBottom="10dip"
+        android:layout_marginTop="260dp"
+        />
+
 
 </android.support.percent.PercentRelativeLayout>
