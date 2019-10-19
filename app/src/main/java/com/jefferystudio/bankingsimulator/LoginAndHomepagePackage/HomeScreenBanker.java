@@ -17,7 +17,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.R;
@@ -28,11 +30,14 @@ import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactio
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.profilepage;
 
+import java.util.ArrayList;
+
 public class HomeScreenBanker extends AppCompatActivity {
 
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
     private Fragment fragment;
+    private ArrayList<String> bankerList;
     private ImageButton buttontransfer;
     private Bundle args;
     private String userID;
@@ -46,6 +51,9 @@ public class HomeScreenBanker extends AppCompatActivity {
         args = getIntent().getExtras();
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
+
+        bankerList = new ArrayList<>();
+        new RetriveBankerListAsync(this).execute(userID);
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(homeScreenToolbar);
@@ -91,6 +99,7 @@ public class HomeScreenBanker extends AppCompatActivity {
                 else if(item.getItemId() == R.id.deposit) {
 
                     fragment = new DepositBanker();
+                    args.putStringArrayList("BankerList", bankerList);
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.withdraw) {
@@ -199,5 +208,22 @@ public class HomeScreenBanker extends AppCompatActivity {
 
         AlertDialog quitDialog = builder.create();
         quitDialog.show();
+    }
+
+    public void updateBankerList(String result) {
+
+        try {
+            String[] resultArray = result.split(",");
+
+            for (int i = 0; i < resultArray.length; i += 2) {
+
+                String entry = resultArray[i + 1] + "     AccountNo: " + resultArray[i];
+                bankerList.add(entry);
+            }
+        }
+        catch(Exception e) {
+
+            Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+        }
     }
 }

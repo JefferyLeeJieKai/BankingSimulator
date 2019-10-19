@@ -86,7 +86,7 @@ public class DepositAH extends Fragment
             }
             else{
 
-                Fragment depositConfirmFrag = new DepositConfirm();
+                Fragment depositConfirmFrag = new DepositConfirmUser();
                 args.putString("amount", input);
                 depositConfirmFrag.setArguments(args);
 

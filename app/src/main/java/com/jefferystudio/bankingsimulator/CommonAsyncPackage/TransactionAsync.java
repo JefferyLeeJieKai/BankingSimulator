@@ -5,11 +5,18 @@ import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmBanker;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmUser;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalConfirm;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -24,8 +31,10 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
     private Context context;
     private String flag;
     private HomeScreenUser homeScreenUserActivity;
+    private HomeScreenBanker homeScreenBankerActivity;
     private ArrayList<Exception> elist = new ArrayList<Exception>();
     private String userID;
+    private String bankerID;
     private String payeeID;
     private String depositAmount;
     private String withdrawAmount;
@@ -35,7 +44,15 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
         this.context = context;
         this.flag = flag;
-        homeScreenUserActivity = (HomeScreenUser) context;
+
+        if (flag.equals("DepositUser") || flag.equals("WithdrawalUser") || flag.equals("TransferFundsUser")) {
+
+            homeScreenUserActivity = (HomeScreenUser) context;
+        }
+        else if(flag.equals("DepositBanker")) {
+
+            homeScreenBankerActivity = (HomeScreenBanker) context;
+        }
     }
 
     @Override
@@ -48,10 +65,15 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
         StringBuffer sb = new StringBuffer("");
 
-        if(flag.equals("DepositUser")) {
+        if(flag.equals("DepositUser") || flag.equals("DepositBanker")) {
 
             userID = args[0];
             depositAmount = args[1];
+
+            if(flag.equals("DepositBanker")) {
+
+                bankerID = args[2];
+            }
 
             try{
                 String link="http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/depositUser.php";
@@ -181,23 +203,95 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
         //Toast.makeText(context, data, Toast.LENGTH_LONG).show();
         String[] resultArray = result.split(",");
 
-        if(resultArray[0].equals("True")) {
+        if(resultArray[0].equals("True") && (flag.equals("DepositUser") || flag.equals("WithdrawalUser") || flag.equals("TransferFundsUser"))) {
 
-            Fragment homeFrag = new HomeFragmentUser();
-            Bundle args = new Bundle();
-            args.putString("userID", userID);
-            homeFrag.setArguments(args);
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-            homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frame_layout, homeFrag)
-                    .commit();
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage(resultArray[1] + " \n\nDo you want to perform another transaction?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment currentFragment = homeScreenUserActivity.getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+
+                    if(flag.equals("DepositUser")) {
+
+                        ((DepositConfirmUser)currentFragment).recall();
+                    }
+                    else if(flag.equals("WithdrawalUser")) {
+
+                        ((WithdrawalConfirm)currentFragment).recall();
+                    }
+                    else if(flag.equals("TransferFundsUser")) {
+
+
+                    }
+                }
+
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment homeFrag = new HomeFragmentUser();
+                    Bundle args = new Bundle();
+                    args.putString("userID", userID);
+                    homeFrag.setArguments(args);
+
+                    homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, homeFrag)
+                            .commit();
+                }
+            });
+
+            AlertDialog quitDialog = builder.create();
+            quitDialog.show();
+        }
+        else if(resultArray[0].equals("True") && flag.equals("DepositBanker")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage(resultArray[1] + " \n\nDo you want to perform another transaction?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment currentFragment = homeScreenBankerActivity.getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+
+                    ((DepositConfirmBanker)currentFragment).recall();
+                }
+
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment homeFrag = new HomeFragmentBanker();
+                    Bundle args = new Bundle();
+                    args.putString("userID", bankerID);
+                    homeFrag.setArguments(args);
+
+                    homeScreenBankerActivity.getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, homeFrag)
+                            .commit();
+                }
+            });
+
+            AlertDialog quitDialog = builder.create();
+            quitDialog.show();
         }
         else if(resultArray[0].equals("False")) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
             builder.setTitle("DigiBank Alert");
-            builder.setMessage(resultArray[1] + " Do you want to retry your action?");
+            builder.setMessage(resultArray[1] + " \nDo you want to retry your action?");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
                 @Override

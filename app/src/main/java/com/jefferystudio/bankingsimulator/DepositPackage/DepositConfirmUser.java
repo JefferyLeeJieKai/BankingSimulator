@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator.WithdrawalPackage;
+package com.jefferystudio.bankingsimulator.DepositPackage;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +13,7 @@ import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
 
-public class WithdrawalConfirm extends Fragment {
+public class DepositConfirmUser extends Fragment {
 
     private String userName;
     private String currentID;
@@ -27,7 +27,7 @@ public class WithdrawalConfirm extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.withdraw_confirm, container, false);
+        View view = inflater.inflate(R.layout.deposit_confirm, container, false);
 
         args = getArguments();
         userName = args.getString("userName");
@@ -48,8 +48,8 @@ public class WithdrawalConfirm extends Fragment {
             @Override
             public void onClick(View v) {
 
-                new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
-                new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
+                new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
+                new UpdateTransAsync(getActivity(), "DepositFunds").execute(currentID, input);
             }
         });
 
@@ -71,7 +71,7 @@ public class WithdrawalConfirm extends Fragment {
 
     public void recall() {
 
-        Fragment recallFrag = new WithdrawalAH();
+        Fragment recallFrag = new DepositAH();
         recallFrag.setArguments(args);
 
         getActivity().getSupportFragmentManager().beginTransaction()
@@ -79,3 +79,4 @@ public class WithdrawalConfirm extends Fragment {
                 .commit();
     }
 }
+
