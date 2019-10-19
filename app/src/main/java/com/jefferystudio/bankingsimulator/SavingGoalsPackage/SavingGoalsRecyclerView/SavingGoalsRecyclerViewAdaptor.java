@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreen;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
 
@@ -82,7 +82,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 Fragment editGoalFrag = new SavingGoalsEdit();
                 editGoalFrag.setArguments(args);
 
-                ((HomeScreen)context).getSupportFragmentManager().beginTransaction()
+                ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, editGoalFrag)
                         .commit();
             }

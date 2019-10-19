@@ -28,7 +28,7 @@ import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactio
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.profilepage;
 
-public class HomeScreen extends AppCompatActivity {
+public class HomeScreenUser extends AppCompatActivity {
 
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
@@ -42,7 +42,7 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_screen);
+        setContentView(R.layout.home_screen_user);
         args = getIntent().getExtras();
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
@@ -70,7 +70,7 @@ public class HomeScreen extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setHomeButtonEnabled(true);
 
-        fragment = new HomeFragment();
+        fragment = new HomeFragmentUser();
         fragment.setArguments(args);
         FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
         homeTrans.replace(R.id.frame_layout, fragment);
@@ -85,7 +85,7 @@ public class HomeScreen extends AppCompatActivity {
 
                 if(item.getItemId() == R.id.home) {
 
-                    fragment = new HomeFragment();
+                    fragment = new HomeFragmentUser();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.depositAH) {
@@ -134,7 +134,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                fragment = new HomeFragment();
+                fragment = new HomeFragmentUser();
                 fragment.setArguments(args);
                 FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
                 homeTrans.replace(R.id.frame_layout, fragment);

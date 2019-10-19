@@ -24,6 +24,7 @@ public class Transfer_Amount extends Fragment{
     private TextInputLayout payee;
     private TextInputLayout amountToTransfer;
     private String input;
+    private Spinner purpose;
     private Button nextButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,13 +37,11 @@ public class Transfer_Amount extends Fragment{
         userID = view.findViewById(R.id.payerLbl);
         userID.setText(currentID);
 
-
-        Spinner purpose = (Spinner) view.findViewById(R.id.purposeDDL);
+        purpose = (Spinner) view.findViewById(R.id.purposeDDL);
         ArrayAdapter<String> purposeAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.transfer_purpose));
         purposeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         purpose.setAdapter(purposeAdapter);
-
 
         amountToTransfer = view.findViewById(R.id.amountTxt);
         payee = view.findViewById(R.id.payeeLbl);
@@ -90,12 +89,12 @@ public class Transfer_Amount extends Fragment{
             else{
 
                 /*FragmentTransaction fragTransc = getChildFragmentManager().beginTransaction();
-                fragTransc.replace(R.id.outer_frame, new DepositConfirm());
+                fragTransc.replace(R.id.outer_frame, new DepositConfirmBanker());
                 fragTransc.addToBackStack(null);
                 fragTransc.commit();*/
 
                 new TransactionAsync(getActivity(),"TransferFundsUser").execute(currentID, currentPayee, input);
-                new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, "Testing");
+                new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, String.valueOf(purpose.getSelectedItem()));
             }
         }
         catch(NumberFormatException e) {

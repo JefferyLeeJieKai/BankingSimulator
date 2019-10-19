@@ -46,7 +46,12 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".LoginAndHomepagePackage.HomeScreen"
+            android:name=".LoginAndHomepagePackage.HomeScreenUser"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".LoginAndHomepagePackage.HomeScreenBanker"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 

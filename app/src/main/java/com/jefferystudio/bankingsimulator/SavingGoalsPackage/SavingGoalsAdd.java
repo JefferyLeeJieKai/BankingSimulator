@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragment;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 
 public class SavingGoalsAdd extends Fragment {
@@ -62,7 +62,7 @@ public class SavingGoalsAdd extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment homeFrag = new HomeFragment();
+                Fragment homeFrag = new HomeFragmentUser();
                 homeFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()

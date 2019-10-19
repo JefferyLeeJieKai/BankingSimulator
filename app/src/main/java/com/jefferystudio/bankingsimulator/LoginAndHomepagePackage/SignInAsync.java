@@ -7,8 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreen;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -84,7 +82,16 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
         if(resultArray[0].equals("True")) {
 
-            Intent intent = new Intent(context.getApplicationContext(), HomeScreen.class);
+            Intent intent = null;
+
+            if(resultArray[3].equals("AccountHolder")) {
+
+                intent = new Intent(context.getApplicationContext(), HomeScreenUser.class);
+            }
+            else if(resultArray[3].equals("Banker")) {
+
+                intent = new Intent(context.getApplicationContext(), HomeScreenBanker.class);
+            }
 
             Bundle args = new Bundle();
             args.putString("userID", resultArray[1]);

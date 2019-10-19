@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".LoginAndHomepagePackage.HomeScreen">
+    tools:context=".LoginAndHomepagePackage.HomeScreenUser">
 
     <include
         layout="@layout/action_bar"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/navigation_menu"
+        app:menu="@menu/navigation_banker_menu"
         app:headerLayout="@layout/navi_drawer_header"/>
 
 </android.support.v4.widget.DrawerLayout>

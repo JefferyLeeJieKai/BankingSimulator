@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -14,12 +15,15 @@ import android.widget.Toast;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 
-public class DepositAH extends Fragment
+import java.util.ArrayList;
+
+public class DepositBanker extends Fragment
 {
     private Bundle args;
     private String currentID;
     private TextView userID;
     private TextView userBalance;
+    private ArrayList<String> list;
     private TextView accountNos;
     private Spinner accounts;
     private TextInputLayout amountToDeposit;
@@ -32,16 +36,21 @@ public class DepositAH extends Fragment
 
         args = getArguments();
         currentID = args.getString("userID");
+        list = args.getStringArrayList("BankerList");
 
         accountNos = view.findViewById(R.id.accountDDLText);
         accounts = view.findViewById(R.id.accountDDL);
-        accountNos.setVisibility(View.GONE);
-        accounts.setVisibility(View.GONE);
 
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);
         userID.setText(currentID);
         new UpdateBalanceAsync(getActivity(), userBalance).execute(currentID);
+
+        accounts = view.findViewById(R.id.accountDDL);
+        ArrayAdapter<String> accountsAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
+        accountsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        accounts.setAdapter(accountsAdapter);
+
 
         amountToDeposit = view.findViewById(R.id.amountTxt);
         nextButton = view.findViewById(R.id.nextBtn);
@@ -66,7 +75,7 @@ public class DepositAH extends Fragment
         }
 
         try{
-           
+
             float amount = Float.valueOf(input);
             int befDec = 0;
             int currentCount = 0;
@@ -86,8 +95,14 @@ public class DepositAH extends Fragment
             }
             else{
 
-                Fragment depositConfirmFrag = new DepositConfirmUser();
+                Fragment depositConfirmFrag = new DepositConfirmBanker();
                 args.putString("amount", input);
+                String preSplit = String.valueOf(accounts.getSelectedItem());
+                String[] splitArray = preSplit.split(":");
+                String[] targetNameArray = splitArray[0].split(" ");
+                args.putString("targetName", targetNameArray[0]);
+                String targetID = splitArray[1].substring(1);
+                args.putString("targetID", targetID);
                 depositConfirmFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
@@ -108,3 +123,4 @@ public class DepositAH extends Fragment
         }
     }
 }
+

@@ -8,15 +8,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragment;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
 
-public class DepositConfirm extends Fragment {
+public class DepositConfirmBanker extends Fragment {
 
-    private String userName;
-    private String currentID;
+    private String targetName;
+    private String targetID;
     private String input;
     private TextView username;
     private TextView accNo;
@@ -30,14 +31,14 @@ public class DepositConfirm extends Fragment {
         View view = inflater.inflate(R.layout.deposit_confirm, container, false);
 
         args = getArguments();
-        userName = args.getString("userName");
-        currentID = args.getString("userID");
+        targetName = args.getString("targetName");
+        targetID = args.getString("targetID");
         input = args.getString("amount");
 
         username = view.findViewById(R.id.usernameLbl);
-        username.setText(userName);
+        username.setText(targetName);
         accNo = view.findViewById(R.id.accountLbl);
-        accNo.setText(currentID);
+        accNo.setText(targetID);
         amount = view.findViewById(R.id.amountLbl);
         amount.setText(input);
 
@@ -48,8 +49,8 @@ public class DepositConfirm extends Fragment {
             @Override
             public void onClick(View v) {
 
-                new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
-                new UpdateTransAsync(getActivity(), "DepositFunds").execute(currentID, input);
+                new TransactionAsync(getActivity(),"DepositBanker").execute(targetID, input, args.getString("userID"));
+                new UpdateTransAsync(getActivity(), "BankerDeposit").execute(args.getString("userID"), input, targetID, "NotApplicable");
             }
         });
 
@@ -57,7 +58,7 @@ public class DepositConfirm extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment homeFrag = new HomeFragment();
+                Fragment homeFrag = new HomeFragmentBanker();
                 homeFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
@@ -67,5 +68,15 @@ public class DepositConfirm extends Fragment {
         });
 
         return view;
+    }
+
+    public void recall() {
+
+        Fragment recallFrag = new DepositBanker();
+        recallFrag.setArguments(args);
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_layout, recallFrag)
+                .commit();
     }
 }

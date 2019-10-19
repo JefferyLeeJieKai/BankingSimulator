@@ -40,7 +40,7 @@ public class UpdateTransAsync extends AsyncTask<String, String, String> {
 
         StringBuffer sb = new StringBuffer("");
 
-        if(flag.equals("TransferFunds")) {
+        if(flag.equals("TransferFunds") || flag.equals("BankerDeposit")) {
 
             userID = args[0];
             transacAmt = args[1];
@@ -121,8 +121,8 @@ public class UpdateTransAsync extends AsyncTask<String, String, String> {
         /*for(Exception e : elist) {
 
             Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
-        }
+        }*/
 
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();*/
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }

@@ -10,8 +10,6 @@ import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreen;
-
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
 
     private CancellationSignal cancellationSignal;
@@ -58,7 +56,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
 
-        Intent intent = new Intent(appContext.getApplicationContext(), HomeScreen.class);
+        Intent intent = new Intent(appContext.getApplicationContext(), HomeScreenUser.class);
 
         appContext.startActivity(intent);
 

@@ -13,12 +13,13 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Settings;
 import com.jefferystudio.bankingsimulator.goalspage;
-import com.jefferystudio.bankingsimulator.profilepage;
 import com.jefferystudio.bankingsimulator.transferpayee;
 
-public class HomeFragment extends Fragment {
+public class HomeFragmentBanker extends Fragment {
 
+    private TextView greetingsMsg;
     private TextView currentAccountNo;
     private TextView currentUserBalance;
     private Bundle args;
@@ -27,9 +28,7 @@ public class HomeFragment extends Fragment {
     private ImageButton btntransfer;
     private ImageButton btnsettings;
 
-
-
-    public HomeFragment(){
+    public HomeFragmentBanker(){
 
     }
 
@@ -37,7 +36,11 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.home_fragment, container, false);
+        View view = inflater.inflate(R.layout.home_fragment_banker, container, false);
+
+        args = getArguments();
+        greetingsMsg = view.findViewById(R.id.textView4);
+        greetingsMsg.setText("Welcome to KidzSmart, " + args.get("userName") + " (Banker)");
 
         btnsavings = view.findViewById(R.id.savings);
         btntransfer = view.findViewById(R.id.transferfunds);
@@ -65,7 +68,7 @@ public class HomeFragment extends Fragment {
         btnsettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), profilepage.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), Settings.class);
                 startActivity(intent);
 
             }
@@ -74,7 +77,6 @@ public class HomeFragment extends Fragment {
         currentAccountNo = view.findViewById(R.id.actualAccountNo);
         currentUserBalance = view.findViewById(R.id.actualCurrentBalance);
 
-        args = getArguments();
         currentID = args.getString("userID");
         currentAccountNo.setText(currentID);
         new UpdateBalanceAsync(getActivity(), currentUserBalance).execute(currentID);
@@ -83,4 +85,3 @@ public class HomeFragment extends Fragment {
         return view;
     }
 }
-
