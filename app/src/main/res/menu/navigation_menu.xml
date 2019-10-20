@@ -38,6 +38,11 @@
             android:title="View Saving Goals">
         </item>
 
+        <item
+            android:id="@+id/Quizzes"
+            android:title="Quizzes">
+        </item>
+
     </group>
 
 </menu>

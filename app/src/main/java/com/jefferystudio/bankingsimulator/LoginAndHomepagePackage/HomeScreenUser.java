@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.Quiz.QuizActivity;
 import com.jefferystudio.bankingsimulator.Quiz.StartQuiz;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
@@ -116,6 +117,12 @@ public class HomeScreenUser extends AppCompatActivity {
                 else if(item.getItemId() == R.id.viewSavingGoals) {
 
                     fragment = new SavingGoalsAll();
+                    fragment.setArguments(args);
+                }
+
+                else if(item.getItemId() == R.id.Quizzes) {
+
+                    fragment = new StartQuiz();
                     fragment.setArguments(args);
                 }
 

@@ -75,6 +75,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
+        <activity
+            android:name=".Quiz.StartQuiz"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".ViewTransactionsPackage.ViewTransactions"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

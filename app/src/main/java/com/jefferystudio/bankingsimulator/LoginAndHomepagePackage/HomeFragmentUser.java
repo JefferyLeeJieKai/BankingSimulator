@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.goalspage;
 import com.jefferystudio.bankingsimulator.profilepage;
 import com.jefferystudio.bankingsimulator.transferpayee;
@@ -27,6 +28,7 @@ public class HomeFragmentUser extends Fragment {
     private ImageButton btnsavings;
     private ImageButton btntransfer;
     private ImageButton btnsettings;
+    private ImageButton btnviewtransfer;
 
 
 
@@ -47,6 +49,7 @@ public class HomeFragmentUser extends Fragment {
         btnsavings = view.findViewById(R.id.savings);
         btntransfer = view.findViewById(R.id.transferfunds);
         btnsettings = view.findViewById(R.id.settings);
+        btnviewtransfer = view.findViewById(R.id.viewtransaction);
 
 
         btnsavings.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +76,16 @@ public class HomeFragmentUser extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(), profilepage.class);
                 startActivity(intent);
 
+            }
+        });
+
+        btnviewtransfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                ViewTransactions viewTransactions = new ViewTransactions();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, viewTransactions);
+                transaction.commit();
             }
         });
 

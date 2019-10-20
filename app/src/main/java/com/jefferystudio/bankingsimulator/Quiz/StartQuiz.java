@@ -1,31 +1,31 @@
 package com.jefferystudio.bankingsimulator.Quiz;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.jefferystudio.bankingsimulator.R;
 
-public class StartQuiz extends AppCompatActivity {
+public class StartQuiz extends Fragment {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.start_quiz);
+    private Button btnstartquiz;
 
-        Button buttonStartQuiz = findViewById(R.id.button_start_quiz);
-        buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.start_quiz, container, false);
+
+        Button btnstartquiz = view.findViewById(R.id.button_start_quiz);
+        btnstartquiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startQuiz();
+
+
             }
         });
-    }
 
-    private void startQuiz() {
-        Intent intent = new Intent(StartQuiz.this, QuizActivity.class);
-        startActivity(intent);
+        return view;
     }
 }
