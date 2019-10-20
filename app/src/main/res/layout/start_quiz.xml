@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:theme="@style/profilepage"
+    android:background="@drawable/bulb1"
     android:layout_height="match_parent">
 
 
@@ -14,17 +15,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:layout_marginTop="260dp"
-        android:layout_marginLeft="100dp"
-        android:textSize="32dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginLeft="80dp"
+        android:textSize="36dp"
+        android:fontFamily="@font/titan_one"
         android:text="HighScore: 0" />
 
     <Button
         android:id="@+id/button_start_quiz"
-        android:layout_width="117dp"
-        android:layout_height="58dp"
+        android:layout_width="127dp"
+        android:layout_height="62dp"
         android:layout_marginLeft="140dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="410dp"
         android:text="Start Quiz" />
 
 
