@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
+
+import java.util.Calendar;
 
 public class SavingGoalsAdd extends Fragment {
 
@@ -25,6 +30,7 @@ public class SavingGoalsAdd extends Fragment {
     private TextInputLayout savingGoalAmount;
     private Button createButton;
     private Button cancelButton;
+    private EditText etDate;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -40,6 +46,30 @@ public class SavingGoalsAdd extends Fragment {
 
         savingGoalName = view.findViewById(R.id.goalNameTxt);
         savingGoalAmount = view.findViewById(R.id.amountTxt);
+
+        //date
+        etDate = view.findViewById(R.id.date);
+
+        Calendar cal = Calendar.getInstance();
+        final int year = cal.get(Calendar.YEAR);
+        final int month = cal.get(Calendar.MONTH);
+        final int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        etDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        month = month + 1;
+                        String strDate = day + "/" + month + "/" + year;
+                        etDate.setText(strDate);
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
 
         createButton = view.findViewById(R.id.createBtn);
         cancelButton = view.findViewById(R.id.cancelBtn);
