@@ -45,14 +45,14 @@
         android:layout_width="280dp"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp" />
+        android:layout_marginTop="100dp" />
 
     <ImageView
         android:id="@+id/ahAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -60,15 +60,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="180dp"
-        android:text="auto generate username" />
+        android:layout_marginTop="120dp" />
 
     <TextView
         android:id="@+id/balanceLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="215dp"
+        android:layout_marginTop="165dp"
         android:text="auto generate balance" />
 
     //user input starting from here
@@ -77,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="242dp"
         android:text="Goal Name:" />
 
     <android.support.design.widget.TextInputLayout
@@ -85,7 +84,7 @@
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="270dp">
+        android:layout_marginTop="220dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -105,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="320dp"
         android:text="Item Cost:" />
 
     <TextView
@@ -113,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="350dp"
         android:text="currency" />
 
     <android.support.design.widget.TextInputLayout
@@ -121,7 +120,7 @@
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="378dp">
+        android:layout_marginTop="328dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -136,13 +135,36 @@
             android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
+    //get date
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="430dp"
+        android:text="To Achieve" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="450dp"
+        android:text="Goal By:" />
+
+    <EditText
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="430dp"
+        android:id="@+id/date"
+        android:hint="Select Date" />
+
     //display buttons
     <Button
         android:id="@+id/createBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="482dp"
+        android:layout_marginTop="520dp"
         android:text="Create" />
 
     <Button
@@ -150,7 +172,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
-        android:layout_marginTop="482dp"
+        android:layout_marginTop="520dp"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

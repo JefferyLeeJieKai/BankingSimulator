@@ -41,7 +41,7 @@ public class Settings extends AppCompatActivity {
 
         //change this to link to database
         String strTZ = "Asia/Singapore";
-        String strCurrency = "SGD $";
+        String strCurrency = "SGD";
 
         //call setDateTime() method
         setDateTime(TimeZone.getTimeZone(strTZ));
@@ -81,8 +81,8 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //get a list of choices
-                final String[] currencyArr = { "SGD $", "MYR $", "IDR $",
-                        "USD $", "EUR $", "GBP $", "CAD $", "AUD $"};
+                final String[] currencyArr = { "SGD", "MYR", "IDR",
+                        "USD", "EUR", "GBP", "CAD", "AUD"};
 
                 //set choices
                 new AlertDialog.Builder(Settings.this)
