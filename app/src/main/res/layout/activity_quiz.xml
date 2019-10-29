@@ -102,6 +102,6 @@
         android:layout_below="@id/radio_group"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        android:text="Confirm" />
+        android:text="Next Question" />
 
 </android.support.percent.PercentRelativeLayout>
