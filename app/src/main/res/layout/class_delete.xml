@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="155dp"
         android:text="Search Class:" />
 
@@ -28,7 +28,7 @@
         android:id="@+id/classTxt"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="115dp"
+        android:layout_marginLeft="140dp"
         android:layout_marginTop="130dp">
 
         <android.support.design.widget.TextInputEditText
@@ -37,13 +37,14 @@
             android:hint="Class" />
     </android.support.design.widget.TextInputLayout>
 
-    <Button
+    <ImageView
         android:id="@+id/searchBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="135dp"
-        android:text="SEARCH" />
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:icon="@android:drawable/ic_menu_search"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="155dp" />
 
     //get class
     <TextView
