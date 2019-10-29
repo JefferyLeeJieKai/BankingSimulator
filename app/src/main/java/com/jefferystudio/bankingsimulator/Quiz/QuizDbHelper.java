@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 
 import com.jefferystudio.bankingsimulator.Quiz.QuizContract.*;
 
@@ -48,6 +49,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable() {
+
         Question q1 = new Question("A is correct", "A", "B", "C", 1);
         addQuestion(q1);
         Question q2 = new Question("B is correct", "A", "B", "C", 2);
@@ -58,7 +60,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q4);
         Question q5 = new Question("B is correct again", "A", "B", "C", 2);
         addQuestion(q5);
-    }
+}
 
     private void addQuestion(Question question) {
         ContentValues cv = new ContentValues();
