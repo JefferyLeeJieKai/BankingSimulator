@@ -102,6 +102,7 @@
         android:layout_below="@id/radio_group"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonshadow"
         android:text="Confirm" />
 
 </android.support.percent.PercentRelativeLayout>

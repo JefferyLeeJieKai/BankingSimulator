@@ -138,6 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="280dp"
         android:layout_marginTop="525dp"
+        android:background="@drawable/buttonshadow"
         android:text="Next" />
 
 </android.support.percent.PercentRelativeLayout>

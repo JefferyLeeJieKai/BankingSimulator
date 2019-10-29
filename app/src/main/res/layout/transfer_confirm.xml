@@ -228,6 +228,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="620dp"
+        android:background="@drawable/buttonshadow"
         android:text="Confirm" />
 
     <Button
@@ -236,6 +237,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
         android:layout_marginTop="620dp"
+        android:background="@drawable/buttonshadow"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

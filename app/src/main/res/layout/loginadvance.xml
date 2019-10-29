@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#F7E3C4"
     android:angle="45">
 
     <com.q42.android.scrollingimageview.ScrollingImageView
@@ -16,8 +16,17 @@
         android:scaleType="center"
         app:speed="0.2dp"
         app:src="@drawable/beachchair"
+        android:elevation="100dp"
+        android:outlineAmbientShadowColor="#000"
+        android:padding="100dp"
+        android:shadowRadius="200"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="45dp" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/loginposb"
@@ -25,8 +34,8 @@
         android:layout_height="55dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="700dp"
-        android:background="@null"
         android:scaleType="fitCenter"
+        android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/login" />
@@ -37,9 +46,8 @@
         android:layout_height="55dp"
         android:layout_marginStart="292dp"
         android:layout_marginTop="700dp"
-        android:background="@null"
         android:scaleType="fitCenter"
-        android:visibility="visible"
+        android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/transferwhite" />

@@ -47,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="280dp"
         android:layout_marginTop="135dp"
+        android:background="@drawable/buttonshadow"
         android:text="SEARCH" />
 
     //get class
@@ -90,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="260dp"
         android:layout_marginTop="590dp"
+        android:background="@drawable/buttonshadow"
         android:text="NEXT" />
 
 </android.support.percent.PercentRelativeLayout>

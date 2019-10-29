@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="155dp"
+        android:textColor="#000000"
         android:text="Search Class:" />
 
     <android.support.design.widget.TextInputLayout
@@ -43,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="280dp"
         android:layout_marginTop="135dp"
+        android:background="@drawable/buttonshadow"
         android:text="SEARCH" />
 
     //get class
@@ -51,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="135dp"
         android:layout_marginTop="240dp"
+        android:textColor="#000000"
         android:text="Class:" />
 
     <TextView
@@ -67,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="280dp"
+        android:textColor="#000000"
         android:text="Set Interest Rate (%):" />
 
     <TextView
@@ -84,6 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="630dp"
+        android:background="@drawable/buttonshadow"
         android:text="DELETE" />
 
     <Button
@@ -92,5 +97,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="230dp"
         android:layout_marginTop="630dp"
+        android:background="@drawable/buttonshadow"
         android:text="CANCEL" />
 </android.support.percent.PercentRelativeLayout>

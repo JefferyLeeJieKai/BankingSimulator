@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    tools:context=".LoginAndHomepagePackage.HomeScreenUser"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="4dp"
+        app:layout_scrollFlags="scroll|enterAlways"
+
+        />
+
+    <ImageButton
+        android:id="@+id/viewallgoals"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/fingerprint_border"
+        app:srcCompat="@drawable/viewgoals" />
+
+
+</android.support.percent.PercentRelativeLayout>
