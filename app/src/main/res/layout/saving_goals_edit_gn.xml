@@ -34,16 +34,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="180dp"
-        android:text="auto generate username" />
+        android:layout_marginTop="180dp" />
 
     <TextView
         android:id="@+id/balanceLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="215dp"
-        android:text="auto generate balance" />
+        android:layout_marginTop="215dp" />
 
     //display goal name
     <TextView
@@ -58,8 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="290dp"
-        android:text="auto goal name" />
+        android:layout_marginTop="290dp" />
 
     //get new goal name
     <TextView
@@ -92,8 +89,7 @@
             android:id="@+id/errorGoalNameLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="error message (if any)" />
+            android:layout_weight="1" />
     </android.support.design.widget.TextInputLayout>
 
     //display buttons
