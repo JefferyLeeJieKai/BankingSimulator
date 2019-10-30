@@ -63,7 +63,8 @@ public class HomeFragmentUser extends Fragment {
         btntransfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                transferpayee transferpayees = new transferpayee();
+                Fragment transferpayees = new transferpayee();
+                transferpayees.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, transferpayees);
                 transaction.commit();
@@ -82,7 +83,8 @@ public class HomeFragmentUser extends Fragment {
         btnviewtransfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                ViewTransactions viewTransactions = new ViewTransactions();
+                Fragment viewTransactions = new ViewTransactions();
+                viewTransactions.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, viewTransactions);
                 transaction.commit();
