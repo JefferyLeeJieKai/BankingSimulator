@@ -28,4 +28,9 @@
     <color name="spinnerBorderCenterColor">#5797cf</color>
     <color name="spinnerBorderEndColor">#d057d2</color>
 
+    <!-- circleImageView -->
+    <color name="colorPrimary1">#37474F</color>
+    <color name="colorPrimaryDark1">#263238</color>
+    <color name="colorAccent1">#ECEFF1</color>
+
 </resources>

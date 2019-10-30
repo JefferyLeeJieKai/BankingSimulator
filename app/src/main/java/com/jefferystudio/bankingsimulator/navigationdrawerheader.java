@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,7 @@ import java.util.Locale;
 public class navigationdrawerheader extends Fragment {
 
     private ImageButton btnLogo;
+    Uri imageUri;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
