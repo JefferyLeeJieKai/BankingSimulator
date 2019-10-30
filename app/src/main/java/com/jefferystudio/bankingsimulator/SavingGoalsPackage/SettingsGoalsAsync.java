@@ -30,6 +30,8 @@ public class SettingsGoalsAsync extends AsyncTask<String, String, String> {
     private String userID;
     private String savingGoalName;
     private String goalAmount;
+    private String goalDeadLine;
+    private String goalPriority;
 
     public SettingsGoalsAsync(Context context, String flag) {
 
@@ -53,6 +55,8 @@ public class SettingsGoalsAsync extends AsyncTask<String, String, String> {
 
             savingGoalName = args[1];
             goalAmount = args[2];
+            goalDeadLine = args[3];
+            goalPriority = args[4];
 
             try {
                 link = "http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/saveGoal.php";
@@ -62,7 +66,10 @@ public class SettingsGoalsAsync extends AsyncTask<String, String, String> {
                         URLEncoder.encode(savingGoalName, "UTF-8");
                 data += "&" + URLEncoder.encode("itemcost", "UTF-8") + "=" +
                         URLEncoder.encode(goalAmount, "UTF-8");
-
+                data += "&" + URLEncoder.encode("deadline", "UTF-8") + "=" +
+                        URLEncoder.encode(goalDeadLine, "UTF-8");
+                data += "&" + URLEncoder.encode("priority", "UTF-8") + "=" +
+                        URLEncoder.encode(goalPriority, "UTF-8");
             }
             catch(Exception e) {
 
