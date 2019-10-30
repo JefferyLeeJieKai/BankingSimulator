@@ -65,7 +65,7 @@
         android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="290dp"
+        android:layout_marginLeft="350dp"
         android:layout_marginTop="285dp" />
 
     //display amount
@@ -97,7 +97,7 @@
         android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="290dp"
+        android:layout_marginLeft="350dp"
         android:layout_marginTop="330dp" />
 
     //display buttons
