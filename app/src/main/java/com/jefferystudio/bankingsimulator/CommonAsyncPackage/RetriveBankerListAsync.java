@@ -11,7 +11,6 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 
 public class RetriveBankerListAsync extends AsyncTask <String, String, String> {
 

@@ -3,7 +3,6 @@ package com.jefferystudio.bankingsimulator.CommonAsyncPackage;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -76,6 +75,7 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
             Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
         }*/
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+
         currentUserBalance.setText(result);
     }
 }

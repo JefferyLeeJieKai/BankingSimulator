@@ -5,10 +5,8 @@ import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmBanker;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmUser;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
@@ -201,6 +199,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
         }*/
         //Toast.makeText(context, data, Toast.LENGTH_LONG).show();
+
         String[] resultArray = result.split(",");
 
         if(resultArray[0].equals("True") && (flag.equals("DepositUser") || flag.equals("WithdrawalUser") || flag.equals("TransferFundsUser"))) {

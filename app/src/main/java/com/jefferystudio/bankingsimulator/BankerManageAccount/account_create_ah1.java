@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.transferconfirm;
 
 public class account_create_ah1 extends Fragment {
 

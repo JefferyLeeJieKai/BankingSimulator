@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 
 import com.jefferystudio.bankingsimulator.Quiz.QuizContract.*;
 
