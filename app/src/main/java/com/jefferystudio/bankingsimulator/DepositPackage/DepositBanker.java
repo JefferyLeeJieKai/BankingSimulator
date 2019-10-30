@@ -10,10 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.Validation;
 
 import java.util.ArrayList;
 
@@ -51,7 +51,6 @@ public class DepositBanker extends Fragment
         accountsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accounts.setAdapter(accountsAdapter);
 
-
         amountToDeposit = view.findViewById(R.id.amountTxt);
         nextButton = view.findViewById(R.id.nextBtn);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -60,13 +59,32 @@ public class DepositBanker extends Fragment
 
                 input = amountToDeposit.getEditText().getText().toString().trim();
 
-                validateAmount(input);
+                if(Validation.validateAmount(input, amountToDeposit))
+                {
+                    Fragment depositConfirmFrag = new DepositConfirmBanker();
+                    args.putString("amount", input);
+                    String preSplit = String.valueOf(accounts.getSelectedItem());
+                    String[] splitArray = preSplit.split(":");
+                    String[] targetNameArray = splitArray[0].split(" ");
+                    args.putString("targetName", targetNameArray[0]);
+                    String targetID = splitArray[1].substring(1);
+                    args.putString("targetID", targetID);
+                    depositConfirmFrag.setArguments(args);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, depositConfirmFrag)
+                            .commit();
+
+                    //new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
+                    //new UpdateTransAsync(getActivity(), "DepositFunds").execute(currentID, input);
+                }
             }
         });
 
         return view;
     }
 
+    /*
     protected void validateAmount(String input) {
 
         if(input.isEmpty()) {
@@ -122,5 +140,6 @@ public class DepositBanker extends Fragment
             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
         }
     }
+    */
 }
 

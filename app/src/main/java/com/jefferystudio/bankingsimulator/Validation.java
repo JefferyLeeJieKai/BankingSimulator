@@ -19,7 +19,7 @@ public class Validation {
         }
         //if not empty
         else {
-            String regExp = "[0-9]+([.][0-9]{1,2})?";
+            String regExp = "^-?[0-9]+([.][0-9]{1,2})?";
 
             Pattern p = Pattern.compile(regExp);
             Matcher m = p.matcher(input);

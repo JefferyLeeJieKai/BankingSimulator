@@ -60,7 +60,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/usernameTxt"
-        android:layout_width="280dp"
+        android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="200dp">
@@ -81,7 +81,7 @@
 
     <Spinner
         android:id="@+id/accountDDL"
-        android:layout_width="280dp"
+        android:layout_width="325dp"
         android:layout_height="35dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="340dp" />
@@ -104,7 +104,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        android:layout_width="210dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="430dp">
