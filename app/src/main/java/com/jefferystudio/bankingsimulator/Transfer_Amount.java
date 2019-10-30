@@ -53,13 +53,23 @@ public class Transfer_Amount extends Fragment{
                 currentPayee = payee.getEditText().getText().toString().trim();
                 input = amountToTransfer.getEditText().getText().toString().trim();
 
-                validateAmount(input);
+                if(Validation.validateAmount(input, amountToTransfer))
+                {
+                    /*FragmentTransaction fragTransc = getChildFragmentManager().beginTransaction();
+                    fragTransc.replace(R.id.outer_frame, new DepositConfirmBanker());
+                    fragTransc.addToBackStack(null);
+                    fragTransc.commit();*/
+
+                    new TransactionAsync(getActivity(),"TransferFundsUser").execute(currentID, currentPayee, input);
+                    new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, String.valueOf(purpose.getSelectedItem()));
+                }
             }
         });
 
         return view;
     }
 
+    /*
     protected void validateAmount(String input) {
 
         if(input.isEmpty()) {
@@ -92,7 +102,7 @@ public class Transfer_Amount extends Fragment{
                 fragTransc.replace(R.id.outer_frame, new DepositConfirmBanker());
                 fragTransc.addToBackStack(null);
                 fragTransc.commit();*/
-
+        /*
                 new TransactionAsync(getActivity(),"TransferFundsUser").execute(currentID, currentPayee, input);
                 new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, String.valueOf(purpose.getSelectedItem()));
             }
@@ -106,4 +116,5 @@ public class Transfer_Amount extends Fragment{
             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
         }
     }
+    */
 }

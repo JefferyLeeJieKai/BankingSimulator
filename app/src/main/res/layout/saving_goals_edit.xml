@@ -34,16 +34,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="180dp"
-        android:text="auto generate username" />
+        android:layout_marginTop="180dp" />
 
     <TextView
         android:id="@+id/balanceLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="215dp"
-        android:text="auto generate balance" />
+        android:layout_marginTop="215dp" />
 
     //display information starting here
     //display goal name
@@ -59,17 +57,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="290dp"
-        android:text="auto goal name" />
+        android:layout_marginTop="290dp" />
 
     <Button
         android:id="@+id/editGoalNameBtn"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="275dp"
-        android:background="@drawable/buttonshadow"
-        android:text="Edit" />
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="285dp" />
 
     //display amount
     <TextView
@@ -92,17 +89,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="330dp"
-        android:text="auto amount" />
+        android:layout_marginTop="330dp" />
 
     <Button
         android:id="@+id/editAmountBtn"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="320dp"
-        android:background="@drawable/buttonshadow"
-        android:text="Edit" />
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="330dp" />
 
     //display buttons
     <!--<Button

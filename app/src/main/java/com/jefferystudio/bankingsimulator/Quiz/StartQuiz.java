@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.transferconfirm;
 
 public class StartQuiz extends Fragment {
 
@@ -22,14 +21,13 @@ public class StartQuiz extends Fragment {
         btnstartquiz = view.findViewById(R.id.button_start_quiz);
 
         btnstartquiz.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v){
+            @Override
+            public void onClick(View v){
 
-                        QuizActivity QuizActivity = new QuizActivity();
-                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_layout, QuizActivity);
-                        transaction.commit();
-
+                QuizActivity QuizActivity = new QuizActivity();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, QuizActivity);
+                transaction.commit();
             }
         });
 

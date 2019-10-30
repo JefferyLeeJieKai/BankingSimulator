@@ -67,8 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="165dp"
-        android:text="auto generate balance" />
+        android:layout_marginTop="165dp" />
 
     //user input starting from here
     //get goal name
@@ -90,13 +89,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Saving Goal Name" />
-
-        <TextView
-            android:id="@+id/errorGoalNameLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     //get amount
@@ -126,13 +118,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Amount" />
-
-        <TextView
-            android:id="@+id/errorAmountLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     //get date

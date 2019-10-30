@@ -20,7 +20,6 @@
         <item>Return Money</item>
         <item>Lend Money</item>
         <item>Give Allowance</item>
-        <item>Transfer Money Between Own Accounts</item>
         <item>Others</item>
     </string-array>
 

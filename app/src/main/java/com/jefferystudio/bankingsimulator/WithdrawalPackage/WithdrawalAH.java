@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class WithdrawalAH extends Fragment
 {
@@ -43,13 +44,26 @@ public class WithdrawalAH extends Fragment
 
                 input = amountToWithdraw.getEditText().getText().toString().trim();
 
-                validateAmount(input);
+                if(Validation.validateAmount(input, amountToWithdraw))
+                {
+                    Fragment withdrawalConfirmFrag = new WithdrawalConfirm();
+                    args.putString("amount", input);
+                    withdrawalConfirmFrag.setArguments(args);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, withdrawalConfirmFrag)
+                            .commit();
+
+                    //new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
+                    //new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
+                }
             }
         });
 
         return view;
     }
 
+    /*
     protected void validateAmount(String input) {
 
         if(input.isEmpty()) {
@@ -99,4 +113,5 @@ public class WithdrawalAH extends Fragment
             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
         }
     }
+    */
 }
