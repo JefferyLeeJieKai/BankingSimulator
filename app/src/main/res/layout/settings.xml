@@ -148,7 +148,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="42dp"
             android:layout_marginTop="10dp"
-            android:text="auto-currency"
             android:textSize="20dp" />
 
         <ImageView
@@ -177,6 +176,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:layout_marginLeft="220dp"
+            android:background="@drawable/buttonshadow"
             android:text="Confirm" />
 
     </LinearLayout>

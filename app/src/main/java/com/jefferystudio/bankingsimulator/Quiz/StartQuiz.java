@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator.Quiz;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +18,16 @@ public class StartQuiz extends Fragment {
 
         View view = inflater.inflate(R.layout.start_quiz, container, false);
 
-        Button btnstartquiz = view.findViewById(R.id.button_start_quiz);
+        btnstartquiz = view.findViewById(R.id.button_start_quiz);
+
         btnstartquiz.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
 
-
+                QuizActivity QuizActivity = new QuizActivity();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, QuizActivity);
+                transaction.commit();
             }
         });
 

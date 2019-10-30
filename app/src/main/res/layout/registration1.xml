@@ -94,7 +94,9 @@
         android:layout_height="50dp"
         android:text="Next"
         android:layout_marginTop="600dp"
-        android:layout_marginLeft="270dp" />
+        android:layout_marginLeft="270dp"
+        android:background="@drawable/buttonshadow"
+        />
 
 
 </RelativeLayout>

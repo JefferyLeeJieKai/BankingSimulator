@@ -51,7 +51,6 @@ public class DepositBanker extends Fragment
         accountsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accounts.setAdapter(accountsAdapter);
 
-
         amountToDeposit = view.findViewById(R.id.amountTxt);
         nextButton = view.findViewById(R.id.nextBtn);
         nextButton.setOnClickListener(new View.OnClickListener() {

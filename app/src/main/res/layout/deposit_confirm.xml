@@ -53,24 +53,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="215dp"
-        android:layout_marginTop="195dp"
-        android:text="auto generate username" />
+        android:layout_marginTop="200dp" />
 
     <TextView
         android:id="@+id/accountLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="215dp"
-        android:layout_marginTop="235dp"
-        android:text="auto account number" />
-
-    <TextView
-        android:id="@+id/bankLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="215dp"
-        android:layout_marginTop="255dp"
-        android:text="auto bank name" />
+        android:layout_marginTop="245dp" />
 
     //display amount
     <TextView
@@ -93,8 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="310dp"
-        android:text="$ auto generate amount" />
+        android:layout_marginTop="310dp" />
 
     //display date
     <TextView
@@ -109,8 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="115dp"
-        android:layout_marginTop="350dp"
-        android:text="auto generate date" />
+        android:layout_marginTop="350dp" />
 
     //display buttons
     <Button
@@ -119,6 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="400dp"
+        android:background="@drawable/buttonshadow"
         android:text="Confirm" />
 
     <Button
@@ -127,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
         android:layout_marginTop="400dp"
+        android:background="@drawable/buttonshadow"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

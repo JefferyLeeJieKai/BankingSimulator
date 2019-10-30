@@ -59,8 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="180dp"
-        android:textSize="15dp"
-        android:text="username" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/balanceLbl"
@@ -123,6 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="280dp"
         android:layout_marginTop="500dp"
+        android:background="@drawable/buttonshadow"
         android:text="Next" />
 
 </android.support.percent.PercentRelativeLayout>

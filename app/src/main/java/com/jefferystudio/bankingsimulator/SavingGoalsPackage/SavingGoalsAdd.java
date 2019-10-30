@@ -7,14 +7,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class SavingGoalsAdd extends Fragment {
@@ -24,10 +28,14 @@ public class SavingGoalsAdd extends Fragment {
     private String userName;
     private String inputName;
     private String inputAmount;
+    private String inputDate;
+    private String inputPriority;
     private TextView username;
     private TextView userBalance;
     private TextInputLayout savingGoalName;
     private TextInputLayout savingGoalAmount;
+    private ArrayList<String> list;
+    private Spinner priority;
     private Button createButton;
     private Button cancelButton;
     private EditText etDate;
@@ -46,8 +54,8 @@ public class SavingGoalsAdd extends Fragment {
 
         savingGoalName = view.findViewById(R.id.goalNameTxt);
         savingGoalAmount = view.findViewById(R.id.amountTxt);
+        priority = view.findViewById(R.id.priority);
 
-        //date
         etDate = view.findViewById(R.id.date);
 
         Calendar cal = Calendar.getInstance();
@@ -63,13 +71,22 @@ public class SavingGoalsAdd extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month + 1;
-                        String strDate = day + "/" + month + "/" + year;
+                        String strDate = day + "-" + month + "-" + year;
                         etDate.setText(strDate);
                     }
                 },year,month,day);
                 datePickerDialog.show();
             }
         });
+
+        priority = view.findViewById(R.id.priority);
+        for(int i = 5; i <= 1; i--) {
+
+            list.add(String.valueOf(i));
+        }
+        ArrayAdapter<String> priorityAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
+        priorityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        priority.setAdapter(priorityAdapter);
 
         createButton = view.findViewById(R.id.createBtn);
         cancelButton = view.findViewById(R.id.cancelBtn);
@@ -80,8 +97,10 @@ public class SavingGoalsAdd extends Fragment {
 
                 inputName = savingGoalName.getEditText().getText().toString().trim();
                 inputAmount = savingGoalAmount.getEditText().getText().toString().trim();
+                inputDate = etDate.getText().toString().trim();
+                inputPriority = String.valueOf(priority.getSelectedItemId());
 
-                if(validateAmount(inputAmount)) {
+                if(Validation.validateAmount(inputAmount, savingGoalAmount)) {
 
                     new SettingsGoalsAsync(getActivity(), "NewSavingGoal").execute(currentID, inputName, inputAmount);
                 }
@@ -102,38 +121,5 @@ public class SavingGoalsAdd extends Fragment {
         });
 
         return view;
-    }
-
-    protected boolean validateAmount(String input) {
-
-        boolean result = true;
-
-        if(input.isEmpty()) {
-
-            savingGoalAmount.setError("Amount cannot be empty");
-            result = false;
-        }
-
-        float amount = Float.valueOf(input);
-        int befDec = 0;
-        int currentCount = 0;
-
-        for(int i = 0; i < input.length(); i++) {
-
-            if(input.charAt(i) == '.') {
-
-                befDec = currentCount;
-            }
-
-            ++currentCount;
-        }
-
-        if(input.length() - (befDec + 1) != 2) {
-
-            savingGoalAmount.setError("Please enter the correct format");
-            result = false;
-        }
-
-        return result;
     }
 }

@@ -202,13 +202,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Amount" />
-
-        <TextView
-            android:id="@+id/errorAmountLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     //display buttons
@@ -218,6 +211,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="630dp"
+        android:background="@drawable/buttonshadow"
         android:text="Confirm" />
 
     <Button
@@ -226,6 +220,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
         android:layout_marginTop="630dp"
+        android:background="@drawable/buttonshadow"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

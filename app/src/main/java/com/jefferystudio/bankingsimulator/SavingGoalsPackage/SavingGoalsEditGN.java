@@ -69,7 +69,10 @@ public class SavingGoalsEditGN extends Fragment {
 
                 String toChange = newGoalName.getEditText().getText().toString().trim();
 
-                new UpdateSavingGoalsAsync(getActivity(), "EditGoalName").execute(currentUserID, currentGoalID, toChange);
+                if (toChange.equalsIgnoreCase(currentGoalname))
+                    newGoalName.setError("No changes made to goal name");
+                else
+                    new UpdateSavingGoalsAsync(getActivity(), "EditGoalName").execute(currentUserID, currentGoalID, toChange);
             }
         });
 

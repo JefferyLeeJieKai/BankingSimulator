@@ -156,6 +156,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="630dp"
+        android:background="@drawable/buttonshadow"
         android:text="CREATE" />
 
     <Button
@@ -164,6 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="230dp"
         android:layout_marginTop="630dp"
+        android:background="@drawable/buttonshadow"
         android:text="CANCEL" />
 
 

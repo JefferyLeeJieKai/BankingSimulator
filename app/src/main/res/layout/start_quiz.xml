@@ -27,6 +27,7 @@
         android:layout_height="62dp"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="410dp"
+        android:background="@drawable/buttonshadow"
         android:text="Start Quiz" />
 
     <ImageView
