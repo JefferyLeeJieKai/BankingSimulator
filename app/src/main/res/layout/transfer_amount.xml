@@ -21,12 +21,12 @@
         android:layout_width="87dp"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="90dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/payeeLbl"
-        android:layout_width="220dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="235dp">
@@ -38,12 +38,13 @@
     </android.support.design.widget.TextInputLayout>
 
     //display payer's information
+
     <ImageView
         android:id="@+id/payerAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
         android:layout_marginLeft="265dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="90dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -51,16 +52,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="265dp"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="200dp"
         android:text="payer's name" />
 
     //user input starting from here
     //get amount
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="295dp"
+        android:layout_marginTop="330dp"
         android:text="Amount:" />
 
     <TextView
@@ -68,15 +70,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="325dp"
+        android:layout_marginTop="360dp"
         android:text="SGD" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        android:layout_width="210dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="300dp">
+        android:layout_marginTop="335dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -85,11 +87,12 @@
     </android.support.design.widget.TextInputLayout>
 
     //display limit
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="430dp"
         android:text="Authorised Daily Limit:" />
 
     <TextView
@@ -97,15 +100,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="430dp"
         android:text="auto limit" />
 
     //display remaining limit
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="460dp"
         android:text="Remaining Daily Limit:" />
 
     <TextView
@@ -113,31 +117,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="460dp"
         android:text="auto limit" />
 
     //get purpose
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="500dp"
         android:text="Purpose:" />
 
     <Spinner
         android:id="@+id/purposeDDL"
-        android:layout_width="285dp"
+        android:layout_width="320dp"
         android:layout_height="35dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="470dp" />
+        android:layout_marginTop="530dp" />
 
     //display button
+
     <Button
         android:id="@+id/nextBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="280dp"
-        android:layout_marginTop="525dp"
+        android:layout_marginTop="590dp"
         android:background="@drawable/buttonshadow"
         android:text="Next" />
 

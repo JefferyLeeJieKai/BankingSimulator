@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.OTP.OTPFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class DepositAH extends Fragment
 {
@@ -52,13 +52,26 @@ public class DepositAH extends Fragment
 
                 input = amountToDeposit.getEditText().getText().toString().trim();
 
-                validateAmount(input);
+                if(Validation.validateAmount(input, amountToDeposit))
+                {
+                    Fragment depositConfirmFrag = new DepositConfirmUser();
+                    args.putString("amount", input);
+                    depositConfirmFrag.setArguments(args);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, depositConfirmFrag)
+                            .commit();
+
+                    //new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
+                    //new UpdateTransAsync(getActivity(), "DepositFunds").execute(currentID, input);
+                }
             }
         });
 
         return view;
     }
 
+    /*
     protected void validateAmount(String input) {
 
         if(input.isEmpty()) {
@@ -108,4 +121,5 @@ public class DepositAH extends Fragment
             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
         }
     }
+    */
 }

@@ -30,7 +30,7 @@
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="160dp"
-        android:layout_marginTop="130dp">
+        android:layout_marginTop="155dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"

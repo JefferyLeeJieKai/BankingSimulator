@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.app.KeyguardManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
@@ -11,9 +12,11 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.registration2;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -43,6 +46,7 @@ public class LoginScreen extends AppCompatActivity {
     private static final String KEY_NAME = "example_key";
     private Cipher cipher;
     private FingerprintManager.CryptoObject cryptoObject;
+    private TextView forgotpassbtn;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,7 +55,22 @@ public class LoginScreen extends AppCompatActivity {
 
         usernameTextBox = findViewById(R.id.username);
         passwordTextBox = findViewById(R.id.password);
+        forgotpassbtn = findViewById(R.id.forgotpass);
+
+        forgotpassbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                forgetPassword();
+            }
+        });
     }
+
+    private void forgetPassword() {
+        Intent intent = new Intent(getApplicationContext(), ForgetPass.class);
+        startActivity(intent);
+    }
+
+
 
     public void login(View v) {
 
