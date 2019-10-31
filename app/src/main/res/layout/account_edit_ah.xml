@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDIT ACCOUNT"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="32dp"
+        android:layout_marginLeft="80dp"
+        android:fontFamily="@font/titan_one"
+        android:layout_marginTop="30dp" />
+
+    //get name
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="145dp"
+        android:textColor="#000000"
+        android:text="Name:" />
+
+    <TextView
+        android:id="@+id/nameLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="145dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/editNameBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="145dp" />
+
+    //get date of birth
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="220dp"
+        android:textColor="#000000"
+        android:text="Date Of Birth:" />
+
+    <TextView
+        android:id="@+id/DOBLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="220dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/editDOBBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="220dp" />
+
+    //get phone
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="315dp"
+        android:textColor="#000000"
+        android:text="Phone:" />
+
+    <TextView
+        android:id="@+id/phoneLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="315dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/editPhoneBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="315dp" />
+
+    //get username
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="400dp"
+        android:textColor="#000000"
+        android:text="Username:" />
+
+    <TextView
+        android:id="@+id/usernameLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="400dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/editUsernameBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="400dp" />
+
+    //get password
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="490dp"
+        android:textColor="#000000"
+        android:text="Password:" />
+
+    <TextView
+        android:id="@+id/passLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="490dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/editPassBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="490dp" />
+
+    //get gender
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="570dp"
+        android:textColor="#000000"
+        android:text="Gender:" />
+
+    <TextView
+        android:id="@+id/genderLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="570dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/editGenderBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="570dp" />
+
+    //display buttons
+    <Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="630dp"
+        android:background="@drawable/buttonshadow"
+        android:text="CONFIRM" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="630dp"
+        android:background="@drawable/buttonshadow"
+        android:text="CANCEL" />
+
+
+</android.support.percent.PercentRelativeLayout>
