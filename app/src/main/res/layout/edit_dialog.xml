@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="180dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="EDIT"/>
+
+    <TextView
+        android:id="@+id/inputLbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp" />
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp" />
+
+    //display buttons
+    <Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/buttonshadow"
+        android:text="CONFIRM" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/buttonshadow"
+        android:text="CANCEL" />
+
+</android.support.percent.PercentRelativeLayout>
