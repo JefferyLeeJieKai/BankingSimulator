@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bbb1"
+    >
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
@@ -73,6 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="242dp"
+        android:textColor="#000000"
         android:text="Goal Name:" />
 
     <android.support.design.widget.TextInputLayout
@@ -94,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="320dp"
+        android:textColor="#000000"
         android:text="Item Cost:" />
 
     <TextView
@@ -102,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="350dp"
+        android:textColor="#000000"
         android:text="currency" />
 
     <android.support.design.widget.TextInputLayout
@@ -123,6 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="430dp"
+        android:textColor="#000000"
         android:text="To Achieve" />
 
     <TextView
@@ -130,6 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="450dp"
+        android:textColor="#000000"
         android:text="Goal By:" />
 
     <EditText
@@ -147,6 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="508dp"
+        android:textColor="#000000"
         android:text="Priority: " />
 
     <Spinner
