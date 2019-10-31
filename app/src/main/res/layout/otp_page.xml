@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        app:layout_widthPercent="80%"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="OTP Verification"
+        android:textSize="30dp"
+        android:textColor="@color/blackFont"
+        app:layout_marginTopPercent="5%" />
+
+    <TextView
+        app:layout_widthPercent="90%"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Please enter the six digit pin sent to your email."
+        android:textSize="16dp"
+        android:textColor="@color/blackFont"
+        app:layout_marginTopPercent="15%"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/verificationCode"
+        app:layout_widthPercent="50%"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="21%">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/verificationCode"
+            android:hint="Verification code" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/confirmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="Confirm"
+        android:textSize="20dp"
+        app:layout_marginTopPercent="36%"/>
+
+    <!--<TextView
+        android:id="@+id/errorCode"
+        app:layout_widthPercent="90%"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/blackFont"
+        app:layout_marginLeftPercent="1%"
+        app:layout_marginTopPercent="50%"/>-->
+
+</android.support.percent.PercentRelativeLayout>

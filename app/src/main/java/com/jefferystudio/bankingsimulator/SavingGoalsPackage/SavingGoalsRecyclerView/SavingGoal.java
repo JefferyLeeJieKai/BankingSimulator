@@ -9,9 +9,11 @@ public class SavingGoal {
     private String goalName;
     private String itemCost;
     private String currentValue;
+    private String deadline;
+    private String priority;
 
     public SavingGoal(String userID, String username, String currentBalance, String goalID,
-                      String goalName, String itemCost, String currentValue) {
+                      String goalName, String itemCost, String currentValue, String deadline, String priority) {
 
         this.userID = userID;
         this.username = username;
@@ -20,6 +22,8 @@ public class SavingGoal {
         this.goalName = goalName;
         this.itemCost = itemCost;
         this.currentValue = currentValue;
+        this.deadline = deadline;
+        this.priority = priority;
     }
 
     public String getUserID() {
@@ -55,5 +59,15 @@ public class SavingGoal {
     public String getCurrentValue() {
 
         return currentValue;
+    }
+
+    public String getDeadline() {
+
+        return deadline;
+    }
+
+    public String getPriority() {
+
+        return priority;
     }
 }

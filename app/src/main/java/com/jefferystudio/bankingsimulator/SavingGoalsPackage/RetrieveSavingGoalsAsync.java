@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView.SavingGoalsRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView.SavingGoal;
@@ -80,17 +81,18 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
     @Override
     protected void onPostExecute(String result) {
 
-        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         ArrayList<SavingGoal> savingGoals = new ArrayList<>();
 
         String[] resultArray = result.split(",");
-        int numberOfResults = resultArray.length / 4;
+        int numberOfResults = resultArray.length / 6;
 
         for(int i = 0; i < numberOfResults; i++) {
 
-            SavingGoal goal = new SavingGoal(userID, username, currentBalance, resultArray[(i * 4)],
-                                             resultArray[(i * 4) + 1], resultArray[(i * 4) + 2],
-                                             resultArray[(i * 4) + 3]);
+            SavingGoal goal = new SavingGoal(userID, username, currentBalance, resultArray[(i * 6)],
+                                             resultArray[(i * 6) + 1], resultArray[(i * 6) + 2],
+                                             resultArray[(i * 6) + 3], resultArray[(i * 6) + 4],
+                                             resultArray[(i * 6) + 5]);
 
             savingGoals.add(goal);
         }

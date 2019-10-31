@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.OTP.OTPFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 
@@ -86,12 +87,12 @@ public class DepositAH extends Fragment
             }
             else{
 
-                Fragment depositConfirmFrag = new DepositConfirmUser();
+                Fragment OTPFrag = new OTPFragment();
                 args.putString("amount", input);
-                depositConfirmFrag.setArguments(args);
+                OTPFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_layout, depositConfirmFrag)
+                        .replace(R.id.frame_layout, OTPFrag)
                         .commit();
 
                 //new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);

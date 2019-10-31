@@ -71,7 +71,7 @@ public class SavingGoalsAdd extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month + 1;
-                        String strDate = day + "-" + month + "-" + year;
+                        String strDate = year + "-" + month + "-" + day;
                         etDate.setText(strDate);
                     }
                 },year,month,day);
@@ -80,9 +80,23 @@ public class SavingGoalsAdd extends Fragment {
         });
 
         priority = view.findViewById(R.id.priority);
-        for(int i = 5; i <= 1; i--) {
+        list = new ArrayList<>();
+        for(int i = 5; i >= 1; i--) {
 
-            list.add(String.valueOf(i));
+            if(i == 5) {
+
+                String entry = i + " (Highest priority)";
+                list.add(entry);
+            }
+            else if(i == 1) {
+
+                String entry = i + " (Lowest priority)";
+                list.add(entry);
+            }
+            else {
+
+                list.add(String.valueOf(i));
+            }
         }
         ArrayAdapter<String> priorityAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
         priorityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -102,7 +116,7 @@ public class SavingGoalsAdd extends Fragment {
 
                 if(Validation.validateAmount(inputAmount, savingGoalAmount)) {
 
-                    new SettingsGoalsAsync(getActivity(), "NewSavingGoal").execute(currentID, inputName, inputAmount);
+                    new SettingsGoalsAsync(getActivity(), "NewSavingGoal").execute(currentID, inputName, inputAmount, inputDate, inputPriority);
                 }
             }
         });

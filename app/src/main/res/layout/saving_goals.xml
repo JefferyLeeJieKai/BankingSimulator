@@ -138,7 +138,7 @@
         android:layout_marginLeft="120dp"
         android:layout_marginTop="430dp"
         android:clickable="true"
-        android:inputType="none"
+        android:focusable="false"
         android:id="@+id/date"
         android:hint="Select Date" />
 

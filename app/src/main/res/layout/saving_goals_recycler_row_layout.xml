@@ -15,14 +15,21 @@
         android:layout_weight="1"
         />
 
+    <TextView
+        android:id="@+id/daysLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        />
+
     <Button
         android:id="@+id/editSavingGoal"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         />
 
 </LinearLayout>

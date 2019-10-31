@@ -1,6 +1,7 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -14,13 +15,17 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingGoalsRecyclerViewAdaptor.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView savingGoal;
+        public TextView daysLeft;
         public Button editButton;
 
         public ViewHolder(View itemView) {
@@ -28,6 +33,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
             super(itemView);
 
             savingGoal = itemView.findViewById(R.id.savingGoalItem);
+            daysLeft = itemView.findViewById(R.id.daysLeft);
             editButton = itemView.findViewById(R.id.editSavingGoal);
         }
     }
@@ -61,8 +67,39 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
         final SavingGoal savingGoal = savingGoals.get(position);
 
         // Set item views based on your views and data model
-        TextView textView = viewHolder.savingGoal;
-        textView.setText(savingGoal.getGoalName());
+        TextView textView1 = viewHolder.savingGoal;
+        textView1.setText(savingGoal.getGoalName());
+
+        TextView textView2 = viewHolder.daysLeft;
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+
+            Date date1 = myFormat.parse(savingGoal.getDeadline());
+            Date date2 = new Date();
+            long diff = date1.getTime() - date2.getTime();
+            long daysLeft = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+
+            if(daysLeft >= 32) {
+
+                textView2.setTextColor(Color.parseColor("#33cc33"));
+                textView2.setText("Days left: " + daysLeft);
+            }
+            else if (daysLeft >= 15 && daysLeft <= 31) {
+
+                textView2.setTextColor(Color.parseColor("#ff751a"));
+                textView2.setText("Days left: " + daysLeft);
+            }
+            else{
+
+                textView2.setTextColor(Color.parseColor("#ff0000"));
+                textView2.setText("Days left: " + daysLeft);
+            }
+        }
+        catch(Exception e) {
+
+        }
+
         Button button = viewHolder.editButton;
         button.setText("Edit");
 
@@ -78,6 +115,8 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 args.putString("goalID", savingGoal.getGoalID());
                 args.putString("goalName", savingGoal.getGoalName());
                 args.putString("itemCost", savingGoal.getItemCost());
+                args.putString("deadline", savingGoal.getDeadline());
+                args.putString("priority", savingGoal.getPriority());
 
                 Fragment editGoalFrag = new SavingGoalsEdit();
                 editGoalFrag.setArguments(args);

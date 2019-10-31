@@ -45,6 +45,7 @@ public class HomeScreenUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen_user);
         args = getIntent().getExtras();
+        args.putString("accountType", "AccountHolder");
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
 

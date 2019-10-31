@@ -47,6 +47,7 @@ public class HomeScreenBanker extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen_banker);
         args = getIntent().getExtras();
+        args.putString("accountType", "Banker");
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
 
