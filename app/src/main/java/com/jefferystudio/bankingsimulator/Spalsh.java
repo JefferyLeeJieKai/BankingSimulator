@@ -7,6 +7,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,7 +28,7 @@ public class Spalsh extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(Spalsh.this, MainActivity.class);
+                Intent intent = new Intent(Spalsh.this, PreLogin.class);
                 startActivity(intent);
                 finish();
             }

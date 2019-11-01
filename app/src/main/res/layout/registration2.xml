@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -89,32 +90,34 @@
         android:textColor="#000000"
         android:textSize="24sp" />
 
+    <RadioGroup
+        android:id="@+id/radioGroupGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="400dp">
 
         <RadioButton
             android:id="@+id/radioMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="400dp"
-            android:checked="true"
             android:text="@string/radio_male" />
 
         <RadioButton
             android:id="@+id/radioFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="400dp"
             android:text="@string/radio_female" />
-
+    </RadioGroup>
 
     <TextView
         android:id="@+id/datecreated"
-        android:layout_width="167dp"
+        android:layout_width="155dp"
         android:layout_height="51dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="460dp"
-        android:text="Date Created:"
+        android:text="Date of Birth:"
         android:textColor="#000000"
         android:textSize="24sp" />
 
@@ -157,10 +160,10 @@
         android:layout_marginTop="334dp"
         android:hint="Password"
         android:textColorHint="#000000"
-        android:inputType="textPassword"
-        />
+        android:inputType="textPassword"/>
+        //app:passwordToggleEnabled="true"/>
 
-    <TextView
+    <EditText
         android:id="@+id/dateview"
         android:layout_width="217dp"
         android:layout_height="41dp"
@@ -168,9 +171,27 @@
         android:hint="Date"
         android:ems="10"
         android:textColorHint="#000000"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="467dp" />
+        android:layout_marginLeft="175dp"
+        android:layout_marginTop="460dp" />
 
+    <TextView
+        android:id="@+id/identitytypetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Identity Type:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:layout_marginTop="517dp"
+        android:layout_marginLeft="20dp" />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/identitytype"
+        android:layout_width="198dp"
+        android:layout_height="45dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="513dp"
+        android:entries="@array/it" />
 
 </RelativeLayout>
 

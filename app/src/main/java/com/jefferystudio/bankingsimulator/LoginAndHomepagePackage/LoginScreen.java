@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.registration2;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;

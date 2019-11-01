@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.LoginScreen;
+import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Registration.registration2;
+import com.jefferystudio.bankingsimulator.registration1;
 
-public class MainActivity extends AppCompatActivity {
+public class PreLogin extends AppCompatActivity {
 
     private ImageButton buttonlogin;
     private ImageButton buttonsignup;
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void registration1(){
-        Intent intent = new Intent(getApplicationContext(), registration1.class);
+        Intent intent = new Intent(getApplicationContext(), registration2.class);
         startActivity(intent);
         finish();
     }

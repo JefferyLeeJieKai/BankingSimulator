@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.jefferystudio.bankingsimulator.MainActivity;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.util.Timer;
@@ -22,7 +21,7 @@ public class launchpage extends Activity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(launchpage.this, MainActivity.class);
+                Intent intent = new Intent(launchpage.this, PreLogin.class);
                 startActivity(intent);
                 finish();
             }
