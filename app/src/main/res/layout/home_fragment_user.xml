@@ -99,7 +99,7 @@
         android:scaleType="fitCenter"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="490dp"
-        android:background="@null"
+        android:background="@drawable/withdraw"
      />
 
     <ImageButton
@@ -110,7 +110,7 @@
         android:layout_marginLeft="290dp"
         android:layout_marginTop="490dp"
         android:background="@null"
-        app:srcCompat="@drawable/settings" />
+        app:srcCompat="@drawable/quizz" />
 
     <TextView
         android:id="@+id/textView4"

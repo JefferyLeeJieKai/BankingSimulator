@@ -11,11 +11,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CREATE ACCOUNT"
+        android:text="EDIT ACCOUNT"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000000"
         android:textSize="32dp"
-        android:layout_marginLeft="55dp"
+        android:layout_marginLeft="80dp"
         android:fontFamily="@font/titan_one"
         android:layout_marginTop="30dp" />
 
@@ -28,18 +28,22 @@
         android:textColor="#000000"
         android:text="Name:" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/nameTxt"
-        android:layout_width="210dp"
+    <TextView
+        android:id="@+id/nameLbl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="120dp">
+        android:layout_marginTop="145dp"
+        android:textColor="#000000" />
 
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name" />
-    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:id="@+id/editNameBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="145dp" />
 
     //get date of birth
     <TextView
@@ -50,13 +54,22 @@
         android:textColor="#000000"
         android:text="Date Of Birth:" />
 
-    <EditText
-        android:id="@+id/DOB"
-        android:layout_width="210dp"
+    <TextView
+        android:id="@+id/DOBLbl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="210dp"
-        android:hint="Select Date" />
+        android:layout_marginTop="220dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/editDOBBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="220dp" />
 
     //get phone
     <TextView
@@ -67,18 +80,22 @@
         android:textColor="#000000"
         android:text="Phone:" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/phoneTxt"
-        android:layout_width="210dp"
+    <TextView
+        android:id="@+id/phoneLbl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="290dp">
+        android:layout_marginTop="315dp"
+        android:textColor="#000000" />
 
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone Number" />
-    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:id="@+id/editPhoneBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="315dp" />
 
     //get username
     <TextView
@@ -89,18 +106,22 @@
         android:textColor="#000000"
         android:text="Username:" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/usernameTxt"
-        android:layout_width="210dp"
+    <TextView
+        android:id="@+id/usernameLbl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="380dp">
+        android:layout_marginTop="400dp"
+        android:textColor="#000000" />
 
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username" />
-    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:id="@+id/editUsernameBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="400dp" />
 
     //get password
     <TextView
@@ -111,18 +132,22 @@
         android:textColor="#000000"
         android:text="Password:" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/passTxt"
-        android:layout_width="210dp"
+    <TextView
+        android:id="@+id/passLbl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="470dp">
+        android:layout_marginTop="490dp"
+        android:textColor="#000000" />
 
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password" />
-    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:id="@+id/editPassBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="490dp" />
 
     //get gender
     <TextView
@@ -133,32 +158,32 @@
         android:textColor="#000000"
         android:text="Gender:" />
 
-    <RadioButton
-        android:id="@+id/radioMale"
+    <TextView
+        android:id="@+id/genderLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="565dp"
-        android:checked="true"
-        android:text="@string/radio_male" />
+        android:layout_marginTop="570dp"
+        android:textColor="#000000" />
 
-    <RadioButton
-        android:id="@+id/radioFemale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="565dp"
-        android:text="@string/radio_female" />
+    <Button
+        android:id="@+id/editGenderBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="570dp" />
 
     //display buttons
     <Button
-        android:id="@+id/submitBtn"
+        android:id="@+id/confirmBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="630dp"
         android:background="@drawable/buttonshadow"
-        android:text="SUBMIT" />
+        android:text="CONFIRM" />
 
     <Button
         android:id="@+id/cancelBtn"
