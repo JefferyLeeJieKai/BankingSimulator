@@ -1,15 +1,18 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
@@ -27,6 +30,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
         public TextView savingGoal;
         public TextView daysLeft;
         public Button editButton;
+        public Button deleteButton;
 
         public ViewHolder(View itemView) {
 
@@ -35,6 +39,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
             savingGoal = itemView.findViewById(R.id.savingGoalItem);
             daysLeft = itemView.findViewById(R.id.daysLeft);
             editButton = itemView.findViewById(R.id.editSavingGoal);
+            deleteButton = itemView.findViewById(R.id.deleteSavingGoal);
         }
     }
 
@@ -124,6 +129,52 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, editGoalFrag)
                         .commit();
+            }
+        });
+
+        //delete button
+        Button deleteBtn = viewHolder.deleteButton;
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String msg = "Are you sure you want to delete '" + savingGoal.getGoalName() + "' ?";
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setTitle("Warning!");
+                builder.setMessage(msg);
+
+                //yes button selected
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        //delete saving goal from database
+
+
+
+                        //testing
+                        Toast.makeText(context,
+                                "DELETED",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                //no button selected
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        dialogInterface.cancel();
+                    }
+                });
+
+                AlertDialog ad = builder.create();
+                ad.show();
             }
         });
     }
