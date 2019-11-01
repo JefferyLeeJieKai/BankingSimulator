@@ -47,7 +47,7 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
 
         try {
 
-            String link = "http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/getSavingGoals.php";
+            String link = "http://www.kidzsmart.tk/databaseAccess/getSavingGoals.php";
             String data = URLEncoder.encode("userid", "UTF-8") + "=" +
                           URLEncoder.encode(userID, "UTF-8");
 

@@ -41,7 +41,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         String password = args[1];
 
         try{
-            String link="http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/loginVerification.php";
+            String link="http://www.kidzsmart.tk/databaseAccess/loginVerification.php";
             String data  = URLEncoder.encode("username", "UTF-8") + "=" +
                     URLEncoder.encode(username, "UTF-8");
             data += "&" + URLEncoder.encode("password", "UTF-8") + "=" +

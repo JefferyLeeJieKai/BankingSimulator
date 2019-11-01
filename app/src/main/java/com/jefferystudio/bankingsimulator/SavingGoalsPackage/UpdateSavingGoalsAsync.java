@@ -49,7 +49,7 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
 
         try {
 
-            link = "http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/updateSavingGoals.php";
+            link = "http://www.kidzsmart.tk/databaseAccess/updateSavingGoals.php";
 
             data = URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
