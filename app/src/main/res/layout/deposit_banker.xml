@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5"
+    >
 
     <android.support.v4.widget.DrawerLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -46,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="120dp"
+        android:textColor="#000000"
         android:text="Please provide deposit details:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -56,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="180dp"
+        android:textColor="#000000"
         android:text="Account Holder:" />
 
     <android.support.design.widget.TextInputLayout
@@ -63,6 +67,7 @@
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
+        android:textColor="#000000"
         android:layout_marginTop="200dp">
 
         <android.support.design.widget.TextInputEditText
@@ -77,12 +82,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="310dp"
+        android:textColor="#000000"
         android:text="Account Number:" />
 
     <Spinner
         android:id="@+id/accountDDL"
         android:layout_width="325dp"
         android:layout_height="35dp"
+        android:textColor="#000000"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="340dp" />
 
@@ -92,6 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="410dp"
+        android:textColor="#000000"
         android:text="Amount:" />
 
     <TextView
@@ -100,12 +108,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="455dp"
+        android:textColor="#000000"
         android:text="currency" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:textColor="#000000"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="430dp">
 

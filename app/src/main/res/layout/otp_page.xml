@@ -2,13 +2,16 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg10"
+    >
 
     <TextView
         app:layout_widthPercent="80%"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="OTP Verification"
+        android:fontFamily="@font/titan_one"
         android:textSize="30dp"
         android:textColor="@color/blackFont"
         app:layout_marginTopPercent="5%" />
@@ -42,8 +45,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
+        android:fontFamily="@font/titan_one"
         android:text="Confirm"
         android:textSize="20dp"
+        android:background="@drawable/buttonshadow"
         app:layout_marginTopPercent="36%"/>
 
     <!--<TextView
