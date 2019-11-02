@@ -9,77 +9,77 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ALL SAVING GOALS"
-        android:textColor="#000000"
+        android:layout_marginLeft="105dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/titan_one"
-        android:textSize="25dp"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="10dp" />
+        android:text="TRANSACTIONS"
+        android:textColor="#000000"
+        android:textSize="25dp" />
 
     //display account holder's profile
     <View
         android:layout_width="280dp"
-        android:layout_height="110dp"
+        android:layout_height="145dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="60dp" />
+        android:layout_marginTop="115dp"
+        android:background="@drawable/emptyrect" />
 
     <ImageView
         android:id="@+id/ahAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="130dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/usernameLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="90dp"
-        android:text="auto generate username" />
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="140dp"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/balanceLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="125dp"
-        android:text="auto generate balance" />
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="200dp"
+        android:textSize="20dp" />
 
-    //display all saving goals
+    //display all transactions
     <android.support.v7.widget.RecyclerView
         android:id="@+id/transactionsDetailsRv"
         android:layout_width="338dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="275dp" />
+        android:layout_marginTop="360dp" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
         android:layout_marginLeft="30dp"
-        android:textColor="#000000"
-        android:text="Description" />
+        android:layout_marginTop="300dp"
+        android:text="Description"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/Amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
         android:layout_marginLeft="220dp"
-        android:textColor="#000000"
-        android:text="Amount" />
+        android:layout_marginTop="300dp"
+        android:text="Amount"
+        android:textColor="#000000" />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="0.5dp"
+        android:layout_marginTop="335dp"
         android:background="#000000"
-        android:paddingBottom="10dip"
-        android:layout_marginTop="260dp"
-        />
+        android:paddingBottom="10dip" />
 
 
 </android.support.percent.PercentRelativeLayout>

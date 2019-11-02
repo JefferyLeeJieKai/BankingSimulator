@@ -43,35 +43,36 @@
         android:layout_marginLeft="68dp" />
 
     //display account holder's profile
-    <!--<View
+    <View
         android:layout_width="280dp"
-        android:layout_height="110dp"
+        android:layout_height="145dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp" />-->
+        android:layout_marginTop="115dp"
+        android:background="@drawable/emptyrect" />
 
     <ImageView
         android:id="@+id/ahAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="130dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/usernameLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="180dp"
-        android:textSize="15dp" />
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="140dp"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/balanceLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="215dp"
-        android:textSize="15dp" />
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="200dp"
+        android:textSize="20dp" />
 
     //user input starting from here
     //get account number
