@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:datePickerStyle">@style/spinnerDatePickerStyle</item>
     </style>
 
     <!-- Login hint theme -->
@@ -24,5 +25,7 @@
     <style name="profilepage" parent="Theme.AppCompat.Light.DarkActionBar">
     </style>
 
-
+    <style name="spinnerDatePickerStyle" parent="android:Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+    </style>
 </resources>

@@ -112,16 +112,23 @@ public class registration2 extends AppCompatActivity {
         String email = emailBox.getText().toString().trim();
         String username = usernameBox.getText().toString().trim();
 
+        ArrayList<String> errorList = new ArrayList<>();
+
         if (!email.matches("") && !username.matches("")) {
 
-            try {
-                verifyResult = new verifyRegistrationAsync(this).execute(username, email).get(5000, TimeUnit.MILLISECONDS);
-            } catch (Exception e) {
+            if(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
+                try {
+                    verifyResult = new verifyRegistrationAsync(this).execute(username, email).get(5000, TimeUnit.MILLISECONDS);
+                } catch (Exception e) {
+
+                }
+            }
+            else {
+
+                errorList.add("Please enter a valid email address.");
             }
         }
-
-        ArrayList<String> errorList = new ArrayList<>();
 
         String name = nameBox.getText().toString().trim();
         String password = passwordBox.getText().toString().trim();
@@ -139,20 +146,20 @@ public class registration2 extends AppCompatActivity {
                 errorList.add("Please enter a password with at least 8 characters, a digit and a special character.");
             }
             //Toast.makeText(this, verifyResult, Toast.LENGTH_LONG).show();
-            String[] verifyResultArray = verifyResult.split(",");
+            if(verifyResult != null) {
+                String[] verifyResultArray = verifyResult.split(",");
 
-            if(verifyResultArray[0].equals("True") && verifyResultArray[1].equals("True")) {
+                if (verifyResultArray[0].equals("True") && verifyResultArray[1].equals("True")) {
 
-                errorList.add("Username already exists.");
-                errorList.add("Email is already used.");
-            }
-            else if(verifyResultArray[1].equals("True")) {
+                    errorList.add("Username already exists.");
+                    errorList.add("Email is already used.");
+                } else if (verifyResultArray[1].equals("True")) {
 
-                errorList.add("Email is already used.");
-            }
-            else if(verifyResultArray[0].equals("True")) {
+                    errorList.add("Email is already used.");
+                } else if (verifyResultArray[0].equals("True")) {
 
-                errorList.add("Username already exists.");
+                    errorList.add("Username already exists.");
+                }
             }
         }
         else {
