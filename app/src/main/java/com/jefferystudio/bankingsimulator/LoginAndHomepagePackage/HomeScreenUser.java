@@ -23,6 +23,7 @@ import com.jefferystudio.bankingsimulator.Quiz.QuizActivity;
 import com.jefferystudio.bankingsimulator.Quiz.StartQuiz;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAddAmount;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
@@ -124,6 +125,12 @@ public class HomeScreenUser extends AppCompatActivity {
                 else if(item.getItemId() == R.id.Quizzes) {
 
                     fragment = new StartQuiz();
+                    fragment.setArguments(args);
+                }
+
+                else if (item.getItemId() == R.id.addSavingGoalsAmount)
+                {
+                    fragment = new SavingGoalsAddAmount();
                     fragment.setArguments(args);
                 }
 

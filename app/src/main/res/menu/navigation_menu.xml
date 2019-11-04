@@ -43,6 +43,11 @@
             android:title="Quizzes">
         </item>
 
+        <item
+            android:id="@+id/addSavingGoalsAmount"
+            android:title="Add Amount To Goal">
+        </item>
+
     </group>
 
 </menu>

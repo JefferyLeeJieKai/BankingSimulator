@@ -40,22 +40,4 @@
         android:paddingRight="16dp"
         android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@drawable/mode_edit"
-        android:backgroundTint="#A9A9A9"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp" />
-
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@drawable/ic_delete_black_24dp"
-        android:backgroundTint="#A9A9A9"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp" />
-
 </LinearLayout>

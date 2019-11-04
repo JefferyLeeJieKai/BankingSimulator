@@ -9,6 +9,16 @@
     android:layout_height="match_parent">
 
 
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:background="@drawable/emptyrect"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="273dp"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="280dp"
         android:layout_marginLeft="135dp"
+        android:textColor="#000000"
         android:textSize="18dp"/>
 
     <TextView
@@ -41,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="320dp"
         android:layout_marginLeft="165dp"
+        android:textColor="#000000"
         android:textSize="18dp"/>
 
     <View
@@ -128,5 +140,7 @@
         android:textColor="#000000"
         android:textColorHighlight="#0E1010"
         android:textSize="30sp" />
+
+
 
 </android.support.percent.PercentRelativeLayout>
