@@ -36,45 +36,61 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="220dp"
         android:textColor="#000000"
-        android:text="Deposit To:" />
+        android:text="Deposit" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="240dp"
+        android:textColor="#000000"
+        android:text="To:" />
+
 
     //display account holder's profile
     <View
         android:layout_width="265dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="115dp"
-        android:layout_marginTop="180dp" />
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/emptyrect" />
 
-    <ImageView
-        android:id="@+id/ahAvatar"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilephoto"
         android:layout_width="87dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="115dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="180dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/accountcircle"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="0dp"
+        />
 
     <TextView
         android:id="@+id/usernameLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="210dp"
         android:textColor="#000000"
-        android:layout_marginLeft="215dp"
-        android:layout_marginTop="200dp" />
+        android:layout_marginTop="200dp"
+        android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/accountLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="210dp"
         android:textColor="#000000"
-        android:layout_marginLeft="215dp"
-        android:layout_marginTop="245dp" />
+        android:layout_marginTop="245dp"
+        android:textSize="20dp"/>
 
     //display amount
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="330dp"
         android:textColor="#000000"
         android:text="Amount:" />
 
@@ -84,7 +100,7 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:layout_marginLeft="115dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="330dp"
         android:text="SGD" />
 
     <TextView
@@ -93,7 +109,7 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="310dp" />
+        android:layout_marginTop="330dp" />
 
     //display date
     <TextView
@@ -101,7 +117,7 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="390dp"
         android:text="Date:" />
 
     <TextView
@@ -110,7 +126,7 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:layout_marginLeft="115dp"
-        android:layout_marginTop="350dp" />
+        android:layout_marginTop="390dp" />
 
     //display buttons
     <Button
