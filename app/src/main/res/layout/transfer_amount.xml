@@ -46,6 +46,15 @@
             android:hint="Payee AccNo. / Username" />
     </android.support.design.widget.TextInputLayout>
 
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/ic_arrow_forward_black_24dp"
+        android:backgroundTint="#000000"
+        />
+
     //display payer's information
 
     <de.hdodenhof.circleimageview.CircleImageView
