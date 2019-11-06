@@ -13,10 +13,11 @@
         android:layout_height="wrap_content"
         android:text="ALL SAVING GOALS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/navHeaderText"
-        android:textSize="25dp"
-        android:layout_marginLeft="95dp"
-        android:layout_marginTop="10dp" />
+        android:textColor="#000000"
+        android:fontFamily="@font/titan_one"
+        android:textSize="32dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"/>
 
     //display account holder's profile
     <View

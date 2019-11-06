@@ -180,8 +180,8 @@
         android:id="@+id/confirmBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="630dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="625dp"
         android:background="@drawable/buttonshadow"
         android:text="CONFIRM" />
 
@@ -189,8 +189,8 @@
         android:id="@+id/cancelBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="630dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="625dp"
         android:background="@drawable/buttonshadow"
         android:text="CANCEL" />
 

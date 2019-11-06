@@ -167,8 +167,8 @@
         android:id="@+id/nextBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="610dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="620dp"
         android:background="@drawable/buttonshadow"
         android:text="Next" />
 

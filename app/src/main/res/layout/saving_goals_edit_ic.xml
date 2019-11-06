@@ -110,8 +110,8 @@
         android:id="@+id/confirmBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="560dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="600dp"
         android:background="@drawable/buttonshadow"
         android:text="Confirm" />
 
@@ -119,8 +119,8 @@
         android:id="@+id/cancelBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="560dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="600dp"
         android:background="@drawable/buttonshadow"
         android:text="Cancel" />
 
