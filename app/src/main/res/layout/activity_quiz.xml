@@ -36,16 +36,19 @@
         android:layout_below="@id/text_quiz_header"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
-        android:text="00:30"
+        android:text="30"
         android:textColor="@android:color/black"
         android:textSize="40sp" />
 
     <TextView
         android:id="@+id/text_view_question"
-        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_above="@id/radio_group"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="11dp"
         android:text="Question......."
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -56,7 +59,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp">
+        android:textSize="15sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp">
 
         <RadioButton
             android:id="@+id/radio_button1"
