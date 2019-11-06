@@ -67,7 +67,9 @@ public class SavingGoalsAddAmount extends Fragment {
 
     public int calculation(double savingAmount, double existAmount)
     {
-        int percent = (int) Math.round((existAmount / savingAmount) * 100);
+        double result = (existAmount / savingAmount) * 100;
+        
+        int percent = (int)result;
 
         return percent;
     }
