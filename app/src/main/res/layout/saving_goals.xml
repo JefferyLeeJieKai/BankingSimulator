@@ -28,19 +28,22 @@
         android:layout_marginTop="105dp"
         android:background="@drawable/emptyrect" />
 
-    <ImageView
-        android:id="@+id/ahAvatar"
-        android:layout_width="87dp"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilephoto"
+        android:layout_width="110dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="120dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/accountcircle"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="0dp"
+        />
 
     <TextView
         android:id="@+id/usernameLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="130dp"
         android:textSize="20dp" />
@@ -49,7 +52,6 @@
         android:id="@+id/balanceLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="190dp"
         android:textSize="20dp" />
