@@ -106,13 +106,16 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         //Toast.makeText(activity, result, Toast.LENGTH_LONG).show();
-        if(result.equals("Success")) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("Success")) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
             builder.setTitle("DigiBank Alert");
-            builder.setMessage("Account created successfully. A confirmation email will be send to your email shortly");
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            builder.setMessage("Account created successfully.\nA confirmation email will be send to your email shortly.");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
