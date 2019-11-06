@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <include
+        layout="@layout/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/text_quiz_header"
@@ -12,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Banking Quiz"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="90dp"
