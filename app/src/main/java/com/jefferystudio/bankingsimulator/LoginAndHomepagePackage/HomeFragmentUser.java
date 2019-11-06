@@ -12,16 +12,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
-import com.jefferystudio.bankingsimulator.Quiz.StartQuiz;
-import com.jefferystudio.bankingsimulator.Quiz.quizhomepage;
+import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.goalspage;
-import com.jefferystudio.bankingsimulator.profilepage;
-import com.jefferystudio.bankingsimulator.transferamount;
-import com.jefferystudio.bankingsimulator.transferpayee;
 
 public class HomeFragmentUser extends Fragment {
 
@@ -92,7 +88,7 @@ public class HomeFragmentUser extends Fragment {
         btnquiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), quizhomepage.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), quizhome.class);
                 startActivity(intent);
 
             }

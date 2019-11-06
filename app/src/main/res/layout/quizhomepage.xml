@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/transfer" />
 
     <ImageButton
-        android:id="@+id/viewquizhistory"
+        android:id="@+id/viewquiz"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:scaleType="fitCenter"
