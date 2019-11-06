@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Quiz.StartQuiz;
+import com.jefferystudio.bankingsimulator.Quiz.quizhomepage;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
@@ -31,7 +32,7 @@ public class HomeFragmentUser extends Fragment {
     private String currentID;
     private ImageButton btnsavings;
     private ImageButton btntransfer;
-    private ImageButton btnsettings;
+    private ImageButton btnquiz;
     private ImageButton btnviewtransaction;
     private ImageButton btnwithdraw;
 
@@ -53,7 +54,7 @@ public class HomeFragmentUser extends Fragment {
 
         btnsavings = view.findViewById(R.id.savings);
         btntransfer = view.findViewById(R.id.transferfunds);
-        btnsettings = view.findViewById(R.id.settings);
+        btnquiz = view.findViewById(R.id.quiz);
         btnviewtransaction = view.findViewById(R.id.viewtransaction);
         btnwithdraw = view.findViewById(R.id.withdraw);
 
@@ -88,10 +89,10 @@ public class HomeFragmentUser extends Fragment {
             }
         });
 
-        btnsettings.setOnClickListener(new View.OnClickListener() {
+        btnquiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), StartQuiz.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), quizhomepage.class);
                 startActivity(intent);
 
             }

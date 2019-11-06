@@ -115,7 +115,7 @@
      />
 
     <ImageButton
-        android:id="@+id/settings"
+        android:id="@+id/quiz"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:scaleType="fitCenter"

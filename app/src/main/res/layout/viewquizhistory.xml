@@ -12,10 +12,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/titan_one"
-        android:text="TRANSACTIONS"
+        android:text="QUIZ RESULT HISTORY"
         android:textColor="#000000"
         android:textSize="32dp" />
 
@@ -59,28 +59,28 @@
 
     //display all transactions
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/transactionsDetailsRv"
+        android:id="@+id/quizResultDetailsRv"
         android:layout_width="338dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="360dp" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/descriptionquiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="300dp"
-        android:text="Description"
+        android:text="Quiz"
         android:textColor="#000000" />
 
     <TextView
-        android:id="@+id/Amount"
+        android:id="@+id/quizresult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
         android:layout_marginTop="300dp"
-        android:text="Amount"
+        android:text="Result"
         android:textColor="#000000" />
 
     <View
