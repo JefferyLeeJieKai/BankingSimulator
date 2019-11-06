@@ -61,6 +61,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 }
 
     private void addQuestion(Question question) {
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(QuestionsTable.COLUMN_QUESTION, question.getQuestion());
         cv.put(QuestionsTable.COLUMN_OPTION1, question.getOption1());

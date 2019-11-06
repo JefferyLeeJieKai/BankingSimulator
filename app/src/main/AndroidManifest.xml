@@ -81,6 +81,11 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
+            android:name=".Quiz.QuizActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
             android:name=".ViewTransactionsPackage.ViewTransactions"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
