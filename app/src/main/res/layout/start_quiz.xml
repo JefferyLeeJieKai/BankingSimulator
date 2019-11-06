@@ -19,12 +19,25 @@
         android:fontFamily="@font/titan_one"
         android:text="HighScore: 0" />
 
+    <TextView
+        android:id="@+id/CurrScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/HighScore"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:textSize="26dp"
+        android:fontFamily="@font/titan_one"
+        android:text="" />
+
     <Button
         android:id="@+id/button_start_quiz"
         android:layout_width="127dp"
         android:layout_height="62dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/CurrScore"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/buttonshadow"
         android:text="Start Quiz" />
 

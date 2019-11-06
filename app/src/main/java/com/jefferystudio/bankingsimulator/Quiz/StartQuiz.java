@@ -17,6 +17,7 @@ public class StartQuiz extends AppCompatActivity {
     public static final String KEY_HIGHSCORE = "keyHighscore";
 
     private TextView textViewHighscore;
+    private TextView textViewCurrScore;
     private int highscore;
     private Button btnstartquiz;
 
@@ -27,6 +28,7 @@ public class StartQuiz extends AppCompatActivity {
         setContentView(R.layout.start_quiz);
 
         textViewHighscore = findViewById(R.id.HighScore);
+        textViewCurrScore = findViewById(R.id.CurrScore);
         loadHighscore();
 
         btnstartquiz = findViewById(R.id.button_start_quiz);
@@ -53,11 +55,16 @@ public class StartQuiz extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_QUIZ) {
             if (resultCode == RESULT_OK) {
                 int score = data.getIntExtra(QuizActivity.EXTRA_SCORE, 0);
+                showScore(score);
                 if (score > highscore) {
                     updateHighscore(score);
                 }
             }
         }
+    }
+
+    private void showScore(int currscore) {
+        textViewCurrScore.setText("Your score: " + currscore);
     }
 
     private void loadHighscore() {
