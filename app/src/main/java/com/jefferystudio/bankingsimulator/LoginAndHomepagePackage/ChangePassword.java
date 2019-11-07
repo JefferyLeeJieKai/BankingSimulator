@@ -38,6 +38,8 @@ public class ChangePassword extends Fragment {
             @Override
             public void onClick(View view) {
 
+                newPasswordField.setError(null);
+                oldPasswordField.setError(null);
                 new CredentialsResetAsync(getActivity(), "ChangePassword", args.getString("accountType"), oldPasswordField,
                                           newPasswordField, confirmPasswordField).execute(args.getString("userID"));
             }
