@@ -33,6 +33,26 @@
             android:title="Issue notes">
         </item>
 
+        <item
+            android:id="@+id/createclass"
+            android:title="Create Class">
+        </item>
+
+        <item
+            android:id="@+id/editclass"
+            android:title="Edit Class">
+        </item>
+
+        <item
+            android:id="@+id/deleteclass"
+            android:title="Delete Class">
+        </item>
+
+        <item
+            android:id="@+id/settings"
+            android:title="Settings">
+        </item>
+
     </group>
 
 </menu>
