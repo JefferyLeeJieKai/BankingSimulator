@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
 
@@ -55,9 +56,9 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
 
         if(flag.equals("ChangePassword")) {
 
-            String oldPassword = oldPasswordField.getEditText().toString().trim();
-            String newPassword = newPasswordField.getEditText().toString().trim();
-            String confirmPassword = confirmPasswordField.getEditText().toString().trim();
+            String oldPassword = oldPasswordField.getEditText().getText().toString().trim();
+            String newPassword = newPasswordField.getEditText().getText().toString().trim();
+            String confirmPassword = confirmPasswordField.getEditText().getText().toString().trim();
 
             try {
 
@@ -123,6 +124,7 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         if(!passwordsMatch) {
 
             newPasswordField.setError("Password do not match");
