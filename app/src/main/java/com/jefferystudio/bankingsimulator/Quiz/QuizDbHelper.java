@@ -47,18 +47,27 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable() {
-
-        Question q1 = new Question("A is correct", "A", "B", "C", 1);
+        Question q1 = new Question("What is the term for a person that owns 1,000,000 in currency?", "Millionaire", "Billionaire ", "Trillionaire", 1);
         addQuestion(q1);
-        Question q2 = new Question("B is correct", "A", "B", "C", 2);
+        Question q2 = new Question("What do we use to purchase items from a shop?", "Credit card, Coins and Banknotes, Cheque", "Coins and Banknotes, Seashells", "Credit card, Coins and Banknotes, Contactless payment", 3);
         addQuestion(q2);
-        Question q3 = new Question("C is correct", "A", "B", "C", 3);
+        Question q3 = new Question("You want to save money in a bank. What does the bank open for you?", "Savings bank account", "Investment account", "A bag of sweets", 1);
         addQuestion(q3);
-        Question q4 = new Question("A is correct again", "A", "B", "C", 1);
+        Question q4 = new Question("When you exchange money for goods or services, you are _______ it.", "Earning", "Spending", "Budgeting", 2);
         addQuestion(q4);
-        Question q5 = new Question("B is correct again", "A", "B", "C", 2);
+        Question q5 = new Question("________ is a percentage of your deposit you can earn just for leaving your money in a savings account at the bank.", "Spending", "Management", "Interest", 3);
         addQuestion(q5);
-}
+        Question q6 = new Question("Which of the following would lead to a financial problem?", "Investment", "Overspending", "Saving", 2);
+        addQuestion(q6);
+        Question q7 = new Question("Budgeting helps you to ________", "Spend money", "Earn interest", "Prevent overspending", 3);
+        addQuestion(q7);
+        Question q8 = new Question("What is a benefit for having savings goal?", "Know if you achieved your target savings", "Helps prevent overspending", "Create a list of items you want to purchase", 1);
+        addQuestion(q8);
+        Question q9 = new Question("When you put money into an account in the bank, it's called a ________.", "Donation", "Deposit", "Loan", 2);
+        addQuestion(q9);
+        Question q10 = new Question("Transaction statements allows you to:", "View transactions you are going to make", "View transactions you have made", "Amend transactions that have been made", 2);
+        addQuestion(q10);
+    }
 
     private void addQuestion(Question question) {
         ContentValues cv = new ContentValues();
@@ -82,7 +91,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 question.setOption1(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION1)));
                 question.setOption2(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION2)));
                 question.setOption3(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION3)));
-                question.setAnswerNr((c.getInt(c.getColumnIndex(QuestionsTable.COLUMN_ANSWER_NR))));
+                question.setAnswerNr(c.getInt(c.getColumnIndex(QuestionsTable.COLUMN_ANSWER_NR)));
                 questionList.add(question);
             } while (c.moveToNext());
         }

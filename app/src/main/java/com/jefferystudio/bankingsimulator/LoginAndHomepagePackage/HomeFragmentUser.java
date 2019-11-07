@@ -12,11 +12,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.goalspage;
-import com.jefferystudio.bankingsimulator.profilepage;
-import com.jefferystudio.bankingsimulator.transferpayee;
 
 public class HomeFragmentUser extends Fragment {
 
@@ -27,8 +28,9 @@ public class HomeFragmentUser extends Fragment {
     private String currentID;
     private ImageButton btnsavings;
     private ImageButton btntransfer;
-    private ImageButton btnsettings;
-    private ImageButton btnviewtransfer;
+    private ImageButton btnquiz;
+    private ImageButton btnviewtransaction;
+    private ImageButton btnwithdraw;
 
 
 
@@ -48,8 +50,9 @@ public class HomeFragmentUser extends Fragment {
 
         btnsavings = view.findViewById(R.id.savings);
         btntransfer = view.findViewById(R.id.transferfunds);
-        btnsettings = view.findViewById(R.id.settings);
-        btnviewtransfer = view.findViewById(R.id.viewtransaction);
+        btnquiz = view.findViewById(R.id.quiz);
+        btnviewtransaction = view.findViewById(R.id.viewtransaction);
+        btnwithdraw = view.findViewById(R.id.withdraw);
 
 
         btnsavings.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +66,7 @@ public class HomeFragmentUser extends Fragment {
         btntransfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment transferpayees = new transferpayee();
+                Fragment transferpayees = new Transfer_Amount();
                 transferpayees.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, transferpayees);
@@ -71,16 +74,27 @@ public class HomeFragmentUser extends Fragment {
             }
         });
 
-        btnsettings.setOnClickListener(new View.OnClickListener() {
+        btnwithdraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), profilepage.class);
+                Fragment Withdrawalah = new WithdrawalAH();
+                Withdrawalah.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, Withdrawalah);
+                transaction.commit();
+            }
+        });
+
+        btnquiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getActivity().getApplicationContext(), quizhome.class);
                 startActivity(intent);
 
             }
         });
 
-        btnviewtransfer.setOnClickListener(new View.OnClickListener() {
+        btnviewtransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 Fragment viewTransactions = new ViewTransactions();

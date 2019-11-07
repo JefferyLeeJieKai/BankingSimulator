@@ -122,12 +122,6 @@ public class HomeScreenUser extends AppCompatActivity {
                     fragment.setArguments(args);
                 }
 
-                else if(item.getItemId() == R.id.Quizzes) {
-
-                    fragment = new StartQuiz();
-                    fragment.setArguments(args);
-                }
-
                 else if (item.getItemId() == R.id.addSavingGoalsAmount)
                 {
                     fragment = new SavingGoalsAddAmount();

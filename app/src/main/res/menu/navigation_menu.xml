@@ -39,11 +39,6 @@
         </item>
 
         <item
-            android:id="@+id/Quizzes"
-            android:title="Quizzes">
-        </item>
-
-        <item
             android:id="@+id/addSavingGoalsAmount"
             android:title="Add Amount To Goal">
         </item>

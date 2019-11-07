@@ -20,13 +20,17 @@
 
     //display payee's information
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/payeeAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="90dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/accountcircle"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="0dp"
+        />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/payeeLbl"
@@ -42,15 +46,28 @@
             android:hint="Payee AccNo. / Username" />
     </android.support.design.widget.TextInputLayout>
 
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/ic_arrow_forward_black_24dp"
+        android:backgroundTint="#000000"
+        />
+
     //display payer's information
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/payerAvatar"
         android:layout_width="87dp"
         android:layout_height="110dp"
         android:layout_marginLeft="265dp"
         android:layout_marginTop="90dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/accountcircle"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="0dp"
+        />
 
     <TextView
         android:id="@+id/payerLbl"
@@ -155,8 +172,8 @@
         android:id="@+id/nextBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="590dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="600dp"
         android:background="@drawable/buttonshadow"
         android:text="Next" />
 

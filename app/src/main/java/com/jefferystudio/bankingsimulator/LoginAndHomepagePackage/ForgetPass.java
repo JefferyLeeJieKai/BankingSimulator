@@ -10,6 +10,6 @@ public class ForgetPass extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.forget_password);
+        setContentView(R.layout.change_password);
     }
 }

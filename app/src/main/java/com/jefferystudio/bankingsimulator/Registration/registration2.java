@@ -66,15 +66,17 @@ public class registration2 extends AppCompatActivity {
         dobBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                final DatePickerDialog datePickerDialog = new DatePickerDialog(
                         context, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month + 1;
                         String strDate = year + "-" + month + "-" + day;
                         dobBox.setText(strDate);
+
                     }
                 },year,month,day);
+                datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 datePickerDialog.show();
             }
         });

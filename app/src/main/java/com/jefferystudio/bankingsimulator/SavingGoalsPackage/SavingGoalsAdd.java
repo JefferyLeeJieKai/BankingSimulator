@@ -75,6 +75,7 @@ public class SavingGoalsAdd extends Fragment {
                         etDate.setText(strDate);
                     }
                 },year,month,day);
+                datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 datePickerDialog.show();
             }
         });

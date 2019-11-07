@@ -57,25 +57,6 @@
         />
 
     <TextView
-        android:id="@+id/namelbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Name"
-        android:textSize="18dp"
-        android:textColor="#000000"
-        android:layout_marginTop="380dp"
-        android:layout_marginLeft="50dp"
-        />
-
-    <View
-        android:layout_width="320dp"
-        android:layout_height="2dip"
-        android:layout_marginTop="430dp"
-        android:layout_marginLeft="40dp"
-        android:background="#EEEEEE"
-        android:paddingBottom="10dip" />
-
-    <TextView
         android:id="@+id/tvAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,31 +66,12 @@
         android:layout_marginLeft="50dp"
         />
 
-    <TextView
-        android:id="@+id/aboutlbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="About"
-        android:textSize="18dp"
-        android:textColor="#000000"
-        android:layout_marginTop="490dp"
-        android:layout_marginLeft="50dp"
-        />
-
-    <View
-        android:layout_width="320dp"
-        android:layout_height="2dip"
-        android:layout_marginTop="540dp"
-        android:layout_marginLeft="40dp"
-        android:background="#EEEEEE"
-        android:paddingBottom="10dip" />
-
     <ImageView
         android:id="@+id/modeEditName"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="320dp"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="370dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#D3D3D3" />
 
@@ -118,10 +80,34 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="320dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="480dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#D3D3D3" />
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="360dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="314dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="46dp"
+            android:hint="Name" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="470dp"
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="314dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="46dp"
+            android:hint="About" />
+    </android.support.design.widget.TextInputLayout>
 
 
 </android.support.percent.PercentRelativeLayout>
