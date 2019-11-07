@@ -103,8 +103,10 @@ public class Settings extends AppCompatActivity {
         //if there is any changes made, draw changed amount from database
         limit.setText("2000");
 
+        //limit button
         editLimitButton = findViewById(R.id.editLimitBtn);
 
+        /*
         editLimitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,6 +115,7 @@ public class Settings extends AppCompatActivity {
 
             }
         });
+         */
     }
 
     //set currency

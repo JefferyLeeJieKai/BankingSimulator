@@ -11,18 +11,16 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
 
-public class EditClass extends Fragment {
+public class ViewClass extends Fragment {
 
     TextInputLayout searchClass;
     Button searchButton;
     TextView classLabel;
-    Button editClassButton;
     TextView interest;
-    Button editIntButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.class_edit, container, false);
+        View view = inflater.inflate(R.layout.class_view, container, false);
 
         //default
         classLabel = view.findViewById(R.id.classLbl);
@@ -46,30 +44,6 @@ public class EditClass extends Fragment {
 
             }
         });
-
-        /*
-        //edit class button
-        editClassButton = view.findViewById(R.id.editClassBtn);
-        editClassButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v1) {
-
-                //do something
-
-            }
-        });
-
-        //edit interest button
-        editIntButton = view.findViewById(R.id.editIntBtn);
-        editIntButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
-
-                //do something
-
-            }
-        });
-        */
 
         return view;
     }

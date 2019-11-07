@@ -9,57 +9,63 @@
     >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:layout_widthPercent="70%"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="5%"
         android:textSize="32dp"
         android:textColor="#000000"
         android:fontFamily="@font/titan_one"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="20dp"
-        android:text="WITHDRAW FUNDS" />
+        android:layout_centerHorizontal="true"
+        android:text="WITHDRAW FUNDS"
+        android:gravity="center_horizontal"
+        app:autoSizeTextType="uniform" />
 
 
     //header
     <TextView
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="3%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="120dp"
+        app:layout_marginTopPercent="15%"
+        app:layout_marginLeftPercent="10%"
         android:textColor="#000000"
         android:text="Verify withdrawal details:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:autoSizeTextType="uniform" />
 
     //display information starting from here
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="180dp"
+        app:layout_widthPercent="15%"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="21%"
+        app:layout_marginLeftPercent="10%"
         android:textColor="#000000"
-        android:text="Withdraw" />
+        android:text="Withdraw"
+        app:autoSizeTextType="uniform" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="54dp"
-        android:layout_marginTop="195dp"
+        app:layout_marginTopPercent="25%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_widthPercent="9%"
+        app:layout_heightPercent="3%"
         android:textColor="#000000"
-        android:text="From:" />
+        android:text="From:"
+        app:autoSizeTextType="uniform" />
 
     //display account holder's profile
     <View
-        android:layout_width="265dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="180dp"
+        app:layout_widthPercent="63%"
+        app:layout_heightPercent="15%"
+        app:layout_marginTopPercent="25%"
+        app:layout_marginLeftPercent="23%"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="87dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="180dp"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="15%"
+        app:layout_marginTopPercent="25%"
+        app:layout_marginLeftPercent="24%"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -68,82 +74,92 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="210dp"
+        app:layout_widthPercent="20%"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="28%"
+        app:layout_marginLeftPercent="52%"
         android:textColor="#000000"
         android:layout_marginTop="200dp"
-        android:textSize="20dp"/>
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/accountLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="210dp"
+        app:layout_widthPercent="20%"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="34%"
+        app:layout_marginLeftPercent="52%"
         android:textColor="#000000"
         android:layout_marginTop="245dp"
-        android:textSize="20dp"/>
+        app:autoSizeTextType="uniform" />
 
     //display amount
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="330dp"
+        app:layout_marginTopPercent="45%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_widthPercent="13%"
+        app:layout_heightPercent="3%"
         android:textColor="#000000"
-        android:text="Amount:" />
+        android:text="Amount:"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="330dp"
+        app:layout_marginTopPercent="45%"
+        app:layout_marginLeftPercent="28%"
+        app:layout_widthPercent="7%"
+        app:layout_heightPercent="3%"
         android:textColor="#000000"
-        android:text="SGD" />
+        android:text="SGD"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/amountLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="145dp"
+        app:layout_marginTopPercent="45%"
+        app:layout_marginLeftPercent="37%"
+        app:layout_widthPercent="40%"
+        app:layout_heightPercent="3%"
         android:textColor="#000000"
-        android:layout_marginTop="330dp" />
+        android:gravity="left|center"
+        app:autoSizeTextType="uniform" />
 
     //display date
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="390dp"
+        app:layout_marginTopPercent="53%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_widthPercent="9%"
+        app:layout_heightPercent="3%"
         android:textColor="#000000"
-        android:text="Date:" />
+        android:text="Date:"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/dateLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
+        app:layout_marginTopPercent="53%"
+        app:layout_marginLeftPercent="28%"
+        app:layout_widthPercent="20%"
+        app:layout_heightPercent="3%"
         android:textColor="#000000"
-        android:layout_marginTop="390dp" />
+        app:autoSizeTextType="uniform" />
 
     //display buttons
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="600dp"
+        app:layout_marginTopPercent="82%"
+        app:layout_marginLeftPercent="15%"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="6%"
         android:background="@drawable/buttonshadow"
-        android:text="Confirm" />
+        android:text="Confirm"
+        app:autoSizeTextType="uniform" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
+        app:layout_marginTopPercent="82%"
+        app:layout_marginLeftPercent="60%"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="6%"
         android:background="@drawable/buttonshadow"
-        android:text="Cancel" />
+        android:text="Cancel"
+        app:autoSizeTextType="uniform" />
 
 </android.support.percent.PercentRelativeLayout>
