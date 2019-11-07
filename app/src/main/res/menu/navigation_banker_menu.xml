@@ -58,6 +58,11 @@
             android:title="Settings">
         </item>
 
+        <item
+            android:id="@+id/changePassword"
+            android:title="Change password">
+        </item>
+
     </group>
 
 </menu>

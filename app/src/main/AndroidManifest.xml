@@ -101,7 +101,7 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".LoginAndHomepagePackage.ForgetPass"
+            android:name=".LoginAndHomepagePackage.ChangePassword"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 

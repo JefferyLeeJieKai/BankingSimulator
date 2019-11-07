@@ -43,6 +43,11 @@
             android:title="Add Amount To Goal">
         </item>
 
+        <item
+            android:id="@+id/changePassword"
+            android:title="Change password">
+        </item>
+
     </group>
 
 </menu>
