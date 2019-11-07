@@ -23,6 +23,16 @@
         />
 
     <Button
+        android:id="@+id/viewSavingGoal"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/ic_search_black_24dp"
+        android:backgroundTint="#A9A9A9"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+
+    <Button
         android:id="@+id/editSavingGoal"
         android:layout_width="20dp"
         android:layout_height="20dp"
