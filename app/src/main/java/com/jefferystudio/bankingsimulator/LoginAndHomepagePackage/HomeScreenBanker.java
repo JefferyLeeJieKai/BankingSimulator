@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.DeleteClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.EditClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ViewClass;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.R;
@@ -140,11 +141,18 @@ public class HomeScreenBanker extends AppCompatActivity {
                     fragment = new DeleteClass();
                     fragment.setArguments(args);
                 }
+                else if(item.getItemId() == R.id.viewclass) {
+
+                    fragment = new ViewClass();
+                    fragment.setArguments(args);
+                }
                 else if(item.getItemId() == R.id.settings) {
 
+                    //cannot get this to work
                     new Settings();
 
                 }
+
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, fragment);
