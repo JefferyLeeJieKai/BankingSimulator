@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.BankSettings.BankSettings;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.DeleteClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.EditClass;
@@ -27,6 +26,7 @@ import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAs
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
+import com.jefferystudio.bankingsimulator.Settings;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
@@ -142,8 +142,8 @@ public class HomeScreenBanker extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.settings) {
 
-                    fragment = new BankSettings();
-                    fragment.setArguments(args);
+                    new Settings();
+
                 }
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
