@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
@@ -30,36 +31,32 @@
 
     <ImageButton
         android:id="@+id/loginposb"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginBottom="50dp"
+        app:layout_widthPercent="15%"
+        app:layout_heightPercent="10%"
+        app:layout_marginRightPercent="11%"
+        app:layout_marginTopPercent="80%"
+        android:layout_toLeftOf="@id/signup"
         android:scaleType="fitCenter"
         android:background="@null"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/login1" />
 
     <ImageButton
         android:id="@+id/transferposb"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="292dp"
-        android:layout_marginBottom="50dp"
+        app:layout_widthPercent="15%"
+        app:layout_heightPercent="10%"
+        app:layout_marginLeftPercent="11%"
+        app:layout_marginTopPercent="80%"
+        android:layout_toRightOf="@id/signup"
         android:scaleType="fitCenter"
         android:background="@null"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/transfer1" />
 
     <ImageButton
         android:id="@+id/signup"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="188dp"
-        android:layout_marginBottom="50dp"
+        app:layout_widthPercent="15%"
+        app:layout_heightPercent="10%"
+        app:layout_marginTopPercent="80%"
+        android:layout_centerHorizontal="true"
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
@@ -68,4 +65,4 @@
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/signup1" />
 
-</android.support.constraint.ConstraintLayout>
+</android.support.percent.PercentRelativeLayout >
