@@ -82,11 +82,43 @@
         android:layout_marginTop="280dp" />
 
     //display AH information -> link with account_ah_recycler_row_layout
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ahDetailsRv"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="330dp" />
+        android:layout_marginTop="380dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="330dp"
+        android:text="Name"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="330dp"
+        android:text="Username"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="330dp"
+        android:text="Password"
+        android:textColor="#000000" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="365dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
 </android.support.percent.PercentRelativeLayout>
