@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="80dp"
         android:layout_marginLeft="76dp">
 
         <TextView
@@ -34,7 +34,8 @@
             android:layout_height="wrap_content"
             android:text="DATE:"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/dateLbl"
@@ -42,7 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="47dp"
             android:layout_marginTop="0dp"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="#000000" />
 
     </LinearLayout>
 
@@ -66,7 +68,8 @@
             android:layout_marginTop="10dp"
             android:text="TIME:"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/timeLbl"
@@ -74,7 +77,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="48dp"
             android:layout_marginTop="10dp"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="#000000" />
 
     </LinearLayout>
 
@@ -98,6 +102,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:textSize="20dp"
+            android:textColor="#000000"
             />
 
         <TextView
@@ -106,7 +111,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="45dp"
             android:layout_marginTop="10dp"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="#000000" />
 
         <ImageView
             android:id="@+id/modeEditAutoTimezone"
@@ -140,7 +146,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:textSize="20dp"
-            />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/currencyLbl"
@@ -148,7 +154,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="42dp"
             android:layout_marginTop="10dp"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="#000000" />
 
         <ImageView
             android:id="@+id/modeEditAutoCurrency"
@@ -157,17 +164,64 @@
             android:background="@drawable/mode_edit"
             android:backgroundTint="#A9A9A9"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp"
-            />
+            android:layout_marginLeft="50dp" />
 
     </LinearLayout>
 
+    //get bank daily limit
+    <View
+        android:layout_width="320dp"
+        android:layout_height="2dip"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#EEEEEE" />
 
-        <Button
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:text="SET DAILY LIMIT\n(WITHDRAWAL/TRANSFER):"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/limitLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/editLimitBtn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/mode_edit"
+                android:backgroundTint="#A9A9A9" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
             android:id="@+id/confirmBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="260dp"
             android:background="@drawable/buttonshadow"
             android:text="Confirm" />
