@@ -28,7 +28,7 @@
     //header
     <TextView
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="10%"
+        app:layout_heightPercent="6%"
         app:layout_marginTopPercent="20%"
         app:layout_marginLeftPercent="10%"
         android:textColor="#000000"
