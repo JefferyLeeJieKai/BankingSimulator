@@ -43,8 +43,11 @@ public class EditClass extends Fragment {
 
                 input = searchClass.getEditText().getText().toString().trim();
 
+                //if not empty
                 if(Validation.validateEmpty(input, searchClass))
                 {
+                    searchClass.setError(null);
+
                     //draw out information from database
                     //testing purpose
                     classLabel.setText("1");

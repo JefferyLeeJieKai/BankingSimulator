@@ -66,7 +66,6 @@ public class CreateClass extends Fragment {
 
         inputInt = interest.getEditText().getText().toString().trim();
 
-
         boolean result = Validation.validateAmount(inputInt, interest);
 
         if (result) {
