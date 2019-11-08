@@ -7,7 +7,7 @@
     tools:context=".LoginAndHomepagePackage.HomeScreenUser"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/beach3"
+    android:background="@drawable/bg10"
     >
 
     <android.support.v7.widget.Toolbar
@@ -116,12 +116,12 @@
 
         <ImageView
             android:id="@+id/modeEditAutoTimezone"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="@drawable/mode_edit"
             android:backgroundTint="#A9A9A9"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="46dp"
+            android:layout_marginLeft="25dp"
             />
 
     </LinearLayout>
@@ -159,12 +159,12 @@
 
         <ImageView
             android:id="@+id/modeEditAutoCurrency"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="@drawable/mode_edit"
             android:backgroundTint="#A9A9A9"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="110dp" />
 
     </LinearLayout>
 
@@ -207,12 +207,14 @@
 
             <Button
                 android:id="@+id/editLimitBtn"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="100dp"
                 android:background="@drawable/mode_edit"
                 android:backgroundTint="#A9A9A9" />
+
+
 
         </LinearLayout>
     </LinearLayout>

@@ -53,27 +53,17 @@
 
 
     <ImageButton
-        android:id="@+id/savings"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="380dp"
-        android:background="@null"
-        app:srcCompat="@drawable/savings" />
-
-    <ImageButton
-        android:id="@+id/transferfunds"
+        android:id="@+id/viewquizresult"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:scaleType="fitCenter"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="380dp"
         android:background="@null"
-        app:srcCompat="@drawable/transfer" />
+        app:srcCompat="@drawable/quizresult" />
 
     <ImageButton
-        android:id="@+id/depositfunds"
+        android:id="@+id/bankerdepositfunds"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:scaleType="fitCenter"
@@ -83,22 +73,22 @@
         app:srcCompat="@drawable/deposit" />
 
     <ImageButton
-        android:id="@+id/viewtransaction"
+        android:id="@+id/bankertransactions"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:scaleType="fitCenter"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="380dp"
         android:background="@null"
         app:srcCompat="@drawable/viewtransaction" />
 
     <ImageButton
-        android:id="@+id/manageaccount"
+        android:id="@+id/bankermanageaccount"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:scaleType="fitCenter"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="500dp"
         android:background="@null"
         app:srcCompat="@drawable/manageaccount" />
 
@@ -107,17 +97,17 @@
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:scaleType="fitCenter"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="500dp"
         android:background="@null"
         app:srcCompat="@drawable/settings" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="300dp"
-        android:layout_height="111dp"
-        android:layout_marginTop="150dp"
+        android:layout_width="297dp"
+        android:layout_height="129dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="120dp"
         android:text="Welcome to KidzSmart, Bob"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#0E1010"

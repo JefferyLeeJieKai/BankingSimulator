@@ -24,7 +24,7 @@ public class goalspage extends AppCompatActivity {
         setSupportActionBar(homeScreenToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btnViewGoals = (ImageButton) findViewById(R.id.viewSavingGoals);
+        btnViewGoals = (ImageButton) findViewById(R.id.viewallgoals);
         btnViewGoals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
