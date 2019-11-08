@@ -52,7 +52,7 @@ public class DeleteClass extends Fragment {
 
                     //draw out information from database
                     //testing purpose
-                    classLabel.setText("1");
+                    classLabel.setText(input);
                     interest.setText("0.2");
                 }
             }
@@ -64,15 +64,17 @@ public class DeleteClass extends Fragment {
             @Override
             public void onClick(View v) {
 
+                String strClass = classLabel.getText().toString();
+
                 //if user did not select a class
-                if (classLabel.getText().toString().equals("NIL")) {
+                if (strClass.equals("NIL")) {
                     Toast.makeText(getActivity(),
                             "Please search for a class first",
                             Toast.LENGTH_SHORT).show();
                 }
                 //if user selected a class
                 else {
-                    String msg = "Are you sure you want to delete '" + classLabel + "' ?";
+                    String msg = "Are you sure you want to delete '" + strClass + "' ?";
 
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -111,7 +113,7 @@ public class DeleteClass extends Fragment {
                 }
             }
         });
-        
+
 
         //cancel button
         cancelButton = view.findViewById(R.id.cancelBtn);

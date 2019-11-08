@@ -47,7 +47,7 @@ public class ViewClass extends Fragment {
 
                     //draw out information from database
                     //testing purpose
-                    classLabel.setText("1");
+                    classLabel.setText(input);
                     interest.setText("0.2");
                 }
             }
