@@ -50,7 +50,7 @@
         app:layout_heightPercent="5%"
         app:layout_marginLeftPercent="42%"
         app:layout_marginTopPercent="20%"
-        android:textSize="20dp" />
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/balanceLbl"
@@ -58,7 +58,7 @@
         app:layout_heightPercent="5%"
         app:layout_marginLeftPercent="42%"
         app:layout_marginTopPercent="26%"
-        android:textSize="20dp" />
+        app:autoSizeTextType="uniform" />
 
     //user input starting from here
     //get account number
