@@ -64,44 +64,54 @@ public class DeleteClass extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String msg = "Are you sure you want to delete '" + classLabel + "' ?";
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                builder.setTitle("Warning!");
-                builder.setMessage(msg);
-
-                //yes button selected
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        //delete class from database
+                //if user did not select a class
+                if (classLabel.getText().toString().equals("NIL")) {
+                    Toast.makeText(getActivity(),
+                            "Please search for a class first",
+                            Toast.LENGTH_SHORT).show();
+                }
+                //if user selected a class
+                else {
+                    String msg = "Are you sure you want to delete '" + classLabel + "' ?";
 
 
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                        //testing
-                        Toast.makeText(getActivity(),
-                                "DELETED",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    builder.setTitle("Warning!");
+                    builder.setMessage(msg);
 
-                //no button selected
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    //yes button selected
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
 
-                        dialogInterface.cancel();
-                    }
-                });
+                            //delete class from database
 
-                AlertDialog ad = builder.create();
-                ad.show();
+
+                            //testing
+                            Toast.makeText(getActivity(),
+                                    "DELETED",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    //no button selected
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            dialogInterface.cancel();
+                        }
+                    });
+
+                    AlertDialog ad = builder.create();
+                    ad.show();
+                }
             }
         });
+        
 
         //cancel button
         cancelButton = view.findViewById(R.id.cancelBtn);
