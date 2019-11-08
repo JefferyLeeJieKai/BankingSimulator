@@ -106,7 +106,6 @@ public class Settings extends AppCompatActivity {
         //limit button
         editLimitButton = findViewById(R.id.editLimitBtn);
 
-        /*
         editLimitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,7 +114,6 @@ public class Settings extends AppCompatActivity {
 
             }
         });
-         */
     }
 
     //set currency
