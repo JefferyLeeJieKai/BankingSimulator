@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,6 +30,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
 
         public TextView savingGoal;
         public TextView daysLeft;
+        public Button searchButton;
         public Button editButton;
         public Button deleteButton;
 
@@ -38,6 +40,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
 
             savingGoal = itemView.findViewById(R.id.savingGoalItem);
             daysLeft = itemView.findViewById(R.id.daysLeft);
+            searchButton = itemView.findViewById(R.id.viewSavingGoal);
             editButton = itemView.findViewById(R.id.editSavingGoal);
             deleteButton = itemView.findViewById(R.id.deleteSavingGoal);
         }
@@ -175,6 +178,28 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
 
                 AlertDialog ad = builder.create();
                 ad.show();
+            }
+        });
+
+        //search button
+        Button searchBtn = viewHolder.searchButton;
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle args = new Bundle();
+                args.putString("goalName", savingGoal.getGoalName());
+                args.putString("itemCost", savingGoal.getItemCost());
+                args.putString("deadline", savingGoal.getDeadline());
+                args.putString("priority", savingGoal.getPriority());
+
+                Fragment viewGoalFrag = new SavingGoalsView();
+                viewGoalFrag.setArguments(args);
+
+                ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, viewGoalFrag)
+                        .commit();
             }
         });
     }

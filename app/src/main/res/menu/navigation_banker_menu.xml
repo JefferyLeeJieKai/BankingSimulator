@@ -49,8 +49,18 @@
         </item>
 
         <item
+            android:id="@+id/viewclass"
+            android:title="View Class">
+        </item>
+
+        <item
             android:id="@+id/settings"
             android:title="Settings">
+        </item>
+
+        <item
+            android:id="@+id/changePassword"
+            android:title="Change password">
         </item>
 
     </group>

@@ -65,7 +65,7 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     private void forgetPassword() {
-        Intent intent = new Intent(getApplicationContext(), ForgetPass.class);
+        Intent intent = new Intent(getApplicationContext(), ChangePassword.class);
         startActivity(intent);
     }
 

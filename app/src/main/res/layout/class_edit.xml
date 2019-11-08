@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="EDIT CLASS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/navHeaderText"
+        android:textColor="#000000"
         android:textSize="25dp"
         android:layout_marginLeft="120dp"
         android:layout_marginTop="10dp" />
@@ -63,11 +63,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="240dp"
-        android:text="Auto" />
+        android:layout_marginTop="240dp" />
 
     <ImageView
-        android:id="@+id/editClass"
+        android:id="@+id/editClassBtn"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:background="@drawable/mode_edit"
@@ -89,35 +88,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="280dp"
-        android:text="Auto" />
+        android:layout_marginTop="280dp" />
 
     <ImageView
-        android:id="@+id/editIntRate"
+        android:id="@+id/editIntBtn"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="280dp" />
-
-    //display buttons
-    <Button
-        android:id="@+id/confirmBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="600dp"
-        android:background="@drawable/buttonshadow"
-        android:text="CONFIRM" />
-
-    <Button
-        android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
-        android:background="@drawable/buttonshadow"
-        android:text="CANCEL" />
 
 </android.support.percent.PercentRelativeLayout>
