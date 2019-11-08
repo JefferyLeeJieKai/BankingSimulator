@@ -83,7 +83,7 @@ public class EditAccountAH extends Fragment {
         return view;
     }
 
-    public void getDOBDialogAction(String label, String hint)
+    private void getDOBDialogAction(String label, String hint)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View v = getLayoutInflater().inflate(R.layout.edit_dialog, null);
@@ -155,7 +155,7 @@ public class EditAccountAH extends Fragment {
         ad.show();
     }
 
-    public void getDialogAction(String label, String hint)
+    private void getDialogAction(String label, String hint)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View v = getLayoutInflater().inflate(R.layout.edit_dialog, null);
