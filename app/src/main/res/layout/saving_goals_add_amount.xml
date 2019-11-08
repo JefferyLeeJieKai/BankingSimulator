@@ -43,170 +43,182 @@
         android:layout_marginTop="10dp" />
 
     //display account holder's profile
+
     <View
-        android:layout_width="280dp"
-        android:layout_height="145dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="85dp"
-        android:background="@drawable/emptyrect" />
+        android:background="@drawable/emptyrect"
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="15%"
+        app:layout_widthPercent="63%" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="105dp"
-        android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
+        android:backgroundTint="#D3D3D3"
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="0dp"
-        />
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="9%"
+        app:layout_marginTopPercent="15%"
+        app:layout_widthPercent="25%" />
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="110dp"
-        android:textSize="20dp" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3.5%"
+        app:layout_marginLeftPercent="38%"
+        app:layout_marginTopPercent="18%"
+        app:layout_widthPercent="28%" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="170dp"
-        android:textSize="20dp" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3.5%"
+        app:layout_marginLeftPercent="38%"
+        app:layout_marginTopPercent="23%"
+        app:layout_widthPercent="28%" />
 
     //display progress bar
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="250dp"
         android:text="Progress (%):"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="7%"
+        app:layout_marginTopPercent="33.5%"
+        app:layout_widthPercent="20%" />
 
     <TextView
         android:id="@+id/progressLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="125dp"
-        android:layout_marginTop="250dp"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="30%"
+        app:layout_marginTopPercent="33.5%"
+        app:layout_widthPercent="20%" />
 
     <ProgressBar
         android:id="@+id/amountPB"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="350dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="275dp"
-        android:progressDrawable="@drawable/custom_progressbar" />
+        android:progressDrawable="@drawable/custom_progressbar"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="7%"
+        app:layout_marginTopPercent="38%"
+        app:layout_widthPercent="86%" />
 
     //display amount saved
 
     <View
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="315dp"
-        android:background="@drawable/emptyrect" />
+        android:background="@drawable/emptyrect"
+        app:layout_heightPercent="11%"
+        app:layout_marginLeftPercent="7%"
+        app:layout_marginTopPercent="43%"
+        app:layout_widthPercent="86%" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="325dp"
         android:text="Amount Saved:"
         android:textColor="#000000"
-        android:textSize="18dp" />
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3.5%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="44%"
+        app:layout_widthPercent="40%" />
 
     <TextView
         android:id="@+id/asCurrencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="350dp"
-        android:textSize="18dp" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3.5%"
+        app:layout_marginLeftPercent="30%"
+        app:layout_marginTopPercent="48%"
+        app:layout_widthPercent="12%" />
 
     <TextView
         android:id="@+id/asLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="350dp"
-        android:textSize="18dp" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3.5%"
+        app:layout_marginLeftPercent="45%"
+        app:layout_marginTopPercent="48%"
+        app:layout_widthPercent="40%" />
 
     //display amount remaining
 
     <View
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="390dp"
-        android:background="@drawable/emptyrect" />
+        android:background="@drawable/emptyrect"
+        app:layout_heightPercent="11%"
+        app:layout_marginLeftPercent="7%"
+        app:layout_marginTopPercent="53.5%"
+        app:layout_widthPercent="86%" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="405dp"
         android:text="Amount Remaining:"
         android:textColor="#000000"
-        android:textSize="18dp" />
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3.5%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="55%"
+        app:layout_widthPercent="40%" />
 
     <TextView
         android:id="@+id/arCurrencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="430dp"
-        android:textSize="18dp" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3.5%"
+        app:layout_marginLeftPercent="30%"
+        app:layout_marginTopPercent="59%"
+        app:layout_widthPercent="12%" />
 
     <TextView
         android:id="@+id/arLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="430dp"
-        android:textSize="18dp" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3.5%"
+        app:layout_marginLeftPercent="45%"
+        app:layout_marginTopPercent="59%"
+        app:layout_widthPercent="40%" />
 
     //user input starting from here
     //get goal name
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="490dp"
         android:text="Goal Name:"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="67%"
+        app:layout_widthPercent="20%" />
 
     <Spinner
         android:id="@+id/goalNameDDL"
-        android:layout_width="250dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="485dp" />
+        app:layout_heightPercent="5%"
+        app:layout_widthPercent="60%"
+        app:layout_marginLeftPercent="32%"
+        app:layout_marginTopPercent="66%"
+        app:autoSizeTextType="uniform" />
 
     //get amount
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="565dp"
         android:text="Add amount:"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="5%"
+        app:layout_marginTopPercent="77%"
+        app:layout_widthPercent="24%" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="540dp">
+        app:layout_heightPercent="10%"
+        app:layout_widthPercent="60%"
+        app:layout_marginLeftPercent="32%"
+        app:layout_marginTopPercent="74%"
+        app:autoSizeTextType="uniform">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -218,20 +230,22 @@
 
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="620dp"
+        app:layout_marginTopPercent="88%"
+        app:layout_marginLeftPercent="15%"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="6%"
         android:background="@drawable/buttonshadow"
-        android:text="Confirm" />
+        android:text="Confirm"
+        app:autoSizeTextType="uniform" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="620dp"
+        app:layout_marginTopPercent="88%"
+        app:layout_marginLeftPercent="60%"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="6%"
         android:background="@drawable/buttonshadow"
-        android:text="Cancel" />
+        android:text="Cancel"
+        app:autoSizeTextType="uniform" />
 
 </android.support.percent.PercentRelativeLayout>
