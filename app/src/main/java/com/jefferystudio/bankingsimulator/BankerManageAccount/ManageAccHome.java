@@ -14,6 +14,10 @@ import com.jefferystudio.bankingsimulator.R;
 public class ManageAccHome extends Fragment{
 
     private ImageButton btnCreate;
+    private ImageButton btnDelete;
+    private ImageButton btnEdit;
+    private ImageButton btnView;
+
     private Bundle args;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -22,6 +26,9 @@ public class ManageAccHome extends Fragment{
         View view = inflater.inflate(R.layout.manageaccount, container, false);
 
         btnCreate = view.findViewById(R.id.createclassbtn);
+        btnDelete = view.findViewById(R.id.deleteclassbtn);
+        btnEdit = view.findViewById(R.id.editclassbtn);
+        btnView = view.findViewById(R.id.viewclassbtn);
 
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +38,39 @@ public class ManageAccHome extends Fragment{
                 CreateClass1.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, CreateClass1);
+                transaction.commit();
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment DeleteClass1 = new DeleteClass();
+                DeleteClass1.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, DeleteClass1);
+                transaction.commit();
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment EditClass1 = new EditClass();
+                EditClass1.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, EditClass1);
+                transaction.commit();
+            }
+        });
+
+        btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment ViewClass1 = new ViewClass();
+                ViewClass1.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, ViewClass1);
                 transaction.commit();
             }
         });

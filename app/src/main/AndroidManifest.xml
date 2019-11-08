@@ -46,6 +46,11 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
+            android:name=".ProfilePageBanker"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
             android:name=".LoginAndHomepagePackage.HomeScreenUser"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
@@ -118,6 +123,11 @@
 
         <activity
             android:name=".LoginAndHomepagePackage.ChangePasswordFragment"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".LoginAndHomepagePackage.ChangePasswordBanker"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 

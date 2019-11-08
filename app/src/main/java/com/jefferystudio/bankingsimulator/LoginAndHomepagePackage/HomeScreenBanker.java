@@ -25,6 +25,7 @@ import com.jefferystudio.bankingsimulator.BankerManageAccount.EditClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ViewClass;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
+import com.jefferystudio.bankingsimulator.ProfilePageBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
 import com.jefferystudio.bankingsimulator.Settings;
@@ -134,7 +135,7 @@ public class HomeScreenBanker extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.changePassword) {
 
-                    fragment = new ChangePasswordFragment();
+                    fragment = new ChangePasswordBanker();
                     fragment.setArguments(args);
                 }
 
@@ -159,7 +160,7 @@ public class HomeScreenBanker extends AppCompatActivity {
                 FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
                 homeTrans.replace(R.id.frame_layout, fragment);
                 homeTrans.commit();
-                Intent intent = new Intent(getApplicationContext(), profilepage.class);
+                Intent intent = new Intent(getApplicationContext(), ProfilePageBanker.class);
                 startActivity(intent);
                 drawer.closeDrawer(Gravity.START);
 
