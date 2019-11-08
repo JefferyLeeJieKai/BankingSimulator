@@ -38,7 +38,7 @@
         android:layout_height="85dp"
         android:scaleType="fitCenter"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="220dp"
         android:background="@null"
         app:srcCompat="@drawable/createclass1" />
 
@@ -48,7 +48,7 @@
         android:layout_height="85dp"
         android:scaleType="fitCenter"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="220dp"
         android:background="@null"
         app:srcCompat="@drawable/deleteclass1" />
 
@@ -56,11 +56,21 @@
         android:id="@+id/editclassbtn"
         android:layout_width="85dp"
         android:layout_height="85dp"
-        android:layout_marginLeft="155dp"
-        android:layout_marginTop="330dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="370dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/editclass1" />
+
+    <ImageButton
+        android:id="@+id/viewclassbtn"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="370dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/viewclass" />
 
 
 
