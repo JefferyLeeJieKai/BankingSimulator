@@ -36,10 +36,10 @@ public class DepositAH extends Fragment
         args = getArguments();
         currentID = args.getString("userID");
 
-        accountNos = view.findViewById(R.id.accountDDLText);
+        /*accountNos = view.findViewById(R.id.accountDDLText);
         accounts = view.findViewById(R.id.accountDDL);
         accountNos.setVisibility(View.GONE);
-        accounts.setVisibility(View.GONE);
+        accounts.setVisibility(View.GONE);*/
 
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);
