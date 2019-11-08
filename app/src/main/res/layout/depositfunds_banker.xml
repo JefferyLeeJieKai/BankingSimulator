@@ -10,30 +10,36 @@
 
 
     <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="20dp"
-        android:textColor="#000000"
+        android:id="@+id/textView"
+        app:layout_widthPercent="70%"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="6%"
+        android:layout_centerHorizontal="true"
         android:text="DEPOSIT FUNDS"
-        android:textSize="25dp" />
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
 
 
     //display account holder's profile
     <View
-        android:layout_width="280dp"
-        android:layout_height="145dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="115dp"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="20%"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="15%"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="130dp"
+        app:layout_widthPercent="27%"
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="18%"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -42,63 +48,66 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="140dp"
-        android:textSize="20dp" />
+        app:layout_widthPercent="45%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="42%"
+        app:layout_marginTopPercent="20%"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="200dp"
-        android:textSize="20dp" />
+        app:layout_widthPercent="45%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="42%"
+        app:layout_marginTopPercent="26%"
+        app:autoSizeTextType="uniform" />
 
     //user input starting from here
     //get account number
     <TextView
         android:id="@+id/accountDDLText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="290dp"
+        app:layout_widthPercent="28%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="15%"
+        app:layout_marginTopPercent="40%"
         android:textColor="#000000"
-        android:text="Account Number:" />
+        android:text="Account Number:"
+        app:autoSizeTextType="uniform"/>
 
     <Spinner
         android:id="@+id/accountDDL"
-        android:layout_width="320dp"
-        android:layout_height="35dp"
-        android:textColor="#000000"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="320dp" />
+        app:layout_widthPercent="70%"
+        app:layout_heightPercent="5%"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="43%"
+        android:textColor="#000000"/>
 
     //get amount
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="390dp"
+        app:layout_widthPercent="15%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="50%"
         android:textColor="#000000"
-        android:text="Amount:" />
+        android:text="Amount:"
+        app:autoSizeTextType="uniform"/>
 
     <TextView
         android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="420dp"
+        app:layout_widthPercent="10%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="55%"
         android:textColor="#000000"
-        android:text="currency" />
+        android:text="SGD"
+        app:autoSizeTextType="uniform"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        android:layout_width="250dp"
+        app:layout_widthPercent="55%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="398dp">
+        app:layout_marginLeftPercent="26%"
+        app:layout_marginTopPercent="52%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -109,11 +118,21 @@
 
     //display button
     <Button
+        android:id="@+id/backBtn"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="65%"
+        android:background="@drawable/buttonshadow"
+        android:text="Back" />
+
+    <Button
         android:id="@+id/nextBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        android:layout_alignParentRight="true"
+        app:layout_marginRightPercent="12%"
+        app:layout_marginTopPercent="65%"
         android:background="@drawable/buttonshadow"
         android:text="Next" />
 

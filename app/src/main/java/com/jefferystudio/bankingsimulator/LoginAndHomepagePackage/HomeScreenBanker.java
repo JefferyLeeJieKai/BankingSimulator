@@ -62,6 +62,7 @@ public class HomeScreenBanker extends AppCompatActivity {
 
         bankerList = new ArrayList<>();
         new RetriveBankerListAsync(this).execute(userID);
+        args.putStringArrayList("BankerList", bankerList);
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(homeScreenToolbar);
@@ -107,7 +108,6 @@ public class HomeScreenBanker extends AppCompatActivity {
                 else if(item.getItemId() == R.id.deposit) {
 
                     fragment = new DepositBanker();
-                    args.putStringArrayList("BankerList", bankerList);
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.transaction) {
