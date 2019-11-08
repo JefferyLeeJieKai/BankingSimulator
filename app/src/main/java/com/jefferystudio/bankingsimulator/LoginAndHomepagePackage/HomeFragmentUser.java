@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
@@ -28,6 +29,7 @@ public class HomeFragmentUser extends Fragment {
     private String currentID;
     private ImageButton btnsavings;
     private ImageButton btntransfer;
+    private ImageButton btndeposit;
     private ImageButton btnquiz;
     private ImageButton btnviewtransaction;
     private ImageButton btnwithdraw;
@@ -50,6 +52,7 @@ public class HomeFragmentUser extends Fragment {
 
         btnsavings = view.findViewById(R.id.savings);
         btntransfer = view.findViewById(R.id.transferfunds);
+        btndeposit = view.findViewById(R.id.depositfunds);
         btnquiz = view.findViewById(R.id.quiz);
         btnviewtransaction = view.findViewById(R.id.viewtransaction);
         btnwithdraw = view.findViewById(R.id.withdraw);
@@ -70,6 +73,18 @@ public class HomeFragmentUser extends Fragment {
                 transferpayees.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, transferpayees);
+                transaction.commit();
+            }
+        });
+
+        btndeposit.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment depositFrag = new DepositAH();
+                depositFrag.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, depositFrag);
                 transaction.commit();
             }
         });
@@ -111,7 +126,6 @@ public class HomeFragmentUser extends Fragment {
         currentID = args.getString("userID");
         currentAccountNo.setText(currentID);
         new UpdateBalanceAsync(getActivity(), currentUserBalance).execute(currentID);
-
 
         return view;
     }
