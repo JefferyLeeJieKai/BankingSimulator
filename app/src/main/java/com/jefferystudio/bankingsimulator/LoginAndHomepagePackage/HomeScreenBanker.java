@@ -106,24 +106,9 @@ public class HomeScreenBanker extends AppCompatActivity {
                     args.putStringArrayList("BankerList", bankerList);
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.withdraw) {
-
-                    fragment = new WithdrawalAH();
-                    fragment.setArguments(args);
-                }
-                else if(item.getItemId() == R.id.transfer) {
-
-                    fragment = new Transfer_Amount();
-                    fragment.setArguments(args);
-                }
                 else if(item.getItemId() == R.id.transaction) {
 
                     fragment = new ViewTransactions();
-                    fragment.setArguments(args);
-                }
-                else if(item.getItemId() == R.id.issuenotes) {
-
-                    fragment = new SavingGoalsAdd();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.createclass) {
@@ -145,11 +130,6 @@ public class HomeScreenBanker extends AppCompatActivity {
 
                     fragment = new ViewClass();
                     fragment.setArguments(args);
-                }
-                else if(item.getItemId() == R.id.settings) {
-
-                    //cannot get this to work
-                    new Settings();
                 }
                 else if(item.getItemId() == R.id.changePassword) {
 
