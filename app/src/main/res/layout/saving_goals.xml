@@ -118,16 +118,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="33dp"
-        android:layout_marginTop="480dp"
-        android:text="To Achieve"
-        android:textColor="#000000" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="505dp"
-        android:text="Goal By:"
+        android:layout_marginTop="485dp"
+        android:text="To Achieve\nGoal By: "
         android:textColor="#000000" />
 
     <EditText
