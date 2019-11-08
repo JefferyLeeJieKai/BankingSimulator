@@ -214,11 +214,11 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        app:layout_heightPercent="10%"
-        app:layout_widthPercent="60%"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="12%"
         app:layout_marginLeftPercent="32%"
         app:layout_marginTopPercent="74%"
-        app:autoSizeTextType="uniform">
+        app:layout_widthPercent="60%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -230,22 +230,22 @@
 
     <Button
         android:id="@+id/confirmBtn"
-        app:layout_marginTopPercent="88%"
-        app:layout_marginLeftPercent="15%"
-        app:layout_widthPercent="25%"
-        app:layout_heightPercent="6%"
         android:background="@drawable/buttonshadow"
         android:text="Confirm"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="6%"
+        app:layout_marginLeftPercent="15%"
+        app:layout_marginTopPercent="90%"
+        app:layout_widthPercent="25%" />
 
     <Button
         android:id="@+id/cancelBtn"
-        app:layout_marginTopPercent="88%"
-        app:layout_marginLeftPercent="60%"
-        app:layout_widthPercent="25%"
-        app:layout_heightPercent="6%"
         android:background="@drawable/buttonshadow"
         android:text="Cancel"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="6%"
+        app:layout_marginLeftPercent="60%"
+        app:layout_marginTopPercent="90%"
+        app:layout_widthPercent="25%" />
 
 </android.support.percent.PercentRelativeLayout>
