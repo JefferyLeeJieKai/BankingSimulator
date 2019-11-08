@@ -105,7 +105,6 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        //Toast.makeText(activity, result, Toast.LENGTH_LONG).show();
 
         String[] resultArray = result.split(",");
 

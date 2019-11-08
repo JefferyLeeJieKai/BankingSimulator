@@ -19,8 +19,6 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
-import com.jefferystudio.bankingsimulator.Quiz.QuizActivity;
-import com.jefferystudio.bankingsimulator.Quiz.StartQuiz;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAddAmount;
@@ -129,7 +127,7 @@ public class HomeScreenUser extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.changePassword) {
 
-                    fragment = new ChangePassword();
+                    fragment = new ChangePasswordFragment();
                     fragment.setArguments(args);
                 }
 

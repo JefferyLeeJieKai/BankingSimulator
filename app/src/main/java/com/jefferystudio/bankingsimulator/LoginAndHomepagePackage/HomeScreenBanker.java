@@ -134,7 +134,7 @@ public class HomeScreenBanker extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.changePassword) {
 
-                    fragment = new ChangePassword();
+                    fragment = new ChangePasswordFragment();
                     fragment.setArguments(args);
                 }
 
