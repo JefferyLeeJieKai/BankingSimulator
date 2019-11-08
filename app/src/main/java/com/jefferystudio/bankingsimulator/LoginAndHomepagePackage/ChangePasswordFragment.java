@@ -13,7 +13,7 @@ import com.jefferystudio.bankingsimulator.R;
 
 import java.security.acl.LastOwnerException;
 
-public class ChangePassword extends Fragment {
+public class ChangePasswordFragment extends Fragment {
 
     private Bundle args;
     private TextInputLayout oldPasswordField;
@@ -38,8 +38,10 @@ public class ChangePassword extends Fragment {
             @Override
             public void onClick(View view) {
 
-                newPasswordField.setError(null);
                 oldPasswordField.setError(null);
+                newPasswordField.setError(null);
+                confirmPasswordField.setError(null);
+
                 new CredentialsResetAsync(getActivity(), "ChangePassword", args.getString("accountType"), oldPasswordField,
                                           newPasswordField, confirmPasswordField).execute(args.getString("userID"));
             }

@@ -45,7 +45,8 @@ public class LoginScreen extends AppCompatActivity {
     private static final String KEY_NAME = "example_key";
     private Cipher cipher;
     private FingerprintManager.CryptoObject cryptoObject;
-    private TextView forgotpassbtn;
+    private TextView forgetpassbtn;
+    private TextView forgetusernamebtn;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -54,22 +55,29 @@ public class LoginScreen extends AppCompatActivity {
 
         usernameTextBox = findViewById(R.id.username);
         passwordTextBox = findViewById(R.id.password);
-        forgotpassbtn = findViewById(R.id.forgotpass);
 
-        forgotpassbtn.setOnClickListener(new View.OnClickListener() {
+        forgetpassbtn = findViewById(R.id.forgotpass);
+        forgetpassbtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                forgetPassword();
+
+                Intent intent = new Intent(getApplicationContext(), ForgetPassword.class);
+                startActivity(intent);
+            }
+        });
+
+        forgetusernamebtn = findViewById(R.id.forgotid);
+        forgetusernamebtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), ForgetUsername.class);
+                startActivity(intent);
             }
         });
     }
-
-    private void forgetPassword() {
-        Intent intent = new Intent(getApplicationContext(), ChangePassword.class);
-        startActivity(intent);
-    }
-
-
 
     public void login(View v) {
 

@@ -56,6 +56,16 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
+            android:name=".LoginAndHomepagePackage.ForgetPassword"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".LoginAndHomepagePackage.ForgetUsername"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
             android:name=".registration1"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
@@ -101,7 +111,7 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".LoginAndHomepagePackage.ChangePassword"
+            android:name=".LoginAndHomepagePackage.ChangePasswordFragment"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
