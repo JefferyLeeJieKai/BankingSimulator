@@ -53,36 +53,12 @@ public class registration2 extends AppCompatActivity {
         final Context context = this;
 
         buttonsubmit =(Button) findViewById(R.id.btnsubmit);
-        nameBox = findViewById(R.id.name);
+        nameBox = findViewById(R.id.nameinput);
         emailBox = findViewById(R.id.emailinput);
         usernameBox = findViewById(R.id.usernameinput);
         passwordBox = findViewById(R.id.passwordinput);
         cfmpasswordBox = findViewById(R.id.cfmpasswordinput);
         genderGroup = findViewById(R.id.radioGroupGender);
-
-        dobBox = findViewById(R.id.dateview);
-        Calendar cal = Calendar.getInstance();
-        final int year = cal.get(Calendar.YEAR);
-        final int month = cal.get(Calendar.MONTH);
-        final int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        dobBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        context, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int day) {
-                        month = month + 1;
-                        String strDate = year + "-" + month + "-" + day;
-                        dobBox.setText(strDate);
-
-                    }
-                },year,month,day);
-                datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
-                datePickerDialog.show();
-            }
-        });
 
         male = findViewById(R.id.radioMale);
         female = findViewById(R.id.radioFemale);
