@@ -14,23 +14,8 @@
         </item>
 
         <item
-            android:id="@+id/withdraw"
-            android:title="@string/withdrawal">
-        </item>
-
-        <item
-            android:id="@+id/transfer"
-            android:title="@string/transfer">
-        </item>
-
-        <item
             android:id="@+id/transaction"
             android:title="@string/transactions">
-        </item>
-
-        <item
-            android:id="@+id/issuenotes"
-            android:title="Issue notes">
         </item>
 
         <item
@@ -51,11 +36,6 @@
         <item
             android:id="@+id/viewclass"
             android:title="View Class">
-        </item>
-
-        <item
-            android:id="@+id/settings"
-            android:title="Settings">
         </item>
 
         <item
