@@ -27,14 +27,13 @@
         android:id="@+id/loginposb"
         app:layout_widthPercent="15%"
         app:layout_heightPercent="10%"
-        app:layout_marginRightPercent="11%"
+        app:layout_marginLeftPercent="22%"
         app:layout_marginTopPercent="89%"
-        android:layout_toLeftOf="@id/signup"
         android:scaleType="fitCenter"
         android:background="@null"
         android:src="@drawable/login1" />
 
-    <ImageButton
+    <!--<ImageButton
         android:id="@+id/transferposb"
         app:layout_widthPercent="15%"
         app:layout_heightPercent="10%"
@@ -43,14 +42,15 @@
         android:layout_toRightOf="@id/signup"
         android:scaleType="fitCenter"
         android:background="@null"
-        android:src="@drawable/transfer1" />
+        android:src="@drawable/transfer1" /> -->
+
 
     <ImageButton
         android:id="@+id/signup"
         app:layout_widthPercent="15%"
         app:layout_heightPercent="10%"
         app:layout_marginTopPercent="89%"
-        android:layout_centerHorizontal="true"
+        app:layout_marginLeftPercent="62%"
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
