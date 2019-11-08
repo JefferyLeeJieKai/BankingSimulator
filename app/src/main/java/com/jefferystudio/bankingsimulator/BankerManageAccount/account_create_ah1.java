@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
@@ -61,10 +62,20 @@ public class account_create_ah1 extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                CreateAccountAH CreateAccountah = new CreateAccountAH();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, CreateAccountah);
-                transaction.commit();
+
+                //if user did not select a class
+                if (classLabel.getText().toString().equals("NIL")) {
+                    Toast.makeText(getActivity(),
+                            "Please search for a class first",
+                            Toast.LENGTH_SHORT).show();
+                }
+                //if user selected a class
+                else {
+                    CreateAccountAH CreateAccountah = new CreateAccountAH();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, CreateAccountah);
+                    transaction.commit();
+                }
             }
         });
 

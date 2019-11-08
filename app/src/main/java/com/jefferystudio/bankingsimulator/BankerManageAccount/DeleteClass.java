@@ -77,7 +77,7 @@ public class DeleteClass extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //delete saving goal from database
+                        //delete class from database
 
 
 

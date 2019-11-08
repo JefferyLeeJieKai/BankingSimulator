@@ -18,8 +18,6 @@ public class CreateClass extends Fragment {
     private Button createButton;
     private Button cancelButton;
     private Bundle args;
-    private String inputClass, inputInt;
-
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -49,11 +47,12 @@ public class CreateClass extends Fragment {
         return view;
     }
 
+    //validations
     private boolean validateClass() {
 
-        inputClass = searchClass.getEditText().getText().toString().trim();
+        String input = searchClass.getEditText().getText().toString().trim();
 
-        boolean result = Validation.validateEmpty(inputClass, searchClass);
+        boolean result = Validation.validateEmpty(input, searchClass);
 
         if (result) {
             searchClass.setError(null);
@@ -64,9 +63,9 @@ public class CreateClass extends Fragment {
 
     private boolean validateInt() {
 
-        inputInt = interest.getEditText().getText().toString().trim();
+        String input = interest.getEditText().getText().toString().trim();
 
-        boolean result = Validation.validateAmount(inputInt, interest);
+        boolean result = Validation.validateAmount(input, interest);
 
         if (result) {
             interest.setError(null);
