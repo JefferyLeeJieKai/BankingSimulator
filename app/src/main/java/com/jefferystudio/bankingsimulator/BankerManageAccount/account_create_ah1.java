@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class account_create_ah1 extends Fragment {
 
@@ -19,6 +20,7 @@ public class account_create_ah1 extends Fragment {
     private TextView classLabel;
     private TextView interest;
     private Button nextButton;
+    private String input;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -39,11 +41,17 @@ public class account_create_ah1 extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //draw out information from database
-                //testing purpose
-                classLabel.setText(searchClass.getEditText().getText().toString());
-                interest.setText("0.2");
+                input = searchClass.getEditText().getText().toString().trim();
 
+                //if not empty
+                if(Validation.validateEmpty(input, searchClass)) {
+                    searchClass.setError(null);
+
+                    //draw out information from database
+                    //testing purpose
+                    classLabel.setText(searchClass.getEditText().getText().toString());
+                    interest.setText("0.2");
+                }
             }
         });
 
