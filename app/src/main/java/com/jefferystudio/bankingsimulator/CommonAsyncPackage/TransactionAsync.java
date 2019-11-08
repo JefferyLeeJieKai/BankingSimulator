@@ -110,7 +110,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             withdrawAmount = args[1];
 
             try{
-                String link="http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/withdrawalUser.php";
+                String link="http://www.kidzsmart.tk/databaseAccess/withdrawalUser.php";
                 data  = URLEncoder.encode("userid", "UTF-8") + "=" +
                         URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("mywithdrawal", "UTF-8") + "=" +
@@ -147,7 +147,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             withdrawAmount = args[2];
 
             try {
-                String link = "http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/transferfundsUser.php";
+                String link = "http://www.kidzsmart.tk/databaseAccess/transferfundsUser.php";
                 data = URLEncoder.encode("payeruserid", "UTF-8") + "=" +
                         URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("payee", "UTF-8") + "=" +

@@ -46,7 +46,7 @@ public class UpdateTransAsync extends AsyncTask<String, String, String> {
             payeeID = args[2];
             purpose = args[3];
 
-            link = "http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/transactionsUpdate.php";
+            link = "http://www.kidzsmart.tk/databaseAccess/transactionsUpdate.php";
 
             try {
                 data = URLEncoder.encode("flag", "UTF-8") + "=" +

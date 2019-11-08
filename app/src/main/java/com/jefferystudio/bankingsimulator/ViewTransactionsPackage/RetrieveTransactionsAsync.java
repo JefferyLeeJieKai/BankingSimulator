@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsRecyclerView.Transaction;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsRecyclerView.TransactionsRecyclerViewAdaptor;
@@ -23,6 +24,7 @@ public class RetrieveTransactionsAsync extends AsyncTask<String, String, String>
     private String userID;
     private String username;
     private String currentBalance;
+    private String data;
 
     public RetrieveTransactionsAsync(Context context, RecyclerView recyclerView) {
 
@@ -46,8 +48,8 @@ public class RetrieveTransactionsAsync extends AsyncTask<String, String, String>
 
         try {
 
-            String link = "http://www.kidzsmart.tk/kidzsmartApp/databaseAccess/getTransactions.php";
-            String data = URLEncoder.encode("userid", "UTF-8") + "=" +
+            String link = "http://www.kidzsmart.tk/databaseAccess/getTransactions.php";
+            data = URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
 
             URL url = new URL(link);
