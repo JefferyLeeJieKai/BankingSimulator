@@ -10,15 +10,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class EditClass extends Fragment {
 
-    TextInputLayout searchClass;
-    Button searchButton;
-    TextView classLabel;
-    Button editClassButton;
-    TextView interest;
-    Button editIntButton;
+    private TextInputLayout searchClass;
+    private Button searchButton;
+    private TextView classLabel;
+    private Button editClassButton;
+    private TextView interest;
+    private Button editIntButton;
+    private String input;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -39,10 +41,18 @@ public class EditClass extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //draw out information from database
-                //testing purpose
-                classLabel.setText("1");
-                interest.setText("0.2");
+                input = searchClass.getEditText().getText().toString().trim();
+
+                //if not empty
+                if(Validation.validateEmpty(input, searchClass))
+                {
+                    searchClass.setError(null);
+
+                    //draw out information from database
+                    //testing purpose
+                    classLabel.setText(input);
+                    interest.setText("0.2");
+                }
 
             }
         });

@@ -33,29 +33,35 @@
     </android.support.v4.widget.DrawerLayout>-->
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DEPOSIT FUNDS"
-        android:textSize="32dp"
-        android:layout_marginTop="20dp"
-        android:textColor="#000000"
+        android:id="@+id/textView"
+        app:layout_widthPercent="65%"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="6%"
+        android:layout_centerHorizontal="true"
+        android:text="Deposit Funds"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
         android:fontFamily="@font/titan_one"
-        android:layout_marginLeft="68dp" />
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
 
     //display account holder's profile
     <View
-        android:layout_width="280dp"
-        android:layout_height="145dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="115dp"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="20%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="15%"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="130dp"
+        app:layout_widthPercent="27%"
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="18%"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -64,23 +70,23 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="140dp"
-        android:textSize="20dp" />
+        app:layout_widthPercent="45%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="42%"
+        app:layout_marginTopPercent="20%"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="200dp"
-        android:textSize="20dp" />
+        app:layout_widthPercent="45%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="42%"
+        app:layout_marginTopPercent="26%"
+        app:autoSizeTextType="uniform" />
 
     //user input starting from here
     //get account number
-    <TextView
+    <!--<TextView
         android:id="@+id/accountDDLText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,32 +101,34 @@
         android:layout_height="35dp"
         android:textColor="#000000"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="320dp" />
+        android:layout_marginTop="320dp" />-->
 
     //get amount
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="390dp"
+        app:layout_widthPercent="15%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="45%"
         android:textColor="#000000"
-        android:text="Amount:" />
+        android:text="Amount:"
+        app:autoSizeTextType="uniform"/>
 
     <TextView
         android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="420dp"
+        app:layout_widthPercent="10%"
+        app:layout_heightPercent="5%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="50%"
         android:textColor="#000000"
-        android:text="currency" />
+        android:text="SGD"
+        app:autoSizeTextType="uniform"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        android:layout_width="250dp"
+        app:layout_widthPercent="55%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="398dp">
+        app:layout_marginLeftPercent="26%"
+        app:layout_marginTopPercent="47%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -131,11 +139,21 @@
 
     //display button
     <Button
+        android:id="@+id/backBtn"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="62%"
+        android:background="@drawable/buttonshadow"
+        android:text="Back" />
+
+    <Button
         android:id="@+id/nextBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        android:layout_alignParentRight="true"
+        app:layout_marginRightPercent="12%"
+        app:layout_marginTopPercent="62%"
         android:background="@drawable/buttonshadow"
         android:text="Next" />
 

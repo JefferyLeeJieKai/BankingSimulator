@@ -19,43 +19,37 @@
         android:textColor="#000000"
         android:textSize="32dp" />
 
-    //display account holder's profile
-    <View
-        android:layout_width="280dp"
-        android:layout_height="145dp"
+    //search username
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="115dp"
-        android:background="@drawable/emptyrect" />
+        android:layout_marginTop="145dp"
+        android:text="Search Username:"
+        android:textColor="#000000" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="130dp"
-        android:backgroundTint="#D3D3D3"
-        android:background="@drawable/accountcircle"
-        app:civ_border_color="#FFFFFF"
-        app:civ_border_width="0dp"
-        />
-
-    <TextView
-        android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/usernameTxt"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
         android:layout_marginLeft="160dp"
-        android:layout_marginTop="140dp"
-        android:textSize="20dp" />
+        android:layout_marginTop="120dp">
 
-    <TextView
-        android:id="@+id/balanceLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="200dp"
-        android:textSize="20dp" />
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="145dp"
+        android:background="@drawable/ic_search_black_24dp"
+        android:backgroundTint="#000000" />
 
     //display all transactions
     <android.support.v7.widget.RecyclerView
@@ -63,14 +57,14 @@
         android:layout_width="338dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="360dp" />
+        android:layout_marginTop="290dp" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="230dp"
         android:text="Description"
         android:textColor="#000000" />
 
@@ -79,14 +73,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="220dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="230dp"
         android:text="Amount"
         android:textColor="#000000" />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="0.5dp"
-        android:layout_marginTop="335dp"
+        android:layout_marginTop="265dp"
         android:background="#000000"
         android:paddingBottom="10dip" />
 

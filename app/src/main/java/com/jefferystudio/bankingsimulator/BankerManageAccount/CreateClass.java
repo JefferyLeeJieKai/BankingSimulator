@@ -9,43 +9,68 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class CreateClass extends Fragment {
 
-    TextInputLayout getClass;
-    TextInputLayout interest;
-    Button createButton;
-    Button cancelButton;
+    private TextInputLayout searchClass;
+    private TextInputLayout interest;
+    private Button createButton;
+    private Button cancelButton;
+    private Bundle args;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.class_create, container, false);
 
-        getClass = view.findViewById(R.id.classTxt);
+        searchClass = view.findViewById(R.id.classTxt);
         interest = view.findViewById(R.id.intRateTxt);
 
         //create button
         createButton = view.findViewById(R.id.createBtn);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
-                //do something
+                //if invalid class or interest rate found
+                if (!validateClass() | !validateInt()) {
 
+                    return;
+                }
             }
         });
 
         //cancel button
         cancelButton = view.findViewById(R.id.cancelBtn);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                //do something
-
-            }
-        });
 
         return view;
+    }
+
+    //validations
+    private boolean validateClass() {
+
+        String input = searchClass.getEditText().getText().toString().trim();
+
+        boolean result = Validation.validateEmpty(input, searchClass);
+
+        if (result) {
+            searchClass.setError(null);
+        }
+
+        return result;
+    }
+
+    private boolean validateInt() {
+
+        String input = interest.getEditText().getText().toString().trim();
+
+        boolean result = Validation.validateAmount(input, interest);
+
+        if (result) {
+            interest.setError(null);
+        }
+
+        return result;
     }
 }

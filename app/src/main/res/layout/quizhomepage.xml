@@ -31,7 +31,7 @@
         android:layout_marginLeft="70dp"
         android:layout_marginTop="280dp"
         android:background="@null"
-        app:srcCompat="@drawable/transfer" />
+        app:srcCompat="@drawable/startquiz" />
 
     <ImageButton
         android:id="@+id/viewquiz"
@@ -41,7 +41,7 @@
         android:layout_marginLeft="260dp"
         android:layout_marginTop="280dp"
         android:background="@null"
-        app:srcCompat="@drawable/deposit" />
+        app:srcCompat="@drawable/quizresult" />
 
 
 

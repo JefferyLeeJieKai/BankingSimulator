@@ -13,15 +13,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class DeleteClass extends Fragment {
 
-    TextInputLayout searchClass;
-    Button searchButton;
-    TextView classLabel;
-    TextView interest;
-    Button deleteButton;
-    Button cancelButton;
+    private TextInputLayout searchClass;
+    private Button searchButton;
+    private TextView classLabel;
+    private TextView interest;
+    private Button deleteButton;
+    private Button cancelButton;
+    private String input;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -42,11 +44,17 @@ public class DeleteClass extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //draw out information from database
-                //testing purpose
-                classLabel.setText("1");
-                interest.setText("0.2");
+                input = searchClass.getEditText().getText().toString().trim();
 
+                //if not empty
+                if(Validation.validateEmpty(input, searchClass)) {
+                    searchClass.setError(null);
+
+                    //draw out information from database
+                    //testing purpose
+                    classLabel.setText(input);
+                    interest.setText("0.2");
+                }
             }
         });
 
@@ -56,44 +64,56 @@ public class DeleteClass extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String msg = "Are you sure you want to delete '" + classLabel + "' ?";
+                String strClass = classLabel.getText().toString();
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                builder.setTitle("Warning!");
-                builder.setMessage(msg);
-
-                //yes button selected
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        //delete saving goal from database
+                //if user did not select a class
+                if (strClass.equals("NIL")) {
+                    Toast.makeText(getActivity(),
+                            "Please search for a class first",
+                            Toast.LENGTH_SHORT).show();
+                }
+                //if user selected a class
+                else {
+                    String msg = "Are you sure you want to delete '" + strClass + "' ?";
 
 
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                        //testing
-                        Toast.makeText(getActivity(),
-                                "DELETED",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    builder.setTitle("Warning!");
+                    builder.setMessage(msg);
 
-                //no button selected
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    //yes button selected
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
 
-                        dialogInterface.cancel();
-                    }
-                });
+                            //delete class from database
 
-                AlertDialog ad = builder.create();
-                ad.show();
+
+                            //testing
+                            Toast.makeText(getActivity(),
+                                    "DELETED",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    //no button selected
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            dialogInterface.cancel();
+                        }
+                    });
+
+                    AlertDialog ad = builder.create();
+                    ad.show();
+                }
             }
         });
+
 
         //cancel button
         cancelButton = view.findViewById(R.id.cancelBtn);

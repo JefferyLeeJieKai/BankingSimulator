@@ -15,7 +15,7 @@ public class PreLogin extends AppCompatActivity {
 
     private ImageButton buttonlogin;
     private ImageButton buttonsignup;
-    private ImageButton buttontransfer;
+    //private ImageButton buttontransfer;
 
     @Override
     protected void onCreate (Bundle savedInstanceState){
@@ -24,7 +24,7 @@ public class PreLogin extends AppCompatActivity {
 
          buttonsignup =(ImageButton) findViewById(R.id.signup);
          buttonlogin = (ImageButton) findViewById(R.id.loginposb);
-         buttontransfer = (ImageButton) findViewById(R.id.transferposb) ;
+         //buttontransfer = (ImageButton) findViewById(R.id.transferposb) ;
 
          buttonlogin.setOnClickListener(new View.OnClickListener(){
              @Override
@@ -40,13 +40,17 @@ public class PreLogin extends AppCompatActivity {
              }
          });
 
-        buttontransfer.setOnClickListener(new View.OnClickListener() {
+         /*
+         buttontransfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View viewtransfer) {
                 LoginScreen();
             }
         });
+
+          */
     }
+
 
     public void LoginScreen(){
         Intent intent = new Intent(getApplicationContext(), LoginScreen.class);

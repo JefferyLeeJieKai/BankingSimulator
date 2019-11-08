@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="Name:"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_marginTop="140dp"
         android:layout_marginLeft="20dp" />
 
@@ -68,27 +68,38 @@
         android:layout_marginTop="280dp"
         android:text="Username:"
         android:textColor="#000000"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/password"
         android:layout_width="143dp"
         android:layout_height="32dp"
         android:text="Password:"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_marginTop="340dp"
         android:textColor="#000000"
         android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:id="@+id/cfmpassword"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="400dp"
+        android:text="Confirm Pass:"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
 
     <TextView
         android:id="@+id/gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="460dp"
         android:text="Gender:"
         android:textColor="#000000"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <RadioGroup
         android:id="@+id/radioGroupGender"
@@ -96,7 +107,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="400dp">
+        android:layout_marginTop="460dp">
 
         <RadioButton
             android:id="@+id/radioMale"
@@ -116,17 +127,17 @@
         android:layout_width="155dp"
         android:layout_height="51dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="520dp"
         android:text="Date of Birth:"
         android:textColor="#000000"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btnsubmit"
         android:layout_width="112dp"
         android:layout_height="50dp"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="650dp"
         android:background="@drawable/buttonshadow"
         android:text="Submit" />
 
@@ -156,12 +167,23 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="140dp"
         android:layout_marginTop="334dp"
         android:hint="Password"
         android:textColorHint="#000000"
         android:inputType="textPassword"/>
-        //app:passwordToggleEnabled="true"/>
+        app:passwordToggleEnabled="true"/>
+
+    <EditText
+        android:id="@+id/cfmpasswordinput"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="394dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHint="#000000" />
 
     <EditText
         android:id="@+id/dateview"
@@ -172,7 +194,7 @@
         android:ems="10"
         android:textColorHint="#000000"
         android:layout_marginLeft="175dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="520dp"
         android:clickable="true"
         android:focusable="false"/>
 
@@ -182,8 +204,8 @@
         android:layout_height="wrap_content"
         android:text="Identity Type:"
         android:textColor="#000000"
-        android:textSize="24sp"
-        android:layout_marginTop="517dp"
+        android:textSize="20sp"
+        android:layout_marginTop="577dp"
         android:layout_marginLeft="20dp" />
 
     <android.support.v7.widget.AppCompatSpinner
@@ -191,8 +213,8 @@
         android:layout_width="198dp"
         android:layout_height="45dp"
         android:textColor="#000000"
-        android:layout_marginLeft="170dp"
-        android:layout_marginTop="513dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="573dp"
         android:entries="@array/it" />
 
 </RelativeLayout>

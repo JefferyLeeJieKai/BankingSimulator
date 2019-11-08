@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 import java.util.Calendar;
 
@@ -65,9 +66,81 @@ public class CreateAccountAH extends Fragment {
 
         //buttons
         createButton = view.findViewById(R.id.createBtn);
+
+        /*
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //if invalid class or interest rate found
+                if (!validateName() | !validateDOB() | !validateUsername() | !validatePass()) {
+
+                    return;
+                }
+            }
+        });
+        */
+
         cancelButton = view.findViewById(R.id.cancelBtn);
 
         return view;
+    }
+
+    //validations
+
+    private boolean validateName() {
+
+        String input = name.getEditText().getText().toString().trim();
+
+        boolean result = Validation.validateEmpty(input, name);
+
+        if (result) {
+            name.setError(null);
+        }
+
+        return result;
+    }
+
+    private boolean validateDOB() {
+
+        boolean result = true;
+
+        String input = dob.getText().toString().trim();
+
+        if (input.isEmpty()) {
+            result = false;
+        }
+        else {
+            dob.setError(null);
+        }
+
+        return result;
+    }
+
+    private boolean validateUsername() {
+
+        String input = username.getEditText().getText().toString().trim();
+
+        boolean result = Validation.validateEmpty(input, username);
+
+        if (result) {
+            username.setError(null);
+        }
+
+        return result;
+    }
+
+    private boolean validatePass() {
+
+        String input = password.getEditText().getText().toString().trim();
+
+        boolean result = Validation.validateEmpty(input, password);
+
+        if (result) {
+            password.setError(null);
+        }
+
+        return result;
     }
 }
 

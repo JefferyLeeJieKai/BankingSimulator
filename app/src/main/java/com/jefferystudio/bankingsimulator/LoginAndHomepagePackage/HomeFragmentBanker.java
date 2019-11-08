@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageAccHome;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Settings;
-import com.jefferystudio.bankingsimulator.goalspage;
-import com.jefferystudio.bankingsimulator.transferpayee;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
 
 public class HomeFragmentBanker extends Fragment {
 
@@ -29,6 +30,8 @@ public class HomeFragmentBanker extends Fragment {
     private ImageButton btnsettings;
     private ImageButton btnquizresult;
     private ImageButton btnmanageacc;
+    private ImageButton btnViewTransactions;
+    private ImageButton btnDeposit;
 
     public HomeFragmentBanker(){
 
@@ -47,6 +50,8 @@ public class HomeFragmentBanker extends Fragment {
         btnsettings = view.findViewById(R.id.settings);
         btnquizresult = view.findViewById(R.id.viewquizresult);
         btnmanageacc = view.findViewById(R.id.bankermanageaccount);
+        btnViewTransactions = view.findViewById(R.id.bankertransactions);
+        btnDeposit = view.findViewById(R.id.bankerdepositfunds);
 
 
 
@@ -71,8 +76,35 @@ public class HomeFragmentBanker extends Fragment {
         btnmanageacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), ManageAccHome.class);
-                startActivity(intent);
+                Fragment manageAccountHome = new ManageAccHome();
+                manageAccountHome.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, manageAccountHome);
+                transaction.commit();
+
+            }
+        });
+
+        btnViewTransactions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Fragment viewTransBanker = new ViewTransactionsBanker();
+                viewTransBanker.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, viewTransBanker);
+                transaction.commit();
+
+            }
+        });
+
+        btnDeposit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Fragment dBanker = new DepositBanker();
+                dBanker.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, dBanker);
+                transaction.commit();
 
             }
         });
