@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.LoginScreen;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
 import com.jefferystudio.bankingsimulator.R;
 
@@ -36,6 +37,7 @@ public class registration2 extends AppCompatActivity {
     private EditText emailBox;
     private EditText usernameBox;
     private EditText passwordBox;
+    private EditText cfmpasswordBox;
     private RadioGroup genderGroup;
     private RadioButton male;
     private RadioButton female;
@@ -55,6 +57,7 @@ public class registration2 extends AppCompatActivity {
         emailBox = findViewById(R.id.emailinput);
         usernameBox = findViewById(R.id.usernameinput);
         passwordBox = findViewById(R.id.passwordinput);
+        cfmpasswordBox = findViewById(R.id.cfmpasswordinput);
         genderGroup = findViewById(R.id.radioGroupGender);
 
         dobBox = findViewById(R.id.dateview);
@@ -134,6 +137,7 @@ public class registration2 extends AppCompatActivity {
 
         String name = nameBox.getText().toString().trim();
         String password = passwordBox.getText().toString().trim();
+        String cfmpassword = cfmpasswordBox.getText().toString().trim();
         String dob = dobBox.getText().toString().trim();
         String role = String.valueOf(roleBox.getSelectedItemId());
 
@@ -162,6 +166,11 @@ public class registration2 extends AppCompatActivity {
 
                     errorList.add("Username already exists.");
                 }
+            }
+
+            if(!cfmpassword.equals(password))
+            {
+                errorList.add("Password not the same!");
             }
         }
         else {
@@ -205,5 +214,11 @@ public class registration2 extends AppCompatActivity {
     public void returnVerification(String result) {
 
         verifyResult = result;
+    }
+
+    public void onBackPressed() {
+
+        Intent intent = new Intent(getApplicationContext(), PreLogin.class);
+        startActivity(intent);
     }
 }
