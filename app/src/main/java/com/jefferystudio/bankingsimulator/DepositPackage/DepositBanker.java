@@ -3,6 +3,7 @@ package com.jefferystudio.bankingsimulator.DepositPackage;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class DepositBanker extends Fragment
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.deposit_ah, container, false);
+        View view = inflater.inflate(R.layout.depositfunds_banker, container, false);
 
         args = getArguments();
         currentID = args.getString("userID");

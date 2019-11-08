@@ -1,28 +1,40 @@
 package com.jefferystudio.bankingsimulator.BankerManageAccount;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.jefferystudio.bankingsimulator.R;
 
-public class ManageAccHome extends AppCompatActivity {
+public class ManageAccHome extends Fragment{
 
-    @Override
-    protected void onCreate (Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.manageaccount);
+    private ImageButton btnCreate;
+    private Bundle args;
 
-        Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
-        homeScreenToolbar.setTitle("Manage Account");
-        setSupportActionBar(homeScreenToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
 
-    @Override
-    public boolean onSupportNavigateUp() {
+        View view = inflater.inflate(R.layout.manageaccount, container, false);
 
-        onBackPressed();
-        return super.onSupportNavigateUp();
+        btnCreate = view.findViewById(R.id.createclassbtn);
+
+
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment CreateClass1 = new CreateClass();
+                CreateClass1.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, CreateClass1);
+                transaction.commit();
+            }
+        });
+
+        return view;
     }
 }

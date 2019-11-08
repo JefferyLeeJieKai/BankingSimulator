@@ -30,6 +30,7 @@ import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
 import com.jefferystudio.bankingsimulator.Settings;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.profilepage;
 
@@ -108,7 +109,7 @@ public class HomeScreenBanker extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.transaction) {
 
-                    fragment = new ViewTransactions();
+                    fragment = new ViewTransactionsBanker();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.createclass) {

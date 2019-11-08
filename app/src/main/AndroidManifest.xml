@@ -50,6 +50,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
+
         <activity
             android:name=".LoginAndHomepagePackage.HomeScreenBanker"
             android:screenOrientation="portrait"
@@ -91,11 +92,6 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".BankerManageAccount.ManageAccHome"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
-
-        <activity
             android:name=".Quiz.QuizActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
@@ -114,6 +110,7 @@
             android:name=".LoginAndHomepagePackage.ChangePassword"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

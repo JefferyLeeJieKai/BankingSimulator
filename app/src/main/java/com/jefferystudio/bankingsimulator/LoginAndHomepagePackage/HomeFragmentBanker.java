@@ -11,13 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageAccHome;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Settings;
-import com.jefferystudio.bankingsimulator.goalspage;
-import com.jefferystudio.bankingsimulator.transferpayee;
 
 public class HomeFragmentBanker extends Fragment {
 
@@ -71,8 +70,11 @@ public class HomeFragmentBanker extends Fragment {
         btnmanageacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), ManageAccHome.class);
-                startActivity(intent);
+                Fragment manageAccountHome = new ManageAccHome();
+                manageAccountHome.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, manageAccountHome);
+                transaction.commit();
 
             }
         });
