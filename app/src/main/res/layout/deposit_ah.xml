@@ -34,11 +34,11 @@
 
     <TextView
         android:id="@+id/textView"
-        app:layout_widthPercent="65%"
+        app:layout_widthPercent="70%"
         app:layout_heightPercent="9%"
         app:layout_marginTopPercent="6%"
         android:layout_centerHorizontal="true"
-        android:text="Deposit Funds"
+        android:text="DEPOSIT FUNDS"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"

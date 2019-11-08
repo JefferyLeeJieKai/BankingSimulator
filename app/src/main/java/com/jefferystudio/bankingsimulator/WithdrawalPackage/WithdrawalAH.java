@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Validation;
@@ -22,6 +23,7 @@ public class WithdrawalAH extends Fragment
     private TextView userBalance;
     private TextInputLayout amountToWithdraw;
     private String input;
+    private Button backButton;
     private Button nextButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +39,23 @@ public class WithdrawalAH extends Fragment
         new UpdateBalanceAsync(getActivity(), userBalance).execute(currentID);
 
         amountToWithdraw = view.findViewById(R.id.amountTxt);
+
+        backButton = view.findViewById(R.id.backBtn);
+        backButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment homeFrag = new HomeFragmentUser();
+                Bundle homeBundle = new Bundle();
+                homeBundle.putString("userID", currentID);
+                homeFrag.setArguments(homeBundle);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, homeFrag)
+                        .commit();
+            }
+        });
+
         nextButton = view.findViewById(R.id.nextBtn);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
