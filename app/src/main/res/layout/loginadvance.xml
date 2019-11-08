@@ -9,32 +9,26 @@
     android:background="#F7E3C4"
     android:angle="45">
 
-    <!--<com.q42.android.scrollingimageview.ScrollingImageView
+    <com.q42.android.scrollingimageview.ScrollingImageView
 
         android:id="@+id/scrollingImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:scaleType="center"
         app:speed="0.2dp"
         app:src="@drawable/beachchair"
         android:elevation="100dp"
         android:outlineAmbientShadowColor="#000"
-        android:padding="100dp"
         android:shadowRadius="200"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="45dp" />
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        tools:ignore="MissingConstraints" />-->
 
     <ImageButton
         android:id="@+id/loginposb"
         app:layout_widthPercent="15%"
         app:layout_heightPercent="10%"
         app:layout_marginRightPercent="11%"
-        app:layout_marginTopPercent="80%"
+        app:layout_marginTopPercent="89%"
         android:layout_toLeftOf="@id/signup"
         android:scaleType="fitCenter"
         android:background="@null"
@@ -45,7 +39,7 @@
         app:layout_widthPercent="15%"
         app:layout_heightPercent="10%"
         app:layout_marginLeftPercent="11%"
-        app:layout_marginTopPercent="80%"
+        app:layout_marginTopPercent="89%"
         android:layout_toRightOf="@id/signup"
         android:scaleType="fitCenter"
         android:background="@null"
@@ -55,7 +49,7 @@
         android:id="@+id/signup"
         app:layout_widthPercent="15%"
         app:layout_heightPercent="10%"
-        app:layout_marginTopPercent="80%"
+        app:layout_marginTopPercent="89%"
         android:layout_centerHorizontal="true"
         android:background="@null"
         android:scaleType="fitCenter"
