@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="145dp"
         android:text="Search Username:"
         android:textColor="#000000" />
 
@@ -34,7 +34,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="160dp"
-        android:layout_marginTop="130dp">
+        android:layout_marginTop="120dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginLeft="330dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="145dp"
         android:background="@drawable/ic_search_black_24dp"
         android:backgroundTint="#000000" />
 
