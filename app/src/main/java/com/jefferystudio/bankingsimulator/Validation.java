@@ -8,17 +8,27 @@ import java.util.regex.Pattern;
 //all validations place in this class
 public class Validation {
 
-    public static boolean validateAmount(String input, TextInputLayout inputBox) {
-
+    //check for empty field
+    public static boolean validateEmpty(String input, TextInputLayout inputBox)
+    {
         boolean result = true;
 
         //if empty
         if (input.isEmpty()) {
-            inputBox.setError("Amount cannot be empty");
+            inputBox.setError("Field cannot be empty");
             result = false;
         }
+
+        return result;
+    }
+
+    //validate amount
+    public static boolean validateAmount(String input, TextInputLayout inputBox) {
+
+        boolean result = validateEmpty(input, inputBox);
+
         //if not empty
-        else {
+        if (result) {
             String regExp = "^-?[0-9]+([.][0-9]{1,2})?";
 
             Pattern p = Pattern.compile(regExp);
@@ -26,7 +36,7 @@ public class Validation {
 
             //if non-numeric values found
             if (!m.matches()) {
-                inputBox.setError("Please enter the correct format");
+                inputBox.setError("Please enter digits in 2 decimal place");
                 result = false;
             }
             //if numeric values only
