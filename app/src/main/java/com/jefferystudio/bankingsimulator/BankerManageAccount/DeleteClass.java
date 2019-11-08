@@ -13,15 +13,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class DeleteClass extends Fragment {
 
-    TextInputLayout searchClass;
-    Button searchButton;
-    TextView classLabel;
-    TextView interest;
-    Button deleteButton;
-    Button cancelButton;
+    private TextInputLayout searchClass;
+    private Button searchButton;
+    private TextView classLabel;
+    private TextView interest;
+    private Button deleteButton;
+    private Button cancelButton;
+    private String input;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -42,11 +44,17 @@ public class DeleteClass extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //draw out information from database
-                //testing purpose
-                classLabel.setText("1");
-                interest.setText("0.2");
+                input = searchClass.getEditText().getText().toString().trim();
 
+                //if not empty
+                if(Validation.validateEmpty(input, searchClass)) {
+                    searchClass.setError(null);
+
+                    //draw out information from database
+                    //testing purpose
+                    classLabel.setText("1");
+                    interest.setText("0.2");
+                }
             }
         });
 
