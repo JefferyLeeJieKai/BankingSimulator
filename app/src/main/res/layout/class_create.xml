@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,8 +15,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000000"
         android:textSize="25dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="20dp" />
 
     //get class
     <TextView

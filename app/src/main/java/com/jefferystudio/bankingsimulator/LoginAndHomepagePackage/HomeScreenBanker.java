@@ -61,7 +61,7 @@ public class HomeScreenBanker extends AppCompatActivity {
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(homeScreenToolbar);
-        getSupportActionBar().setTitle("Kids Bank");
+        getSupportActionBar().setTitle("KidzSmart Bank");
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);

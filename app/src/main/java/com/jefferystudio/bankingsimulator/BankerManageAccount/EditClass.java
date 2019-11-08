@@ -37,7 +37,7 @@ public class EditClass extends Fragment {
         searchButton = view.findViewById(R.id.searchBtn);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 //draw out information from database
                 //testing purpose
@@ -52,9 +52,9 @@ public class EditClass extends Fragment {
         editClassButton = view.findViewById(R.id.editClassBtn);
         editClassButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v1) {
+            public void onClick(View view) {
 
-                //do something
+
 
             }
         });
@@ -63,14 +63,14 @@ public class EditClass extends Fragment {
         editIntButton = view.findViewById(R.id.editIntBtn);
         editIntButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v2) {
+            public void onClick(View view) {
 
-                //do something
 
             }
         });
-        */
 
+        */
+        
         return view;
     }
 }

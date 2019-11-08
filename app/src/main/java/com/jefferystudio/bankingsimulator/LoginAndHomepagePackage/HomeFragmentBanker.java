@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageAccHome;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Settings;
 import com.jefferystudio.bankingsimulator.goalspage;
@@ -24,9 +26,9 @@ public class HomeFragmentBanker extends Fragment {
     private TextView currentUserBalance;
     private Bundle args;
     private String currentID;
-    private ImageButton btnsavings;
-    private ImageButton btntransfer;
     private ImageButton btnsettings;
+    private ImageButton btnquizresult;
+    private ImageButton btnmanageacc;
 
     public HomeFragmentBanker(){
 
@@ -42,33 +44,34 @@ public class HomeFragmentBanker extends Fragment {
         greetingsMsg = view.findViewById(R.id.textView4);
         greetingsMsg.setText("Welcome to KidzSmart, " + args.get("userName") + " (Banker)");
 
-        btnsavings = view.findViewById(R.id.savings);
-        btntransfer = view.findViewById(R.id.transferfunds);
         btnsettings = view.findViewById(R.id.settings);
+        btnquizresult = view.findViewById(R.id.viewquizresult);
+        btnmanageacc = view.findViewById(R.id.bankermanageaccount);
 
 
-        btnsavings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), goalspage.class);
-                startActivity(intent);
-            }
-        });
-
-        btntransfer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                transferpayee transferpayees = new transferpayee();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, transferpayees);
-                transaction.commit();
-            }
-        });
 
         btnsettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(getActivity().getApplicationContext(), Settings.class);
+                startActivity(intent);
+
+            }
+        });
+
+        btnquizresult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getActivity().getApplicationContext(), QuizHistoryBanker.class);
+                startActivity(intent);
+
+            }
+        });
+
+        btnmanageacc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getActivity().getApplicationContext(), ManageAccHome.class);
                 startActivity(intent);
 
             }
