@@ -15,7 +15,7 @@ public class ViewTransactionsBanker extends Fragment {
 
     private TextInputLayout username;
     private Button searchButton;
-    String input;
+    private String input;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
