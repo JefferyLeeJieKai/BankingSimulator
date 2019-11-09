@@ -15,9 +15,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000000"
         android:textSize="32dp"
-        android:layout_marginLeft="55dp"
-        android:fontFamily="@font/titan_one"
-        android:layout_marginTop="30dp" />
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:shadowRadius="20"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="20dp" />
 
     //search class
     <TextView

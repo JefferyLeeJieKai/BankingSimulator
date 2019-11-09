@@ -9,51 +9,49 @@
     android:layout_height="match_parent">
 
 
-
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="250dp"
-        android:layout_height="80dp"
         android:background="@drawable/emptyrect"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="273dp"
-        />
+        app:layout_heightPercent="11.5%"
+        app:layout_marginLeftPercent="7%"
+        app:layout_marginTopPercent="38%"
+        app:layout_widthPercent="85%" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="280dp"
-        android:textColor="#000000"
         android:text="Account No:"
-        android:textSize="18dp" />
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="39%"
+        app:layout_widthPercent="26%" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:layout_marginLeft="30dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="44%"
+        app:layout_widthPercent="34%"
         android:textColor="#000000"
         android:text="Current Balance:"
         android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/actualAccountNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_marginLeft="135dp"
         android:textColor="#000000"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="38%"
+        app:layout_marginTopPercent="39%"
+        app:layout_widthPercent="50%" />
 
     <TextView
         android:id="@+id/actualCurrentBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:layout_marginLeft="165dp"
         android:textColor="#000000"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="46%"
+        app:layout_marginTopPercent="44%"
+        app:layout_widthPercent="42%" />
 
     <View
         android:layout_width="fill_parent"
@@ -66,70 +64,66 @@
 
     <ImageButton
         android:id="@+id/savings"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
         android:scaleType="fitCenter"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="380dp"
         android:background="@null"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="52%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/savings" />
 
     <ImageButton
         android:id="@+id/transferfunds"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
         android:scaleType="fitCenter"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="380dp"
         android:background="@null"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="39%"
+        app:layout_marginTopPercent="52%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/transfer" />
 
     <ImageButton
         android:id="@+id/depositfunds"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="380dp"
         android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="70%"
+        app:layout_marginTopPercent="52%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/deposit" />
 
     <ImageButton
         android:id="@+id/viewtransaction"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="490dp"
         android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="67%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/viewtransaction" />
 
     <ImageButton
         android:id="@+id/withdraw"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
         android:scaleType="fitCenter"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="490dp"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="39%"
+        app:layout_marginTopPercent="67%"
+        app:layout_widthPercent="21%"
         android:background="@drawable/withdraw"
      />
 
     <ImageButton
         android:id="@+id/quiz"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
         android:scaleType="fitCenter"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="490dp"
         android:background="@null"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="70%"
+        app:layout_marginTopPercent="67%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/quizz" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="259dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="140dp"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"
@@ -139,8 +133,10 @@
         android:text="Welcome to KidzSmart, Bob"
         android:textColor="#000000"
         android:textColorHighlight="#0E1010"
-        android:textSize="30sp" />
-
-
+        android:textSize="30sp"
+        app:layout_heightPercent="18%"
+        app:layout_marginLeftPercent="6%"
+        app:layout_marginTopPercent="16%"
+        app:layout_widthPercent="70%" />
 
 </android.support.percent.PercentRelativeLayout>

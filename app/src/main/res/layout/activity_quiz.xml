@@ -1,70 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.percent.PercentRelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        layout="@layout/action_bar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <TextView
         android:id="@+id/text_quiz_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quiz"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
-        android:textSize="25dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="10dp" />
+        android:elevation="20dp"
+        android:fontFamily="@font/titan_one"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:shadowRadius="20"
+        android:text="Quiz"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="9%"
+        app:layout_marginLeftPercent="70%"
+        app:layout_marginTopPercent="2%"
+        app:layout_widthPercent="80%" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
     <TextView
         android:id="@+id/text_view_question_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/text_quiz_header"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
         android:text="Question: 1/x"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="5%"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="30%" />
 
     <TextView
         android:id="@+id/text_view_countdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@id/text_quiz_header"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
         android:text="30"
         android:textColor="@android:color/black"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        app:layout_heightPercent="8%"
+        app:layout_marginRightPercent="5%"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="15%" />
 
     <TextView
         android:id="@+id/text_view_question"
+        android:layout_below="@id/text_view_countdown"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_above="@id/radio_group"
-        android:layout_marginBottom="11dp"
         android:text="Question......."
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_heightPercent="20%"
+        app:layout_marginTopPercent="8%"
+        app:layout_widthPercent="90%" />
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_question"
         android:layout_centerVertical="true"
         android:textSize="15sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="10dp">
+        app:layout_heightPercent="18%"
+        app:layout_marginLeftPercent="5%"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="90%">
 
         <RadioButton
             android:id="@+id/radio_button1"
@@ -88,12 +95,13 @@
 
     <Button
         android:id="@+id/button_confirm_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/radio_group"
-        android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/buttonshadow"
-        android:text="Confirm" />
+        android:text="Confirm"
+        app:layout_heightPercent="7%"
+        app:layout_marginLeftPercent="60%"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="25%" />
 
 </android.support.percent.PercentRelativeLayout>

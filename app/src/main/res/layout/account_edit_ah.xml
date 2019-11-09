@@ -9,190 +9,208 @@
     >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EDIT ACCOUNT"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#000000"
-        android:textSize="32dp"
-        android:layout_marginLeft="80dp"
+        android:id="@+id/title"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:text="Edit Account"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
         android:fontFamily="@font/titan_one"
-        android:layout_marginTop="30dp" />
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
     //get name
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="145dp"
+        android:text="Name:"
         android:textColor="#000000"
-        android:text="Name:" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="22%"
+        app:layout_marginTopPercent="19%"
+        app:layout_widthPercent="12%" />
 
     <TextView
         android:id="@+id/nameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="145dp"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="36%"
+        app:layout_marginTopPercent="19%"
+        app:layout_widthPercent="45%" />
 
     <Button
         android:id="@+id/editNameBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="145dp" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="85%"
+        app:layout_marginTopPercent="19%"
+        app:layout_widthPercent="5%" />
 
     //get date of birth
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="220dp"
+        android:text="Date Of Birth:"
         android:textColor="#000000"
-        android:text="Date Of Birth:" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="12%"
+        app:layout_marginTopPercent="30%"
+        app:layout_widthPercent="22%" />
 
     <TextView
         android:id="@+id/DOBLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="220dp"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="36%"
+        app:layout_marginTopPercent="30%"
+        app:layout_widthPercent="45%"
         android:textColor="#000000" />
 
     <Button
         android:id="@+id/editDOBBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="220dp" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="85%"
+        app:layout_marginTopPercent="30%"
+        app:layout_widthPercent="5%" />
 
-    //get phone
+    //get email
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="315dp"
+        android:text="Email:"
         android:textColor="#000000"
-        android:text="Phone:" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="23%"
+        app:layout_marginTopPercent="42%"
+        app:layout_widthPercent="12%" />
 
     <TextView
-        android:id="@+id/phoneLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="315dp"
+        android:id="@+id/emailLbl"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="36%"
+        app:layout_marginTopPercent="42%"
+        app:layout_widthPercent="45%"
         android:textColor="#000000" />
 
     <Button
         android:id="@+id/editPhoneBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="315dp" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="85%"
+        app:layout_marginTopPercent="42%"
+        app:layout_widthPercent="5%" />
 
     //get username
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="400dp"
+        android:text="Username:"
         android:textColor="#000000"
-        android:text="Username:" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="16%"
+        app:layout_marginTopPercent="54%"
+        app:layout_widthPercent="18%" />
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="400dp"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="36%"
+        app:layout_marginTopPercent="54%"
+        app:layout_widthPercent="45%"
         android:textColor="#000000" />
 
     <Button
         android:id="@+id/editUsernameBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="400dp" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="85%"
+        app:layout_marginTopPercent="54%"
+        app:layout_widthPercent="5%" />
 
     //get password
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="490dp"
+        android:text="Password:"
         android:textColor="#000000"
-        android:text="Password:" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="16%"
+        app:layout_marginTopPercent="66%"
+        app:layout_widthPercent="18%" />
 
     <TextView
         android:id="@+id/passLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="490dp"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="36%"
+        app:layout_marginTopPercent="66%"
+        app:layout_widthPercent="45%"
         android:textColor="#000000" />
 
     <Button
         android:id="@+id/editPassBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="490dp" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="85%"
+        app:layout_marginTopPercent="66%"
+        app:layout_widthPercent="5%" />
 
     //get gender
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="570dp"
+        android:text="Gender:"
         android:textColor="#000000"
-        android:text="Gender:" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="20%"
+        app:layout_marginTopPercent="77%"
+        app:layout_widthPercent="14%" />
 
     <TextView
         android:id="@+id/genderLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="570dp"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="36%"
+        app:layout_marginTopPercent="77%"
+        app:layout_widthPercent="45%"
         android:textColor="#000000" />
 
     <Button
         android:id="@+id/editGenderBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="570dp" />
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="85%"
+        app:layout_marginTopPercent="77%"
+        app:layout_widthPercent="5%" />
 
     //display buttons
+
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="625dp"
         android:background="@drawable/buttonshadow"
-        android:text="CONFIRM" />
+        android:text="CONFIRM"
+        app:layout_heightPercent="7%"
+        app:layout_marginLeftPercent="20%"
+        app:layout_marginTopPercent="88%"
+        app:layout_widthPercent="25%" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="625dp"
         android:background="@drawable/buttonshadow"
-        android:text="CANCEL" />
-
+        android:text="CANCEL"
+        app:layout_heightPercent="7%"
+        app:layout_marginLeftPercent="60%"
+        app:layout_marginTopPercent="88%"
+        app:layout_widthPercent="25%" />
 
 </android.support.percent.PercentRelativeLayout>

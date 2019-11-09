@@ -16,6 +16,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,10 +69,17 @@ public class ProfilePageBanker extends AppCompatActivity {
         }
     }
 
+
     @Override
     public boolean onSupportNavigateUp() {
 
         onBackPressed();
         return super.onSupportNavigateUp();
+    }
+
+    public void onBackPressed() {
+
+        Intent intent = new Intent(getApplicationContext(), HomeFragmentBanker.class);
+        startActivity(intent);
     }
 }

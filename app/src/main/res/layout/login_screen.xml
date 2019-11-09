@@ -25,7 +25,6 @@
             android:layout_alignEnd="@+id/username"
             android:hint="Username"
             android:inputType="textPersonName"
-            android:text="Peter"
             android:textSize="20dp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -49,7 +48,7 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
-            android:text="123456"
+
             android:textSize="20dp" />
 
     </android.support.design.widget.TextInputLayout>
