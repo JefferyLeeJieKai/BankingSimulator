@@ -2,26 +2,32 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg5"
-    >
+    android:background="@drawable/bg5">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CREATE ACCOUNT"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#000000"
-        android:textSize="32dp"
+        android:id="@+id/title"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:text="Create Account"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"
         android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
         android:shadowRadius="20"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
     //get name
     <TextView
