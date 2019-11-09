@@ -15,7 +15,7 @@
         app:layout_heightPercent="9%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        android:text="DEPOSIT FUNDS"
+        android:text="Deposit Funds"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"

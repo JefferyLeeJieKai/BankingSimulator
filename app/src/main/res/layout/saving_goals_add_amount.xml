@@ -2,22 +2,32 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sun"
-    >
+    android:background="@drawable/sun">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SAVING GOALS"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#000000"
+        android:id="@+id/title"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:text="Saving Goals"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
         android:fontFamily="@font/titan_one"
-        android:textSize="32dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="20dp" />
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
     //display account holder's profile
 
