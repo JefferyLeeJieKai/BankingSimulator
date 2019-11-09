@@ -186,7 +186,6 @@
         android:ems="10"
         android:hint="Please enter your birthday"
         android:textColorHint="#000000"
-        android:inputType="textPassword"
         android:background="@drawable/password_field"
         app:autoSizeTextType="uniform"
         android:clickable="true"
