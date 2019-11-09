@@ -22,15 +22,14 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/payeeAvatar"
-        android:layout_width="87dp"
-        android:layout_height="110dp"
+        android:layout_width="104dp"
+        android:layout_height="108dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="90dp"
-        android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
+        android:backgroundTint="#D3D3D3"
         app:civ_border_color="#FFFFFF"
-        app:civ_border_width="0dp"
-        />
+        app:civ_border_width="0dp" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/payeeLbl"
@@ -59,9 +58,9 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/payerAvatar"
-        android:layout_width="87dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="265dp"
+        android:layout_width="104dp"
+        android:layout_height="108dp"
+        android:layout_marginLeft="245dp"
         android:layout_marginTop="90dp"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
@@ -73,7 +72,7 @@
         android:id="@+id/payerLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="265dp"
+        android:layout_marginLeft="255dp"
         android:layout_marginTop="200dp"
         android:textColor="#000000"
         android:text="payer's name" />
