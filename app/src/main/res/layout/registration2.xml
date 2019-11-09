@@ -43,8 +43,9 @@
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="5%"
-        android:text="Name:"
+        android:text="Name"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:background="@drawable/username_field"
         app:autoSizeTextType="uniform" />
 
@@ -60,6 +61,7 @@
         android:hint="Enter your name"
         android:inputType="textPersonName"
         android:textColorHint="#000000"
+        android:textStyle="italic"
         android:background="@drawable/password_field"
         app:autoSizeTextType="uniform"/>
 
@@ -71,8 +73,9 @@
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="2%"
-        android:text="Email:"
+        android:text="Email"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:background="@drawable/username_field"
         app:autoSizeTextType="uniform" />
 
@@ -88,6 +91,7 @@
         android:hint="Enter your email address"
         android:inputType="textPersonName"
         android:textColorHint="#000000"
+        android:textStyle="italic"
         android:background="@drawable/password_field"
         app:autoSizeTextType="uniform"/>
 
@@ -99,8 +103,9 @@
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="2%"
-        android:text="Username:"
+        android:text="Username"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:background="@drawable/username_field"
         app:autoSizeTextType="uniform" />
 
@@ -116,6 +121,7 @@
         android:hint="Enter desired username"
         android:inputType="textPersonName"
         android:textColorHint="#000000"
+        android:textStyle="italic"
         android:background="@drawable/password_field"
         app:autoSizeTextType="uniform"/>
 
@@ -127,8 +133,9 @@
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="2%"
-        android:text="Password:"
+        android:text="Password"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:background="@drawable/username_field"
         app:autoSizeTextType="uniform"/>
 
@@ -143,6 +150,7 @@
         android:ems="10"
         android:hint="Enter desired password"
         android:textColorHint="#000000"
+        android:textStyle="italic"
         android:inputType="textPassword"
         android:background="@drawable/middle_field"
         app:autoSizeTextType="uniform"/>
@@ -158,6 +166,7 @@
         android:ems="10"
         android:hint="Re-enter desired password"
         android:textColorHint="#000000"
+        android:textStyle="italic"
         android:inputType="textPassword"
         android:background="@drawable/password_field"
         app:autoSizeTextType="uniform"/>
@@ -170,8 +179,9 @@
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="2%"
-        android:text="Birthday:"
+        android:text="Birthday"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:background="@drawable/username_field"
         app:autoSizeTextType="uniform"/>
 
@@ -186,6 +196,7 @@
         android:ems="10"
         android:hint="Please enter your birthday"
         android:textColorHint="#000000"
+        android:textStyle="italic"
         android:background="@drawable/password_field"
         app:autoSizeTextType="uniform"
         android:clickable="true"
@@ -199,8 +210,9 @@
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="2%"
-        android:text="Gender:"
+        android:text="Gender"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:background="@drawable/username_field"
         app:autoSizeTextType="uniform"/>
 
@@ -237,8 +249,9 @@
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="2%"
-        android:text="Role:"
+        android:text="Role"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:background="@drawable/username_field"
         app:autoSizeTextType="uniform"/>
 
