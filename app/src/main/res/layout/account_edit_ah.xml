@@ -24,6 +24,13 @@
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
+
     //get name
 
     <TextView

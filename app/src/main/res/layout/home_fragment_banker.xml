@@ -10,38 +10,38 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="280dp"
-        android:textColor="#000000"
         android:text="Account No:"
-        android:textSize="18dp" />
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="7%"
+        app:layout_marginTopPercent="38%"
+        app:layout_widthPercent="26%" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:layout_marginLeft="30dp"
-        android:textColor="#000000"
         android:text="Current Balance:"
-        android:textSize="18dp"/>
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="7%"
+        app:layout_marginTopPercent="44%"
+        app:layout_widthPercent="34%" />
 
     <TextView
         android:id="@+id/actualAccountNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_marginLeft="135dp"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="34%"
+        app:layout_marginTopPercent="38%"
+        app:layout_widthPercent="56%" />
 
     <TextView
         android:id="@+id/actualCurrentBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:layout_marginLeft="165dp"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginLeftPercent="43%"
+        app:layout_marginTopPercent="44%"
+        app:layout_widthPercent="48%" />
 
     <View
         android:layout_width="fill_parent"
@@ -54,63 +54,63 @@
 
     <ImageButton
         android:id="@+id/viewquizresult"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="380dp"
         android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="39%"
+        app:layout_marginTopPercent="52%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/quizresult" />
 
     <ImageButton
         android:id="@+id/bankerdepositfunds"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="380dp"
         android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="69%"
+        app:layout_marginTopPercent="52%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/deposit" />
 
     <ImageButton
         android:id="@+id/bankertransactions"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="380dp"
         android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="52%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/viewtransaction" />
 
     <ImageButton
         android:id="@+id/bankermanageaccount"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="500dp"
         android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="24%"
+        app:layout_marginTopPercent="68%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/manageaccount" />
 
     <ImageButton
         android:id="@+id/settings"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="500dp"
         android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="54%"
+        app:layout_marginTopPercent="68%"
+        app:layout_widthPercent="21%"
         app:srcCompat="@drawable/settings" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="297dp"
-        android:layout_height="129dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="120dp"
         android:text="Welcome to KidzSmart, Bob"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#0E1010"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_heightPercent="18%"
+        app:layout_marginLeftPercent="6%"
+        app:layout_marginTopPercent="16%"
+        app:layout_widthPercent="70%" />
 
 </android.support.percent.PercentRelativeLayout>
