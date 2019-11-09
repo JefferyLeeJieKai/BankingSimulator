@@ -60,6 +60,30 @@ public class registration2 extends AppCompatActivity {
         cfmpasswordBox = findViewById(R.id.cfmpasswordinput);
         genderGroup = findViewById(R.id.radioGroupGender);
 
+        dobBox = findViewById(R.id.birthdayinput);
+        Calendar cal = Calendar.getInstance();
+        final int year = cal.get(Calendar.YEAR);
+        final int month = cal.get(Calendar.MONTH);
+        final int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        dobBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        context, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        month = month + 1;
+                        String strDate = year + "-" + month + "-" + day;
+                        dobBox.setText(strDate);
+
+                    }
+                },year,month,day);
+                datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+                datePickerDialog.show();
+            }
+        });
+
         male = findViewById(R.id.radioMale);
         female = findViewById(R.id.radioFemale);
         genderGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

@@ -163,10 +163,39 @@
         app:autoSizeTextType="uniform"/>
 
     <TextView
-        android:id="@+id/gender"
+        android:id="@+id/birthday"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="6%"
         android:layout_below="@id/cfmpasswordinput"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="2%"
+        android:text="Birthday:"
+        android:textColor="#000000"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform"/>
+
+    <EditText
+        android:id="@+id/birthdayinput"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="6%"
+        android:layout_below="@id/birthday"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:ems="10"
+        android:hint="Please enter your birthday"
+        android:textColorHint="#000000"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"
+        android:clickable="true"
+        android:focusable="false"/>
+
+    <TextView
+        android:id="@+id/gender"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="6%"
+        android:layout_below="@id/birthdayinput"
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="2%"
@@ -223,8 +252,7 @@
         app:layout_marginLeftPercent="0%"
         android:layout_marginTop="-5dp"
         android:background="@drawable/password_field"
-        android:entries="@array/it"
-        app:autoSizeTextType="uniform"/>
+        android:entries="@array/it"/>
 
     <Button
         android:id="@+id/btnsubmit"

@@ -10,11 +10,11 @@
 
     <TextView
         android:id="@+id/textView"
-        app:layout_widthPercent="90%"
+        app:layout_widthPercent="80%"
         app:layout_heightPercent="9%"
         app:layout_marginTopPercent="6%"
         android:layout_centerHorizontal="true"
-        android:text="Deposit Funds"
+        android:text="DEPOSIT FUNDS"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"
@@ -27,51 +27,52 @@
     //display account holder's profile
     <View
         android:id="@+id/Rect"
-        app:layout_widthPercent="90%"
+        app:layout_widthPercent="80%"
         app:layout_heightPercent="20%"
         app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="4%"
+        app:layout_marginTopPercent="0%"
         android:layout_below="@id/textView"
         android:layout_alignLeft="@id/textView"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_below="@id/textView"
-        android:layout_alignLeft="@id/textView"
-        android:background="@drawable/accountcircle"
-        android:backgroundTint="#D3D3D3"
-        app:civ_border_color="#FFFFFF"
-        app:civ_border_width="0dp"
+        app:layout_widthPercent="27%"
         app:layout_heightPercent="15%"
         app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="6.5%"
-        app:layout_widthPercent="27%" />
+        app:layout_marginTopPercent="3%"
+        android:layout_below="@id/textView"
+        android:layout_alignLeft="@id/textView"
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/accountcircle"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="0dp"
+        />
 
     <TextView
         android:id="@+id/usernameLbl"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="5%"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="5%"
         android:layout_below="@id/textView"
         android:layout_alignRight="@id/textView"
-        app:autoSizeTextType="uniform"
-        app:layout_heightPercent="5%"
-        app:layout_marginRightPercent="3%"
-        app:layout_marginTopPercent="8%"
-        app:layout_widthPercent="58%" />
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/balanceLbl"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="5%"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="11%"
         android:layout_below="@id/textView"
         android:layout_alignRight="@id/textView"
-        app:autoSizeTextType="uniform"
-        app:layout_heightPercent="5%"
-        app:layout_marginRightPercent="3%"
-        app:layout_marginTopPercent="15%"
-        app:layout_widthPercent="58%" />
+        app:autoSizeTextType="uniform" />
 
     //get amount
     <TextView
         android:id="@+id/amount"
-        app:layout_widthPercent="90%"
+        app:layout_widthPercent="80%"
         app:layout_heightPercent="6%"
         app:layout_marginTopPercent="3%"
         android:layout_below="@id/Rect"
@@ -84,7 +85,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        app:layout_widthPercent="90%"
+        app:layout_widthPercent="80%"
         android:layout_height="wrap_content"
         android:layout_marginTop="-5dp"
         android:layout_below="@id/amount"
