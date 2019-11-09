@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.BankerManageAccount.CreateAccountAH;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.DeleteClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.EditClass;
@@ -27,15 +26,9 @@ import com.jefferystudio.bankingsimulator.BankerManageAccount.ViewClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
-import com.jefferystudio.bankingsimulator.ProfilePageBanker;
+import com.jefferystudio.bankingsimulator.ProfilePageBankerFragment;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
-import com.jefferystudio.bankingsimulator.Settings;
-import com.jefferystudio.bankingsimulator.Transfer_Amount;
-import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
-import com.jefferystudio.bankingsimulator.profilepage;
 
 import java.util.ArrayList;
 
@@ -162,15 +155,11 @@ public class HomeScreenBanker extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                fragment = new HomeFragmentUser();
+                fragment = new ProfilePageBankerFragment();
                 fragment.setArguments(args);
                 FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
                 homeTrans.replace(R.id.frame_layout, fragment);
                 homeTrans.commit();
-                Intent intent = new Intent(getApplicationContext(), ProfilePageBanker.class);
-                startActivity(intent);
-                drawer.closeDrawer(Gravity.START);
-
             }
         });
     }

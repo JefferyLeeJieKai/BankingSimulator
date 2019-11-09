@@ -46,7 +46,7 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".ProfilePageBanker"
+            android:name=".ProfilePageBankerFragment"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
