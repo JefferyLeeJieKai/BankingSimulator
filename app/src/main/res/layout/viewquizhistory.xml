@@ -5,19 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/maldives"
-    >
-
+    android:background="@drawable/maldives">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:id="@+id/textView"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:text="Quiz Result History"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
         android:fontFamily="@font/titan_one"
-        android:text="QUIZ RESULT HISTORY"
+        android:shadowRadius="20"
         android:textColor="#000000"
-        android:textSize="32dp" />
+        app:autoSizeTextType="uniform"  />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
     //display account holder's profile
     <View
