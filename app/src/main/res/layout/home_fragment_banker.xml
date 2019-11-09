@@ -8,14 +8,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:background="@drawable/emptyrect"
+        app:layout_heightPercent="11.5%"
+        app:layout_marginLeftPercent="7%"
+        app:layout_marginTopPercent="38%"
+        app:layout_widthPercent="85%" />
 
     <TextView
         android:text="Account No:"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_heightPercent="4%"
-        app:layout_marginLeftPercent="7%"
-        app:layout_marginTopPercent="38%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="39%"
         app:layout_widthPercent="26%" />
 
     <TextView
@@ -23,7 +30,7 @@
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_heightPercent="4%"
-        app:layout_marginLeftPercent="7%"
+        app:layout_marginLeftPercent="10%"
         app:layout_marginTopPercent="44%"
         app:layout_widthPercent="34%" />
 
@@ -31,17 +38,17 @@
         android:id="@+id/actualAccountNo"
         android:textSize="18dp"
         app:layout_heightPercent="4%"
-        app:layout_marginLeftPercent="34%"
-        app:layout_marginTopPercent="38%"
-        app:layout_widthPercent="56%" />
+        app:layout_marginLeftPercent="38%"
+        app:layout_marginTopPercent="39%"
+        app:layout_widthPercent="50%" />
 
     <TextView
         android:id="@+id/actualCurrentBalance"
         android:textSize="18dp"
         app:layout_heightPercent="4%"
-        app:layout_marginLeftPercent="43%"
+        app:layout_marginLeftPercent="46%"
         app:layout_marginTopPercent="44%"
-        app:layout_widthPercent="48%" />
+        app:layout_widthPercent="42%" />
 
     <View
         android:layout_width="fill_parent"
@@ -67,7 +74,7 @@
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"
-        app:layout_marginLeftPercent="69%"
+        app:layout_marginLeftPercent="70%"
         app:layout_marginTopPercent="52%"
         app:layout_widthPercent="21%"
         app:srcCompat="@drawable/deposit" />
@@ -97,7 +104,7 @@
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"
-        app:layout_marginLeftPercent="54%"
+        app:layout_marginLeftPercent="55%"
         app:layout_marginTopPercent="68%"
         app:layout_widthPercent="21%"
         app:srcCompat="@drawable/settings" />
