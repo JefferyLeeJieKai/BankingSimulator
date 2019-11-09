@@ -6,8 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/note"
-    >
+    android:background="@drawable/note">
 
     <TextView
         android:id="@+id/titleofquizhp"
@@ -51,7 +50,5 @@
         app:layout_marginTopPercent="38%"
         app:layout_widthPercent="21%"
         app:srcCompat="@drawable/quizresult" />
-
-
 
 </android.support.percent.PercentRelativeLayout>

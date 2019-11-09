@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     tools:context=".LoginAndHomepagePackage.HomeScreenUser"
     android:layout_height="match_parent"
-    android:background="@drawable/bg5"
-    >
+    android:background="@drawable/bg5">
 
     <TextView
         android:id="@+id/title"
@@ -71,8 +70,5 @@
         app:layout_marginTopPercent="47%"
         app:layout_widthPercent="21%"
         app:srcCompat="@drawable/viewclass" />
-
-
-
 
 </android.support.percent.PercentRelativeLayout>
