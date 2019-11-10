@@ -119,12 +119,13 @@
 
     <ImageButton
         android:id="@+id/withdraw"
-        android:background="@drawable/withdraw"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"
         app:layout_marginLeftPercent="39%"
         app:layout_marginTopPercent="72%"
-        app:layout_widthPercent="21%" />
+        app:layout_widthPercent="21%"
+        app:srcCompat="@drawable/withdraw" />
 
     <ImageButton
         android:id="@+id/quiz"

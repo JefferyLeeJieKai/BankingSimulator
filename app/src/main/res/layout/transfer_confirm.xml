@@ -31,78 +31,86 @@
     </android.support.v4.widget.DrawerLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:layout_widthPercent="62%"
+        app:layout_heightPercent="6%"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="1%"
+        android:gravity="center"
         android:text="TRANSFER FUNDS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/navHeaderText"
-        android:textSize="25dp"
-        android:layout_marginLeft="95dp"
-        android:layout_marginTop="10dp" />
+        app:autoSizeTextType="uniform"
+        />
 
     //header
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="120dp"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="9%"
+        app:layout_marginTopPercent="15%"
         android:text="Verify transfer details:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:autoSizeTextType="uniform"/>
 
     //display information starting from here
     //display payer's profile
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="230dp"
-        android:text="From:" />
+        app:layout_widthPercent="9%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="13%"
+        app:layout_marginTopPercent="30%"
+        android:text="From:"
+        app:autoSizeTextType="uniform" />
 
     <View
-        android:layout_width="265dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="180dp" />
+        app:layout_widthPercent="65%"
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="27%"
+        app:layout_marginTopPercent="25%" />
 
     <ImageView
         android:id="@+id/payerAvatar"
-        android:layout_width="87dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="180dp"
+        app:layout_widthPercent="21%"
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="27%"
+        app:layout_marginTopPercent="25%"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/payerLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="205dp"
-        android:layout_marginTop="195dp"
-        android:text="auto generate username" />
+        app:layout_widthPercent="38%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="50%"
+        app:layout_marginTopPercent="27%"
+        android:text="auto generate username"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/payerAccountLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="205dp"
-        android:layout_marginTop="235dp"
-        android:text="auto account number" />
+        app:layout_widthPercent="32%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="50%"
+        app:layout_marginTopPercent="32%"
+        android:text="auto account number"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/payerBankLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="205dp"
-        android:layout_marginTop="255dp"
-        android:text="auto bank name" />
+        app:layout_widthPercent="23%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="50%"
+        app:layout_marginTopPercent="35%"
+        android:text="auto bank name"
+        app:autoSizeTextType="uniform" />
 
     //display payee's profile
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="360dp"
-        android:text="To:" />
+        app:layout_widthPercent="5%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="13%"
+        app:layout_marginTopPercent="48%"
+        android:text="To:"
+        app:autoSizeTextType="uniform" />
 
     <View
         android:layout_width="265dp"
@@ -112,131 +120,142 @@
 
     <ImageView
         android:id="@+id/payeeAvatar"
-        android:layout_width="87dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="310dp"
+        app:layout_widthPercent="21%"
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="27%"
+        app:layout_marginTopPercent="42.5%"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/payeeLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="205dp"
-        android:layout_marginTop="325dp"
-        android:text="auto generate username" />
+        app:layout_widthPercent="38%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="50%"
+        app:layout_marginTopPercent="44%"
+        android:text="auto generate username"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/payeeAccountLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="205dp"
-        android:layout_marginTop="365dp"
-        android:text="auto account number" />
+        app:layout_widthPercent="32%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="50%"
+        app:layout_marginTopPercent="49.5%"
+        android:text="auto account number"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/payeeBankLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="205dp"
-        android:layout_marginTop="385dp"
-        android:text="auto bank name" />
+        app:layout_widthPercent="23%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="50%"
+        app:layout_marginTopPercent="52.5%"
+        android:text="auto bank name"
+        app:autoSizeTextType="uniform"/>
 
     //display amount
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="440dp"
-        android:text="Amount:" />
+        app:layout_widthPercent="13%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="60%"
+        android:text="Amount:"
+        app:autoSizeTextType="uniform" />
 
     <TextView
-        android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="440dp"
-        android:text="SGD" />
+        app:layout_widthPercent="8%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="27%"
+        app:layout_marginTopPercent="60%"
+        android:text="SGD"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/amountLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="145dp"
-        android:layout_marginTop="440dp"
-        android:text="$ auto generate amount" />
+        app:layout_widthPercent="37%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="37%"
+        app:layout_marginTopPercent="60%"
+        android:text="$ auto generate amount"
+        app:autoSizeTextType="uniform" />
 
     //display date
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="470dp"
-        android:text="Date:" />
+        app:layout_widthPercent="9%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="64%"
+        android:text="Date:"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/dateLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="470dp"
-        android:text="auto generate date" />
+        app:layout_widthPercent="30%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="27%"
+        app:layout_marginTopPercent="64%"
+        android:text="auto generate date"
+        app:autoSizeTextType="uniform" />
 
     //display additional comments
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="500dp"
-        android:text="Additional" />
+        app:layout_widthPercent="15%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="69%"
+        android:text="Additional"
+        app:autoSizeTextType="uniform" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="515dp"
-        android:text="Comments:" />
+        app:layout_widthPercent="16%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="72%"
+        android:text="Comments:"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/commentLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="500dp"
+        app:layout_widthPercent="63%"
+        app:layout_heightPercent="7%"
+        app:layout_marginLeftPercent="27%"
+        app:layout_marginTopPercent="69%"
         android:text="auto generate comments" />
 
     //display purpose
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="570dp"
-        android:text="Purpose:" />
+        app:layout_widthPercent="13%"
+        app:layout_heightPercent="3%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="78%"
+        android:text="Purpose:"
+        app:autoSizeTextType="uniform" />
 
     <TextView
-        android:id="@+id/purposeLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="570dp"
-        android:text="auto generate purpose" />
+        app:layout_widthPercent="40%"
+        app:layout_heightPercent="2.6%"
+        app:layout_marginLeftPercent="27%"
+        app:layout_marginTopPercent="78%"
+        android:text="auto generate purpose"
+        app:autoSizeTextType="uniform" />
 
     //display buttons
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="620dp"
+        app:layout_widthPercent="20%"
+        app:layout_heightPercent="6%"
+        app:layout_marginLeftPercent="15%"
+        app:layout_marginTopPercent="86%"
         android:background="@drawable/buttonshadow"
-        android:text="Confirm" />
+        android:text="Confirm"
+        app:autoSizeTextType="uniform" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="620dp"
+        app:layout_widthPercent="20%"
+        app:layout_heightPercent="6%"
+        app:layout_marginLeftPercent="66%"
+        app:layout_marginTopPercent="86%"
         android:background="@drawable/buttonshadow"
         android:text="Cancel" />
 
