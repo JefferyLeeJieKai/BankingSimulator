@@ -89,6 +89,8 @@
 
     <ImageButton
         android:id="@+id/transferfunds"
+        android:layout_width="64dp"
+        android:layout_height="63dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"

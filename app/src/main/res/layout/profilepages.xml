@@ -115,12 +115,44 @@
             android:hint="About" />
     </android.support.design.widget.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="18dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginLeft="50dp"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="314dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="46dp"
+            android:hint="Email" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/modeEditEmail"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="590dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#D3D3D3" />
+
     <Button
         android:id="@+id/backBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
         app:layout_marginLeftPercent="12%"
-        app:layout_marginTopPercent="80%"
+        app:layout_marginTopPercent="90%"
         android:background="@drawable/buttonshadow"
         android:text="Back" />
 
@@ -128,7 +160,7 @@
         android:id="@+id/confirmBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="80%"
+        app:layout_marginTopPercent="90%"
         app:layout_marginLeftPercent="60%"
         android:background="@drawable/buttonshadow"
         android:text="Confirm" />
