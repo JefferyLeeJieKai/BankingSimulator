@@ -161,7 +161,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
 
                         //testing
                         Toast.makeText(context,
-                                "DELETED",
+                                savingGoal.getGoalName() + " deleted",
                                 Toast.LENGTH_SHORT).show();
                     }
                 });

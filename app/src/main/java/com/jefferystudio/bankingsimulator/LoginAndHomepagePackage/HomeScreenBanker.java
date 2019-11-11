@@ -19,10 +19,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.BankerManageAccount.CreateClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.DeleteClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.EditClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ViewClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
@@ -126,7 +126,7 @@ public class HomeScreenBanker extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.viewclass) {
 
-                    fragment = new ViewClass();
+                    fragment = new ViewStudent();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.changePassword) {

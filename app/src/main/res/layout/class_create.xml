@@ -51,7 +51,7 @@
             android:hint="Class" />
     </android.support.design.widget.TextInputLayout>
 
-    //get interest rate
+    <!--//get interest rate
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Interest Rate (%)" />
-    </android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.TextInputLayout>-->
 
     //display buttons
     <Button

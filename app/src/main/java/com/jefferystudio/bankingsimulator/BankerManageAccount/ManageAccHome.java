@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
 import com.jefferystudio.bankingsimulator.R;
 
 public class ManageAccHome extends Fragment{
@@ -67,7 +71,7 @@ public class ManageAccHome extends Fragment{
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment ViewClass1 = new ViewClass();
+                Fragment ViewClass1 = new ViewStudent();
                 ViewClass1.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, ViewClass1);

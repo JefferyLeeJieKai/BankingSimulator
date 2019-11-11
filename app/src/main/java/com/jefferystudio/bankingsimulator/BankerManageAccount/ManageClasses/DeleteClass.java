@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator.BankerManageAccount;
+package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
