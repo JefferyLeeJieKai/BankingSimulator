@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
+import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -28,7 +31,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class ProfilePageBankerFragment extends Fragment {
+public class ProfilePageBankerFragment extends AppCompatActivity {
 
     private Bundle args;
     private ImageView profilepic;
@@ -38,15 +41,20 @@ public class ProfilePageBankerFragment extends Fragment {
     private Button backButton;
     private Button confirmButton;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profilepage_banker, container, false);
+        @Override
+        protected void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.profilepage_banker);
 
-        args = getArguments();
+            Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
+            homeScreenToolbar.setTitle("Profile");
+            setSupportActionBar(homeScreenToolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        profilebtn = view.findViewById(R.id.editbtn);
-        profilepic = view.findViewById(R.id.profilephoto);
+
+        profilebtn = (TextView)findViewById(R.id.editbtn);
+        profilepic = (ImageView)findViewById(R.id.profilephoto);
 
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,21 +63,9 @@ public class ProfilePageBankerFragment extends Fragment {
             }
         });
 
-        backButton = view.findViewById(R.id.backBtn);
-        backButton.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-
-                Fragment homeFrag = new HomeFragmentBanker();
-                homeFrag.setArguments(args);
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_layout, homeFrag)
-                        .commit();
-            }
-        });
-
-        return view;
     }
+
+
 
     private void openGallery1(){
         Intent gallery1 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
@@ -84,4 +80,12 @@ public class ProfilePageBankerFragment extends Fragment {
             profilepic.setImageURI(imageUri);
         }
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
+
 }
