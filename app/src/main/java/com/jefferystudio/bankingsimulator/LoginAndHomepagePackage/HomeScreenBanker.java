@@ -29,6 +29,7 @@ import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.ProfilePageBankerFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
+import com.jefferystudio.bankingsimulator.profilepage;
 
 import java.util.ArrayList;
 
@@ -155,11 +156,14 @@ public class HomeScreenBanker extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                fragment = new ProfilePageBankerFragment();
+                fragment = new HomeFragmentBanker();
                 fragment.setArguments(args);
                 FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
                 homeTrans.replace(R.id.frame_layout, fragment);
                 homeTrans.commit();
+                Intent intent = new Intent(getApplicationContext(), ProfilePageBankerFragment.class);
+                startActivity(intent);
+                drawer.closeDrawer(Gravity.START);
             }
         });
     }

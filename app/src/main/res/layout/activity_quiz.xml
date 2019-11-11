@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bluebgbg"
+    >
 
     <TextView
         android:id="@+id/text_quiz_header"
@@ -22,12 +24,6 @@
         app:layout_marginTopPercent="2%"
         app:layout_widthPercent="80%" />
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:layout_marginTop="90dp"
-        android:background="#000000"
-        android:paddingBottom="10dip" />
 
     <TextView
         android:id="@+id/text_view_question_count"
@@ -35,8 +31,8 @@
         android:text="Question: 1/x"
         android:textColor="@android:color/black"
         app:layout_heightPercent="3%"
-        app:layout_marginLeftPercent="5%"
-        app:layout_marginTopPercent="3%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="5%"
         app:layout_widthPercent="30%" />
 
     <TextView

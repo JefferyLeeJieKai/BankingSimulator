@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/note">
+    android:background="@drawable/wb">
 
     <TextView
         android:id="@+id/titleofquizhp"
@@ -36,8 +36,8 @@
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"
-        app:layout_marginLeftPercent="16%"
-        app:layout_marginTopPercent="38%"
+        app:layout_marginLeftPercent="20%"
+        app:layout_marginTopPercent="40%"
         app:layout_widthPercent="21%"
         app:srcCompat="@drawable/startquiz" />
 
@@ -47,8 +47,17 @@
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"
         app:layout_marginLeftPercent="56%"
-        app:layout_marginTopPercent="38%"
+        app:layout_marginTopPercent="40%"
         app:layout_widthPercent="21%"
         app:srcCompat="@drawable/quizresult" />
+
+    <Button
+        android:id="@+id/backbtn"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="80%"
+        app:layout_marginLeftPercent="60%"
+        android:background="@drawable/buttonshadow"
+        android:text="Back" />
 
 </android.support.percent.PercentRelativeLayout>

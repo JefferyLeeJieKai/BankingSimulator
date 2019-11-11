@@ -14,8 +14,8 @@
         android:shadowColor="#666666"
         android:shadowDx="20"
         android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
         android:shadowRadius="20"
+        android:fontFamily="@font/titan_one"
         android:text="Welcome to KidzSmart, Bob"
         android:textColor="#000000"
         android:textColorHighlight="#0E1010"
@@ -89,6 +89,8 @@
 
     <ImageButton
         android:id="@+id/transferfunds"
+        android:layout_width="64dp"
+        android:layout_height="63dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"
@@ -119,12 +121,13 @@
 
     <ImageButton
         android:id="@+id/withdraw"
-        android:background="@drawable/withdraw"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"
         app:layout_marginLeftPercent="39%"
         app:layout_marginTopPercent="72%"
-        app:layout_widthPercent="21%" />
+        app:layout_widthPercent="21%"
+        app:srcCompat="@drawable/withdraw" />
 
     <ImageButton
         android:id="@+id/quiz"
