@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@drawable/bg5"
     >
 
@@ -27,6 +28,7 @@
 
     //display account holder's profile
     <View
+        android:id="@+id/border"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="20%"
         android:layout_centerHorizontal="true"
@@ -37,8 +39,9 @@
         android:id="@+id/profilephoto"
         app:layout_widthPercent="27%"
         app:layout_heightPercent="15%"
-        app:layout_marginLeftPercent="12%"
-        app:layout_marginTopPercent="18%"
+        app:layout_marginLeftPercent="2%"
+        app:layout_marginTopPercent="17%"
+        android:layout_alignLeft="@+id/border"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -49,16 +52,18 @@
         android:id="@+id/usernameLbl"
         app:layout_widthPercent="45%"
         app:layout_heightPercent="5%"
-        app:layout_marginLeftPercent="42%"
-        app:layout_marginTopPercent="20%"
+        app:layout_marginLeftPercent="1%"
+        android:layout_toRightOf="@+id/profilephoto"
+        app:layout_marginTopPercent="18%"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/balanceLbl"
         app:layout_widthPercent="45%"
         app:layout_heightPercent="5%"
-        app:layout_marginLeftPercent="42%"
-        app:layout_marginTopPercent="26%"
+        android:layout_toRightOf="@+id/profilephoto"
+        app:layout_marginLeftPercent="1%"
+        app:layout_marginTopPercent="24%"
         app:autoSizeTextType="uniform" />
 
     //user input starting from here
@@ -121,7 +126,9 @@
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
         app:layout_marginLeftPercent="12%"
-        app:layout_marginTopPercent="65%"
+        app:layout_marginTopPercent="15%"
+        android:layout_below="@+id/amountTxt"
+        android:layout_alignParentLeft="true"
         android:background="@drawable/buttonshadow"
         android:text="Back" />
 
@@ -129,9 +136,12 @@
         android:id="@+id/nextBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        android:layout_alignParentRight="true"
+        app:layout_marginLeftPercent="25%"
+        app:layout_marginTopPercent="15%"
         app:layout_marginRightPercent="12%"
-        app:layout_marginTopPercent="65%"
+        android:layout_below="@+id/amountTxt"
+        android:layout_toRightOf="@id/backBtn"
+        android:layout_alignParentRight="true"
         android:background="@drawable/buttonshadow"
         android:text="Next" />
 

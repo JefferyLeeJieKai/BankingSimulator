@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:theme="@style/profilepage"
     android:background="@drawable/bg10"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
 

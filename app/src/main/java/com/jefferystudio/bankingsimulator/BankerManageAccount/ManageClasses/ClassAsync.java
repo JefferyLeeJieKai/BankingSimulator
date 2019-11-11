@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -43,6 +44,9 @@ public class ClassAsync extends AsyncTask<String, String, String> {
         this.userID = userID;
         this.username = username;
         this.recyclerView = recyclerView;
+    }
+
+    public ClassAsync(FragmentActivity activity, String viewStudent, String userID, RecyclerView studentDetails) {
     }
 
     @Override
