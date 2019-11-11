@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.BankerManageAccount.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageAccHome;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;

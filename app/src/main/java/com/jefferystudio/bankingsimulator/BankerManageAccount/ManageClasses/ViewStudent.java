@@ -1,8 +1,9 @@
-package com.jefferystudio.bankingsimulator.BankerManageAccount;
+package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +13,21 @@ import android.widget.TextView;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
-public class EditClass extends Fragment {
+public class ViewStudent extends Fragment {
 
+    private Bundle args;
     private TextInputLayout searchClass;
     private Button searchButton;
     private TextView classLabel;
-    private Button editClassButton;
     private TextView interest;
-    private Button editIntButton;
     private String input;
+    private RecyclerView studentDetails;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.class_edit, container, false);
+        View view = inflater.inflate(R.layout.student_view, container, false);
+
+        args = getArguments();
 
         //default
         classLabel = view.findViewById(R.id.classLbl);
@@ -39,13 +42,12 @@ public class EditClass extends Fragment {
         searchButton = view.findViewById(R.id.searchBtn);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
 
                 input = searchClass.getEditText().getText().toString().trim();
 
                 //if not empty
-                if(Validation.validateEmpty(input, searchClass))
-                {
+                if(Validation.validateEmpty(input, searchClass)) {
                     searchClass.setError(null);
 
                     //draw out information from database
@@ -53,34 +55,13 @@ public class EditClass extends Fragment {
                     classLabel.setText(input);
                     interest.setText("0.2");
                 }
-
             }
         });
 
-        /*
-        //edit class button
-        editClassButton = view.findViewById(R.id.editClassBtn);
-        editClassButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        studentDetails = view.findViewById(R.id.ahDetailsRv);
 
+        new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), studentDetails).execute();
 
-
-            }
-        });
-
-        //edit interest button
-        editIntButton = view.findViewById(R.id.editIntBtn);
-        editIntButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
-
-        */
-        
         return view;
     }
 }

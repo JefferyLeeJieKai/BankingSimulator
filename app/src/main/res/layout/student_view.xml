@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:elevation="20dp"
+        android:fontFamily="@font/titan_one"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:shadowRadius="20"
+        android:text="View Student"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="2%"
+        app:layout_widthPercent="66%" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
+
+    //search class
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="155dp"
+        android:textColor="#000000"
+        android:text="Search Student:" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/classTxt"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="130dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Class" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/ic_search_black_24dp"
+        android:backgroundTint="#000000"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="155dp" />
+
+    //get class
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="240dp"
+        android:textColor="#000000"
+        android:text="Class:" />
+
+    <TextView
+        android:id="@+id/classLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="240dp" />
+
+    //get interest rate
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="280dp"
+        android:textColor="#000000"
+        android:text="Set Interest Rate (%):" />
+
+    <TextView
+        android:id="@+id/intRateLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="280dp" />
+
+    //display AH information -> link with account_ah_recycler_row_layout
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ahDetailsRv"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="380dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="330dp"
+        android:text="Name"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="330dp"
+        android:text="Account No."
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="330dp"
+        android:text="Username"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="330dp"
+        android:text="Password"
+        android:textColor="#000000" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="365dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
+
+</android.support.percent.PercentRelativeLayout>
