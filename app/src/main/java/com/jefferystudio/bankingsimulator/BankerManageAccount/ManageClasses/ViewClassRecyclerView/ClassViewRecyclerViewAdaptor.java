@@ -14,12 +14,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 
 public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassViewRecyclerViewAdaptor.ViewHolder> {
@@ -68,6 +71,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
     public void onBindViewHolder(ClassViewRecyclerViewAdaptor.ViewHolder viewHolder, int position) {
 
         final ClassEntry classEntry = classList.get(position);
+        final int entryPosition = position;
 
         // Set item views based on your views and data model
         TextView textView1 = viewHolder.className;
@@ -136,14 +140,36 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //delete saving goal from database
+                         String returnMessage = "";
+                         try {
+
+                             returnMessage = new EditClassesAsync(context, "DeleteClass")
+                                             .execute(classEntry.getClassID())
+                                             .get(5000, TimeUnit.MILLISECONDS);
+                         }
+                         catch(Exception e) {
 
 
+                         }
 
-                        //testing
-                        Toast.makeText(context,
-                                classEntry.getClassName() + " deleted",
-                                Toast.LENGTH_LONG).show();
+                         String[] returnArray = returnMessage.split(",");
+
+                         if(returnArray[0].equals("Success")) {
+
+                             classList.remove(entryPosition);
+                             ViewClass currentFrag = (ViewClass) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                             currentFrag.updateAdaptor(entryPosition);
+
+                             Toast.makeText(context,
+                                     classEntry.getClassName() + " deleted",
+                                     Toast.LENGTH_LONG).show();
+                         }
+                         else if(returnArray[0].equals("Fail")){
+
+                             Toast.makeText(context,
+                                     "Deleting of " + classEntry.getClassName() + " failed.",
+                                     Toast.LENGTH_LONG).show();
+                         }
                     }
                 });
 

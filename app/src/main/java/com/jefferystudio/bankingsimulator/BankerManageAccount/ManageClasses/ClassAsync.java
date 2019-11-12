@@ -37,19 +37,18 @@ public class ClassAsync extends AsyncTask<String, String, String> {
     private String data;
     private String userID;
     private String username;
+    private String classID;
     private boolean showDialog;
     private RecyclerView recyclerView;
 
-    public ClassAsync(Context context, String flag, String userID, String username, RecyclerView recyclerView) {
+    public ClassAsync(Context context, String flag, String userID, String username, String classID, RecyclerView recyclerView) {
 
         this.context = context;
         this.flag = flag;
         this.userID = userID;
         this.username = username;
+        this.classID = classID;
         this.recyclerView = recyclerView;
-    }
-
-    public ClassAsync(FragmentActivity activity, String viewStudent, String userID, RecyclerView studentDetails) {
     }
 
     @Override
@@ -81,8 +80,6 @@ public class ClassAsync extends AsyncTask<String, String, String> {
             }
         }
         else if(flag.equals("ViewClass")) {
-
-            String userID = args[0];
 
             try {
                 link = "http://www.kidzsmart.tk/databaseAccess/viewClass.php";
@@ -185,15 +182,15 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
             ArrayList<StudentEntry> studentList = new ArrayList<>();
 
-            int entryCount = resultArray.length / 2;
+            int entryCount = resultArray.length / 3;
 
-            for(int i = 0; i < entryCount; i+=2) {
+            for(int i = 0; i < entryCount; i+=3) {
 
-                StudentEntry studentEntry = new StudentEntry(resultArray[i], resultArray[i + 1]);
+                StudentEntry studentEntry = new StudentEntry(resultArray[i], resultArray[i + 1], resultArray[i + 2]);
                 studentList.add(studentEntry);
             }
 
-            StudentViewRecyclerViewAdaptor adaptor = new StudentViewRecyclerViewAdaptor(context, studentList);
+            StudentViewRecyclerViewAdaptor adaptor = new StudentViewRecyclerViewAdaptor(context, studentList, classID);
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
         }

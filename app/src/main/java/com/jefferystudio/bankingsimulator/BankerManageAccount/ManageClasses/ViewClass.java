@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClassRecyclerView.ClassViewRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.util.ArrayList;
@@ -24,8 +26,14 @@ public class ViewClass extends Fragment {
         args = getArguments();
 
         classDetails = view.findViewById(R.id.classDetailsRv);
-        new ClassAsync(getActivity(), "ViewClass", args.getString("userID"), null, classDetails).execute(args.getString("userID"));
+        new ClassAsync(getActivity(), "ViewClass", args.getString("userID"), null, null, classDetails).execute(args.getString("userID"));
 
         return view;
+    }
+
+    public void updateAdaptor(int entryPosition) {
+
+        ClassViewRecyclerViewAdaptor classListAdapter = (ClassViewRecyclerViewAdaptor)classDetails.getAdapter();
+        classListAdapter.notifyItemRemoved(entryPosition);
     }
 }

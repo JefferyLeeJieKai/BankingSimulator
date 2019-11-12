@@ -115,19 +115,9 @@ public class HomeScreenBanker extends AppCompatActivity {
                     fragment = new CreateClass();
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.editclass) {
-
-                    fragment = new ViewClass();
-                    fragment.setArguments(args);
-                }
-                else if(item.getItemId() == R.id.deleteclass) {
-
-                    fragment = new DeleteClass();
-                    fragment.setArguments(args);
-                }
                 else if(item.getItemId() == R.id.viewclass) {
 
-                    fragment = new ViewStudent();
+                    fragment = new ViewClass();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.changePassword) {

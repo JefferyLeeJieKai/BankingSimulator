@@ -46,7 +46,7 @@ public class CreateClass extends Fragment {
                     String userID = args.getString("userID");
                     String username = args.getString("userName");
 
-                    new ClassAsync(getActivity(), "AddClass", userID, username, null).execute(className);
+                    new ClassAsync(getActivity(), "AddClass", userID, username, null, null).execute(className);
                 }
             }
         });

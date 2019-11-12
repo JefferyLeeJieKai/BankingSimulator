@@ -12,17 +12,21 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<StudentViewRecyclerViewAdaptor.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView userName;
-        private TextView userID;
+        private TextView interestRate;
         private Button deleteButton;
 
         public ViewHolder(View view) {
@@ -30,18 +34,20 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
             super(view);
 
             userName = view.findViewById(R.id.username);
-            userID = view.findViewById(R.id.userid);
+            interestRate = view.findViewById(R.id.interestrate);
             deleteButton = view.findViewById(R.id.deleteBtn);
         }
     }
 
     private Context context;
     private ArrayList<StudentEntry> studentList;
+    private String classID;
 
-    public StudentViewRecyclerViewAdaptor(Context context, ArrayList<StudentEntry> studentList) {
+    public StudentViewRecyclerViewAdaptor(Context context, ArrayList<StudentEntry> studentList, String classID) {
 
         this.context = context;
         this.studentList = studentList;
+        this.classID = classID;
     }
 
     @NonNull
@@ -56,12 +62,13 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int postion) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
-        final StudentEntry studentEntry = studentList.get(postion);
+        final StudentEntry studentEntry = studentList.get(position);
+        final int entryPosition = position;
 
-        TextView textView1 = viewHolder.userID;
-        textView1.setText(studentEntry.getUserID());
+        TextView textView1 = viewHolder.interestRate;
+        textView1.setText(studentEntry.getInterestRate());
 
 
         TextView textView2 = viewHolder.userName;
@@ -85,14 +92,36 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //delete saving goal from database
+                        String returnMessage = "";
+                        try {
 
+                            returnMessage = new EditClassesAsync(context, "DeleteStudent")
+                                            .execute(classID, studentEntry.getUserID())
+                                            .get(5000, TimeUnit.MILLISECONDS);
+                        }
+                        catch(Exception e) {
 
+                        }
 
-                        //testing
-                        Toast.makeText(context,
-                                studentEntry.getUsername() + " deleted",
-                                Toast.LENGTH_LONG).show();
+                        String[] resultArray = returnMessage.split(",");
+
+                        if(resultArray[0].equals("Success")) {
+
+                            studentList.remove(entryPosition);
+                            ViewStudent viewStudentFrag = (ViewStudent) ((HomeScreenBanker) context)
+                                    .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                            viewStudentFrag.updateAdaptor(entryPosition);
+
+                            Toast.makeText(context,
+                                    studentEntry.getUsername() + " deleted",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(resultArray[0].equals("Fail")){
+
+                            Toast.makeText(context,
+                                    "Deleting of " + studentEntry.getUsername() + " failed.",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
 

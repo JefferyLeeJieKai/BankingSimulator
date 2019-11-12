@@ -24,16 +24,6 @@
         </item>
 
         <item
-            android:id="@+id/editclass"
-            android:title="Edit Class">
-        </item>
-
-        <item
-            android:id="@+id/deleteclass"
-            android:title="Delete Class">
-        </item>
-
-        <item
             android:id="@+id/viewclass"
             android:title="View Class">
         </item>

@@ -140,4 +140,17 @@
         android:background="#000000"
         android:paddingBottom="10dip" />
 
+    <Button
+        android:id="@+id/AddStudent"
+        app:layout_widthPercent="14%"
+        app:layout_heightPercent="5%"
+        android:layout_alignRight="@id/title"
+        android:layout_below="@id/title"
+        app:layout_marginTopPercent="25%"
+        app:layout_marginRightPercent="0%"
+        android:background="@drawable/buttonshadow"
+        android:padding="1dp"
+        android:text="Add Student"
+        app:autoSizeTextType="uniform"/>
+
 </android.support.percent.PercentRelativeLayout>

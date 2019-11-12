@@ -35,6 +35,7 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
     private String dob;
     private String role;
     private String data;
+    private String flag;
 
     public RegistrationAsync(Activity activity) {
 
@@ -58,6 +59,7 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
         gender = args[4];
         dob = args [5];
         role = args[6];
+        flag = args[7];
 
         try{
 
@@ -108,7 +110,7 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
 
         String[] resultArray = result.split(",");
 
-        if(resultArray[0].equals("Success")) {
+        if(resultArray[0].equals("Success") && !flag.equals("fromBanker")) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
