@@ -92,8 +92,6 @@ public class ClassAsync extends AsyncTask<String, String, String> {
         }
         else if(flag.equals("ViewStudent")) {
 
-            String classID = args[0];
-
             try {
 
                 link = "http://www.kidzsmart.tk/databaseAccess/viewStudent.php";
@@ -151,10 +149,10 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
             int entryCount = resultArray.length / 4;
 
-            for(int i = 0; i < entryCount; i+=4) {
+            for(int i = 0; i < entryCount; i++) {
 
-                ClassEntry classEntry = new ClassEntry(resultArray[i], resultArray[i + 1], resultArray[i + 2],
-                                                       resultArray[i + 3]);
+                ClassEntry classEntry = new ClassEntry(resultArray[(i * 4)], resultArray[(i * 4) + 1],
+                                                       resultArray[(i * 4) + 2], resultArray[(i * 4) + 3]);
                 classList.add(classEntry);
             }
 
@@ -184,9 +182,10 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
             int entryCount = resultArray.length / 3;
 
-            for(int i = 0; i < entryCount; i+=3) {
+            for(int i = 0; i < entryCount; i++) {
 
-                StudentEntry studentEntry = new StudentEntry(resultArray[i], resultArray[i + 1], resultArray[i + 2]);
+                StudentEntry studentEntry = new StudentEntry(resultArray[(i * 3)], resultArray[(i * 3) + 1],
+                                                             resultArray[(i * 3) + 2]);
                 studentList.add(studentEntry);
             }
 

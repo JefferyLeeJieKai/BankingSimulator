@@ -149,7 +149,7 @@
         android:layout_marginTop="-5dp"
         android:ems="10"
         android:hint="Enter desired password"
-        android:textColorHint="#CC000000"
+        android:textColorHint="#66000000"
         android:textStyle="italic"
         android:inputType="textPassword"
         android:background="@drawable/middle_field"

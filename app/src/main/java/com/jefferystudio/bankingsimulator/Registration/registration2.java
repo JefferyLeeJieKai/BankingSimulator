@@ -140,7 +140,13 @@ public class registration2 extends AppCompatActivity {
         String password = passwordBox.getText().toString().trim();
         String cfmpassword = cfmpasswordBox.getText().toString().trim();
         String dob = dobBox.getText().toString().trim();
-        String role = String.valueOf(roleBox.getSelectedItemId());
+        String prelimRole = String.valueOf(roleBox.getSelectedItemId());
+        String role = "";
+
+        if(prelimRole.equals("Account Holder")) {
+
+            role = "AccountHolder";
+        }
 
         if (!name.matches("") && !email.matches("") && !username.matches("") && !password.matches("") && !gender.matches("")
                 && !dob.matches("") && !role.matches("")) {

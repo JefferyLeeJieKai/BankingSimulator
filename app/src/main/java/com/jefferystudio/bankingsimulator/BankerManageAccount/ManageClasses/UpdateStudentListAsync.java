@@ -11,18 +11,22 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
+public class UpdateStudentListAsync extends AsyncTask<String, String, String>{
 
     private Context context;
+    private String bankerID;
+    private String username;
+    private String classID;
+    private String className;
 
-    public CheckOwnershipAsync(Context context) {
+    public UpdateStudentListAsync(Context context, String bankerID, String username, String classID,
+                                  String className) {
 
         this.context = context;
-    }
-
-    @Override
-    protected void onPreExecute() {
-
+        this.bankerID = bankerID;
+        this.username = username;
+        this.classID = classID;
+        this.className = className;
     }
 
     @Override
@@ -30,18 +34,14 @@ public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
 
         StringBuffer sb = new StringBuffer("");
 
-        String input = args[0];
-        String bankerID = args[1];
-        String classID = args[2];
-        String className = args[3];
-
         try {
 
-            String link = "http://www.kidzsmart.tk/databaseAccess/checkOwnership.php";
-            String data = URLEncoder.encode("accountholder", "UTF-8") + "=" +
-                    URLEncoder.encode(input, "UTF-8");
-            data += "&" + URLEncoder.encode("bankerid", "UTF-8") + "=" +
-                    URLEncoder.encode(bankerID, "UTF-8");
+            String link = "http://www.kidzsmart.tk/databaseAccess/addStudent.php";
+
+            String data = URLEncoder.encode("bankerid", "UTF-8") + "=" +
+                          URLEncoder.encode(bankerID, "UTF-8");
+            data += "&" + URLEncoder.encode("accountholderusername", "UTF-8") + "=" +
+                    URLEncoder.encode(username, "UTF-8");
             data += "&" + URLEncoder.encode("classid", "UTF-8") + "=" +
                     URLEncoder.encode(classID, "UTF-8");
             data += "&" + URLEncoder.encode("classname", "UTF-8") + "=" +
@@ -61,21 +61,20 @@ public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
             String line = null;
 
             // Read Server Response
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 sb.append(line);
                 break;
             }
         }
-        catch(Exception e) {
-
+        catch (Exception e) {
 
         }
-
         return sb.toString();
     }
 
     @Override
     protected void onPostExecute(String result) {
 
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentRecyclerView.StudentViewRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.R;
@@ -105,7 +106,7 @@ public class ViewStudent extends Fragment {
                                                .get(5000, TimeUnit.MILLISECONDS);
 
                                     String[] responseArray = response.split(",");
-
+                                    Toast.makeText(getActivity(), responseArray[0], Toast.LENGTH_LONG).show();
                                     AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
                                     builder3.setTitle("DigiBank Alert");
 
@@ -127,6 +128,9 @@ public class ViewStudent extends Fragment {
                                                     args.getString("classID"), studentDetails).execute();
                                         }
                                     });
+
+                                    AlertDialog quitDialog = builder3.create();
+                                    quitDialog.show();
                                 }
                                 catch(Exception e) {
 

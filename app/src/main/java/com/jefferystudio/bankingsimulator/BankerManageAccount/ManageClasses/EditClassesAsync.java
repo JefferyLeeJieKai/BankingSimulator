@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -120,6 +121,6 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
-
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }

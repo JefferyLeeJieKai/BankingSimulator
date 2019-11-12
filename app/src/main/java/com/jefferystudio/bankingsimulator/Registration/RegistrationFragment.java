@@ -15,8 +15,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.UpdateStudentListAsync;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
 import com.jefferystudio.bankingsimulator.R;
 
@@ -45,7 +48,7 @@ public class RegistrationFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.registration2, container, false);
+        View view = inflater.inflate(R.layout.registration_fragment, container, false);
 
         args = getArguments();
 
@@ -139,7 +142,7 @@ public class RegistrationFragment extends Fragment {
         String password = passwordBox.getText().toString().trim();
         String cfmpassword = cfmpasswordBox.getText().toString().trim();
         String dob = dobBox.getText().toString().trim();
-        String role = String.valueOf(roleBox.getSelectedItemId());
+        String role = String.valueOf(roleBox.getSelectedItem());
 
         if (!name.matches("") && !email.matches("") && !username.matches("") && !password.matches("") && !gender.matches("")
                 && !dob.matches("") && !role.matches("")) {
@@ -207,17 +210,25 @@ public class RegistrationFragment extends Fragment {
         }
         else if(errorList.size() == 0) {
 
-            String result = "";
+            String result1 = "";
+            String result2= "";
 
             try {
 
-                result = new RegistrationAsync(getActivity())
+                result1 = new RegistrationAsync(getActivity())
                         .execute(name, email, username, password, gender, dob, role, "fromBanker")
                         .get(5000, TimeUnit.MILLISECONDS);
+                //Toast.makeText(getActivity(), role, Toast.LENGTH_LONG).show();
+                String[] resultArray1 = result1.split(",");
 
-                String[] resultArray = result.split(",");
+                result2 = new UpdateStudentListAsync(getActivity(), args.getString("userID"), username,
+                                                     args.getString("classID"), args.getString("className"))
+                              .execute()
+                              .get(5000, TimeUnit.MILLISECONDS);
 
-                if(resultArray[0].equals("Success")) {
+                String[] resultArray2 = result2.split(",");
+
+                if(resultArray1[0].equals("Success") && resultArray2[0].equals("Success")) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -242,7 +253,7 @@ public class RegistrationFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
-                            Fragment homeFrag = new ViewStudent();
+                            Fragment homeFrag = new HomeFragmentBanker();
                             Bundle newArgs = new Bundle();
                             newArgs.putString("userID", args.getString("userID"));
                             homeFrag.setArguments(args);

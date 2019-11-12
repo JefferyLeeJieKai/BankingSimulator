@@ -35,7 +35,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
             userName = view.findViewById(R.id.username);
             interestRate = view.findViewById(R.id.interestrate);
-            deleteButton = view.findViewById(R.id.deleteBtn);
+            deleteButton = view.findViewById(R.id.deleteStudent);
         }
     }
 
@@ -55,7 +55,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
     public StudentViewRecyclerViewAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        View rowView = inflater.inflate(R.layout.student_view_recycler_view_layout, parent);
+        View rowView = inflater.inflate(R.layout.student_view_recycler_view_layout, parent, false);
         ViewHolder viewHolder = new ViewHolder(rowView);
 
         return viewHolder;

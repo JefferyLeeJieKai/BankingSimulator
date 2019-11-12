@@ -146,6 +146,15 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                              returnMessage = new EditClassesAsync(context, "DeleteClass")
                                              .execute(classEntry.getClassID())
                                              .get(5000, TimeUnit.MILLISECONDS);
+
+                             String[] returnMessageArray = returnMessage.split(",");
+
+                             if(returnMessageArray[0].equals("Success")) {
+
+                                 new EditClassesAsync(context, "DeleteAllStudents")
+                                         .execute(classEntry.getClassID())
+                                         .get(5000, TimeUnit.MILLISECONDS);
+                             }
                          }
                          catch(Exception e) {
 
