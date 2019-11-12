@@ -15,11 +15,11 @@ public class ViewClass extends Fragment {
 
     private Bundle args;
     private RecyclerView classDetails;
-    private ArrayList<Class> classArrayList;
+    private ArrayList<Class> classList;
 
-    public View onCreateView (LayoutInflater layout, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = layout.inflate(R.layout.class_view, container, false);
+        View view = inflater.inflate(R.layout.class_view, container, false);
 
         args = getArguments();
 
@@ -27,10 +27,5 @@ public class ViewClass extends Fragment {
         new ClassAsync(getActivity(), "ViewClass", args.getString("userID"), null, classDetails).execute(args.getString("userID"));
 
         return view;
-    }
-
-    public void getArrayListFromAsync(ArrayList<Class> classArrayList) {
-
-        this.classArrayList = classArrayList;
     }
 }

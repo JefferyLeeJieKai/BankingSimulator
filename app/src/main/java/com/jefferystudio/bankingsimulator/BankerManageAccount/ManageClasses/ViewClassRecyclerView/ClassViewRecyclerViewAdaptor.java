@@ -36,20 +36,21 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
 
             super(view);
 
-            viewStudents = view.findViewById(R.id.viewStudents);
             className = view.findViewById(R.id.classname);
-            editClass = view.findViewById(R.id.editclass);
-            deleteClass = view.findViewById(R.id.deleteclass);
+            noOfStudents = view.findViewById(R.id.numberOfStudents);
+            viewStudents = view.findViewById(R.id.viewStudents);
+            editClass = view.findViewById(R.id.editClass);
+            deleteClass = view.findViewById(R.id.deleteClass);
         }
     }
 
     private Context context;
-    private ArrayList<ClassEntry> classArrayList;
+    private ArrayList<ClassEntry> classList;
 
     public ClassViewRecyclerViewAdaptor(Context context, ArrayList<ClassEntry> classArrayList) {
 
         this.context = context;
-        this.classArrayList = classArrayList;
+        this.classList = classArrayList;
     }
 
     @NonNull
@@ -66,14 +67,14 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
     @Override
     public void onBindViewHolder(ClassViewRecyclerViewAdaptor.ViewHolder viewHolder, int position) {
 
-        final ClassEntry classEntry = classArrayList.get(position);
+        final ClassEntry classEntry = classList.get(position);
 
         // Set item views based on your views and data model
         TextView textView1 = viewHolder.className;
         textView1.setText(classEntry.getClassName());
 
         TextView textView2 = viewHolder.noOfStudents;
-        textView2.setText("No. of students: " + classArrayList.size());
+        textView2.setText("No. of students: " + classEntry.getNoOfStudents());
 
         Button editStudentsButton = viewHolder.viewStudents;
         editStudentsButton.setOnClickListener(new View.OnClickListener() {
@@ -165,6 +166,6 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
     @Override
     public int getItemCount() {
 
-        return classArrayList.size();
+        return classList.size();
     }
 }

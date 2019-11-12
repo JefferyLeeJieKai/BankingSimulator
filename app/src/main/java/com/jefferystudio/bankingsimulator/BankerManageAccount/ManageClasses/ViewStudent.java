@@ -60,7 +60,7 @@ public class ViewStudent extends Fragment {
 
         studentDetails = view.findViewById(R.id.ahDetailsRv);
 
-        new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), studentDetails).execute();
+        new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), args.getString("userName"), studentDetails).execute();
 
         return view;
     }

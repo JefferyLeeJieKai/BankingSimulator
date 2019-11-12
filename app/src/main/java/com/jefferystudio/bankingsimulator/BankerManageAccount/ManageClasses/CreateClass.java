@@ -65,7 +65,6 @@ public class CreateClass extends Fragment {
             }
         });
 
-
         return view;
     }
 

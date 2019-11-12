@@ -125,7 +125,8 @@ public class registration2 extends AppCompatActivity {
 
                 try {
                     verifyResult = new verifyRegistrationAsync(this).execute(username, email).get(5000, TimeUnit.MILLISECONDS);
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
 
                 }
             }
