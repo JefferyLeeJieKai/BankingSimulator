@@ -8,11 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class ForgetUsername extends AppCompatActivity {
 
     private TextInputLayout emailField;
     private Button submitButton;
+    private String input;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -27,10 +29,15 @@ public class ForgetUsername extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                emailField.setError(null);
+                input = emailField.getEditText().getText().toString().trim();
 
-                new CredentialsResetAsync(context, "ForgetUsername", null, emailField,
-                        null, null).execute();
+                if (Validation.validateEmpty(input, emailField)) {
+
+                    emailField.setError(null);
+
+                    new CredentialsResetAsync(context, "ForgetUsername", null, emailField,
+                            null, null).execute();
+                }
             }
         });
     }

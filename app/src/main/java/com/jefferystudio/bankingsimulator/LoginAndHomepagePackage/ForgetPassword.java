@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class ForgetPassword extends AppCompatActivity {
 
@@ -29,12 +30,45 @@ public class ForgetPassword extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                usernameField.setError((null));
-                emailField.setError(null);
+                if(!validateUsername() | !validateEmail()) {
+
+                    return;
+                }
 
                 new CredentialsResetAsync(context, "ForgetPassword", null, usernameField,
                         emailField, null).execute();
             }
         });
+    }
+
+    //validations
+    private boolean validateUsername() {
+
+        String username = usernameField.getEditText().getText().toString().trim();
+
+        boolean result = Validation.validateEmpty(username, usernameField);
+
+        //if not empty
+        if (result) {
+
+            usernameField.setError((null));
+        }
+
+        return result;
+    }
+
+    private boolean validateEmail() {
+
+        String email = emailField.getEditText().getText().toString().trim();
+
+        boolean result = Validation.validateEmpty(email, emailField);
+
+        //if not empty
+        if (result) {
+
+            emailField.setError(null);
+        }
+
+        return result;
     }
 }
