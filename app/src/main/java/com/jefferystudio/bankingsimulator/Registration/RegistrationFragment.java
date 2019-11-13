@@ -1,37 +1,37 @@
 package com.jefferystudio.bankingsimulator.Registration;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.LoginScreen;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.UpdateStudentListAsync;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
 import com.jefferystudio.bankingsimulator.R;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class registration2 extends AppCompatActivity {
+public class RegistrationFragment extends Fragment {
 
+    private Bundle args;
     private Button buttonsubmit;
     private EditText nameBox;
     private EditText emailBox;
@@ -46,21 +46,21 @@ public class registration2 extends AppCompatActivity {
     private Spinner roleBox;
     private String verifyResult;
 
-    @Override
-    protected void onCreate (Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.registration2);
-        final Context context = this;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        buttonsubmit =(Button) findViewById(R.id.btnsubmit);
-        nameBox = findViewById(R.id.nameinput);
-        emailBox = findViewById(R.id.emailinput);
-        usernameBox = findViewById(R.id.usernameinput);
-        passwordBox = findViewById(R.id.passwordinput);
-        cfmpasswordBox = findViewById(R.id.cfmpasswordinput);
-        genderGroup = findViewById(R.id.radioGroupGender);
+        View view = inflater.inflate(R.layout.registration_fragment, container, false);
 
-        dobBox = findViewById(R.id.birthdayinput);
+        args = getArguments();
+
+        buttonsubmit = view.findViewById(R.id.btnsubmit);
+        nameBox = view.findViewById(R.id.nameinput);
+        emailBox = view.findViewById(R.id.emailinput);
+        usernameBox = view.findViewById(R.id.usernameinput);
+        passwordBox = view.findViewById(R.id.passwordinput);
+        cfmpasswordBox = view.findViewById(R.id.cfmpasswordinput);
+        genderGroup = view.findViewById(R.id.radioGroupGender);
+
+        dobBox = view.findViewById(R.id.birthdayinput);
         Calendar cal = Calendar.getInstance();
         final int year = cal.get(Calendar.YEAR);
         final int month = cal.get(Calendar.MONTH);
@@ -70,7 +70,7 @@ public class registration2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        context, new DatePickerDialog.OnDateSetListener() {
+                        getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month + 1;
@@ -84,8 +84,8 @@ public class registration2 extends AppCompatActivity {
             }
         });
 
-        male = findViewById(R.id.radioMale);
-        female = findViewById(R.id.radioFemale);
+        male = view.findViewById(R.id.radioMale);
+        female = view.findViewById(R.id.radioFemale);
         genderGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             public void onCheckedChanged(RadioGroup group, int id) {
@@ -101,7 +101,7 @@ public class registration2 extends AppCompatActivity {
             }
         });
 
-        roleBox = findViewById(R.id.identitytype);
+        roleBox = view.findViewById(R.id.identitytype);
 
         buttonsubmit.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -110,6 +110,8 @@ public class registration2 extends AppCompatActivity {
                 checkAllInput();
             }
         });
+
+        return view;
     }
 
     public void checkAllInput() {
@@ -124,7 +126,7 @@ public class registration2 extends AppCompatActivity {
             if(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
                 try {
-                    verifyResult = new verifyRegistrationAsync(this).execute(username, email).get(5000, TimeUnit.MILLISECONDS);
+                    verifyResult = new verifyRegistrationAsync(getActivity()).execute(username, email).get(5000, TimeUnit.MILLISECONDS);
                 }
                 catch (Exception e) {
 
@@ -140,13 +142,7 @@ public class registration2 extends AppCompatActivity {
         String password = passwordBox.getText().toString().trim();
         String cfmpassword = cfmpasswordBox.getText().toString().trim();
         String dob = dobBox.getText().toString().trim();
-        String prelimRole = String.valueOf(roleBox.getSelectedItemId());
-        String role = "";
-
-        if(prelimRole.equals("Account Holder")) {
-
-            role = "AccountHolder";
-        }
+        String role = String.valueOf(roleBox.getSelectedItem());
 
         if (!name.matches("") && !email.matches("") && !username.matches("") && !password.matches("") && !gender.matches("")
                 && !dob.matches("") && !role.matches("")) {
@@ -186,7 +182,7 @@ public class registration2 extends AppCompatActivity {
         }
 
         if(errorList.size() > 0) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
             String completeMsg = "";
 
@@ -214,18 +210,72 @@ public class registration2 extends AppCompatActivity {
         }
         else if(errorList.size() == 0) {
 
-            new RegistrationAsync(this).execute(name, email, username, password, gender, dob, role);
+            String result1 = "";
+            String result2= "";
+
+            try {
+
+                result1 = new RegistrationAsync(getActivity())
+                        .execute(name, email, username, password, gender, dob, role, "fromBanker")
+                        .get(5000, TimeUnit.MILLISECONDS);
+                //Toast.makeText(getActivity(), role, Toast.LENGTH_LONG).show();
+                String[] resultArray1 = result1.split(",");
+
+                result2 = new UpdateStudentListAsync(getActivity(), args.getString("userID"), username,
+                                                     args.getString("classID"), args.getString("className"))
+                              .execute()
+                              .get(5000, TimeUnit.MILLISECONDS);
+
+                String[] resultArray2 = result2.split(",");
+
+                if(resultArray1[0].equals("Success") && resultArray2[0].equals("Success")) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                    builder.setTitle("DigiBank Alert");
+                    builder.setMessage("Account created successfully." +
+                                       "\nA confirmation email will be send to the registered email shortly." +
+                                       "\nDo you want to add another student?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            Fragment viewStudentFrag = new ViewStudent();
+                            viewStudentFrag.setArguments(args);
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.frame_layout, viewStudentFrag)
+                                    .commit();
+                        }
+                    });
+
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            Fragment homeFrag = new HomeFragmentBanker();
+                            Bundle newArgs = new Bundle();
+                            newArgs.putString("userID", args.getString("userID"));
+                            newArgs.putString("userName", args.getString("userName"));
+                            homeFrag.setArguments(args);
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.frame_layout, homeFrag)
+                                    .commit();
+                        }
+                    });
+
+                    AlertDialog quitDialog = builder.create();
+                    quitDialog.show();
+                }
+            }
+            catch(Exception e) {
+
+            }
         }
     }
 
     public void returnVerification(String result) {
 
         verifyResult = result;
-    }
-
-    public void onBackPressed() {
-
-        Intent intent = new Intent(getApplicationContext(), PreLogin.class);
-        startActivity(intent);
     }
 }

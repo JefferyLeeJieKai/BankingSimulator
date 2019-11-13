@@ -48,7 +48,7 @@ public class DepositConfirmUser extends Fragment {
             @Override
             public void onClick(View v) {
 
-                new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
+                new TransactionAsync(getActivity(),"DepositUser", args.getString("userName")).execute(currentID, input);
                 new UpdateTransAsync(getActivity(), "DepositFunds").execute(currentID, input);
             }
         });

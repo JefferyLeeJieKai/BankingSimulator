@@ -31,24 +31,33 @@
 
     //get class
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="180dp"
+        android:id="@+id/classHeader"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="8%"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="10%"
         android:textColor="#000000"
-        android:text="Class:" />
+        android:text="Class"
+        android:background="@drawable/username_field"
+        android:autoSizeTextType="uniform"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/classTxt"
-        android:layout_width="210dp"
+        app:layout_widthPercent="80%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="155dp">
+        android:layout_below="@id/classHeader"
+        android:layout_alignLeft="@id/classHeader"
+        app:layout_marginLeftPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:background="@drawable/password_field">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Class" />
+            android:textColor="#000000"
+            android:hint="Enter a name for your new class" />
     </android.support.design.widget.TextInputLayout>
 
     <!--//get interest rate
@@ -75,21 +84,25 @@
 
     //display buttons
     <Button
-        android:id="@+id/createBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="600dp"
+        android:id="@+id/cancelBtn"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="8%"
+        android:layout_below="@id/classTxt"
+        android:layout_alignLeft="@id/classTxt"
         android:background="@drawable/buttonshadow"
-        android:text="CREATE" />
+        android:text="Cancel" />
 
     <Button
-        android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
+        android:id="@+id/createBtn"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="8%"
+        app:layout_marginRightPercent="0%"
+        android:layout_below="@id/classTxt"
+        android:layout_alignRight="@id/classTxt"
         android:background="@drawable/buttonshadow"
-        android:text="CANCEL" />
+        android:text="Create" />
 
 </android.support.percent.PercentRelativeLayout>

@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClassRecyclerView.ClassViewRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView.SavingGoalsRecyclerViewAdaptor;
 
 public class SavingGoalsAll extends Fragment {
 
@@ -40,5 +42,11 @@ public class SavingGoalsAll extends Fragment {
         balance.setText(currentBalance);
 
         return view;
+    }
+
+    public void updateAdaptor(int entryPosition) {
+
+        SavingGoalsRecyclerViewAdaptor savingGoalsAdapter = (SavingGoalsRecyclerViewAdaptor)recyclerView.getAdapter();
+        savingGoalsAdapter.notifyItemRemoved(entryPosition);
     }
 }

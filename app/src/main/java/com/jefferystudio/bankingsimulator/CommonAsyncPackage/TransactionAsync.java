@@ -32,16 +32,18 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
     private HomeScreenBanker homeScreenBankerActivity;
     private ArrayList<Exception> elist = new ArrayList<Exception>();
     private String userID;
+    private String userName;
     private String bankerID;
     private String payeeID;
     private String depositAmount;
     private String withdrawAmount;
     private String data;
 
-    public TransactionAsync(Context context, String flag) {
+    public TransactionAsync(Context context, String flag, String userName) {
 
         this.context = context;
         this.flag = flag;
+        this.userName = userName;
 
         if (flag.equals("DepositUser") || flag.equals("WithdrawalUser") || flag.equals("TransferFundsUser")) {
 
@@ -238,6 +240,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     Fragment homeFrag = new HomeFragmentUser();
                     Bundle args = new Bundle();
                     args.putString("userID", userID);
+                    args.putString("userName", userName);
                     homeFrag.setArguments(args);
 
                     homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
@@ -274,6 +277,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     Fragment homeFrag = new HomeFragmentBanker();
                     Bundle args = new Bundle();
                     args.putString("userID", bankerID);
+                    args.putString("userName", userName);
                     homeFrag.setArguments(args);
 
                     homeScreenBankerActivity.getSupportFragmentManager().beginTransaction()
@@ -308,6 +312,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     Fragment homeFrag = new HomeFragmentUser();
                     Bundle args = new Bundle();
                     args.putString("userID", userID);
+                    args.putString("userName", userName);
                     homeFrag.setArguments(args);
 
                     homeScreenUserActivity.getSupportFragmentManager().beginTransaction()

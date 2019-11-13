@@ -60,7 +60,7 @@ public class Transfer_Amount extends Fragment{
                     fragTransc.addToBackStack(null);
                     fragTransc.commit();*/
 
-                    new TransactionAsync(getActivity(),"TransferFundsUser").execute(currentID, currentPayee, input);
+                    new TransactionAsync(getActivity(),"TransferFundsUser", args.getString("userName")).execute(currentID, currentPayee, input);
                     new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, String.valueOf(purpose.getSelectedItem()));
                 }
             }

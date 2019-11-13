@@ -72,7 +72,7 @@ public class SavingGoalsEditIC extends Fragment {
                 if (toChange.equals(currentItemCost))
                     newItemCost.setError("No changes made to item cost");
                 else
-                    new UpdateSavingGoalsAsync(getActivity(), "EditItemCost").execute(currentUserID, currentGoalID, toChange);
+                    new UpdateSavingGoalsAsync(getActivity(), "EditItemCost", args.getString("userName")).execute(currentUserID, currentGoalID, toChange);
             }
         });
 

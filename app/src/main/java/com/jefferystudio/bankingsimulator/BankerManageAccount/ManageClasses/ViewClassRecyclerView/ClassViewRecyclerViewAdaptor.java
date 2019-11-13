@@ -14,12 +14,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 
 public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassViewRecyclerViewAdaptor.ViewHolder> {
@@ -36,20 +39,21 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
 
             super(view);
 
-            viewStudents = view.findViewById(R.id.viewStudents);
             className = view.findViewById(R.id.classname);
-            editClass = view.findViewById(R.id.editclass);
-            deleteClass = view.findViewById(R.id.deleteclass);
+            noOfStudents = view.findViewById(R.id.numberOfStudents);
+            viewStudents = view.findViewById(R.id.viewStudents);
+            editClass = view.findViewById(R.id.editClass);
+            deleteClass = view.findViewById(R.id.deleteClass);
         }
     }
 
     private Context context;
-    private ArrayList<ClassEntry> classArrayList;
+    private ArrayList<ClassEntry> classList;
 
     public ClassViewRecyclerViewAdaptor(Context context, ArrayList<ClassEntry> classArrayList) {
 
         this.context = context;
-        this.classArrayList = classArrayList;
+        this.classList = classArrayList;
     }
 
     @NonNull
@@ -66,14 +70,15 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
     @Override
     public void onBindViewHolder(ClassViewRecyclerViewAdaptor.ViewHolder viewHolder, int position) {
 
-        final ClassEntry classEntry = classArrayList.get(position);
+        final ClassEntry classEntry = classList.get(position);
+        final int entryPosition = position;
 
         // Set item views based on your views and data model
         TextView textView1 = viewHolder.className;
         textView1.setText(classEntry.getClassName());
 
         TextView textView2 = viewHolder.noOfStudents;
-        textView2.setText("No. of students: " + classArrayList.size());
+        textView2.setText("No. of students: " + classEntry.getNoOfStudents());
 
         Button editStudentsButton = viewHolder.viewStudents;
         editStudentsButton.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +127,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
             @Override
             public void onClick(View v) {
 
-                String msg = "Are you sure you want to delete '" + classEntry.getClassName() + "' ?";
+                String msg = "Are you sure you want to delete " + classEntry.getClassName() + "?";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -135,14 +140,56 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //delete saving goal from database
+                         String returnMessage = "";
+                         try {
+
+                             returnMessage = new EditClassesAsync(context, "DeleteClass")
+                                             .execute(classEntry.getClassID())
+                                             .get(5000, TimeUnit.MILLISECONDS);
+
+                             String[] returnMessageArray = returnMessage.split(",");
+
+                             if(returnMessageArray[0].equals("Success")) {
+
+                                 new EditClassesAsync(context, "DeleteAllStudents")
+                                         .execute(classEntry.getClassID())
+                                         .get(5000, TimeUnit.MILLISECONDS);
+                             }
+                         }
+                         catch(Exception e) {
 
 
+                         }
 
-                        //testing
-                        Toast.makeText(context,
-                                classEntry.getClassName() + " deleted",
-                                Toast.LENGTH_LONG).show();
+                         String[] returnArray = returnMessage.split(",");
+
+                         if(returnArray[0].equals("Success")) {
+
+                             classList.remove(entryPosition);
+
+                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                             builder.setTitle("DigiBank Alert");
+                             builder.setMessage(classEntry.getClassName() + " successfully deleted.");
+
+                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                 public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                                     ViewClass currentFrag = (ViewClass) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                     currentFrag.updateAdaptor(entryPosition);
+                                 }
+                             });
+
+                             AlertDialog confirmDialog = builder.create();
+                             confirmDialog.show();
+                         }
+                         else if(returnArray[0].equals("Fail")){
+
+                             Toast.makeText(context,
+                                     "Deleting of " + classEntry.getClassName() + " failed.",
+                                     Toast.LENGTH_LONG).show();
+                         }
                     }
                 });
 
@@ -165,6 +212,6 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
     @Override
     public int getItemCount() {
 
-        return classArrayList.size();
+        return classList.size();
     }
 }

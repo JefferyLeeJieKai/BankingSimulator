@@ -72,7 +72,7 @@ public class SavingGoalsEditGN extends Fragment {
                 if (toChange.equalsIgnoreCase(currentGoalname))
                     newGoalName.setError("No changes made to goal name");
                 else
-                    new UpdateSavingGoalsAsync(getActivity(), "EditGoalName").execute(currentUserID, currentGoalID, toChange);
+                    new UpdateSavingGoalsAsync(getActivity(), "EditGoalName", args.getString("userName")).execute(currentUserID, currentGoalID, toChange);
             }
         });
 

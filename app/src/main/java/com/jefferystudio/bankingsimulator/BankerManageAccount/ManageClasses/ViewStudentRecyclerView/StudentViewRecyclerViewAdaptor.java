@@ -12,17 +12,22 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<StudentViewRecyclerViewAdaptor.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView userName;
-        private TextView userID;
+        private TextView interestRate;
+        private Button interestRateButton;
         private Button deleteButton;
 
         public ViewHolder(View view) {
@@ -30,18 +35,21 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
             super(view);
 
             userName = view.findViewById(R.id.username);
-            userID = view.findViewById(R.id.userid);
-            deleteButton = view.findViewById(R.id.deleteBtn);
+            interestRate = view.findViewById(R.id.interestrate);
+            interestRateButton = view.findViewById(R.id.editInterestRate);
+            deleteButton = view.findViewById(R.id.deleteStudent);
         }
     }
 
     private Context context;
     private ArrayList<StudentEntry> studentList;
+    private String classID;
 
-    public StudentViewRecyclerViewAdaptor(Context context, ArrayList<StudentEntry> studentList) {
+    public StudentViewRecyclerViewAdaptor(Context context, ArrayList<StudentEntry> studentList, String classID) {
 
         this.context = context;
         this.studentList = studentList;
+        this.classID = classID;
     }
 
     @NonNull
@@ -49,30 +57,31 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
     public StudentViewRecyclerViewAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        View rowView = inflater.inflate(R.layout.student_view_recycler_view_layout, parent);
+        View rowView = inflater.inflate(R.layout.student_view_recycler_view_layout, parent, false);
         ViewHolder viewHolder = new ViewHolder(rowView);
 
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int postion) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
-        final StudentEntry studentEntry = studentList.get(postion);
+        final StudentEntry studentEntry = studentList.get(position);
+        final int entryPosition = position;
 
-        TextView textView1 = viewHolder.userID;
-        textView1.setText(studentEntry.getUserID());
+        TextView textView1 = viewHolder.interestRate;
+        textView1.setText(studentEntry.getInterestRate());
 
 
         TextView textView2 = viewHolder.userName;
         textView2.setText(studentEntry.getUsername());
 
-        Button button = viewHolder.deleteButton;
-        button.setOnClickListener(new View.OnClickListener() {
+        Button button1 = viewHolder.deleteButton;
+        button1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                String msg = "Are you sure you want to delete '" + studentEntry.getUsername() + "' ?";
+                String msg = "Are you sure you want to delete " + studentEntry.getUsername() + "?";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -85,14 +94,46 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //delete saving goal from database
+                        String returnMessage = "";
+                        try {
 
+                            returnMessage = new EditClassesAsync(context, "DeleteStudent")
+                                            .execute(classID, studentEntry.getUserID())
+                                            .get(5000, TimeUnit.MILLISECONDS);
+                        }
+                        catch(Exception e) {
 
+                        }
 
-                        //testing
-                        Toast.makeText(context,
-                                studentEntry.getUsername() + " deleted",
-                                Toast.LENGTH_LONG).show();
+                        String[] resultArray = returnMessage.split(",");
+
+                        if(resultArray[0].equals("Success")) {
+
+                            studentList.remove(entryPosition);
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle("DigiBank Alert");
+                            builder.setMessage(studentEntry.getUsername() + " successfully deleted.");
+
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    ViewStudent viewStudentFrag = (ViewStudent) ((HomeScreenBanker) context)
+                                            .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                    viewStudentFrag.updateAdaptor(entryPosition);
+                                }
+                            });
+
+                            AlertDialog confirmDialog = builder.create();
+                            confirmDialog.show();
+                        }
+                        else if(resultArray[0].equals("Fail")){
+
+                            Toast.makeText(context,
+                                    "Deleting of " + studentEntry.getUsername() + " failed.",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
 
@@ -108,6 +149,18 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
                 AlertDialog ad = builder.create();
                 ad.show();
+            }
+        });
+
+        Button button2 =  viewHolder.interestRateButton;
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                ViewStudent viewStudentFrag = (ViewStudent)((HomeScreenBanker)context).getSupportFragmentManager()
+                                              .findFragmentById(R.id.frame_layout);
+
+                viewStudentFrag.updateInterestRate(studentEntry);
             }
         });
     }

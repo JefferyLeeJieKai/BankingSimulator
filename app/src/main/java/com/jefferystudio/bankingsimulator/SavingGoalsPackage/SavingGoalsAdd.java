@@ -117,7 +117,7 @@ public class SavingGoalsAdd extends Fragment {
 
                 if(Validation.validateAmount(inputAmount, savingGoalAmount)) {
 
-                    new SettingsGoalsAsync(getActivity(), "NewSavingGoal").execute(currentID, inputName, inputAmount, inputDate, inputPriority);
+                    new SettingsGoalsAsync(getActivity(), "NewSavingGoal", args.getString("userName")).execute(currentID, inputName, inputAmount, inputDate, inputPriority);
                 }
             }
         });

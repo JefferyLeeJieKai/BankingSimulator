@@ -6,6 +6,7 @@ public class ClassEntry {
     private String username;
     private String classID;
     private String className;
+    private String noOfStudents;
 
     public ClassEntry(String userID, String username, String classID, String className) {
 
@@ -33,5 +34,15 @@ public class ClassEntry {
     public String getClassName() {
 
         return className;
+    }
+
+    public String getNoOfStudents() {
+
+        return noOfStudents;
+    }
+
+    public void setNoOfStudents(String noOfStudents) {
+
+        this.noOfStudents = noOfStudents;
     }
 }

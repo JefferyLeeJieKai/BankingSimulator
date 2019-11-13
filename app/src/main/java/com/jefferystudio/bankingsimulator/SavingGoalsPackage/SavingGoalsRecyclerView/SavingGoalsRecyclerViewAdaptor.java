@@ -14,11 +14,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.DeleteSavingGoalsAsync;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsView;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -73,6 +78,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
     public void onBindViewHolder(SavingGoalsRecyclerViewAdaptor.ViewHolder viewHolder, int position) {
         // Get the data model based on position
         final SavingGoal savingGoal = savingGoals.get(position);
+        final int entryPosition = position;
 
         // Set item views based on your views and data model
         TextView textView1 = viewHolder.savingGoal;
@@ -142,7 +148,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
             @Override
             public void onClick(View v) {
 
-                String msg = "Are you sure you want to delete '" + savingGoal.getGoalName() + "' ?";
+                String msg = "Are you sure you want to delete " + savingGoal.getGoalName() + "?";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -155,14 +161,40 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //delete saving goal from database
+                        String result = "";
 
+                        try{
+                            result = new DeleteSavingGoalsAsync(context, savingGoal.getGoalID())
+                                            .execute()
+                                            .get(5000, TimeUnit.MILLISECONDS);
+                        }
+                        catch(Exception e) {
 
+                        }
 
-                        //testing
-                        Toast.makeText(context,
-                                savingGoal.getGoalName() + " deleted",
-                                Toast.LENGTH_SHORT).show();
+                        String[] resultArray = result.split(",");
+
+                        if(resultArray[0].equals("Success")) {
+
+                            savingGoals.remove(entryPosition);
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle("DigiBank Alert");
+                            builder.setMessage(savingGoal.getGoalName() + " successfully deleted.");
+
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    SavingGoalsAll currentFrag = (SavingGoalsAll) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                    currentFrag.updateAdaptor(entryPosition);
+                                }
+                            });
+
+                            AlertDialog confirmDialog = builder.create();
+                            confirmDialog.show();
+                        }
                     }
                 });
 
