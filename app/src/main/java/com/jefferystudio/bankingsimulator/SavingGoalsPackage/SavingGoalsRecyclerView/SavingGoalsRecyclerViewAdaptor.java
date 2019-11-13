@@ -148,7 +148,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
             @Override
             public void onClick(View v) {
 
-                String msg = "Are you sure you want to delete " + savingGoal.getGoalName() + " ?";
+                String msg = "Are you sure you want to delete " + savingGoal.getGoalName() + "?";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
