@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -93,32 +94,30 @@ public class LoginScreen extends AppCompatActivity {
 
         username = usernameTextBox.getEditText().getText().toString().trim();
 
-        if(username.isEmpty()) {
+        boolean result = Validation.validateEmpty(username, usernameTextBox);
 
-            usernameTextBox.setError("Field cannot be empty");
-            return false;
-        }
-        else {
+        //if not empty
+        if (result) {
 
             usernameTextBox.setError(null);
-            return true;
         }
+
+        return result;
     }
 
     private boolean validatePassword() {
 
         password = passwordTextBox.getEditText().getText().toString().trim();
 
-        if(username.isEmpty()) {
+        boolean result = Validation.validateEmpty(password, passwordTextBox);
 
-            passwordTextBox.setError("Field cannot be empty");
-            return false;
-        }
-        else {
+        //if not empty
+        if (result) {
 
             passwordTextBox.setError(null);
-            return true;
         }
+
+        return result;
     }
 
     public void fingerprintLogin(View v) {
