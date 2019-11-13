@@ -25,6 +25,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private TextView textViewQuestion;
     private TextView textViewQuestionCount;
+    private TextView textReason;
     private TextView textViewCountDown;
     private RadioGroup rbGroup;
     private RadioButton rb1;
@@ -60,6 +61,7 @@ public class QuizActivity extends AppCompatActivity {
         rb1 = findViewById(R.id.radio_button1);
         rb2 = findViewById(R.id.radio_button2);
         rb3 = findViewById(R.id.radio_button3);
+        textReason = findViewById(R.id.text_reason);
         buttonConfirmNext = findViewById(R.id.button_confirm_next);
 
         textColorDefaultRb = rb1.getTextColors();
@@ -93,6 +95,7 @@ public class QuizActivity extends AppCompatActivity {
         rb2.setTextColor(textColorDefaultRb);
         rb3.setTextColor(textColorDefaultRb);
         rbGroup.clearCheck();
+        textReason.setText("");
 
         if (questionCounter < 5) {
             currentQuestion = questionList.get(questionCounter);
@@ -168,15 +171,15 @@ public class QuizActivity extends AppCompatActivity {
         switch (currentQuestion.getAnswerNr()) {
             case 1:
                 rb1.setTextColor(Color.GREEN);
-                textViewQuestion.setText("Answer 1 is correct");
+                textReason.setText("Answer 1 is correct"+ "\n\n" + currentQuestion.getReason());
                 break;
             case 2:
                 rb2.setTextColor(Color.GREEN);
-                textViewQuestion.setText("Answer 2 is correct");
+                textReason.setText("Answer 2 is correct" + "\n\n" + currentQuestion.getReason());
                 break;
             case 3:
                 rb3.setTextColor(Color.GREEN);
-                textViewQuestion.setText("Answer 3 is correct");
+                textReason.setText("Answer 3 is correct"+ "\n\n" + currentQuestion.getReason());
                 break;
         }
 

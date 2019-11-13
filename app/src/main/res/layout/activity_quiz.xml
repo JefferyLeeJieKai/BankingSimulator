@@ -30,10 +30,11 @@
         android:layout_below="@id/text_quiz_header"
         android:text="Question: 1/x"
         android:textColor="@android:color/black"
-        app:layout_heightPercent="3%"
+        app:layout_heightPercent="4%"
         app:layout_marginLeftPercent="8%"
         app:layout_marginTopPercent="5%"
-        app:layout_widthPercent="30%" />
+        app:layout_widthPercent="27%"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/text_view_countdown"
@@ -51,12 +52,24 @@
         android:id="@+id/text_view_question"
         android:layout_below="@id/text_view_countdown"
         android:layout_centerHorizontal="true"
-        android:text="Question......."
+        android:text=""
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="20sp"
-        app:layout_heightPercent="20%"
+        android:autoSizeTextType="uniform"
+        app:layout_heightPercent="9%"
         app:layout_marginTopPercent="8%"
+        app:layout_widthPercent="90%" />
+
+    <TextView
+        android:id="@+id/text_reason"
+        android:layout_below="@id/radio_group"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:autoSizeTextType="uniform"
+        app:layout_heightPercent="20%"
+        app:layout_marginTopPercent="3%"
         app:layout_widthPercent="90%" />
 
     <RadioGroup
@@ -64,7 +77,7 @@
         android:layout_below="@id/text_view_question"
         android:layout_centerVertical="true"
         android:textSize="15sp"
-        app:layout_heightPercent="18%"
+        app:layout_heightPercent="14%"
         app:layout_marginLeftPercent="5%"
         app:layout_marginTopPercent="3%"
         app:layout_widthPercent="90%">
@@ -91,7 +104,7 @@
 
     <Button
         android:id="@+id/button_confirm_next"
-        android:layout_below="@id/radio_group"
+        android:layout_below="@id/text_reason"
         android:layout_centerHorizontal="true"
         android:background="@drawable/buttonshadow"
         android:text="Confirm"
