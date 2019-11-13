@@ -127,7 +127,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
             @Override
             public void onClick(View v) {
 
-                String msg = "Are you sure you want to delete '" + classEntry.getClassName() + "' ?";
+                String msg = "Are you sure you want to delete " + classEntry.getClassName() + "?";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -166,12 +166,23 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                          if(returnArray[0].equals("Success")) {
 
                              classList.remove(entryPosition);
-                             ViewClass currentFrag = (ViewClass) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-                             currentFrag.updateAdaptor(entryPosition);
 
-                             Toast.makeText(context,
-                                     classEntry.getClassName() + " deleted",
-                                     Toast.LENGTH_LONG).show();
+                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                             builder.setTitle("DigiBank Alert");
+                             builder.setMessage(classEntry.getClassName() + " successfully deleted.");
+
+                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                 public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                                     ViewClass currentFrag = (ViewClass) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                     currentFrag.updateAdaptor(entryPosition);
+                                 }
+                             });
+
+                             AlertDialog confirmDialog = builder.create();
+                             confirmDialog.show();
                          }
                          else if(returnArray[0].equals("Fail")){
 

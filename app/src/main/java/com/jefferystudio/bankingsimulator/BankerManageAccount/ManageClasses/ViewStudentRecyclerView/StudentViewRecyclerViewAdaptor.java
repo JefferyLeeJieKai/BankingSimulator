@@ -81,7 +81,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
             public void onClick(View v) {
 
-                String msg = "Are you sure you want to delete '" + studentEntry.getUsername() + "' ?";
+                String msg = "Are you sure you want to delete " + studentEntry.getUsername() + "?";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -110,13 +110,23 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                         if(resultArray[0].equals("Success")) {
 
                             studentList.remove(entryPosition);
-                            ViewStudent viewStudentFrag = (ViewStudent) ((HomeScreenBanker) context)
-                                    .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-                            viewStudentFrag.updateAdaptor(entryPosition);
 
-                            Toast.makeText(context,
-                                    studentEntry.getUsername() + " deleted",
-                                    Toast.LENGTH_LONG).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle("DigiBank Alert");
+                            builder.setMessage(studentEntry.getUsername() + " successfully deleted.");
+
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    ViewStudent viewStudentFrag = (ViewStudent) ((HomeScreenBanker) context)
+                                            .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                    viewStudentFrag.updateAdaptor(entryPosition);
+                                }
+                            });
+
+                            AlertDialog confirmDialog = builder.create();
+                            confirmDialog.show();
                         }
                         else if(resultArray[0].equals("Fail")){
 
