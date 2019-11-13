@@ -48,7 +48,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable() {
-        Question q1 = new Question("What is the term for a person that owns 1,000,000 in currency?", "Millionaire", "Billionaire ", "Trillionaire", 1, "Millionaire => 1,000,000 \n Billionaire => 1,000,000,000 \n Trillionaire => 1,000,000,000,000");
+        Question q1 = new Question("What is the term for a person that owns 1,000,000 in currency?", "Millionaire", "Billionaire ", "Trillionaire", 1, "Millionaire = 1,000,000 \n Billionaire = 1,000,000,000 \n Trillionaire = 1,000,000,000,000");
         addQuestion(q1);
         Question q2 = new Question("What do we use to purchase items from a shop?", "Credit card, Coins and Banknotes, Cheque", "Coins and Banknotes, Seashells", "Credit card, Coins and Banknotes, Contactless payment", 3, "Cheques are phasing out as a payment type and they are not used as a payment type in a shop. Seashells are not a form of payment.");
         addQuestion(q2);
