@@ -37,6 +37,7 @@ public class ClassAsync extends AsyncTask<String, String, String> {
     private String data;
     private String userID;
     private String username;
+    private String bankerName;
     private String classID;
     private boolean showDialog;
     private RecyclerView recyclerView;
@@ -81,6 +82,8 @@ public class ClassAsync extends AsyncTask<String, String, String> {
         }
         else if(flag.equals("ViewClass")) {
 
+            bankerName = args[0];
+
             try {
                 link = "http://www.kidzsmart.tk/databaseAccess/viewClass.php";
                 data = URLEncoder.encode("userid", "UTF-8") + "=" +
@@ -91,6 +94,8 @@ public class ClassAsync extends AsyncTask<String, String, String> {
             }
         }
         else if(flag.equals("ViewStudent")) {
+
+            bankerName = args[0];
 
             try {
 
@@ -213,6 +218,8 @@ public class ClassAsync extends AsyncTask<String, String, String> {
                     Fragment homeFrag = new HomeFragmentBanker();
                     Bundle args = new Bundle();
                     args.putString("userID", userID);
+                    args.putString("userName", username);
+                    homeFrag.setArguments(args);
                     ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_layout, homeFrag)
                             .commit();

@@ -44,7 +44,7 @@ public class HomeFragmentBanker extends Fragment {
 
         args = getArguments();
         greetingsMsg = view.findViewById(R.id.textView4);
-        greetingsMsg.setText("Welcome to KidzSmart, " + args.get("userName") + " (Banker)");
+        greetingsMsg.setText("Welcome to KidzSmart, " + args.getString("userName") + " (Banker)");
 
         btnsettings = view.findViewById(R.id.settings);
         btnquizresult = view.findViewById(R.id.viewquizresult);

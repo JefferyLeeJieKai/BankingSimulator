@@ -23,14 +23,16 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
     private Context context;
     private HomeScreenUser homeScreenUserActivity;
     private String userID;
+    private String userName;
     private String flag;
     private String link;
     private String data;
 
-    public UpdateSavingGoalsAsync(Context context, String flag) {
+    public UpdateSavingGoalsAsync(Context context, String flag, String userName) {
 
         this.context = context;
         this.flag = flag;
+        this.userName = userName;
         homeScreenUserActivity = (HomeScreenUser)context;
     }
 
@@ -116,6 +118,7 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
                     Fragment homeFrag = new HomeFragmentUser();
                     Bundle args = new Bundle();
                     args.putString("userID", userID);
+                    args.putString("userName", userName);
                     homeFrag.setArguments(args);
 
                     homeScreenUserActivity.getSupportFragmentManager().beginTransaction()

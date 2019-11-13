@@ -256,6 +256,7 @@ public class RegistrationFragment extends Fragment {
                             Fragment homeFrag = new HomeFragmentBanker();
                             Bundle newArgs = new Bundle();
                             newArgs.putString("userID", args.getString("userID"));
+                            newArgs.putString("userName", args.getString("userName"));
                             homeFrag.setArguments(args);
                             getActivity().getSupportFragmentManager().beginTransaction()
                                     .replace(R.id.frame_layout, homeFrag)
