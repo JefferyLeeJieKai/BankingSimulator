@@ -15,7 +15,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentRecyclerView.StudentEntry;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentRecyclerView.StudentViewRecyclerViewAdaptor;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Registration.RegistrationFragment;
 import com.jefferystudio.bankingsimulator.Registration.registration2;
@@ -106,7 +108,7 @@ public class ViewStudent extends Fragment {
                                                .get(5000, TimeUnit.MILLISECONDS);
 
                                     String[] responseArray = response.split(",");
-                                    Toast.makeText(getActivity(), responseArray[0], Toast.LENGTH_LONG).show();
+
                                     AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
                                     builder3.setTitle("DigiBank Alert");
 
@@ -173,5 +175,90 @@ public class ViewStudent extends Fragment {
 
         StudentViewRecyclerViewAdaptor adaptor = (StudentViewRecyclerViewAdaptor) studentDetails.getAdapter();
         adaptor.notifyItemRemoved(entryPosition);
+    }
+
+    public void updateInterestRate(final StudentEntry studentEntry) {
+
+        String msg = "Are you sure you edit interest rate for " + studentEntry.getUsername() + "' ?";
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
+
+        builder1.setTitle("Warning!");
+        builder1.setMessage(msg);
+
+        //yes button selected
+        builder1.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(getActivity());
+                builder2.setTitle("DigiBank Alert");
+                final EditText input = new EditText(getActivity());
+                input.setHint("Please enter interest rate here");
+                builder2.setView(input);
+
+                builder2.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        String data = input.getText().toString().trim();
+                        String response = "";
+                        float dataFloat = Float.valueOf(data);
+                        dataFloat /= 100;
+                        dataFloat += 1.0;
+                        data = Float.toString(dataFloat);
+
+                        try {
+
+                            response = new UpdateInterestRateAsync(getActivity(), studentEntry.getUserID(), data)
+                                    .execute()
+                                    .get(5000, TimeUnit.MILLISECONDS);
+
+                            String[] responseArray = response.split(",");
+
+                            AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
+                            builder3.setTitle("DigiBank Alert");
+
+                            if (responseArray[0].equals("Success")) {
+
+                                builder3.setMessage("You have successfully updated the interest rate.");
+                            }
+
+                            builder3.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialogInterace, int i) {
+
+                                    new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), args.getString("userName"),
+                                            args.getString("classID"), studentDetails).execute();
+                                }
+                            });
+
+                            AlertDialog quitDialog = builder3.create();
+                            quitDialog.show();
+                        }
+                        catch (Exception e) {
+
+
+                        }
+                    }
+                });
+
+                AlertDialog inputDialog = builder2.create();
+                inputDialog.show();
+            }
+        });
+
+        //no button selected
+        builder1.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog ad = builder1.create();
+        ad.show();
     }
 }

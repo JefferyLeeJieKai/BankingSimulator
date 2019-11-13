@@ -82,8 +82,6 @@ public class ClassAsync extends AsyncTask<String, String, String> {
         }
         else if(flag.equals("ViewClass")) {
 
-            bankerName = args[0];
-
             try {
                 link = "http://www.kidzsmart.tk/databaseAccess/viewClass.php";
                 data = URLEncoder.encode("userid", "UTF-8") + "=" +
@@ -94,8 +92,6 @@ public class ClassAsync extends AsyncTask<String, String, String> {
             }
         }
         else if(flag.equals("ViewStudent")) {
-
-            bankerName = args[0];
 
             try {
 

@@ -27,6 +27,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
         private TextView userName;
         private TextView interestRate;
+        private Button interestRateButton;
         private Button deleteButton;
 
         public ViewHolder(View view) {
@@ -35,6 +36,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
             userName = view.findViewById(R.id.username);
             interestRate = view.findViewById(R.id.interestrate);
+            interestRateButton = view.findViewById(R.id.editInterestRate);
             deleteButton = view.findViewById(R.id.deleteStudent);
         }
     }
@@ -74,8 +76,8 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
         TextView textView2 = viewHolder.userName;
         textView2.setText(studentEntry.getUsername());
 
-        Button button = viewHolder.deleteButton;
-        button.setOnClickListener(new View.OnClickListener() {
+        Button button1 = viewHolder.deleteButton;
+        button1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
@@ -137,6 +139,18 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
                 AlertDialog ad = builder.create();
                 ad.show();
+            }
+        });
+
+        Button button2 =  viewHolder.interestRateButton;
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                ViewStudent viewStudentFrag = (ViewStudent)((HomeScreenBanker)context).getSupportFragmentManager()
+                                              .findFragmentById(R.id.frame_layout);
+
+                viewStudentFrag.updateInterestRate(studentEntry);
             }
         });
     }

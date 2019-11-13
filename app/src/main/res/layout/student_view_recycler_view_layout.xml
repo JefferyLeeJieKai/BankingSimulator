@@ -22,6 +22,16 @@
         />
 
     <Button
+        android:id="@+id/editInterestRate"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#A9A9A9"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+
+    <Button
         android:id="@+id/deleteStudent"
         android:layout_width="20dp"
         android:layout_height="20dp"
