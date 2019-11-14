@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Validation;
@@ -31,6 +32,7 @@ public class DepositBanker extends Fragment
     private TextInputLayout amountToDeposit;
     private String input;
     private Button nextButton;
+    private Button backbtn;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -55,6 +57,20 @@ public class DepositBanker extends Fragment
         ArrayAdapter<String> accountsAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
         accountsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accounts.setAdapter(accountsAdapter);
+
+        backbtn = view.findViewById(R.id.backBtn);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment homeFrag = new HomeFragmentBanker();
+                homeFrag.setArguments(args);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, homeFrag)
+                        .commit();
+            }
+        });
 
         amountToDeposit = view.findViewById(R.id.amountTxt);
         nextButton = view.findViewById(R.id.nextBtn);

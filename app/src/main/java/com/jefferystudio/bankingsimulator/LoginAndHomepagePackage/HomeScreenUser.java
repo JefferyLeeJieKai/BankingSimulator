@@ -131,11 +131,7 @@ public class HomeScreenUser extends AppCompatActivity {
                     fragment = new SavingGoalsAddAmount();
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.changePassword) {
 
-                    fragment = new ChangePasswordFragment();
-                    fragment.setArguments(args);
-                }
                 /*
                 else if(item.getItemId() == R.id.enableFingerprint) {
 
