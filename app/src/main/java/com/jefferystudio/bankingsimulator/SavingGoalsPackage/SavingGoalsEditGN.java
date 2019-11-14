@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class SavingGoalsEditGN extends Fragment {
 
@@ -69,10 +70,19 @@ public class SavingGoalsEditGN extends Fragment {
 
                 String toChange = newGoalName.getEditText().getText().toString().trim();
 
-                if (toChange.equalsIgnoreCase(currentGoalname))
-                    newGoalName.setError("No changes made to goal name");
-                else
-                    new UpdateSavingGoalsAsync(getActivity(), "EditGoalName", args.getString("userName")).execute(currentUserID, currentGoalID, toChange);
+                if (Validation.validateEmpty(toChange, newGoalName)) {
+
+                    if (toChange.equalsIgnoreCase(currentGoalname)) {
+
+                        newGoalName.setError("No changes made to goal name");
+                    }
+                    else {
+
+                        newGoalName.setError(null);
+
+                        new UpdateSavingGoalsAsync(getActivity(), "EditGoalName", args.getString("userName")).execute(currentUserID, currentGoalID, toChange);
+                    }
+                }
             }
         });
 

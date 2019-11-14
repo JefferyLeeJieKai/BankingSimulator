@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Validation;
 
 public class SavingGoalsEditIC extends Fragment {
 
@@ -69,10 +70,19 @@ public class SavingGoalsEditIC extends Fragment {
 
                 String toChange = newItemCost.getEditText().getText().toString().trim();
 
-                if (toChange.equals(currentItemCost))
-                    newItemCost.setError("No changes made to item cost");
-                else
-                    new UpdateSavingGoalsAsync(getActivity(), "EditItemCost", args.getString("userName")).execute(currentUserID, currentGoalID, toChange);
+                if (Validation.validateAmount(toChange, newItemCost)) {
+
+                    if (toChange.equals(currentItemCost)) {
+
+                        newItemCost.setError("No changes made to item cost");
+                    }
+                    else {
+
+                        newItemCost.setError(null);
+
+                        new UpdateSavingGoalsAsync(getActivity(), "EditItemCost", args.getString("userName")).execute(currentUserID, currentGoalID, toChange);
+                    }
+                }
             }
         });
 
