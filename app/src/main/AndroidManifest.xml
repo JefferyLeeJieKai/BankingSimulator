@@ -94,7 +94,7 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".Registration.registration2"
+            android:name=".Registration.Registration"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustNothing"></activity>

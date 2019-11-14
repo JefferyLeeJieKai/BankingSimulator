@@ -75,6 +75,6 @@ public class verifyRegistrationAsync extends AsyncTask <String, String, String> 
     protected void onPostExecute(String result) {
         //Toast.makeText(activity, data, Toast.LENGTH_LONG).show();
         //Toast.makeText(activity, result, Toast.LENGTH_LONG).show();
-        //((registration2)activity).returnVerification(result);
+        //((Registration)activity).returnVerification(result);
     }
 }

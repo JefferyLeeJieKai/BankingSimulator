@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.Registration.registration2;
+import com.jefferystudio.bankingsimulator.Registration.Registration;
 
 import java.util.Calendar;
 
@@ -68,7 +68,7 @@ public class registration1 extends AppCompatActivity {
     }
 
     public void registration2(){
-        Intent intent = new Intent(getApplicationContext(), registration2.class);
+        Intent intent = new Intent(getApplicationContext(), Registration.class);
         startActivity(intent);
     }
 }
