@@ -18,6 +18,7 @@ import android.widget.Switch;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Registration.Registration;
 
@@ -46,7 +47,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
                 Bundle newArgs = new Bundle();
                 newArgs.putString("userID", args.getString("userID"));
                 newArgs.putString("userName", args.getString("userName"));
-                Intent intent = new Intent(getApplicationContext(), HomeFragmentUser.class);
+                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
                 intent.putExtras(newArgs);
                 startActivity(intent);
             }
