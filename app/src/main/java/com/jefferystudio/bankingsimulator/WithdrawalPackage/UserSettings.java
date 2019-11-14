@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -16,11 +17,13 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePasswordFragment;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Registration.Registration;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +31,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
     private Switch switchbtn;
     private Button backbtn;
+    private Button btnchange;
     private Bundle args;
 
     @Override
@@ -39,6 +43,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
         args = getIntent().getExtras();
         switchbtn = (Switch)findViewById(R.id.switch1);
         backbtn = (Button) findViewById(R.id.btnback);
+        btnchange = (Button) findViewById(R.id.changepass);
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +55,18 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
                 Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
                 intent.putExtras(newArgs);
                 startActivity(intent);
+            }
+        });
+
+        btnchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment changePassword = new ChangePasswordFragment();
+                changePassword.setArguments(args);
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, changePassword);
+                transaction.commit();
             }
         });
 
