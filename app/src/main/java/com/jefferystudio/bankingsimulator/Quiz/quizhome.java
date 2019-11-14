@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 
@@ -18,13 +19,14 @@ public class quizhome extends AppCompatActivity {
     private ImageButton btnstartq;
     private ImageButton btnviewhist;
     private Button btnback;
+    private Bundle args;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quizhomepage);
 
-
+        args = getIntent().getExtras();
         btnstartq = (ImageButton) findViewById(R.id.startquiz);
         btnviewhist = (ImageButton) findViewById(R.id.viewquiz);
         btnback = (Button) findViewById(R.id.backbtn);
@@ -46,7 +48,12 @@ public class quizhome extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                backto();
+                Bundle newArgs = new Bundle();
+                newArgs.putString("userID", args.getString("userID"));
+                newArgs.putString("userName", args.getString("userName"));
+                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
+                intent.putExtras(newArgs);
+                startActivity(intent);
             }
         });
     }
@@ -61,8 +68,4 @@ public class quizhome extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void backto(){
-        Intent intent = new Intent(getApplicationContext(), HomeFragmentUser.class);
-        startActivity(intent);
-    }
 }
