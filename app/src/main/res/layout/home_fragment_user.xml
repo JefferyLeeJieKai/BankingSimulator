@@ -499,15 +499,13 @@
 
     <ImageButton
         android:id="@+id/transferfunds"
-        android:layout_width="64dp"
-        android:layout_height="63dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_heightPercent="12%"
         app:layout_marginLeftPercent="39%"
         app:layout_marginTopPercent="54%"
         app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/transfer" />
+        app:srcCompat="@drawable/transfernew" />
 
     <ImageButton
         android:id="@+id/depositfunds"

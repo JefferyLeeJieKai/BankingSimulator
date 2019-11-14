@@ -180,7 +180,7 @@
         app:layout_marginTopPercent="67%"
         app:layout_widthPercent="20%" />
 
-    <Spinner
+    <TextView
         android:id="@+id/goalNameDDL"
         app:layout_heightPercent="5%"
         app:layout_widthPercent="60%"

@@ -11,20 +11,23 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
 import java.text.DecimalFormat;
+import java.util.concurrent.TimeUnit;
 
 public class SavingGoalsAddAmount extends Fragment {
 
+    private Bundle args;
     private ProgressBar progress;
     private TextView progressLabel;
     private TextView amountSavedCurrency;
     private TextView amountSaved;
     private TextView amountRemainCurrency;
     private TextView amountRemain;
-    private Spinner goalNames;
+    private TextView goalName;
     private TextInputLayout amount;
     private Button confirmButton;
     private Button cancelButton;
@@ -33,51 +36,39 @@ public class SavingGoalsAddAmount extends Fragment {
 
         View view = inflater.inflate(R.layout.saving_goals_add_amount, container, false);
 
+        args = getArguments();
+
         progress = view.findViewById(R.id.amountPB);
 
-        //set to 2 decimal place
-        DecimalFormat df = new DecimalFormat("0.00");
-
-
-        //testing purpose
-        double savingAmount = 60;
-        double existAmount = 25.5;
-
-
-        //formula to find the remaining amount
-        double remainAmount = savingAmount - existAmount;
-
-
-        //amount saved
-        amountSavedCurrency = view.findViewById(R.id.asCurrencyLbl);
-
-        amountSaved = view.findViewById(R.id.asLbl);
-        amountSaved.setText(df.format(existAmount));
-
-        //amount remaining
-        amountRemainCurrency = view.findViewById(R.id.arCurrencyLbl);
-
-        amountRemain = view.findViewById(R.id.arLbl);
-        amountRemain.setText(df.format(remainAmount));
-
-
-        //call calculation() method
+        float savingAmount = Float.valueOf(args.getString("itemCost"));
+        final float existAmount = Float.valueOf(args.getString("currentValue"));
+        float remainAmount = savingAmount - existAmount;
         int percent = calculation(savingAmount, existAmount);
 
-        //set progress bar
         progressLabel = view.findViewById(R.id.progressLbl);
         progressLabel.setText(String.valueOf(percent));
 
         progress.setProgress(percent);
 
+        //amount saved
+        amountSavedCurrency = view.findViewById(R.id.asCurrencyLbl);
+
+        amountSaved = view.findViewById(R.id.asLbl);
+        amountSaved.setText(args.getString("currentValue"));
+
+        //amount remaining
+        amountRemainCurrency = view.findViewById(R.id.arCurrencyLbl);
+
+        amountRemain = view.findViewById(R.id.arLbl);
+        amountRemain.setText(Float.toString(remainAmount));
 
         //goal name
-        goalNames = view.findViewById(R.id.goalNameDDL);
+        goalName = view.findViewById(R.id.goalNameDDL);
+        goalName.setText(args.getString("goalName"));
 
 
         //add amount
         amount = view.findViewById(R.id.amountTxt);
-
 
         //confirm button
         confirmButton = view.findViewById(R.id.confirmBtn);
@@ -85,9 +76,38 @@ public class SavingGoalsAddAmount extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //if invalid amount found
-                if (!validateAmount()) {
+                String input = amount.getEditText().getText().toString().trim();
 
+                //if invalid amount found
+                if (validateAmount(input)) {
+
+                    String withdrawalTest;
+                    float amountToSave = Float.valueOf(input);
+
+                    try {
+
+                        withdrawalTest = new TransactionAsync(getActivity(), "WithdrawalUser", args.getString("userName"))
+                                             .execute(args.getString("userID"), input)
+                                             .get(5000, TimeUnit.MILLISECONDS);
+
+                        String[] withdrawalTestArray = withdrawalTest.split(",");
+
+                        if(withdrawalTestArray[0].equals("True")) {
+
+                            float amountToUpdate = amountToSave + existAmount;
+
+                            new UpdateSavingGoalsAsync(getActivity(), "SaveMoney", args.getString("userName"))
+                                    .execute(args.getString("userID"), args.getString("goalID"), Float.toString(amountToUpdate));
+                        }
+                        else if(withdrawalTestArray[0].equals("False")) {
+
+                            amount.setError("Amount to save exceeds your bank balance.");
+                        }
+                    }
+                    catch (Exception e) {
+
+
+                    }
                     return;
                 }
             }
@@ -110,9 +130,7 @@ public class SavingGoalsAddAmount extends Fragment {
     }
 
     //validations
-    private boolean validateAmount() {
-
-        String input = amount.getEditText().getText().toString().trim();
+    private boolean validateAmount(String input) {
 
         boolean result = Validation.validateAmount(input, amount);
 

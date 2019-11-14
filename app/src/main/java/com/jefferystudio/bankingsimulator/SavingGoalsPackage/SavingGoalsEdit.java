@@ -22,6 +22,7 @@ public class SavingGoalsEdit extends Fragment {
     private TextView balance;
     private TextView goalName;
     private TextView cost;
+    private Button saveForGoal;
     private Button editGoalNameButton;
     private Button editItemCostButton;
     private Button cancelButton;
@@ -48,9 +49,23 @@ public class SavingGoalsEdit extends Fragment {
         goalName.setText(currentGoalName);
         cost.setText(currentCost);
 
+        saveForGoal = view.findViewById(R.id.savemoney);
         editGoalNameButton = view.findViewById(R.id.editGoalNameBtn);
         editItemCostButton = view.findViewById(R.id.editAmountBtn);
         cancelButton = view.findViewById(R.id.cancelBtn);
+
+        saveForGoal.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment saveMoneyFrag = new SavingGoalsAddAmount();
+                saveMoneyFrag.setArguments(args);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, saveMoneyFrag)
+                        .commit();
+            }
+        });
 
         editGoalNameButton.setOnClickListener(new View.OnClickListener() {
 

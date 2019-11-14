@@ -223,6 +223,9 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 Bundle args = new Bundle();
                 args.putString("goalName", savingGoal.getGoalName());
                 args.putString("itemCost", savingGoal.getItemCost());
+                args.putString("currentBalance", savingGoal.getCurrentBalance());
+                args.putString("currentValue", savingGoal.getCurrentValue());
+                args.putString("goalName", savingGoal.getGoalName());
                 args.putString("deadline", savingGoal.getDeadline());
                 args.putString("priority", savingGoal.getPriority());
 
