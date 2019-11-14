@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/video1_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="What is a bank?"/>
+
+            <TextView
+                android:id="@+id/video1_body"
+                android:layout_below="@id/video1_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Find out how did the idea of a bank came to be and what does a bank actually do with your money. Learn more about the financial services the bank provides."/>
+
+            <Button
+                android:id="@+id/video1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play Video"/>
+
+            <TextView
+                android:id="@+id/video2_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="How do electronic payments work?"/>
+
+            <TextView
+                android:id="@+id/video2_body"
+                android:layout_below="@id/video2_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="."/>
+
+            <Button
+                android:id="@+id/video2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play Video"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

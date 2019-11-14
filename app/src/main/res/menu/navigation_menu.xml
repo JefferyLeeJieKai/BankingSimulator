@@ -48,6 +48,11 @@
             android:title="Change password">
         </item>
 
+        <item
+            android:id="@+id/education"
+            android:title="Education Videos">
+        </item>
+
     </group>
 
 </menu>
