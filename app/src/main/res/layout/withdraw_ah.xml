@@ -108,7 +108,8 @@
         app:layout_marginTopPercent="8%"
         android:layout_below="@id/amountTxt"
         android:layout_alignLeft="@id/amountTxt"
-        android:background="@drawable/buttonshadow"
+        android:background="@color/buttonBG"
+        android:textColor="@color/buttonWord"
         android:text="Back" />
 
     <Button
@@ -119,7 +120,8 @@
         app:layout_marginRightPercent="0%"
         android:layout_below="@id/amountTxt"
         android:layout_alignRight="@id/textView"
-        android:background="@drawable/buttonshadow"
+        android:background="@color/buttonBG"
+        android:textColor="@color/buttonWord"
         android:text="Next" />
 
 </android.support.percent.PercentRelativeLayout>

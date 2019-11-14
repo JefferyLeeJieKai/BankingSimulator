@@ -30,10 +30,10 @@
         android:layout_below="@id/text_quiz_header"
         android:text="Question: 1/x"
         android:textColor="@android:color/black"
-        app:layout_heightPercent="4%"
+        app:layout_heightPercent="5%"
         app:layout_marginLeftPercent="8%"
         app:layout_marginTopPercent="5%"
-        app:layout_widthPercent="27%"
+        app:layout_widthPercent="35%"
         app:autoSizeTextType="uniform" />
 
     <TextView
@@ -106,11 +106,12 @@
         android:id="@+id/button_confirm_next"
         android:layout_below="@id/text_reason"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/buttonshadow"
         android:text="Confirm"
         app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="60%"
+        app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="3%"
-        app:layout_widthPercent="25%" />
+        app:layout_widthPercent="60%"
+        android:background="@color/buttonBG"
+        android:textColor="@color/buttonWord"/>
 
 </android.support.percent.PercentRelativeLayout>
