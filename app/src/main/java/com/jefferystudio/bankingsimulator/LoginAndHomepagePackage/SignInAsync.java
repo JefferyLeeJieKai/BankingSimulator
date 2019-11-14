@@ -1,7 +1,9 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -102,11 +104,27 @@ public class SignInAsync extends AsyncTask<String, String, String> {
             context.startActivity(intent);
             ((Activity)context).finish();
         }
-
         else if(resultArray[0].equals("False")){
 
             usernameTextBox.setError("Invalid Username or Password");
             passwordTextBox.setError("Invalid Username or Password");
+        }
+        else if(resultArray[0].equals("NotActivated")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Account is not activated");
+
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                }
+            });
+
+            AlertDialog notActivatedDialog = builder.create();
+            builder.show();
         }
     }
 }

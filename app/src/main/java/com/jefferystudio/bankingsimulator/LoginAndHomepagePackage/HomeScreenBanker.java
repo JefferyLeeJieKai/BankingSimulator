@@ -1,8 +1,11 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -33,6 +36,7 @@ import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactio
 import com.jefferystudio.bankingsimulator.profilepage;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class HomeScreenBanker extends AppCompatActivity {
 
@@ -45,6 +49,7 @@ public class HomeScreenBanker extends AppCompatActivity {
     private String userID;
     private String currentBalance;
     private ImageButton btnprofile;
+    private Context context;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -54,6 +59,7 @@ public class HomeScreenBanker extends AppCompatActivity {
         args.putString("accountType", "Banker");
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
+        context = this;
 
         bankerList = new ArrayList<>();
         new RetriveBankerListAsync(this).execute(userID);
@@ -130,11 +136,99 @@ public class HomeScreenBanker extends AppCompatActivity {
                     fragment = new account_create_ah1();
                     fragment.setArguments(args);
                 }
+                else if(item.getItemId() == R.id.enableFingerprint) {
 
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, fragment);
-                transaction.commit();
-                drawer.closeDrawer(Gravity.START);
+                    SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+
+                    if(pref.getString("userID", "NotFound").equals("NotFound")) {
+
+                        SharedPreferences myPrefs = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = myPrefs.edit();
+                        editor.putString("userID", args.getString("userID"));
+                        editor.putString("username", args.getString("userName"));
+                        editor.apply();
+
+                        String result = "";
+
+                        try {
+
+                            result = new FingerprintAsync(context, "enablefingerprint", args.getString("userID"))
+                                    .execute()
+                                    .get(5000, TimeUnit.MILLISECONDS);
+                        }
+                        catch(Exception e) {
+
+                        }
+
+                        String[] resultArray = result.split(",");
+
+                        if(resultArray[0].equals("Success")) {
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                            builder.setTitle("DigiBank Alert");
+                            builder.setMessage("Fingerprint enabled!");
+
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                                }
+                            });
+
+                            AlertDialog fingerprintSettingsDialog = builder.create();
+                            fingerprintSettingsDialog.show();
+                        }
+                    }
+                    else {
+
+                        SharedPreferences myPrefs = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = myPrefs.edit();
+                        editor.clear();
+                        editor.apply();
+
+                        String result = "";
+
+                        try {
+
+                            result = new FingerprintAsync(context, "disablefingerprint", args.getString("userID"))
+                                    .execute()
+                                    .get(5000, TimeUnit.MILLISECONDS);
+                        }
+                        catch(Exception e) {
+
+                        }
+
+                        String[] resultArray = result.split(",");
+
+                        if(resultArray[0].equals("Success")) {
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                            builder.setTitle("DigiBank Alert");
+                            builder.setMessage("Fingerprint enabled!");
+
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                                }
+                            });
+
+                            AlertDialog fingerprintSettingsDialog = builder.create();
+                            fingerprintSettingsDialog.show();
+                        }
+                    }
+                }
+
+                if(item.getItemId() != R.id.enableFingerprint) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, fragment);
+                    transaction.commit();
+                    drawer.closeDrawer(Gravity.START);
+                }
 
                 return true;
             }
