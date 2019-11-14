@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -23,17 +22,13 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
-import com.jefferystudio.bankingsimulator.ProfilePageBankerFragment;
+import com.jefferystudio.bankingsimulator.ProfileSettings.ProfilePageBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
-import com.jefferystudio.bankingsimulator.profilepage;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -245,7 +240,7 @@ public class HomeScreenBanker extends AppCompatActivity {
                 FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
                 homeTrans.replace(R.id.frame_layout, fragment);
                 homeTrans.commit();
-                Intent intent = new Intent(getApplicationContext(), ProfilePageBankerFragment.class);
+                Intent intent = new Intent(getApplicationContext(), ProfilePageBanker.class);
                 startActivity(intent);
                 drawer.closeDrawer(Gravity.START);
             }

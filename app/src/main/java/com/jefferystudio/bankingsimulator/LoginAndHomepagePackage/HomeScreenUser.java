@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -15,7 +14,6 @@ import android.support.v7.widget.Toolbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.text.format.Time;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,7 +28,7 @@ import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
-import com.jefferystudio.bankingsimulator.profilepage;
+import com.jefferystudio.bankingsimulator.ProfileSettings.ProfilePage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -248,7 +246,7 @@ public class HomeScreenUser extends AppCompatActivity {
                 FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
                 homeTrans.replace(R.id.frame_layout, fragment);
                 homeTrans.commit();
-                Intent intent = new Intent(getApplicationContext(), profilepage.class);
+                Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
                 startActivity(intent);
                 drawer.closeDrawer(Gravity.START);
 

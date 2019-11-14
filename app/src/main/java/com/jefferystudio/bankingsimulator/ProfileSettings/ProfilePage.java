@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.ProfileSettings;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.R;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,7 +25,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class profilepage extends AppCompatActivity {
+public class ProfilePage extends AppCompatActivity {
 
     ImageView profilepic;
     TextView profilebtn;

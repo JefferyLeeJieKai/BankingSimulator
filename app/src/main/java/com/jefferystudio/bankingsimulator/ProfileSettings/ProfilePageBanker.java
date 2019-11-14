@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator;
+package com.jefferystudio.bankingsimulator.ProfileSettings;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBa
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
 import com.jefferystudio.bankingsimulator.Quiz.quizhome;
+import com.jefferystudio.bankingsimulator.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,7 +32,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class ProfilePageBankerFragment extends AppCompatActivity {
+public class ProfilePageBanker extends AppCompatActivity {
 
     private Bundle args;
     private ImageView profilepic;
