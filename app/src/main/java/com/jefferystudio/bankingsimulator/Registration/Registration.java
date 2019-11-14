@@ -218,7 +218,7 @@ public class Registration extends AppCompatActivity {
         }
         else if(errorList.size() == 0) {
 
-            new RegistrationAsync(this).execute(name, email, username, password, gender, dob, role);
+            new RegistrationAsync(this).execute(name, email, username, password, gender, dob, role, "fromMain");
         }
     }
 
