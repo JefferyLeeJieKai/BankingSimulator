@@ -4,18 +4,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tree"
-    android:orientation="vertical">
+    android:background="@drawable/tree">
 
     <TextView
         android:id="@+id/title"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="5%"
         app:layout_marginTopPercent="2%"
-        app:layout_marginLeftPercent="10%"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:text="Transfer Funds to Account"
         android:textColor="#000000"
-        android:textSize="25dp"/>
+        app:autoSizeTextType="uniform"/>
 
     <View
         android:layout_below="@id/title"
@@ -29,36 +29,40 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/payeeAvatar"
-        android:layout_width="104dp"
-        android:layout_height="108dp"
+        app:layout_widthPercent="29%"
+        app:layout_heightPercent="16%"
         android:layout_below="@id/title"
+        android:layout_alignRight="@id/arrow"
         app:layout_marginTopPercent="8%"
-        app:layout_marginLeftPercent="8%"
+        app:layout_marginRightPercent="25%"
+        android:scaleType="fitCenter"
         android:background="@drawable/accountcircle"
         android:backgroundTint="#D3D3D3" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/payeeLbl"
         android:layout_below="@id/payeeAvatar"
-        app:layout_widthPercent="80%"
+        android:layout_centerHorizontal="true"
+        app:layout_widthPercent="83%"
         app:layout_heightPercent="8%"
         app:layout_marginTopPercent="8%"
-        app:layout_marginLeftPercent="8%">
+        app:layout_marginLeftPercent="0%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="19dp"
+            app:autoSizeTextType="uniform"
             android:hint="Payee AccNo. / Username"
             android:textColor="#000000" />
     </android.support.design.widget.TextInputLayout>
 
     <ImageView
+        android:id="@+id/arrow"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_below="@id/title"
         app:layout_marginTopPercent="8%"
-        app:layout_marginLeftPercent="33%"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/ic_arrow_forward_black_24dp"
         android:backgroundTint="#000000" />
 
@@ -66,11 +70,13 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/payerAvatar"
-        android:layout_width="104dp"
-        android:layout_height="108dp"
+        app:layout_widthPercent="29%"
+        app:layout_heightPercent="16%"
         android:layout_below="@id/title"
+        android:layout_alignLeft="@id/arrow"
         app:layout_marginTopPercent="8%"
-        app:layout_marginLeftPercent="60%"
+        app:layout_marginLeftPercent="25%"
+        android:scaleType="fitCenter"
         android:background="@drawable/accountcircle"
         android:backgroundTint="#D3D3D3"
         app:civ_border_color="#FFFFFF"
@@ -78,35 +84,39 @@
 
     <TextView
         android:id="@+id/payerLbl"
-        android:layout_below="@id/payerAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_below="@id/arrow"
+        android:layout_alignLeft="@id/payerAvatar"
+        app:layout_widthPercent="29%"
+        app:layout_heightPercent="3%"
         app:layout_marginTopPercent="1%"
-        app:layout_marginLeftPercent="60%"
+        app:layout_marginLeftPercent="0%"
+        android:gravity="center"
         android:text="payer's name"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"/>
 
     //user input starting from here
     //get amount
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_marginTopPercent="2%"
-        app:layout_marginLeftPercent="8%"
-        android:layout_below="@id/payeeLbl"
-        android:textSize="16dp"
+        app:layout_widthPercent="18%"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="42%"
+        app:layout_marginLeftPercent="0%"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/payeeLbl"
+        app:autoSizeTextType="uniform"
         android:text="Amount:"
         android:textColor="#000000" />
 
     <TextView
-        android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/payeeLbl"
-        app:layout_marginTopPercent="6%"
-        app:layout_marginLeftPercent="8%"
-        android:textSize="18dp"
+        app:layout_widthPercent="10%"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="46%"
+        app:layout_marginLeftPercent="0%"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/payeeLbl"
+        app:autoSizeTextType="uniform"
         android:text="SGD"
         android:textColor="#000000" />
 
@@ -115,6 +125,7 @@
         app:layout_widthPercent="65%"
         app:layout_heightPercent="8%"
         android:layout_below="@id/payeeLbl"
+        android:layout_alignRight="@+id/payeeLbl"
         app:layout_marginTopPercent="2%"
         app:layout_marginLeftPercent="25%">
 
@@ -122,52 +133,56 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Amount"
-            android:textSize="19dp"
+            app:autoSizeTextType="uniform"
             android:textColor="#000000" />
     </android.support.design.widget.TextInputLayout>
 
     //display limit
 
     <TextView
-        app:layout_widthPercent="36%"
+        app:layout_widthPercent="32%"
         app:layout_heightPercent="3%"
-        android:layout_below="@id/amountTxt"
-        app:layout_marginTopPercent="6%"
-        app:layout_marginLeftPercent="8%"
-        android:textSize="13.5dp"
+        app:layout_marginTopPercent="56%"
+        app:layout_marginLeftPercent="0%"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/payeeLbl"
+        app:autoSizeTextType="uniform"
         android:text="Authorised Daily Limit:"
         android:textColor="#000000" />
 
     <TextView
         android:id="@+id/limitLbl"
-        app:layout_widthPercent="17%"
+        app:layout_widthPercent="45%"
         app:layout_heightPercent="3%"
-        android:layout_below="@id/amountTxt"
-        app:layout_marginTopPercent="6%"
-        app:layout_marginLeftPercent="46%"
-        android:textSize="13.5dp"
+        app:layout_marginTopPercent="56%"
+        app:layout_marginRightPercent="0%"
+        android:layout_below="@id/title"
+        android:layout_alignRight="@id/payeeLbl"
+        app:autoSizeTextType="uniform"
         android:text="auto limit" />
 
     //display remaining limit
 
     <TextView
-        app:layout_widthPercent="36%"
+        app:layout_widthPercent="32%"
         app:layout_heightPercent="3%"
-        android:layout_below="@id/amountTxt"
-        app:layout_marginTopPercent="10%"
-        app:layout_marginLeftPercent="8%"
-        android:textSize="13.5dp"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/payeeLbl"
+        app:layout_marginTopPercent="60%"
+        app:layout_marginLeftPercent="0%"
+        app:autoSizeTextType="uniform"
         android:text="Remaining Daily Limit:"
         android:textColor="#000000" />
 
     <TextView
         android:id="@+id/remainingLimitLbl"
-        app:layout_widthPercent="17%"
+        app:layout_widthPercent="45%"
         app:layout_heightPercent="3%"
-        android:layout_below="@id/amountTxt"
-        app:layout_marginTopPercent="10%"
-        app:layout_marginLeftPercent="46%"
-        android:textSize="13.5dp"
+        app:layout_marginTopPercent="60%"
+        app:layout_marginRightPercent="0%"
+        android:layout_below="@id/title"
+        android:layout_alignRight="@id/payeeLbl"
+        app:autoSizeTextType="uniform"
         android:text="auto limit" />
 
     //get purpose
@@ -175,21 +190,22 @@
     <TextView
         app:layout_widthPercent="16%"
         app:layout_heightPercent="3%"
-        android:layout_below="@id/remainingLimitLbl"
-        app:layout_marginTopPercent="3%"
-        app:layout_marginLeftPercent="8%"
-        android:textSize="13.5dp"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/payeeLbl"
+        app:layout_marginTopPercent="67%"
+        app:layout_marginLeftPercent="0%"
+        app:autoSizeTextType="uniform"
         android:text="Purpose:"
         android:textColor="#000000" />
 
     <Spinner
         android:id="@+id/purposeDDL"
-        app:layout_widthPercent="80%"
+        app:layout_widthPercent="82%"
         app:layout_heightPercent="5%"
-        android:layout_below="@id/remainingLimitLbl"
-        app:layout_marginTopPercent="6%"
-        app:layout_marginLeftPercent="8%"
-        android:textSize="20dp"
+        android:layout_below="@id/title"
+        app:layout_marginTopPercent="70%"
+        android:layout_centerHorizontal="true"
+        app:autoSizeTextType="uniform"
         android:textColor="#000000" />
 
     //display button
@@ -200,8 +216,8 @@
         android:textColor="@color/buttonWord"
         android:layout_centerHorizontal="true"
         app:layout_heightPercent="7%"
-        android:layout_below="@id/purposeDDL"
-        app:layout_marginTopPercent="3%"
+        android:layout_below="@id/title"
+        app:layout_marginTopPercent="80%"
         app:layout_widthPercent="70%"
         android:text="Next" />
 
