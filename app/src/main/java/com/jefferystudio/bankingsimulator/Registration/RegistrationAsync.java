@@ -59,7 +59,6 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
         gender = args[4];
         dob = args [5];
         role = args[6];
-        flag = args[7];
 
         try{
 

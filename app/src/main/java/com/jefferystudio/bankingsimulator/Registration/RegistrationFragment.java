@@ -216,7 +216,7 @@ public class RegistrationFragment extends Fragment {
             try {
 
                 result1 = new RegistrationAsync(getActivity())
-                        .execute(name, email, username, password, gender, dob, role, "fromBanker")
+                        .execute(name, email, username, password, gender, dob, role)
                         .get(5000, TimeUnit.MILLISECONDS);
                 //Toast.makeText(getActivity(), role, Toast.LENGTH_LONG).show();
                 String[] resultArray1 = result1.split(",");

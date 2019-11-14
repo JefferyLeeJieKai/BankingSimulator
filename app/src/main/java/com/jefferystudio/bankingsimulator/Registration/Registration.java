@@ -147,6 +147,10 @@ public class Registration extends AppCompatActivity {
 
             role = "AccountHolder";
         }
+        else {
+
+            role = "Banker";
+        }
 
         if (!name.matches("") && !email.matches("") && !username.matches("") && !password.matches("") && !gender.matches("")
                 && !dob.matches("") && !role.matches("")) {
