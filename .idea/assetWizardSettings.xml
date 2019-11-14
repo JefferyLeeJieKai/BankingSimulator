@@ -64,7 +64,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="115" />
+                                                <entry key="scalingPercent" value="137" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -75,7 +75,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundImage" value="C:\Users\Mark Lee\Downloads\iconlogo.png" />
+                                      <entry key="backgroundImage" value="C:\Users\Mark Lee\Downloads\iconlogo(bg).png" />
+                                      <entry key="foregroundImage" value="C:\Users\Mark Lee\Downloads\iconlogo(nobg).png" />
                                       <entry key="outputName" value="ic_launcher_kidzsmart_logo" />
                                     </map>
                                   </option>
