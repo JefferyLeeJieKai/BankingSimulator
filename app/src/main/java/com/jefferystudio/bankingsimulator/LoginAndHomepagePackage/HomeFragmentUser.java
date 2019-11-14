@@ -17,6 +17,7 @@ import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.UserSettings;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.goalspage;
 
@@ -33,6 +34,7 @@ public class HomeFragmentUser extends Fragment {
     private ImageButton btnquiz;
     private ImageButton btnviewtransaction;
     private ImageButton btnwithdraw;
+    private ImageButton btnusersettings;
 
 
 
@@ -56,12 +58,22 @@ public class HomeFragmentUser extends Fragment {
         btnquiz = view.findViewById(R.id.quiz);
         btnviewtransaction = view.findViewById(R.id.viewtransaction);
         btnwithdraw = view.findViewById(R.id.withdraw);
+        btnusersettings = view.findViewById(R.id.settingsuser);
 
 
         btnsavings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(getActivity().getApplicationContext(), goalspage.class);
+                startActivity(intent);
+            }
+        });
+
+        btnusersettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getActivity().getApplicationContext(), UserSettings.class);
+                intent.putExtras(args);
                 startActivity(intent);
             }
         });

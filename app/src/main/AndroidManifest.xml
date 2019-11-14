@@ -70,6 +70,12 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
+            android:name=".WithdrawalPackage.UserSettings"
+            android:windowSoftInputMode="adjustNothing"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
             android:name=".LoginAndHomepagePackage.HomeScreenUser"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>

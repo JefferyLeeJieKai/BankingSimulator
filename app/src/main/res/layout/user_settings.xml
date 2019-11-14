@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="211dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:elevation="20dp"
+        android:fontFamily="@font/titan_one"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:shadowRadius="20"
+        android:text="Settings"
+        android:gravity="center"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="2%"
+        app:layout_widthPercent="80%" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
+
+    //get class
+    <Button
+        android:id="@+id/changepass"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="8%"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        android:background="#FFFFFF"
+        android:text="Change Password"
+        android:textSize="22sp"
+        android:bottomRightRadius="10dp"
+        android:bottomLeftRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"
+    />
+
+    <TextView
+        android:id="@+id/classHeader2"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_below="@id/changepass"
+        android:layout_alignLeft="@id/title"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:text="     FINGERPRINT"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_heightPercent="8%"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="80%" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@id/changepass"
+        android:layout_alignRight="@id/classHeader2"
+        android:layout_marginRight="25dp"
+        android:switchMinWidth="60dp"
+        app:layout_marginRightPercent="6%"
+        android:theme="@style/SCBSwitch"
+        app:layout_marginTopPercent="3%" />
+
+    <Button
+        android:id="@+id/btnback"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="8%"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="73dp"
+        android:text="Back"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginBottomPercent="10%" />
+
+
+    <!--//get interest rate
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="265dp"
+        android:textColor="#000000"
+        android:text="Set Interest Rate:" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/intRateTxt"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="240dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Interest Rate (%)" />
+    </android.support.design.widget.TextInputLayout>-->
+
+
+</android.support.percent.PercentRelativeLayout>
