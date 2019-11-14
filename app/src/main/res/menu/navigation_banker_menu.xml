@@ -38,6 +38,11 @@
             android:title="Create Account">
         </item>
 
+        <item
+            android:id="@+id/enableFingerprint"
+            android:title="Enable/Disable Fingerprint">
+        </item>
+
     </group>
 
 </menu>
