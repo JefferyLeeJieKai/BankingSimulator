@@ -12,6 +12,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageAccHome;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
@@ -28,9 +32,12 @@ public class HomeFragmentBanker extends Fragment {
     private String currentID;
     private ImageButton btnsettings;
     private ImageButton btnquizresult;
-    private ImageButton btnmanageacc;
     private ImageButton btnViewTransactions;
     private ImageButton btnDeposit;
+    private ImageButton btncreateclass;
+    private ImageButton btneditclass;
+    private ImageButton btndeleteclass;
+    private ImageButton btnviewclass;
 
     public HomeFragmentBanker(){
 
@@ -48,9 +55,12 @@ public class HomeFragmentBanker extends Fragment {
 
         btnsettings = view.findViewById(R.id.settings);
         btnquizresult = view.findViewById(R.id.viewquizresult);
-        btnmanageacc = view.findViewById(R.id.bankermanageaccount);
         btnViewTransactions = view.findViewById(R.id.bankertransactions);
         btnDeposit = view.findViewById(R.id.bankerdepositfunds);
+        btncreateclass = view.findViewById(R.id.createclassbtn);
+        btneditclass = view.findViewById(R.id.editclassbtn);
+        btndeleteclass = view.findViewById(R.id.deleteclassbtn);
+        btnviewclass = view.findViewById(R.id.viewclassbtn);
 
 
 
@@ -72,17 +82,6 @@ public class HomeFragmentBanker extends Fragment {
             }
         });
 
-        btnmanageacc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Fragment manageAccountHome = new ManageAccHome();
-                manageAccountHome.setArguments(args);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, manageAccountHome);
-                transaction.commit();
-
-            }
-        });
 
         btnViewTransactions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +90,54 @@ public class HomeFragmentBanker extends Fragment {
                 viewTransBanker.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, viewTransBanker);
+                transaction.commit();
+
+            }
+        });
+
+        btncreateclass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Fragment createclass = new CreateClass();
+                createclass.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, createclass);
+                transaction.commit();
+
+            }
+        });
+
+        btneditclass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Fragment editclass = new EditClass();
+                editclass.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, editclass);
+                transaction.commit();
+
+            }
+        });
+
+        btndeleteclass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Fragment deleteclass = new DeleteClass();
+                deleteclass.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, deleteclass);
+                transaction.commit();
+
+            }
+        });
+
+        btnviewclass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Fragment viewclass = new ViewClass();
+                viewclass.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, viewclass);
                 transaction.commit();
 
             }

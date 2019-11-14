@@ -2,18 +2,22 @@
 <resources>
 
     <!-- login screen colors -->
-    <color name="loginButton">#08C53D</color>
+    <color name="loginButton">#00EAFF</color>
     <color name="loginButtonText">#FFFFFF</color>
     <color name="loginErrorMessage">#F44336</color>
-    <color name="fingerprintBorder">#979797</color>
+    <color name="fingerprintBorder">#0178AA</color>
+
+    <!-- button color -->
+    <color name="buttonBG">#20ACF8</color>
+    <color name="buttonWord">#FFFFFF</color>
 
     <!--font color -->
     <color name="blackFont">#181A18</color>
 
     <!-- theme colors -->
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#FFEB3B</color>
+    <color name="colorAccent">#F5612F</color>
 
     <!-- navigation drawer colors -->
     <color name="navHeaderText">#FAFAFA</color>

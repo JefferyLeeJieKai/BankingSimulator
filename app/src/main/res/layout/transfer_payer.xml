@@ -31,43 +31,47 @@
     </android.support.v4.widget.DrawerLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="TRANSFER FUNDS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/navHeaderText"
-        android:textSize="25dp"
-        android:layout_marginLeft="95dp"
-        android:layout_marginTop="10dp" />
+        android:textSize="28dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        app:layout_heightPercent="5%"
+        app:layout_marginTopPercent="1.5%"
+        app:layout_widthPercent="70%" />
 
     //header
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="120dp"
+        android:textSize="19dp"
+        app:layout_heightPercent="5%"
+        app:layout_marginTopPercent="15%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_widthPercent="70%"
         android:text="Please provide payer details:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     //user input starting from here
     //get payer's name
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="180dp"
+        android:textSize="16dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="24%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_widthPercent="27%"
         android:text="Payer's Name:" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/payerTxt"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="190dp">
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="26%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_widthPercent="85%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="19dp"
             android:hint="Name" />
 
         <TextView
@@ -75,27 +79,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="15dp"
             android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     //get payer's bank
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="285dp"
+        android:textSize="16dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="40%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_widthPercent="27%"
         android:text="Payer's Bank:" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/payerBankTxt"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="295dp">
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="42%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_widthPercent="85%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="19dp"
             android:hint="Bank Name" />
 
         <TextView
@@ -103,27 +110,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="15dp"
             android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     //get payer's account number
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="390dp"
+        android:textSize="16dp"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="56%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_widthPercent="35%"
         android:text="Account Number:" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/payerAccountTxt"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="400dp">
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="57%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_widthPercent="85%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="19dp"
             android:hint="Account Number" />
 
         <TextView
@@ -131,17 +141,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="15dp"
             android:text="error message (if any)" />
     </android.support.design.widget.TextInputLayout>
 
     //display button
     <Button
         android:id="@+id/nextBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
-        android:background="@drawable/buttonshadow"
+        android:background="@color/buttonBG"
+        android:textColor="@color/buttonWord"
+        android:layout_centerHorizontal="true"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="85%"
+        app:layout_widthPercent="70%"
+
         android:text="Next" />
 
 </android.support.percent.PercentRelativeLayout>
