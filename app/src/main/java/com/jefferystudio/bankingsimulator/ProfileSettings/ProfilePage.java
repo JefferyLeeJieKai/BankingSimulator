@@ -1,6 +1,9 @@
 package com.jefferystudio.bankingsimulator.ProfileSettings;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -18,24 +21,33 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class ProfilePage extends AppCompatActivity {
 
-    ImageView profilepic;
-    TextView profilebtn;
+    private Bundle args;
+    private ImageView profilepic;
+    private TextView profilebtn;
     private static final int PICK_IMAGE = 100;
-    Uri imageUri;
+    private Uri imageUri;
+    private Bitmap bitmap;
+    private Button backButton;
+    private Button confirmButton;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profilepages);
+
+        args = getIntent().getExtras();
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         homeScreenToolbar.setTitle("Profile");
@@ -63,8 +75,39 @@ public class ProfilePage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+
+            String result ="";
             imageUri = data.getData();
-            profilepic.setImageURI(imageUri);
+
+            try {
+
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+
+                result = new UploadProfilePicAsync(this, args.getString("userID"))
+                        .execute(bitmap)
+                        .get(5000, TimeUnit.MILLISECONDS);
+
+                String[] resultArray = result.split(",");
+
+                if (resultArray[0].equals("Successfully Uploaded")) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setTitle("DigiBank Alert");
+                    builder.setMessage("New profile picture successfully uploaded!");
+
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            profilepic.setImageURI(imageUri);
+                        }
+                    });
+                }
+            }
+            catch(Exception e) {
+
+
+            }
         }
     }
 
