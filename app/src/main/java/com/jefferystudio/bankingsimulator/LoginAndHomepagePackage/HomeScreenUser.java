@@ -242,12 +242,8 @@ public class HomeScreenUser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                fragment = new HomeFragmentUser();
-                fragment.setArguments(args);
-                FragmentTransaction homeTrans = getSupportFragmentManager().beginTransaction();
-                homeTrans.replace(R.id.frame_layout, fragment);
-                homeTrans.commit();
                 Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
+                intent.putExtras(args);
                 startActivity(intent);
                 drawer.closeDrawer(Gravity.START);
 

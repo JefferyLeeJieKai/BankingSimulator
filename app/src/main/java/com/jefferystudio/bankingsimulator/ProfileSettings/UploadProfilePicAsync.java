@@ -13,11 +13,13 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
-public class UploadProfilePicAsync extends AsyncTask<Bitmap,String,String> {
+public class UploadProfilePicAsync extends AsyncTask<Bitmap,Void,String> {
 
     private Context context;
     private String userID;
+    private ArrayList<Exception> errorList = new ArrayList<Exception>();
 
     public UploadProfilePicAsync(Context context, String userID) {
 
@@ -26,10 +28,12 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,String,String> {
     }
 
     @Override
-    protected String doInBackground(Bitmap... bitmaps) {
+    protected String doInBackground(Bitmap[] bitmaps) {
 
         StringBuffer sb = new StringBuffer("");
+
         Bitmap bitmap = bitmaps[0];
+
         String uploadImage = getStringImage(bitmap);
 
         try {
@@ -60,7 +64,7 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,String,String> {
         }
         catch(Exception e) {
 
-
+            errorList.add(e);
         }
 
         return sb.toString();
@@ -69,7 +73,9 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,String,String> {
     @Override
     protected void onPostExecute(String result) {
 
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        for(Exception e : errorList) {
+            Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
+        }
     }
 
     public String getStringImage(Bitmap bmp){
