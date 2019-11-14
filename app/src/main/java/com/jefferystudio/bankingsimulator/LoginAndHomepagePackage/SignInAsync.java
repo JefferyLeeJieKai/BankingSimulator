@@ -3,18 +3,26 @@ package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
+
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.concurrent.TimeUnit;
 
 public class SignInAsync extends AsyncTask<String, String, String> {
 
@@ -99,10 +107,37 @@ public class SignInAsync extends AsyncTask<String, String, String> {
             args.putString("userID", resultArray[1]);
             args.putString("currentBalance", resultArray[2]);
             args.putString("userName", username);
-            intent.putExtras(args);
 
-            context.startActivity(intent);
-            ((Activity)context).finish();
+            ContextWrapper cw = new ContextWrapper(context);
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File file = new File(directory, "ProfilePicture.jpg");
+            String saveResult = "";
+
+            if(!file.exists()) {
+
+                try {
+
+                    saveResult = new RetrieveProfilePicAsync(context, file)
+                            .execute(resultArray[4])
+                            .get(5000, TimeUnit.MILLISECONDS);
+
+                }
+                catch (Exception e) {
+
+
+                }
+            }
+            else {
+
+                saveResult = "Success";
+            }
+
+            if(saveResult.equals("Success")) {
+
+                intent.putExtras(args);
+                context.startActivity(intent);
+                ((Activity) context).finish();
+            }
         }
         else if(resultArray[0].equals("False")){
 

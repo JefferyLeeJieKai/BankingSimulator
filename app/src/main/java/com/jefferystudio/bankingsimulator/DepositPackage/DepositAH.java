@@ -1,5 +1,9 @@
 package com.jefferystudio.bankingsimulator.DepositPackage;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -16,10 +20,16 @@ import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Validation;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DepositAH extends Fragment
 {
     private Bundle args;
     private String currentID;
+    private CircleImageView profilePic;
     private TextView userID;
     private TextView userBalance;
     private TextView accountNos;
@@ -40,6 +50,17 @@ public class DepositAH extends Fragment
         accounts = view.findViewById(R.id.accountDDL);
         accountNos.setVisibility(View.GONE);
         accounts.setVisibility(View.GONE);*/
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "profile.jpg");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);

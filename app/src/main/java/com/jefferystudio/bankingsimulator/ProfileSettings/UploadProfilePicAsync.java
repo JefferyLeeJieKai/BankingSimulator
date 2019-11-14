@@ -28,6 +28,11 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,Void,String> {
     }
 
     @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
     protected String doInBackground(Bitmap[] bitmaps) {
 
         StringBuffer sb = new StringBuffer("");
