@@ -325,8 +325,8 @@
                         android:layout_height="match_parent">
 
                         <ImageButton
-                            android:id="@+id/editclassbtn"
-                            android:src="@drawable/editclass1"
+                            android:id="@+id/settingsuser"
+                            android:src="@drawable/settings"
                             android:scaleType="fitCenter"
                             android:background="@null"
                             android:layout_width="80dp"

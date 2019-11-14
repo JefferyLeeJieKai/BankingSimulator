@@ -133,11 +133,8 @@ public class HomeScreenUser extends AppCompatActivity {
                     fragment = new SavingGoalsAddAmount();
                     fragment.setArguments(args);
                 }
-                else if(item.getItemId() == R.id.changePassword) {
 
-                    fragment = new ChangePasswordFragment();
-                    fragment.setArguments(args);
-                }
+                /*
                 else if(item.getItemId() == R.id.enableFingerprint) {
 
                     SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
@@ -225,13 +222,13 @@ public class HomeScreenUser extends AppCompatActivity {
                     }
                 }
 
-                if(item.getItemId() != R.id.enableFingerprint) {
+               */
 
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.frame_layout, fragment);
-                    transaction.commit();
-                    drawer.closeDrawer(Gravity.START);
-                }
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, fragment);
+                transaction.commit();
+                drawer.closeDrawer(Gravity.START);
+
 
                 return true;
             }
