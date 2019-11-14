@@ -48,6 +48,11 @@
             android:title="Change password">
         </item>
 
+        <item
+            android:id="@+id/enableFingerprint"
+            android:title="Enable/Disable Fingerprint">
+        </item>
+
     </group>
 
 </menu>

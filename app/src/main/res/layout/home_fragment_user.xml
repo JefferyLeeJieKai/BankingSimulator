@@ -505,7 +505,7 @@
         app:layout_marginLeftPercent="39%"
         app:layout_marginTopPercent="54%"
         app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/transfernew" />
+        app:srcCompat="@drawable/transfer" />
 
     <ImageButton
         android:id="@+id/depositfunds"
