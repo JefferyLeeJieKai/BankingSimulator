@@ -56,7 +56,7 @@
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
         app:layout_marginTopPercent="80%"
-        app:layout_marginLeftPercent="60%"
+        app:layout_marginLeftPercent="20%"
         android:background="@drawable/buttonshadow"
         android:text="Back" />
 

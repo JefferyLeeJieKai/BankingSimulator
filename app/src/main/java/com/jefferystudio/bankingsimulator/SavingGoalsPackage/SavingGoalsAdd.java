@@ -115,10 +115,13 @@ public class SavingGoalsAdd extends Fragment {
                 inputDate = etDate.getText().toString().trim();
                 inputPriority = String.valueOf(priority.getSelectedItemId());
 
-                if(Validation.validateAmount(inputAmount, savingGoalAmount)) {
+                if (!validateCost() | !validateDate() | !validateGoal()) {
 
-                    new SettingsGoalsAsync(getActivity(), "NewSavingGoal", args.getString("userName")).execute(currentID, inputName, inputAmount, inputDate, inputPriority);
+                    return;
                 }
+
+                new SettingsGoalsAsync(getActivity(), "NewSavingGoal", args.getString("userName")).execute(currentID, inputName, inputAmount, inputDate, inputPriority);
+
             }
         });
 
@@ -136,5 +139,51 @@ public class SavingGoalsAdd extends Fragment {
         });
 
         return view;
+    }
+
+    //validations
+    private boolean validateGoal()
+    {
+        boolean result = Validation.validateEmpty(inputName, savingGoalName);
+
+        //if not empty
+        if (result) {
+
+            savingGoalName.setError(null);
+        }
+
+        return result;
+    }
+
+    private boolean validateCost() {
+
+        boolean result = Validation.validateAmount(inputAmount, savingGoalAmount);
+
+        //if not empty
+        if (result) {
+
+            savingGoalAmount.setError(null);
+        }
+
+        return result;
+    }
+
+    private boolean validateDate()
+    {
+        boolean result = true;
+
+        //if empty
+        if (inputDate.length() == 0) {
+
+            etDate.setError("Field cannot be empty");
+            result = false;
+        }
+        //if not empty
+        else {
+
+            etDate.setError(null);
+        }
+
+        return result;
     }
 }

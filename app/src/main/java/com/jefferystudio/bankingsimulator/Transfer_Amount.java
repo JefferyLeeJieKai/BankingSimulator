@@ -53,20 +53,49 @@ public class Transfer_Amount extends Fragment{
                 currentPayee = payee.getEditText().getText().toString().trim();
                 input = amountToTransfer.getEditText().getText().toString().trim();
 
-                if(Validation.validateAmount(input, amountToTransfer))
-                {
-                    /*FragmentTransaction fragTransc = getChildFragmentManager().beginTransaction();
-                    fragTransc.replace(R.id.outer_frame, new DepositConfirmBanker());
-                    fragTransc.addToBackStack(null);
-                    fragTransc.commit();*/
+                if(!validatePayee() | !validateAmount()) {
 
-                    new TransactionAsync(getActivity(),"TransferFundsUser", args.getString("userName")).execute(currentID, currentPayee, input);
-                    new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, String.valueOf(purpose.getSelectedItem()));
+                    return;
                 }
+
+                /*FragmentTransaction fragTransc = getChildFragmentManager().beginTransaction();
+                fragTransc.replace(R.id.outer_frame, new DepositConfirmBanker());
+                fragTransc.addToBackStack(null);
+                fragTransc.commit();*/
+
+                new TransactionAsync(getActivity(),"TransferFundsUser", args.getString("userName")).execute(currentID, currentPayee, input);
+                new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, String.valueOf(purpose.getSelectedItem()));
             }
         });
 
         return view;
+    }
+
+    //validations
+    private boolean validatePayee() {
+
+        boolean result = Validation.validateEmpty(currentPayee, payee);
+
+        //if not empty
+        if (result) {
+
+            payee.setError((null));
+        }
+
+        return result;
+    }
+
+    private boolean validateAmount() {
+
+        boolean result = Validation.validateAmount(input, amountToTransfer);
+
+        //if not empty
+        if (result) {
+
+            amountToTransfer.setError(null);
+        }
+
+        return result;
     }
 
     /*
