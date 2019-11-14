@@ -186,8 +186,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:layout_margin="12dp">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -208,9 +207,9 @@
                 </LinearLayout>
 
 
-            </android.support.v7.widget.CardView>
+           </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <!-- <android.support.v7.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -362,7 +361,7 @@
                 </LinearLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </android.support.v7.widget.CardView> -->
 
 
         </GridLayout>
