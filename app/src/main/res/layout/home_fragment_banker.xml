@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout
+<ScrollView
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,115 +8,476 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:text="Welcome to KidzSmart, Bob"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#0E1010"
-        android:textSize="30sp"
-        app:layout_heightPercent="18%"
-        app:layout_marginLeftPercent="6%"
-        app:layout_marginTopPercent="16%"
-        app:layout_widthPercent="70%" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="3dip"
-        android:background="#000000"
-        android:paddingBottom="10dip"
-        android:layout_marginTop="260dp"
-        />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:background="@drawable/emptyrect"
-        app:layout_heightPercent="11.5%"
-        app:layout_marginLeftPercent="7%"
-        app:layout_marginTopPercent="38%"
-        app:layout_widthPercent="85%" />
+        <RelativeLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-    <TextView
-        android:text="Account No:"
-        android:textColor="#000000"
-        android:textSize="18dp"
-        app:layout_heightPercent="4%"
-        app:layout_marginLeftPercent="10%"
-        app:layout_marginTopPercent="39%"
-        app:layout_widthPercent="26%" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilephoto"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="115dp"
+                android:backgroundTint="#D3D3D3"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/accountcircle"
+                app:civ_border_color="#FFFFFF"
+                app:civ_border_width="0dp"
+                />
 
-    <TextView
-        android:id="@+id/actualAccountNo"
-        android:textSize="18dp"
-        app:layout_heightPercent="4%"
-        app:layout_marginLeftPercent="38%"
-        app:layout_marginTopPercent="39%"
-        app:layout_widthPercent="50%" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="134dp"
+                android:layout_height="80dp"
+                android:text="Welcome to KidzSmart, Bob"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#0E1010"
+                android:textSize="20sp"
+                app:layout_heightPercent="18%"
+                app:layout_marginLeftPercent="6%"
+                app:layout_marginTopPercent="4%"
+                app:layout_widthPercent="70%" />
+        </RelativeLayout>
 
-    <TextView
-        android:text="Current Balance:"
-        android:textColor="#000000"
-        android:textSize="18dp"
-        app:layout_heightPercent="4%"
-        app:layout_marginLeftPercent="10%"
-        app:layout_marginTopPercent="44%"
-        app:layout_widthPercent="34%" />
+        <GridLayout
+            android:columnCount="2"
+            android:rowCount="3"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/actualCurrentBalance"
-        android:textSize="18dp"
-        app:layout_heightPercent="4%"
-        app:layout_marginLeftPercent="46%"
-        app:layout_marginTopPercent="44%"
-        app:layout_widthPercent="42%" />
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
 
-    <ImageButton
-        android:id="@+id/bankertransactions"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_heightPercent="12%"
-        app:layout_marginLeftPercent="8%"
-        app:layout_marginTopPercent="54%"
-        app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/viewtransaction" />
+             <LinearLayout
+                 android:orientation="vertical"
+                 android:padding="16dp"
+                 android:gravity="center"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/viewquizresult"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_heightPercent="12%"
-        app:layout_marginLeftPercent="39%"
-        app:layout_marginTopPercent="54%"
-        app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/quizresult" />
+                 <ImageButton
+                     android:id="@+id/bankertransactions"
+                     android:src="@drawable/viewtransaction"
+                     android:scaleType="fitCenter"
+                     android:background="@null"
+                     android:layout_width="80dp"
+                     android:layout_height="80dp"
+                 />
 
-    <ImageButton
-        android:id="@+id/bankerdepositfunds"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_heightPercent="12%"
-        app:layout_marginLeftPercent="70%"
-        app:layout_marginTopPercent="54%"
-        app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/deposit" />
+             </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/bankermanageaccount"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_heightPercent="12%"
-        app:layout_marginLeftPercent="24%"
-        app:layout_marginTopPercent="72%"
-        app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/manageaccount" />
 
-    <ImageButton
-        android:id="@+id/settings"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_heightPercent="12%"
-        app:layout_marginLeftPercent="55%"
-        app:layout_marginTopPercent="72%"
-        app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/settings" />
+            </android.support.v7.widget.CardView>
 
-</android.support.percent.PercentRelativeLayout>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/viewquizresult"
+                        android:src="@drawable/quizresult"
+                        android:scaleType="fitCenter"
+                        android:background="@null"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/bankerdepositfunds"
+                        android:src="@drawable/deposit"
+                        android:scaleType="fitCenter"
+                        android:background="@null"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/bankermanageaccount"
+                        android:src="@drawable/manageaccount"
+                        android:scaleType="fitCenter"
+                        android:background="@null"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/settings"
+                        android:src="@drawable/settings"
+                        android:background="@null"
+                        android:scaleType="fitCenter"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        />
+
+                </LinearLayout>
+
+
+           </android.support.v7.widget.CardView>
+
+            <!-- <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/createclassbtn"
+                        android:src="@drawable/createclass1"
+                        android:scaleType="fitCenter"
+                        android:background="@null"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/editclassbtn"
+                        android:src="@drawable/editclass1"
+                        android:scaleType="fitCenter"
+                        android:background="@null"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/deleteclassbtn"
+                    android:src="@drawable/deleteclass1"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    />
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/viewclassbtn"
+                        android:src="@drawable/viewclass"
+                        android:scaleType="fitCenter"
+                        android:background="@null"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:src="@drawable/deleteclass1"
+                        android:scaleType="fitCenter"
+                        android:background="@null"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView> -->
+
+
+        </GridLayout>
+    </LinearLayout>
+
+</ScrollView>
+
+<!-- <TextView
+android:id="@+id/textView4"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Welcome to KidzSmart, Bob"
+android:textColor="#FFFFFF"
+android:textColorHighlight="#0E1010"
+android:textSize="30sp"
+app:layout_heightPercent="18%"
+app:layout_marginLeftPercent="6%"
+app:layout_marginTopPercent="1%"
+app:layout_widthPercent="70%" />
+
+<View
+android:layout_width="fill_parent"
+android:layout_height="3dip"
+android:background="#000000"
+android:paddingBottom="10dip"
+android:layout_marginTop="260dp"
+    />
+
+<TextView
+android:id="@+id/textView3"
+android:background="@drawable/emptyrect"
+app:layout_heightPercent="11.5%"
+app:layout_marginLeftPercent="7%"
+app:layout_marginTopPercent="38%"
+app:layout_widthPercent="85%" />
+
+<TextView
+android:text="Account No:"
+android:textColor="#000000"
+android:textSize="18dp"
+app:layout_heightPercent="4%"
+app:layout_marginLeftPercent="10%"
+app:layout_marginTopPercent="39%"
+app:layout_widthPercent="26%" />
+
+<TextView
+android:id="@+id/actualAccountNo"
+android:textSize="18dp"
+app:layout_heightPercent="4%"
+app:layout_marginLeftPercent="38%"
+app:layout_marginTopPercent="39%"
+app:layout_widthPercent="50%" />
+
+<TextView
+android:text="Current Balance:"
+android:textColor="#000000"
+android:textSize="18dp"
+app:layout_heightPercent="4%"
+app:layout_marginLeftPercent="10%"
+app:layout_marginTopPercent="44%"
+app:layout_widthPercent="34%" />
+
+<TextView
+android:id="@+id/actualCurrentBalance"
+android:textSize="18dp"
+app:layout_heightPercent="4%"
+app:layout_marginLeftPercent="46%"
+app:layout_marginTopPercent="44%"
+app:layout_widthPercent="42%" />
+
+<ImageButton
+android:id="@+id/bankertransactions"
+android:background="@null"
+android:scaleType="fitCenter"
+app:layout_heightPercent="12%"
+app:layout_marginLeftPercent="8%"
+app:layout_marginTopPercent="54%"
+app:layout_widthPercent="21%"
+app:srcCompat="@drawable/viewtransaction" />
+
+<ImageButton
+android:id="@+id/viewquizresult"
+android:background="@null"
+android:scaleType="fitCenter"
+app:layout_heightPercent="12%"
+app:layout_marginLeftPercent="39%"
+app:layout_marginTopPercent="54%"
+app:layout_widthPercent="21%"
+app:srcCompat="@drawable/quizresult" />
+
+<ImageButton
+android:id="@+id/bankerdepositfunds"
+android:background="@null"
+android:scaleType="fitCenter"
+app:layout_heightPercent="12%"
+app:layout_marginLeftPercent="70%"
+app:layout_marginTopPercent="54%"
+app:layout_widthPercent="21%"
+app:srcCompat="@drawable/deposit" />
+
+<ImageButton
+android:id="@+id/bankermanageaccount"
+android:background="@null"
+android:scaleType="fitCenter"
+app:layout_heightPercent="12%"
+app:layout_marginLeftPercent="24%"
+app:layout_marginTopPercent="72%"
+app:layout_widthPercent="21%"
+app:srcCompat="@drawable/manageaccount" />
+
+<ImageButton
+android:id="@+id/settings"
+android:background="@null"
+android:scaleType="fitCenter"
+app:layout_heightPercent="12%"
+app:layout_marginLeftPercent="55%"
+app:layout_marginTopPercent="72%"
+app:layout_widthPercent="21%"
+app:srcCompat="@drawable/settings" /> -->
