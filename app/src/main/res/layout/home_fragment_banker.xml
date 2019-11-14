@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
 
+<android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/bg3"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,6 +16,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/relativeLayout1"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="32dp"
@@ -22,7 +24,7 @@
             android:layout_height="wrap_content" >
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profilephoto"
+                android:id="@+id/profilephotomain"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="115dp"
@@ -35,8 +37,8 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="134dp"
-                android:layout_height="80dp"
+                android:layout_width="137dp"
+                android:layout_height="85dp"
                 android:text="Welcome to KidzSmart, Bob"
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#0E1010"
@@ -45,233 +47,290 @@
                 app:layout_marginLeftPercent="6%"
                 app:layout_marginTopPercent="4%"
                 app:layout_widthPercent="70%" />
+
         </RelativeLayout>
 
-        <GridLayout
-            android:columnCount="2"
-            android:rowCount="3"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="32dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
 
-            <android.support.v7.widget.CardView
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/emptyrect"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:text="Account No:" />
 
-             <LinearLayout
-                 android:orientation="vertical"
-                 android:padding="16dp"
-                 android:gravity="center"
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent">
-
-                 <ImageButton
-                     android:id="@+id/bankertransactions"
-                     android:src="@drawable/viewtransaction"
-                     android:scaleType="fitCenter"
-                     android:background="@null"
-                     android:layout_width="80dp"
-                     android:layout_height="80dp"
-                 />
-
-             </LinearLayout>
-
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:id="@+id/actualAccountNo"
+                android:textSize="18dp"
+                android:textColor="#000000"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="130dp"
+                />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:id="@+id/viewquizresult"
-                        android:src="@drawable/quizresult"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
-
-                </LinearLayout>
-
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:text="Current Balance:"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginLeft="20dp"
+                />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:id="@+id/bankerdepositfunds"
-                        android:src="@drawable/deposit"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
-
-                </LinearLayout>
-
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                android:id="@+id/actualCurrentBalance"
+                android:textSize="18dp"
+                android:textColor="#000000"
+                android:layout_marginTop="55dp"
+                android:layout_marginLeft="165dp"
+                />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+        </RelativeLayout>
 
-                    <ImageButton
-                        android:id="@+id/bankermanageaccount"
-                        android:src="@drawable/manageaccount"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-                </LinearLayout>
+    <GridLayout
+        android:columnCount="2"
+        android:rowCount="3"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-            </android.support.v7.widget.CardView>
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                <ImageButton
+                    android:id="@+id/bankertransactions"
+                    android:src="@drawable/viewtransaction"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:id="@+id/settings"
-                        android:src="@drawable/settings"
-                        android:background="@null"
-                        android:scaleType="fitCenter"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
-
-                </LinearLayout>
+            </LinearLayout>
 
 
-           </android.support.v7.widget.CardView>
 
-            <!-- <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+        </android.support.v7.widget.CardView>
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-                    <ImageButton
-                        android:id="@+id/createclassbtn"
-                        android:src="@drawable/createclass1"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/viewquizresult"
+                    android:src="@drawable/quizresult"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
 
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:id="@+id/editclassbtn"
-                        android:src="@drawable/editclass1"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
-
-                </LinearLayout>
+            </LinearLayout>
 
 
-            </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/bankerdepositfunds"
+                    android:src="@drawable/deposit"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/bankermanageaccount"
+                    android:src="@drawable/manageaccount"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/settings"
+                    android:src="@drawable/settings"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/createclassbtn"
+                    android:src="@drawable/createclass1"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/editclassbtn"
+                    android:src="@drawable/editclass1"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -294,80 +353,54 @@
                     android:scaleType="fitCenter"
                     android:background="@null"
                     android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    />
+                    android:layout_height="80dp"/>
 
             </LinearLayout>
 
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/viewclassbtn"
+                    android:src="@drawable/viewclass"
+                    android:scaleType="fitCenter"
+                    android:background="@null"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:id="@+id/viewclassbtn"
-                        android:src="@drawable/viewclass"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
-
-                </LinearLayout>
 
 
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:src="@drawable/deleteclass1"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        />
-
-                </LinearLayout>
 
 
-            </android.support.v7.widget.CardView> -->
-
-
-        </GridLayout>
-    </LinearLayout>
+    </GridLayout>
 
 </ScrollView>
+
+    </LinearLayout>
+
+</android.support.percent.PercentRelativeLayout>
+
+
 
 <!-- <TextView
 android:id="@+id/textView4"

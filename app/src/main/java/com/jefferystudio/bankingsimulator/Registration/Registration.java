@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class registration2 extends AppCompatActivity {
+public class Registration extends AppCompatActivity {
 
     private Button buttonsubmit;
     private EditText nameBox;
@@ -140,7 +140,7 @@ public class registration2 extends AppCompatActivity {
         String password = passwordBox.getText().toString().trim();
         String cfmpassword = cfmpasswordBox.getText().toString().trim();
         String dob = dobBox.getText().toString().trim();
-        String prelimRole = String.valueOf(roleBox.getSelectedItemId());
+        String prelimRole = String.valueOf(roleBox.getSelectedItem());
         String role = "";
 
         if(prelimRole.equals("Account Holder")) {

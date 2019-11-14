@@ -106,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="350dp"
+        android:text="SGD"
         android:textSize="18dp" />
 
     <TextView
@@ -140,6 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="430dp"
+        android:text="SGD"
         android:textSize="18dp" />
 
     <TextView
