@@ -32,7 +32,7 @@
         app:layout_widthPercent="29%"
         app:layout_heightPercent="16%"
         android:layout_below="@id/title"
-        android:layout_alignRight="@id/arrow"
+        android:layout_alignRight="@id/centerarrow"
         app:layout_marginTopPercent="8%"
         app:layout_marginRightPercent="25%"
         android:scaleType="fitCenter"
@@ -57,7 +57,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/centerarrow"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_below="@id/title"
@@ -73,7 +73,7 @@
         app:layout_widthPercent="29%"
         app:layout_heightPercent="16%"
         android:layout_below="@id/title"
-        android:layout_alignLeft="@id/arrow"
+        android:layout_alignLeft="@id/centerarrow"
         app:layout_marginTopPercent="8%"
         app:layout_marginLeftPercent="25%"
         android:scaleType="fitCenter"
@@ -84,7 +84,7 @@
 
     <TextView
         android:id="@+id/payerLbl"
-        android:layout_below="@id/arrow"
+        android:layout_below="@id/centerarrow"
         android:layout_alignLeft="@id/payerAvatar"
         app:layout_widthPercent="29%"
         app:layout_heightPercent="3%"
