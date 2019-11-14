@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator.WithdrawalPackage;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,18 +10,23 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Registration.Registration;
 
 import java.util.concurrent.TimeUnit;
 
 public class UserSettings extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private Switch switchbtn;
+    private Button backbtn;
     private Bundle args;
 
     @Override
@@ -28,8 +34,23 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_settings);
 
+
         args = getIntent().getExtras();
         switchbtn = (Switch)findViewById(R.id.switch1);
+        backbtn = (Button) findViewById(R.id.btnback);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Bundle newArgs = new Bundle();
+                newArgs.putString("userID", args.getString("userID"));
+                newArgs.putString("userName", args.getString("userName"));
+                Intent intent = new Intent(getApplicationContext(), HomeFragmentUser.class);
+                intent.putExtras(newArgs);
+                startActivity(intent);
+            }
+        });
 
         switchbtn.setOnCheckedChangeListener(this);
     }
