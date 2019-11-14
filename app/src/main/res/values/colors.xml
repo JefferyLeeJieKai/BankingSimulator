@@ -16,8 +16,8 @@
 
     <!-- theme colors -->
     <color name="colorPrimary">#2196F3</color>
-    <color name="colorPrimaryDark">#FFEB3B</color>
-    <color name="colorAccent">#F5612F</color>
+    <color name="colorPrimaryDark">#181A18</color>
+    <color name="colorAccent">#2196F3</color>
 
     <!-- navigation drawer colors -->
     <color name="navHeaderText">#FAFAFA</color>
