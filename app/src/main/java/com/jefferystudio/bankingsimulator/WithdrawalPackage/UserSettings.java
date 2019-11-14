@@ -10,20 +10,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.Switch;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePasswordFragment;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintAsync;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.Registration.Registration;
-import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
+import com.jefferystudio.bankingsimulator.goalspage;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -62,11 +59,8 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
             @Override
             public void onClick(View view) {
 
-                Fragment changePassword = new ChangePasswordFragment();
-                changePassword.setArguments(args);
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, changePassword);
-                transaction.commit();
+                Intent intent = new Intent(getApplicationContext(), ChangePasswordFragment.class);
+                startActivity(intent);
             }
         });
 

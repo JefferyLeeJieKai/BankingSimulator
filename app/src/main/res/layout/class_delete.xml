@@ -146,7 +146,7 @@
         android:id="@+id/deleteBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="250dp"
         android:layout_marginTop="620dp"
         android:background="@drawable/buttonshadow"
         android:text="DELETE" />
@@ -155,7 +155,7 @@
         android:id="@+id/cancelBtn"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="620dp"
         android:background="@drawable/buttonshadow"
         android:text="CANCEL" />

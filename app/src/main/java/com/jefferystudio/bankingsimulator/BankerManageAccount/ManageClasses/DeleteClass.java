@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
@@ -24,10 +25,13 @@ public class DeleteClass extends Fragment {
     private Button deleteButton;
     private Button cancelButton;
     private String input;
+    private Bundle args;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.class_delete, container, false);
+
+        args = getArguments();
 
         //default
         classLabel = view.findViewById(R.id.classLbl);
@@ -121,7 +125,11 @@ public class DeleteClass extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //do something
+                Fragment homeFrag = new HomeFragmentBanker();
+                homeFrag.setArguments(args);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, homeFrag)
+                        .commit();
 
             }
         });
