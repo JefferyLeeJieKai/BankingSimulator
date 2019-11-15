@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -30,7 +31,7 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser
 import com.jefferystudio.bankingsimulator.R;
 
 
-public class ProfilePageBanker extends AppCompatActivity {
+public class ProfilePageBanker extends AppCompatActivity implements Dialog.ExampleDialogListener {
 
     private Bundle args;
     private Context context;
@@ -39,8 +40,11 @@ public class ProfilePageBanker extends AppCompatActivity {
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
     private Bitmap bitmap;
-    private Button backButton;
-    private Button confirmButton;
+    private TextView getlblname;
+    private TextView getlblemail;
+    private ImageButton editNamebtn;
+    private ImageButton editEmailbtn;
+
 
 
         @Override
@@ -57,7 +61,11 @@ public class ProfilePageBanker extends AppCompatActivity {
 
         profilebtn = (TextView)findViewById(R.id.editbtn);
         profilepic = (ImageView)findViewById(R.id.profilephoto);
-        backButton = (Button) findViewById(R.id.btnback);
+
+        getlblname = (TextView)findViewById(R.id.lblname);
+        getlblemail = (TextView)findViewById(R.id.lblemail);
+        editNamebtn = (ImageButton) findViewById(R.id.modeEditName);
+        editEmailbtn = (ImageButton) findViewById(R.id.modeEditEmail);
 
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,20 +74,47 @@ public class ProfilePageBanker extends AppCompatActivity {
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle newArgs = new Bundle();
-                newArgs.putString("userID", args.getString("userID"));
-                newArgs.putString("userName", args.getString("userName"));
-                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
-                intent.putExtras(newArgs);
-                startActivity(intent);
-            }
-        });
+            editNamebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    openDialogName();
+                }
+            });
+
+            editEmailbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    openDialogEmail();
+                }
+            });
+
 
     }
 
+    public void openDialogName(){
+        Dialog dialog = new Dialog();
+        dialog.show(getSupportFragmentManager(), "dialog");
+    }
+
+    public void openDialogEmail(){
+        DialogEmail dialog = new DialogEmail();
+        dialog.show(getSupportFragmentManager(), "dialogEmail");
+    }
+
+    @Override
+    public void applyTextsName(String name) {
+
+        getlblname.setTextColor(Color.parseColor("#000000"));
+        getlblname.setText(name);
+    }
+
+    public void applyTextsEmail(String email) {
+
+        getlblemail.setTextColor(Color.parseColor("#000000"));
+        getlblemail.setText(email);
+    }
 
 
     private void openGallery(){
