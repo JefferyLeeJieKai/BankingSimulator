@@ -35,7 +35,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class ProfilePage extends AppCompatActivity {
+public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDialogListener {
 
     private Bundle args;
     private Context context;
@@ -44,8 +44,11 @@ public class ProfilePage extends AppCompatActivity {
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
     private Bitmap bitmap;
-    private Button backButton;
     private Button confirmButton;
+    private TextView getlblname;
+    private TextView getlblemail;
+    private ImageButton editNamebtn;
+    private ImageButton editEmailbtn;
 
 
     @Override
@@ -72,6 +75,46 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
+        getlblname = (TextView)findViewById(R.id.lblname);
+        getlblemail = (TextView)findViewById(R.id.lblemail);
+        editNamebtn = (ImageButton) findViewById(R.id.modeEditName);
+        editEmailbtn = (ImageButton) findViewById(R.id.modeEditEmail);
+
+
+        editNamebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                openDialogName();
+            }
+        });
+
+        editEmailbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                openDialogEmail();
+            }
+        });
+    }
+
+    public void openDialogName(){
+        Dialog dialog = new Dialog();
+        dialog.show(getSupportFragmentManager(), "dialog");
+    }
+
+    public void openDialogEmail(){
+        Dialog dialog = new Dialog();
+        dialog.show(getSupportFragmentManager(), "dialog");
+    }
+
+    @Override
+    public void applyTextsName(String name) {
+        getlblname.setText(name);
+    }
+
+    public void applyTextsEmail(String email) {
+        getlblemail.setText(email);
     }
 
     private void openGallery(){

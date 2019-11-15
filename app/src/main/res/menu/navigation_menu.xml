@@ -43,7 +43,7 @@
             android:title="Add Amount To Goal">
         </item>
 
-        <item
+        <!--<item
             android:id="@+id/changePassword"
             android:title="Change password">
         </item>
@@ -52,7 +52,7 @@
             android:id="@+id/enableFingerprint"
             android:title="Enable/Disable Fingerprint">
         </item>
-
+        -->
     </group>
 
 </menu>
