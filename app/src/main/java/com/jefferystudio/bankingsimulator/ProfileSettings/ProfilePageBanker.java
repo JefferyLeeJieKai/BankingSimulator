@@ -33,7 +33,6 @@ public class ProfilePageBanker extends AppCompatActivity {
 
     private Bundle args;
     private Context context;
-    private ProgressBar progressBar;
     private ImageView profilepic;
     private TextView profilebtn;
     private static final int PICK_IMAGE = 100;
@@ -54,9 +53,6 @@ public class ProfilePageBanker extends AppCompatActivity {
             homeScreenToolbar.setTitle("Profile");
             setSupportActionBar(homeScreenToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        progressBar = findViewById(R.id.amountPB);
-        progressBar.setProgress(0);
 
         profilebtn = (TextView)findViewById(R.id.editbtn);
         profilepic = (ImageView)findViewById(R.id.profilephoto);
