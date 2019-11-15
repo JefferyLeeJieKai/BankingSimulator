@@ -90,7 +90,7 @@ public class ProfilePageBanker extends AppCompatActivity {
 
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
                 Toast.makeText(context, "StartingAsync", Toast.LENGTH_LONG).show();
-                new UploadPicProgressBarAsync(context, args.getString("userID"), profilepic, imageUri, progressBar).execute(bitmap);
+                new UploadPicProgressBarAsync(context, args.getString("userID"), profilepic, imageUri).execute(bitmap);
             }
             catch(Exception e) {
 
