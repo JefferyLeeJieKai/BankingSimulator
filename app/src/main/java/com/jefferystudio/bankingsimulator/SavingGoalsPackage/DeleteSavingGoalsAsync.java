@@ -29,7 +29,7 @@ public class DeleteSavingGoalsAsync extends AsyncTask<String, String, String> {
 
         try {
 
-            String link = "http://www.kidzsmart.tk/databaseAccess/deleteGoal.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/deleteGoal.php";
             String data = URLEncoder.encode("goalid", "UTF-8") + "=" +
                     URLEncoder.encode(goalID, "UTF-8");
 

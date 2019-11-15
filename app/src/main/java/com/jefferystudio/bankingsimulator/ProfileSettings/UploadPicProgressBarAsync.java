@@ -70,7 +70,7 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
         publishProgress(10);
 
         try {
-            String link = "http://www.kidzsmart.tk/databaseAccess/uploadProfilePic.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/uploadProfilePic.php";
             String data = URLEncoder.encode("image", "UTF-8") + "=" +
                     URLEncoder.encode(uploadImage, "UTF-8");
             data += "&" + URLEncoder.encode("userid", "UTF-8") + "=" +

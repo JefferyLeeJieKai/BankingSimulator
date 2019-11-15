@@ -35,7 +35,7 @@ public class RetriveBankerListAsync extends AsyncTask <String, String, String> {
         userID = args[0];
 
         try{
-            String link="http://www.kidzsmart.tk/databaseAccess/retrieveBankerList.php";
+            String link="https://www.kidzsmartapp.com/databaseAccess/retrieveBankerList.php";
             String data  = URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
 

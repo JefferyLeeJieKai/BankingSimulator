@@ -21,10 +21,11 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
     private Bitmap bitmap;
     private ArrayList<Exception> errorList = new ArrayList<Exception>();
 
-    public RetrieveProfilePicAsync(Context context, File file) {
+    public RetrieveProfilePicAsync(Context context, File file, ArrayList<Exception> errorList) {
 
         this.context = context;
         this.file = file;
+        this.errorList = errorList;
     }
 
     @Override
@@ -34,7 +35,7 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
 
 
         try {
-            
+
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
             connection.setConnectTimeout(30000);
@@ -52,6 +53,7 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
 
         } catch (Exception e) {
 
+            errorList.add(e);
         }
 
         return "Success";

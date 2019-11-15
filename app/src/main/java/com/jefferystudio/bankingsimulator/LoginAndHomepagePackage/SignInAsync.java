@@ -66,7 +66,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         publishProgress("5");
 
         try{
-            String link="http://www.kidzsmart.tk/databaseAccess/loginVerification.php";
+            String link="https://www.kidzsmartapp.com/databaseAccess/loginVerification.php";
             String data  = URLEncoder.encode("username", "UTF-8") + "=" +
                     URLEncoder.encode(username, "UTF-8");
             data += "&" + URLEncoder.encode("password", "UTF-8") + "=" +
@@ -103,6 +103,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         }
         catch(Exception e){
 
+            errorList.add(e);
         }
 
         String[] resultArray = sb.toString().split(",");
@@ -141,9 +142,9 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
                 try {
 
-                    catchString = new RetrieveProfilePicAsync(context, file)
+                    catchString = new RetrieveProfilePicAsync(context, file, errorList)
                             .execute(resultArray[4])
-                            .get();
+                            .get(5000, TimeUnit.MILLISECONDS);
 
                     publishProgress("90");
 
@@ -232,7 +233,9 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
         progDialog.dismiss();
 
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, errorList.get(0).toString(), Toast.LENGTH_LONG).show();
+
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
 
         if (result.equals("False")) {
 
