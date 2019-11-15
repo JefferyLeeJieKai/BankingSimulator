@@ -6,6 +6,7 @@ import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -110,10 +111,14 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
 
     @Override
     public void applyTextsName(String name) {
+
+        getlblname.setTextColor(Color.parseColor("#000000"));
         getlblname.setText(name);
     }
 
     public void applyTextsEmail(String email) {
+
+        getlblemail.setTextColor(Color.parseColor("#000000"));
         getlblemail.setText(email);
     }
 
