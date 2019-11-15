@@ -25,20 +25,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
-import com.jefferystudio.bankingsimulator.Quiz.quizhome;
+
 import com.jefferystudio.bankingsimulator.R;
 
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 public class ProfilePageBanker extends AppCompatActivity {
 
