@@ -53,7 +53,7 @@
         android:textColorHighlight="#0E1010"
         />
 
-    <TextView
+    <!-- <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -149,22 +149,97 @@
         android:backgroundTint="#D3D3D3" />
 
     <Button
-        android:id="@+id/backBtn"
-        app:layout_widthPercent="25%"
-        app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="12%"
-        app:layout_marginTopPercent="88%"
-        android:background="@drawable/buttonshadow"
-        android:text="Back" />
-
-    <Button
         android:id="@+id/confirmBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
         app:layout_marginTopPercent="88%"
         app:layout_marginLeftPercent="60%"
         android:background="@drawable/buttonshadow"
-        android:text="Confirm" />
+        android:text="Confirm" /> -->
+
+    <TextView
+        android:id="@+id/tvName"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="6%"
+        app:layout_marginTopPercent="3%"
+        app:layout_marginLeftPercent="9%"
+        android:layout_below="@id/editbtn"
+        android:textColor="#000000"
+        android:text="Name"
+        android:background="@drawable/username_field"
+        android:textSize="22sp"/>
+        <!---->
+
+    <TextView
+        android:id="@+id/lblname"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="6%"
+        android:layout_alignLeft="@id/tvName"
+        android:layout_below="@id/tvName"
+        android:textColor="#66000000"
+        android:background="@drawable/password_field"
+        android:text="Name"
+        android:autoSizeTextType="uniform"/>
+
+    <ImageButton
+        android:id="@+id/modeEditName"
+        app:layout_widthPercent="8%"
+        app:layout_heightPercent="4%"
+        android:layout_below="@+id/editbtn"
+        app:layout_marginRightPercent="16%"
+        android:layout_alignParentRight="true"
+        app:layout_marginTopPercent="4%"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#86888A" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="6%"
+        app:layout_marginTopPercent="3%"
+        android:layout_below="@id/lblname"
+        android:layout_alignLeft="@id/tvName"
+        android:textColor="#000000"
+        android:text="Email"
+        android:background="@drawable/username_field"
+        android:textSize="22sp"/>
+
+
+    <TextView
+        android:id="@+id/lblemail"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="6%"
+        android:layout_alignLeft="@id/tvName"
+        android:layout_below="@id/tvEmail"
+        android:textColor="#66000000"
+        android:background="@drawable/password_field"
+        android:text="Email"
+        android:autoSizeTextType="uniform"/>
+
+    <ImageButton
+        android:id="@+id/modeEditEmail"
+        app:layout_widthPercent="8%"
+        app:layout_heightPercent="4%"
+        android:layout_below="@+id/lblname"
+        app:layout_marginRightPercent="16%"
+        android:layout_alignParentRight="true"
+        app:layout_marginTopPercent="4%"
+        android:background="@drawable/mode_edit"
+        android:backgroundTint="#86888A" />
+
+
+    <Button
+        android:id="@+id/btnback"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="73dp"
+        android:text="BACK"
+        android:textSize="22sp"
+        android:background="@color/buttonBG"
+        android:textColor="@color/buttonWord"
+        android:layout_alignLeft="@id/tvEmail"
+        app:layout_marginBottomPercent="10%" />
 
 
 </android.support.percent.PercentRelativeLayout>

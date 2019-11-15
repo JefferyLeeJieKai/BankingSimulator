@@ -1,6 +1,10 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,9 +25,15 @@ import com.jefferystudio.bankingsimulator.WithdrawalPackage.UserSettings;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.goalspage;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeFragmentUser extends Fragment {
 
     private TextView greetingsMsg;
+    private CircleImageView profilePic;
     private TextView currentAccountNo;
     private TextView currentUserBalance;
     private Bundle args;
@@ -49,6 +59,19 @@ public class HomeFragmentUser extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment_user, container, false);
 
         args = getArguments();
+
+        profilePic = view.findViewById(R.id.profilephotomain);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.jpg");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
+
         greetingsMsg = view.findViewById(R.id.textView4);
         greetingsMsg.setText("Welcome to KidzSmart, " + args.getString("userName"));
 

@@ -2,9 +2,11 @@ package com.jefferystudio.bankingsimulator.ProfileSettings;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -23,6 +25,8 @@ import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -32,7 +36,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class ProfilePage extends AppCompatActivity {
+public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDialogListener {
 
     private Bundle args;
     private Context context;
@@ -41,8 +45,11 @@ public class ProfilePage extends AppCompatActivity {
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
     private Bitmap bitmap;
-    private Button backButton;
     private Button confirmButton;
+    private TextView getlblname;
+    private TextView getlblemail;
+    private ImageButton editNamebtn;
+    private ImageButton editEmailbtn;
 
 
     @Override
@@ -64,43 +71,55 @@ public class ProfilePage extends AppCompatActivity {
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 openGallery();
-
-                String result = "";
-                try {
-
-                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-
-                    result = new UploadProfilePicAsync(context, args.getString("userID")).execute(bitmap).get(8000, TimeUnit.MILLISECONDS);
-
-                    Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-                    String[] resultArray = result.split(",");
-
-                    if (resultArray[0].equals("Successfully Uploaded")) {
-
-                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setTitle("DigiBank Alert");
-                        builder.setMessage("New profile picture successfully uploaded!");
-
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                                profilepic.setImageURI(imageUri);
-                            }
-                        });
-
-                        AlertDialog uploadDoneDialog = builder.create();
-                        uploadDoneDialog.show();
-                    }
-                }
-                catch(Exception e) {
-
-                    //Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
-                }
             }
         });
 
+        getlblname = (TextView)findViewById(R.id.lblname);
+        getlblemail = (TextView)findViewById(R.id.lblemail);
+        editNamebtn = (ImageButton) findViewById(R.id.modeEditName);
+        editEmailbtn = (ImageButton) findViewById(R.id.modeEditEmail);
+
+
+        editNamebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                openDialogName();
+            }
+        });
+
+        editEmailbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                openDialogEmail();
+            }
+        });
+    }
+
+    public void openDialogName(){
+        Dialog dialog = new Dialog();
+        dialog.show(getSupportFragmentManager(), "dialog");
+    }
+
+    public void openDialogEmail(){
+        Dialog dialog = new Dialog();
+        dialog.show(getSupportFragmentManager(), "dialog");
+    }
+
+    @Override
+    public void applyTextsName(String name) {
+
+        getlblname.setTextColor(Color.parseColor("#000000"));
+        getlblname.setText(name);
+    }
+
+    public void applyTextsEmail(String email) {
+
+        getlblemail.setTextColor(Color.parseColor("#000000"));
+        getlblemail.setText(email);
     }
 
     private void openGallery(){
@@ -114,6 +133,20 @@ public class ProfilePage extends AppCompatActivity {
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
 
             imageUri = data.getData();
+
+            String result = "";
+            try {
+
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+
+                new UploadProfilePicAsync(context, args.getString("userID"), profilepic, imageUri).execute(bitmap);
+
+                //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+            }
+            catch(Exception e) {
+
+                //Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+            }
         }
     }
 

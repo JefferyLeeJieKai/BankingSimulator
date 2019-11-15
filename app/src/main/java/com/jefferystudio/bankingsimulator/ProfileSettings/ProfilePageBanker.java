@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator.ProfileSettings;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,26 +21,18 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
-import com.jefferystudio.bankingsimulator.Quiz.quizhome;
+
 import com.jefferystudio.bankingsimulator.R;
 
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 public class ProfilePageBanker extends AppCompatActivity {
 
     private Bundle args;
+    private Context context;
     private ImageView profilepic;
     private TextView profilebtn;
     private static final int PICK_IMAGE = 100;
@@ -54,12 +47,12 @@ public class ProfilePageBanker extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.profilepage_banker);
             args = getIntent().getExtras();
+            context = this;
 
             Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
             homeScreenToolbar.setTitle("Profile");
             setSupportActionBar(homeScreenToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         profilebtn = (TextView)findViewById(R.id.editbtn);
         profilepic = (ImageView)findViewById(R.id.profilephoto);
@@ -67,7 +60,7 @@ public class ProfilePageBanker extends AppCompatActivity {
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openGallery1();
+                openGallery();
             }
         });
 
@@ -75,9 +68,9 @@ public class ProfilePageBanker extends AppCompatActivity {
 
 
 
-    private void openGallery1(){
-        Intent gallery1 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery1, PICK_IMAGE);
+    private void openGallery(){
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, PICK_IMAGE);
     }
 
     @Override
@@ -85,37 +78,19 @@ public class ProfilePageBanker extends AppCompatActivity {
         //super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == Activity.RESULT_OK && requestCode == PICK_IMAGE){
 
-            String result = "";
             imageUri = data.getData();
+
+            String result = "";
 
             try {
 
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-
-                result = new UploadProfilePicAsync(this, args.getString("userID"))
-                             .execute(bitmap)
-                             .get(5000, TimeUnit.MILLISECONDS);
-
-                String[] resultArray = result.split(",");
-
-                if(resultArray[0].equals("Successfully Uploaded")) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setTitle("DigiBank Alert");
-                    builder.setMessage("New profile picture successfully uploaded!");
-
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            profilepic.setImageURI(imageUri);
-                        }
-                    });
-                }
+                Toast.makeText(context, "StartingAsync", Toast.LENGTH_LONG).show();
+                new UploadPicProgressBarAsync(context, args.getString("userID"), profilepic, imageUri).execute(bitmap);
             }
-            catch (Exception e) {
+            catch(Exception e) {
 
-
+                Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
             }
 
 
