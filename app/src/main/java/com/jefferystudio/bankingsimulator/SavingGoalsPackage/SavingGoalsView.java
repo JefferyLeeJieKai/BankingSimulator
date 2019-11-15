@@ -23,6 +23,7 @@ public class SavingGoalsView extends Fragment {
     private TextView cost;
     private TextView deadline;
     private TextView priority;
+    private TextView progressLabel;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -48,13 +49,17 @@ public class SavingGoalsView extends Fragment {
         deadline.setText(args.getString("dateline"));
         priority.setText(args.getString("priority"));
 
-        float savedAmount = Float.valueOf(args.getString("currentValue"));
         float itemAmount = Float.valueOf(args.getString("itemCost"));
+        float savedAmount = Float.valueOf(args.getString("currentValue"));
         float remainingAmount = itemAmount - savedAmount;
 
         amountLeft.setText(Float.toString(remainingAmount));
 
-        int percentage = calculation(savedAmount, itemAmount);
+        int percentage = calculation(itemAmount, savedAmount);
+
+        progressLabel = view.findViewById(R.id.progressLbl);
+        progressLabel.setText(String.valueOf(percentage));
+
         savingsBar.setProgress(percentage);
 
         return view;

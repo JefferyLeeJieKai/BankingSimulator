@@ -76,6 +76,7 @@ public class SavingGoalsAdd extends Fragment {
                     }
                 },year,month,day);
 
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
                 datePickerDialog.show();
             }
         });
