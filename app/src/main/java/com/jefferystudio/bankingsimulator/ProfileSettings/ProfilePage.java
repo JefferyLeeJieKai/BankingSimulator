@@ -123,7 +123,7 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
         getlblemail.setTextColor(Color.parseColor("#000000"));
         getlblemail.setText(email);
     }
-    
+
 
 
     private void openGallery(){
