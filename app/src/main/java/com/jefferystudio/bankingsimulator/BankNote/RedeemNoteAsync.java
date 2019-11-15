@@ -1,8 +1,8 @@
-package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
+package com.jefferystudio.bankingsimulator.BankNote;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,41 +11,48 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
+public class RedeemNoteAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
+    private String issueCode;
+    private String bankerID;
+    private String accountholderID;
 
-    public CheckOwnershipAsync(Context context) {
+    public RedeemNoteAsync(Context context, String issueCode, String bankerID, String accountholderID) {
 
         this.context = context;
+        this.issueCode = issueCode;
+        this.bankerID = bankerID;
+        this.accountholderID = accountholderID;
     }
 
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Issuing notes...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
-    protected String doInBackground(String[] args) {
+    protected String doInBackground(String... strings) {
 
         StringBuffer sb = new StringBuffer("");
 
-        String input = args[0];
-        String bankerID = args[1];
-        String classID = args[2];
-        String className = args[3];
-
         try {
 
-            String link = "https://www.kidzsmartapp.com/databaseAccess/checkOwnership.php";
-            String data = URLEncoder.encode("accountholder", "UTF-8") + "=" +
-                    URLEncoder.encode(input, "UTF-8");
+            String link = "https://www.kidzsmartapp.com/databaseAccess/issueNotes.php";
+            String data = URLEncoder.encode("issuecode", "UTF-8") + "=" +
+                    URLEncoder.encode(issueCode, "UTF-8");
             data += "&" + URLEncoder.encode("bankerid", "UTF-8") + "=" +
                     URLEncoder.encode(bankerID, "UTF-8");
-            data += "&" + URLEncoder.encode("classid", "UTF-8") + "=" +
-                    URLEncoder.encode(classID, "UTF-8");
-            data += "&" + URLEncoder.encode("classname", "UTF-8") + "=" +
-                    URLEncoder.encode(className, "UTF-8");
+            data += "&" + URLEncoder.encode("accountholderid", "UTF-8") + "=" +
+                    URLEncoder.encode(accountholderID, "UTF-8");
+
 
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
@@ -68,7 +75,6 @@ public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
         }
         catch(Exception e) {
 
-
         }
 
         return sb.toString();
@@ -77,5 +83,6 @@ public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
     }
 }

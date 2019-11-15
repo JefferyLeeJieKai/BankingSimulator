@@ -62,6 +62,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
 
     @Override
     public SavingGoalsRecyclerViewAdaptor.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -104,7 +105,12 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 textView2.setTextColor(Color.parseColor("#ff751a"));
                 textView2.setText("Days left: " + daysLeft);
             }
-            else{
+            else if (daysLeft < 1){
+
+                textView2.setTextColor(Color.parseColor("#ff0000"));
+                textView2.setText("Deadline reached!");
+            }
+            else {
 
                 textView2.setTextColor(Color.parseColor("#ff0000"));
                 textView2.setText("Days left: " + daysLeft);

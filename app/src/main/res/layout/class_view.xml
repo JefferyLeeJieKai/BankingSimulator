@@ -31,10 +31,10 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/classDetailsRv"
-        app:layout_widthPercent="70%"
+        app:layout_widthPercent="90%"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
-        android:layout_alignLeft="@id/margin"
         app:layout_marginTopPercent="10%" />
 
 </android.support.percent.PercentRelativeLayout>

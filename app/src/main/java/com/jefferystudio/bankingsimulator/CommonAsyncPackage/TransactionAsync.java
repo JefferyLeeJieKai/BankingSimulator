@@ -76,7 +76,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             }
 
             try{
-                String link="http://www.kidzsmart.tk/databaseAccess/depositUser.php";
+                String link="https://www.kidzsmartapp.com/databaseAccess/depositUser.php";
                 data  = URLEncoder.encode("userid", "UTF-8") + "=" +
                         URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("mydeposit", "UTF-8") + "=" +

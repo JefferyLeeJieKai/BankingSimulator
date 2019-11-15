@@ -78,7 +78,8 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
         textView1.setText(classEntry.getClassName());
 
         TextView textView2 = viewHolder.noOfStudents;
-        textView2.setText("No. of students: " + classEntry.getNoOfStudents());
+        String noOfStudents = "No. of students: " + classEntry.getNoOfStudents();
+        textView2.setText(noOfStudents);
 
         Button editStudentsButton = viewHolder.viewStudents;
         editStudentsButton.setOnClickListener(new View.OnClickListener() {

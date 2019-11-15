@@ -126,12 +126,6 @@ public class HomeScreenUser extends AppCompatActivity {
                     fragment.setArguments(args);
                 }
 
-                else if (item.getItemId() == R.id.addSavingGoalsAmount)
-                {
-                    fragment = new SavingGoalsAddAmount();
-                    fragment.setArguments(args);
-                }
-
                 /*
                 else if(item.getItemId() == R.id.enableFingerprint) {
 

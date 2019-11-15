@@ -70,9 +70,9 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/goalDetailsRv"
-        android:layout_width="338dp"
+        app:layout_widthPercent="90%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="290dp" />
 
 </android.support.percent.PercentRelativeLayout>
