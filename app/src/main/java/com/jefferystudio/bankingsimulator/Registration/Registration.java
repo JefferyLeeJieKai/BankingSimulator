@@ -152,13 +152,13 @@ public class Registration extends AppCompatActivity {
             role = "Banker";
         }
 
-        //error when username contains non-alphanumeric values
+        //error when username is more than 15 characters or contains non-alphanumeric values
         Pattern alphanumeric = Pattern.compile("^[a-zA-Z0-9]*$");
         Matcher hasAlphanumeric = alphanumeric.matcher(username);
 
-        if (!hasAlphanumeric.find()) {
+        if (username.length() > 15 || !hasAlphanumeric.find()) {
 
-            errorList.add("Please enter a username containing only alphanumeric values.");
+            errorList.add("Please enter a username less than 16 characters and contains only alphanumeric values.");
         }
 
         if (!name.matches("") && !email.matches("") && !username.matches("") && !password.matches("") && !gender.matches("")
