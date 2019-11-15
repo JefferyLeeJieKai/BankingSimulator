@@ -6,6 +6,7 @@ import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.io.File;
@@ -44,7 +46,7 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
     private Bitmap bitmap;
-    private Button confirmButton;
+    private Button backbutton;
     private TextView getlblname;
     private TextView getlblemail;
     private ImageButton editNamebtn;
@@ -79,6 +81,7 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
         getlblemail = (TextView)findViewById(R.id.lblemail);
         editNamebtn = (ImageButton) findViewById(R.id.modeEditName);
         editEmailbtn = (ImageButton) findViewById(R.id.modeEditEmail);
+        backbutton = (Button) findViewById(R.id.btnback);
 
 
         editNamebtn.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +99,18 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
                 openDialogEmail();
             }
         });
+
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle newArgs = new Bundle();
+                newArgs.putString("userID", args.getString("userID"));
+                newArgs.putString("userName", args.getString("userName"));
+                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
+                intent.putExtras(newArgs);
+                startActivity(intent);
+            }
+        });
     }
 
     public void openDialogName(){
@@ -110,10 +125,14 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
 
     @Override
     public void applyTextsName(String name) {
+
+        getlblname.setTextColor(Color.parseColor("#000000"));
         getlblname.setText(name);
     }
 
     public void applyTextsEmail(String email) {
+
+        getlblemail.setTextColor(Color.parseColor("#000000"));
         getlblemail.setText(email);
     }
 
