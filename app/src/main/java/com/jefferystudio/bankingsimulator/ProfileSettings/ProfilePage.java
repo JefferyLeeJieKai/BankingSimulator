@@ -153,7 +153,7 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
 
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
 
-                new UploadProfilePicAsync(context, args.getString("userID"), profilepic, imageUri).execute(bitmap);
+                new UploadPicProgressBarAsync(context, args.getString("userID"), profilepic, imageUri).execute(bitmap);
 
                 //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
             }

@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 
 public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
 
@@ -17,6 +18,7 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
     private File file;
     private String link;
     private Bitmap bitmap;
+    private ArrayList<Exception> errorList = new ArrayList<Exception>();
 
     public RetrieveProfilePicAsync(Context context, File file) {
 
@@ -43,8 +45,15 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
         }
         catch(Exception e){
 
+            errorList.add(e);
         }
 
         return "Success";
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+
+
     }
 }

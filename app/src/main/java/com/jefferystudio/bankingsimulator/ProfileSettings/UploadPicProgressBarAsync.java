@@ -10,8 +10,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -71,16 +69,23 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
                     URLEncoder.encode(uploadImage, "UTF-8");
             data += "&" + URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
+
             publishProgress(20);
+
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
+
             publishProgress(40);
+
             connection.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
+
             publishProgress(50);
+
             wr.write(data);
             wr.flush();
             publishProgress(60);
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
             String line = null;
@@ -90,7 +95,9 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
                 sb.append(line);
                 break;
             }
+
             publishProgress(80);
+
             ContextWrapper cw = new ContextWrapper(context);
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
             File file = new File(directory, "ProfilePicture.jpg");
@@ -98,6 +105,7 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.flush();
             fos.close();
+
             publishProgress(100);
         }
         catch(Exception e) {
@@ -146,10 +154,7 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
     @Override
     protected void onPostExecute(String result) {
 
-        for(Exception e : errorList) {
-
-            Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
-        }
+        progDialog.dismiss();
 
         String[] resultArray = result.split(",");
 
