@@ -6,12 +6,14 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.ImageView;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -48,7 +50,7 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
         progDialog.setMessage("Uploading image");
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progDialog.setCancelable(true);
+        progDialog.setCancelable(false);
         progDialog.show();
     }
 
@@ -59,7 +61,11 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
 
         Bitmap bitmap = bitmaps[0];
 
-        String uploadImage = getStringImage(bitmap);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 30, out);
+        Bitmap compressed = BitmapFactory.decodeStream(new ByteArrayInputStream(out.toByteArray()));
+
+        String uploadImage = getStringImage(compressed);
 
         publishProgress(10);
 
@@ -102,7 +108,7 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
             File file = new File(directory, "ProfilePicture.jpg");
             FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            compressed.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
 
@@ -180,7 +186,7 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
         public String getStringImage(Bitmap bmp){
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        bmp.compress(Bitmap.CompressFormat.JPEG, 70, baos);
         byte[] imageBytes = baos.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
         return encodedImage;

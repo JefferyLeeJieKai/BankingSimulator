@@ -25,6 +25,7 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class SignInAsync extends AsyncTask<String, String, String> {
@@ -35,8 +36,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     private TextInputLayout usernameTextBox;
     private TextInputLayout passwordTextBox;
     private String username;
-    private String saveResult;
-    private String link;
+    private ArrayList<Exception> errorList = new ArrayList<Exception>();
 
     public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox) {
 
@@ -52,7 +52,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         progDialog.setMessage("Retrieving Credentials");
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progDialog.setCancelable(true);
+        progDialog.setCancelable(false);
         progDialog.show();
     }
 
@@ -106,6 +106,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         }
 
         String[] resultArray = sb.toString().split(",");
+        String resultPHP = resultArray[0];
 
         if(resultArray[0].equals("True")) {
 
@@ -129,37 +130,53 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
             publishProgress("70");
 
-            ContextWrapper cw = new ContextWrapper(context);
-            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File file = new File(directory, "ProfilePicture.jpg");
-            saveResult = "";
-            link = resultArray[4];
+            if(!resultArray[4].equals("NoImage")) {
 
-            try {
 
-                saveResult = new RetrieveProfilePicAsync(context, file)
-                        .execute(resultArray[4])
-                        .get(40000, TimeUnit.MILLISECONDS);
+                ContextWrapper cw = new ContextWrapper(context);
+                File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+                File file = new File(directory, "ProfilePicture.jpg");
 
+                String catchString = "";
+
+                try {
+
+                    catchString = new RetrieveProfilePicAsync(context, file)
+                            .execute(resultArray[4])
+                            .get();
+
+                    publishProgress("90");
+
+                } catch (Exception e) {
+
+
+                }
+
+                publishProgress("100");
+
+                intent.putExtras(bArgs);
+
+                progDialog.dismiss();
+
+                context.startActivity(intent);
+
+                ((Activity) context).finish();
             }
-            catch (Exception e) {
+            else {
 
+                publishProgress("100");
 
+                intent.putExtras(bArgs);
+
+                progDialog.dismiss();
+
+                context.startActivity(intent);
+
+                ((Activity) context).finish();
             }
-
-            publishProgress("90");
-
-            publishProgress("100");
-
-            intent.putExtras(bArgs);
-
-            progDialog.dismiss();
-
-            context.startActivity(intent);
-            ((Activity) context).finish();
         }
 
-        return resultArray[0];
+        return resultPHP;
     }
 
     protected void onProgressUpdate(String[] args) {
@@ -202,7 +219,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         }
         else if(progress == 90) {
 
-            progDialog.setMessage(link/*"Account info retrieved..."*/);
+            progDialog.setMessage("Account info retrieved");
         }
         else if(progress == 100) {
 
@@ -213,18 +230,20 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
-        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        progDialog.dismiss();
 
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
 
-        if(result.equals("False")){
+        if (result.equals("False")) {
 
             usernameTextBox.setError("Invalid Username or Password");
             passwordTextBox.setError("Invalid Username or Password");
         }
-        else if(result.equals("NotActivated")) {
+        else if (result.equals("NotActivated")) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle("DigiBank Alert");
+
             builder.setMessage("Account is not activated");
 
             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -232,8 +251,8 @@ public class SignInAsync extends AsyncTask<String, String, String> {
                 public void onClick(DialogInterface dialogInterface, int i) {
 
 
-                }
-            });
+                    }
+                });
 
             AlertDialog notActivatedDialog = builder.create();
             notActivatedDialog.show();

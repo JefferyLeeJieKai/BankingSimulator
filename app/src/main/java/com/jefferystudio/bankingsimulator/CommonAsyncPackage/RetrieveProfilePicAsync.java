@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -31,29 +32,28 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
 
         link = args[0];
 
-        try{
 
+        try {
+            
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
+            connection.setConnectTimeout(30000);
+            connection.setReadTimeout(30000);
 
-            bitmap = BitmapFactory.decodeStream(connection.getInputStream());
+            InputStream inputStream = connection.getInputStream();
+            bitmap = BitmapFactory.decodeStream(inputStream);
+            inputStream.close();
 
             FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
-        }
-        catch(Exception e){
 
-            errorList.add(e);
+
+        } catch (Exception e) {
+
         }
 
         return "Success";
-    }
-
-    @Override
-    protected void onPostExecute(String result) {
-
-
     }
 }
