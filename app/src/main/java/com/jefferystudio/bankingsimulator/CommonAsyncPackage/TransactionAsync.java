@@ -297,10 +297,17 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             builder.setMessage(resultArray[1] + " \nDo you want to retry your action?");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
+                //if retry action
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
+                    Fragment currentFragment = homeScreenUserActivity.getSupportFragmentManager().findFragmentById(R.id.frame_layout);
 
+                    //link back to the first withdrawal page
+                    if(flag.equals("WithdrawalUser")) {
+
+                        ((WithdrawalConfirm)currentFragment).recall();
+                    }
                 }
 
             });
