@@ -1,6 +1,5 @@
 package com.jefferystudio.bankingsimulator.ProfileSettings;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -11,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -19,39 +19,33 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-public class UploadProfilePicAsync extends AsyncTask<Bitmap,Void,String> {
+public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String> {
+
 
     private Context context;
-    private ProgressDialog progDialog;
+    private ProgressBar progBar;
     private String userID;
     private ImageView profilepic;
     private Uri imageUri;
     private ArrayList<Exception> errorList = new ArrayList<Exception>();
 
-    public UploadProfilePicAsync(Context context, String userID, ImageView profilepic, Uri imageUri) {
+    public UploadPicProgressBarAsync(Context context, String userID, ImageView profilepic, Uri imageUri, ProgressBar progBar) {
 
         this.context = context;
         this.userID = userID;
         this.profilepic = profilepic;
         this.imageUri = imageUri;
+        this.progBar = progBar;
     }
 
     @Override
     protected void onPreExecute() {
 
-        super.onPreExecute();
-        progDialog = new ProgressDialog(context);
-        progDialog.setMessage("Uploading image...");
-        progDialog.setIndeterminate(false);
-        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progDialog.setCancelable(true);
-        progDialog.show();
     }
 
     @Override
@@ -63,22 +57,24 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,Void,String> {
 
         String uploadImage = getStringImage(bitmap);
 
+        publishProgress(10);
+
         try {
             String link = "http://www.kidzsmart.tk/databaseAccess/uploadProfilePic.php";
             String data = URLEncoder.encode("image", "UTF-8") + "=" +
                     URLEncoder.encode(uploadImage, "UTF-8");
             data += "&" + URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
-
+            publishProgress(20);
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
-
+            publishProgress(40);
             connection.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-
+            publishProgress(50);
             wr.write(data);
             wr.flush();
-
+            publishProgress(60);
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
             String line = null;
@@ -88,7 +84,7 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,Void,String> {
                 sb.append(line);
                 break;
             }
-
+            publishProgress(80);
             ContextWrapper cw = new ContextWrapper(context);
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
             File file = new File(directory, "ProfilePicture.jpg");
@@ -96,6 +92,7 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,Void,String> {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.flush();
             fos.close();
+            publishProgress(100);
         }
         catch(Exception e) {
 
@@ -105,10 +102,18 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,Void,String> {
         return sb.toString();
     }
 
+    protected void onProgressUpdate(Integer[] args) {
+        super.onProgressUpdate(args);
+        progBar.setProgress(args[0]);
+    }
+
     @Override
     protected void onPostExecute(String result) {
 
-        progDialog.dismiss();
+        for(Exception e : errorList) {
+
+            Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
+        }
 
         String[] resultArray = result.split(",");
 
@@ -131,7 +136,7 @@ public class UploadProfilePicAsync extends AsyncTask<Bitmap,Void,String> {
         }
     }
 
-    public String getStringImage(Bitmap bmp){
+        public String getStringImage(Bitmap bmp){
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);

@@ -91,36 +91,9 @@ public class ProfilePage extends AppCompatActivity {
 
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
 
-                result = new UploadProfilePicAsync(context, args.getString("userID")).execute(bitmap).get(10000, TimeUnit.MILLISECONDS);
+                new UploadProfilePicAsync(context, args.getString("userID"), profilepic, imageUri).execute(bitmap);
 
                 //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-                String[] resultArray = result.split(",");
-
-                ContextWrapper cw = new ContextWrapper(context);
-                File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-                File file = new File(directory, "ProfilePicture.jpg");
-                FileOutputStream fos = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-                fos.flush();
-                fos.close();
-
-                if (resultArray[0].equals("Successfully Uploaded")) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("DigiBank Alert");
-                    builder.setMessage("New profile picture successfully uploaded!");
-
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            profilepic.setImageURI(imageUri);
-                        }
-                    });
-
-                    AlertDialog uploadDoneDialog = builder.create();
-                    uploadDoneDialog.show();
-                }
             }
             catch(Exception e) {
 

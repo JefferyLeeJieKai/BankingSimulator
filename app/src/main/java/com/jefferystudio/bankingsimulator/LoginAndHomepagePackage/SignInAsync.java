@@ -113,23 +113,16 @@ public class SignInAsync extends AsyncTask<String, String, String> {
             File file = new File(directory, "ProfilePicture.jpg");
             String saveResult = "";
 
-            if(!file.exists()) {
+            try {
 
-                try {
-
-                    saveResult = new RetrieveProfilePicAsync(context, file)
+                saveResult = new RetrieveProfilePicAsync(context, file)
                             .execute(resultArray[4])
                             .get(5000, TimeUnit.MILLISECONDS);
 
-                }
-                catch (Exception e) {
-
-
-                }
             }
-            else {
+            catch (Exception e) {
 
-                saveResult = "Success";
+
             }
 
             if(saveResult.equals("Success")) {
