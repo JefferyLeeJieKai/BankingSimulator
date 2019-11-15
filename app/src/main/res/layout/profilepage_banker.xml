@@ -96,7 +96,7 @@
         android:id="@+id/line1"
         app:layout_widthPercent="80%"
         android:layout_height="1sp"
-        app:layout_marginTopPercent="4%"
+        app:layout_marginTopPercent="1%"
         android:background="#86888A"
         android:layout_alignLeft="@+id/lblname"
         android:layout_below="@+id/modeEditName"
@@ -116,7 +116,7 @@
 
     <TextView
         android:id="@+id/lblemail"
-        android:text="Name"
+        android:text="Email"
         android:textSize="18dp"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="6%"
@@ -136,7 +136,17 @@
         android:background="@drawable/mode_edit"
         android:backgroundTint="#86888A" />
 
-    <Button
+    <View
+        android:id="@+id/line2"
+        app:layout_widthPercent="80%"
+        android:layout_height="1sp"
+        app:layout_marginTopPercent="1%"
+        android:background="#86888A"
+        android:layout_alignLeft="@+id/lblname"
+        android:layout_below="@+id/modeEditEmail"
+        />
+
+    <!-- <Button
         android:id="@+id/btnback"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
@@ -147,7 +157,7 @@
         android:background="@color/buttonBG"
         android:textColor="@color/buttonWord"
         android:layout_alignLeft="@id/tvEmail"
-        app:layout_marginBottomPercent="10%" />
+        app:layout_marginBottomPercent="10%" /> -->
 
 
 </android.support.percent.PercentRelativeLayout>

@@ -228,7 +228,7 @@
         android:backgroundTint="#86888A" />
 
 
-    <Button
+    <!-- <Button
         android:id="@+id/btnback"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
@@ -239,7 +239,7 @@
         android:background="@color/buttonBG"
         android:textColor="@color/buttonWord"
         android:layout_alignLeft="@id/tvEmail"
-        app:layout_marginBottomPercent="10%" />
+        app:layout_marginBottomPercent="10%" /> -->
 
 
 </android.support.percent.PercentRelativeLayout>

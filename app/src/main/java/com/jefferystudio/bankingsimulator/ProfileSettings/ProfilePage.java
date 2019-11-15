@@ -46,7 +46,6 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
     private Bitmap bitmap;
-    private Button backbutton;
     private TextView getlblname;
     private TextView getlblemail;
     private ImageButton editNamebtn;
@@ -81,7 +80,6 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
         getlblemail = (TextView)findViewById(R.id.lblemail);
         editNamebtn = (ImageButton) findViewById(R.id.modeEditName);
         editEmailbtn = (ImageButton) findViewById(R.id.modeEditEmail);
-        backbutton = (Button) findViewById(R.id.btnback);
 
 
         editNamebtn.setOnClickListener(new View.OnClickListener() {
@@ -100,17 +98,6 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
             }
         });
 
-        backbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle newArgs = new Bundle();
-                newArgs.putString("userID", args.getString("userID"));
-                newArgs.putString("userName", args.getString("userName"));
-                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
-                intent.putExtras(newArgs);
-                startActivity(intent);
-            }
-        });
     }
 
     public void openDialogName(){
@@ -119,8 +106,8 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
     }
 
     public void openDialogEmail(){
-        Dialog dialog = new Dialog();
-        dialog.show(getSupportFragmentManager(), "dialog");
+        DialogEmail dialogemail = new DialogEmail();
+        dialogemail.show(getSupportFragmentManager(), "dialogEmail");
     }
 
     @Override
@@ -130,11 +117,14 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
         getlblname.setText(name);
     }
 
+
     public void applyTextsEmail(String email) {
 
         getlblemail.setTextColor(Color.parseColor("#000000"));
         getlblemail.setText(email);
     }
+    
+
 
     private void openGallery(){
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
