@@ -158,7 +158,7 @@ public class Registration extends AppCompatActivity {
 
         if (username.length() > 15 || !hasAlphanumeric.find()) {
 
-            errorList.add("Please enter a username that is less than 15 characters and contains only alphanumeric values.");
+            errorList.add("Please enter a username less than 16 characters and contains only alphanumeric values.");
         }
 
         if (!name.matches("") && !email.matches("") && !username.matches("") && !password.matches("") && !gender.matches("")
