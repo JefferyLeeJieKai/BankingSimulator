@@ -82,31 +82,12 @@
         android:layout_marginLeft="50dp"
         />
 
-    <TextView
-        android:id="@+id/tvAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About"
-        android:textSize="18dp"
-        android:layout_marginTop="420dp"
-        android:layout_marginLeft="50dp"
-        />
-
     <ImageView
         android:id="@+id/modeEditName"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="320dp"
         android:layout_marginTop="340dp"
-        android:background="@drawable/mode_edit"
-        android:backgroundTint="#86888A" />
-
-    <ImageView
-        android:id="@+id/modeEditAbout"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="450dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#86888A" />
 
@@ -128,14 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="440dp"
-        >
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="314dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="46dp"
-            android:hint="About" />
-    </android.support.design.widget.TextInputLayout>
+        />
 
     <TextView
         android:id="@+id/tvEmail"
