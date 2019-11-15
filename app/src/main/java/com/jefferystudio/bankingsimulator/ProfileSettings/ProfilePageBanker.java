@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 
 
@@ -56,11 +57,24 @@ public class ProfilePageBanker extends AppCompatActivity {
 
         profilebtn = (TextView)findViewById(R.id.editbtn);
         profilepic = (ImageView)findViewById(R.id.profilephoto);
+        backButton = (Button) findViewById(R.id.btnback);
 
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openGallery();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle newArgs = new Bundle();
+                newArgs.putString("userID", args.getString("userID"));
+                newArgs.putString("userName", args.getString("userName"));
+                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
+                intent.putExtras(newArgs);
+                startActivity(intent);
             }
         });
 

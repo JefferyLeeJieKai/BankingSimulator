@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.io.File;
@@ -45,7 +46,7 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
     private static final int PICK_IMAGE = 100;
     private Uri imageUri;
     private Bitmap bitmap;
-    private Button confirmButton;
+    private Button backbutton;
     private TextView getlblname;
     private TextView getlblemail;
     private ImageButton editNamebtn;
@@ -80,6 +81,7 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
         getlblemail = (TextView)findViewById(R.id.lblemail);
         editNamebtn = (ImageButton) findViewById(R.id.modeEditName);
         editEmailbtn = (ImageButton) findViewById(R.id.modeEditEmail);
+        backbutton = (Button) findViewById(R.id.btnback);
 
 
         editNamebtn.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +97,18 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
             public void onClick(View view) {
 
                 openDialogEmail();
+            }
+        });
+
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle newArgs = new Bundle();
+                newArgs.putString("userID", args.getString("userID"));
+                newArgs.putString("userName", args.getString("userName"));
+                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
+                intent.putExtras(newArgs);
+                startActivity(intent);
             }
         });
     }
