@@ -28,24 +28,30 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
 
 
     private Context context;
-    private ProgressBar progBar;
+    private ProgressDialog progDialog;
     private String userID;
     private ImageView profilepic;
     private Uri imageUri;
     private ArrayList<Exception> errorList = new ArrayList<Exception>();
 
-    public UploadPicProgressBarAsync(Context context, String userID, ImageView profilepic, Uri imageUri, ProgressBar progBar) {
+    public UploadPicProgressBarAsync(Context context, String userID, ImageView profilepic, Uri imageUri) {
 
         this.context = context;
         this.userID = userID;
         this.profilepic = profilepic;
         this.imageUri = imageUri;
-        this.progBar = progBar;
     }
 
     @Override
     protected void onPreExecute() {
 
+        super.onPreExecute();
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Uploading image");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progDialog.setCancelable(true);
+        progDialog.show();
     }
 
     @Override
@@ -103,8 +109,38 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
     }
 
     protected void onProgressUpdate(Integer[] args) {
+
         super.onProgressUpdate(args);
-        progBar.setProgress(args[0]);
+        progDialog.setProgress(args[0]);
+
+        if(args[0] == 10) {
+
+            progDialog.setMessage("Retrieving Image...");
+        }
+        else if(args[0] == 20) {
+
+            progDialog.setMessage("Packing Data for transfer...");
+        }
+        else if(args[0] == 40) {
+
+            progDialog.setMessage("Establishing connection...");
+        }
+        else if(args[0] == 50) {
+
+            progDialog.setMessage("Sending data over...");
+        }
+        else if(args[0] == 60) {
+
+            progDialog.setMessage("Waiting for a response...");
+        }
+        else if(args[0] == 80) {
+
+            progDialog.setMessage("Response received...");
+        }
+        else if(args[0] == 100) {
+
+            progDialog.setMessage("Upload completed!");
+        }
     }
 
     @Override
