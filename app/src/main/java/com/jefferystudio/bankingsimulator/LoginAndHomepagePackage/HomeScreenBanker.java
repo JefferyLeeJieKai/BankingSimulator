@@ -121,16 +121,20 @@ public class HomeScreenBanker extends AppCompatActivity {
                     fragment = new ViewClass();
                     fragment.setArguments(args);
                 }
+                /*
                 else if(item.getItemId() == R.id.changePassword) {
 
                     fragment = new ChangePasswordBanker();
                     fragment.setArguments(args);
                 }
+
+                 */
                 else if(item.getItemId() == R.id.createAHAccount) {
 
                     fragment = new account_create_ah1();
                     fragment.setArguments(args);
                 }
+                /*
                 else if(item.getItemId() == R.id.enableFingerprint) {
 
                     SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
@@ -218,12 +222,18 @@ public class HomeScreenBanker extends AppCompatActivity {
                     }
                 }
 
-                if(item.getItemId() != R.id.enableFingerprint) {
+                 */
+
+
+
+                //if(item.getItemId() != R.id.enableFingerprint) {
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.frame_layout, fragment);
                     transaction.commit();
                     drawer.closeDrawer(Gravity.START);
-                }
+              //  }
+
+
 
                 return true;
             }
