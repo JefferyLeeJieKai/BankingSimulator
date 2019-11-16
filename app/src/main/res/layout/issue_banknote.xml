@@ -169,7 +169,7 @@
         app:autoSizeTextType="uniform"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/goalDetailsRv"
+        android:id="@+id/detailsRv"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/issue"
         app:layout_widthPercent="80%"

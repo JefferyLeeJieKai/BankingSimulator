@@ -13,6 +13,8 @@ import com.jefferystudio.bankingsimulator.R;
 
 public class IssueBanknoteFragment extends Fragment {
 
+    private Bundle args;
+    private String userID;
     private EditText twoDollarsInput;
     private EditText fiveDollarsInput;
     private EditText tenDollarsInput;
@@ -24,10 +26,14 @@ public class IssueBanknoteFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.issue_banknote, container, false);
 
+        args = getArguments();
+        userID = args.getString("userID");
+
         twoDollarsInput = view.findViewById(R.id.twodollarinput);
         fiveDollarsInput = view.findViewById(R.id.fivedollarinput);
         tenDollarsInput = view.findViewById(R.id.tendollarinput);
         fiftyDollarsInput = view.findViewById(R.id.fiftydollarinput);
+        issuedNotesView = view.findViewById(R.id.detailsRv);
 
         issueBankNote = view.findViewById(R.id.issue);
         issueBankNote.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +53,7 @@ public class IssueBanknoteFragment extends Fragment {
             }
         });
 
-
+        new RetrieveNotesAsync(getActivity(), userID, "viewBanker", issuedNotesView).execute();
         return view;
     }
 }

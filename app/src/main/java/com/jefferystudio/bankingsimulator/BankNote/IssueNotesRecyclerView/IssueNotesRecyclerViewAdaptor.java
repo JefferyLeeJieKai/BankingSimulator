@@ -1,6 +1,7 @@
+package com.jefferystudio.bankingsimulator.BankNote.IssueNotesRecyclerView;
+
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -10,18 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.BankNote.IssueNotesRecyclerView.Notes;
+import com.jefferystudio.bankingsimulator.BankNote.DeleteNotesAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.DeleteSavingGoalsAsync;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class NotesRecyclerViewAdaptor extends RecyclerView.Adapter<NotesRecyclerViewAdaptor.ViewHolder> {
+public class IssueNotesRecyclerViewAdaptor extends RecyclerView.Adapter<IssueNotesRecyclerViewAdaptor.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -36,32 +35,31 @@ public class NotesRecyclerViewAdaptor extends RecyclerView.Adapter<NotesRecycler
 
             super(itemView);
 
-            issueID = itemView.findViewById(R.id.issueID);
             ahName = itemView.findViewById(R.id.ahUsername);
             dateIssued = itemView.findViewById(R.id.dateIssued);
             totalBalance = itemView.findViewById(R.id.totalbalance);
-            searchButton = itemView.findViewById(R.id.viewSavingGoal);
-            deleteButton = itemView.findViewById(R.id.deleteSavingGoal);
+            searchButton = itemView.findViewById(R.id.viewNotes);
+            deleteButton = itemView.findViewById(R.id.deleteNotes);
         }
     }
 
     private List<Notes> issuedList;
     private Context context;
 
-    public NotesRecyclerViewAdaptor(Context context, List<Notes> issuedList) {
+    public IssueNotesRecyclerViewAdaptor(Context context, List<Notes> issuedList) {
 
         this.issuedList = issuedList;
         this.context = context;
     }
 
     @Override
-    public NotesRecyclerViewAdaptor.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public IssueNotesRecyclerViewAdaptor.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.notes_recycler_row_layout, parent, false);
+        View contactView = inflater.inflate(R.layout.issue_notes_recycler_row_layout, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);
@@ -70,44 +68,40 @@ public class NotesRecyclerViewAdaptor extends RecyclerView.Adapter<NotesRecycler
 
     // Involves populating data into the item through holder
     @Override
-    public void onBindViewHolder(NotesRecyclerViewAdaptor.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(IssueNotesRecyclerViewAdaptor.ViewHolder viewHolder, int position) {
         // Get the data model based on position
         final Notes notesSet = issuedList.get(position);
         final int entryPosition = position;
 
-        // Set item views based on your views and data model
-        TextView textView1 = viewHolder.issueID;
-        textView1.setText(notesSet.getIssueID());
+        TextView textView1 = viewHolder.ahName;
+        textView1.setText(notesSet.getAccountholderUsername());
 
-        TextView textView2 = viewHolder.ahName;
-        textView2.setText(notesSet.getAccountholderUsername());
+        TextView textView2 = viewHolder.dateIssued;
+        textView2.setText(notesSet.getIssuedDate());
 
-        TextView textView3 = viewHolder.dateIssued;
-        textView3.setText(notesSet.getIssuedDate());
-
-        TextView textView4 = viewHolder.totalBalance;
-        textView4.setText(notesSet.getTotalBalance());
+        TextView textView3 = viewHolder.totalBalance;
+        textView3.setText(notesSet.getTotalBalance());
 
         Button button = viewHolder.searchButton;
         button.setText("Edit");
 
         Button searchBtn = viewHolder.searchButton;
 
-        /*searchBtn.setOnClickListener(new View.OnClickListener() {
+        searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Bundle args = new Bundle();
 
 
-                //Fragment viewGoalFrag = new SavingGoalsView();
+                Fragment viewNotesFrag = null;
                 //viewGoalFrag.setArguments(args);
 
                 ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_layout, viewGoalFrag)
+                        .replace(R.id.frame_layout, viewNotesFrag)
                         .commit();
             }
-        });*/
+        });
 
         //delete button
         Button deleteBtn = viewHolder.deleteButton;
@@ -132,7 +126,7 @@ public class NotesRecyclerViewAdaptor extends RecyclerView.Adapter<NotesRecycler
                         String result = "";
 
                         try{
-                            result = new DeleteSavingGoalsAsync(context, notesSet.getIssueID())
+                            result = new DeleteNotesAsync(context, notesSet.getIssueID())
                                     .execute()
                                     .get(5000, TimeUnit.MILLISECONDS);
                         }

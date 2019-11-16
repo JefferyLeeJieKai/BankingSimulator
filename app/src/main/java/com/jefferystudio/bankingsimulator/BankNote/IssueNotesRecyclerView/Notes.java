@@ -16,6 +16,7 @@ public class Notes {
         this.bankerID = bankerID;
         this.accountholderID = accountholderID;
         this.accountholderUsername = accountholderUsername;
+        this.issuedDate = issuedDate;
         this.totalBalance = totalBalance;
     }
 

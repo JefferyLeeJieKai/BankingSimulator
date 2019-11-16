@@ -37,7 +37,7 @@
         />
 
     <Button
-        android:id="@+id/viewSavingGoal"
+        android:id="@+id/viewNotes"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:background="@drawable/ic_search_black_24dp"
@@ -47,7 +47,7 @@
         />
 
     <Button
-        android:id="@+id/deleteSavingGoal"
+        android:id="@+id/deleteNotes"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:background="@drawable/ic_delete_black_24dp"
