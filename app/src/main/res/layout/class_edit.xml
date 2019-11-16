@@ -113,10 +113,11 @@
     //button
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
+        app:layout_widthPercent="66%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="600dp"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginBottomPercent="10%"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/buttonshadow"
         android:text="CANCEL" />
 

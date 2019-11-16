@@ -22,6 +22,7 @@ import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Settings;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.BankerSettings;
 
 public class HomeFragmentBanker extends Fragment {
 
@@ -67,7 +68,7 @@ public class HomeFragmentBanker extends Fragment {
         btnsettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), Settings.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), BankerSettings.class);
                 startActivity(intent);
 
             }

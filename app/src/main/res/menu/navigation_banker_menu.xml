@@ -28,21 +28,24 @@
             android:title="View Class">
         </item>
 
+        <!--
         <item
             android:id="@+id/changePassword"
             android:title="Change password">
         </item>
+        -->
 
         <item
             android:id="@+id/createAHAccount"
             android:title="Create Account">
         </item>
 
+        <!--
         <item
             android:id="@+id/enableFingerprint"
             android:title="Enable/Disable Fingerprint">
         </item>
-
+        -->
     </group>
 
 </menu>

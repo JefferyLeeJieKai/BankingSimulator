@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentRecyclerView.StudentEntry;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentRecyclerView.StudentViewRecyclerViewAdaptor;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Registration.RegistrationFragment;
 import com.jefferystudio.bankingsimulator.Validation;
@@ -31,6 +33,7 @@ public class ViewStudent extends Fragment {
     private String input;
     private RecyclerView studentDetails;
     private Button addStudentButton;
+    private Button backbutton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -64,6 +67,20 @@ public class ViewStudent extends Fragment {
                     classLabel.setText(input);
                     interest.setText("0.2");
                 }
+            }
+        });
+
+        backbutton = view.findViewById(R.id.buttonback);
+
+        backbutton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment viewClass = new ViewClass();
+                viewClass.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, viewClass);
+                transaction.commit();
             }
         });
 

@@ -37,4 +37,15 @@
         android:layout_below="@id/title"
         app:layout_marginTopPercent="10%" />
 
+    <Button
+        android:id="@+id/buttonback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_alignParentBottom="true"
+        app:layout_marginBottomPercent="6%"
+        app:layout_widthPercent="66%"
+        android:background="@drawable/buttonshadow"
+        android:text="BACK" />
+
 </android.support.percent.PercentRelativeLayout>
