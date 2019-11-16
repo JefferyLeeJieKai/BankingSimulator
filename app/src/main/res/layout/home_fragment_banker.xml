@@ -36,7 +36,7 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="191dp"
+                android:layout_width="200dp"
                 android:layout_height="99dp"
                 android:text="Welcome to KidzSmart, Bob"
                 android:textColor="#FFFFFF"
