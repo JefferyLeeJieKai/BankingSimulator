@@ -30,7 +30,7 @@ public class UpdateInterestRateAsync extends AsyncTask<String, String, String> {
 
         try {
 
-            String link = "http://www.kidzsmart.tk/databaseAccess/editInterestRate.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/editInterestRate.php";
             String data = URLEncoder.encode("studentid", "UTF-8") + "=" +
                     URLEncoder.encode(studentID, "UTF-8");
             data += "&" + URLEncoder.encode("interestrate", "UTF-8") + "=" +

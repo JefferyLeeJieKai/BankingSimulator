@@ -63,7 +63,7 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
 
         try{
 
-            String link = "http://www.kidzsmart.tk/databaseAccess/registerUser.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/registerUser.php";
             data = URLEncoder.encode("name", "UTF-8") + "=" +
                     URLEncoder.encode(name, "UTF-8");
             data += "&" + URLEncoder.encode("email", "UTF-8") + "=" +

@@ -64,7 +64,7 @@ public class HomeFragmentUser extends Fragment {
         try {
             ContextWrapper cw = new ContextWrapper(getActivity());
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.jpg");
+            File profilePicFile = new File(directory, "ProfilePicture.png");
             Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
             profilePic.setImageBitmap(picture);
         }

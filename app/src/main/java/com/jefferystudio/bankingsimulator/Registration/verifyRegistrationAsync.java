@@ -38,7 +38,7 @@ public class verifyRegistrationAsync extends AsyncTask <String, String, String> 
 
         try{
 
-            String link = "http://www.kidzsmart.tk/databaseAccess/verifyRegistration.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/verifyRegistration.php";
             data = URLEncoder.encode("username", "UTF-8") + "=" +
                     URLEncoder.encode(username, "UTF-8");
             data += "&" + URLEncoder.encode("email", "UTF-8") + "=" +

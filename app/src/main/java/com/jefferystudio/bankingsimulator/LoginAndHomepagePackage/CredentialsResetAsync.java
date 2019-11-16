@@ -66,7 +66,7 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
 
             try {
 
-                link = "http://www.kidzsmart.tk/databaseAccess/changePassword.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/changePassword.php";
                 data = URLEncoder.encode("userid", "UTF-8") + "=" +
                        URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("oldpassword", "UTF-8") + "=" +
@@ -119,7 +119,7 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
 
             try {
 
-                link = "http://www.kidzsmart.tk/databaseAccess/forgetPassword.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/forgetPassword.php";
                 data = URLEncoder.encode("username", "UTF-8") + "=" +
                         URLEncoder.encode(username, "UTF-8");
                 data += "&" + URLEncoder.encode("email", "UTF-8") + "=" +
@@ -135,7 +135,7 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
 
             try {
 
-                link = "http://www.kidzsmart.tk/databaseAccess/forgetUsername.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/forgetUsername.php";
                 data = URLEncoder.encode("email", "UTF-8") + "=" +
                         URLEncoder.encode(email, "UTF-8");
             }

@@ -36,7 +36,7 @@ public class UpdateStudentListAsync extends AsyncTask<String, String, String>{
 
         try {
 
-            String link = "http://www.kidzsmart.tk/databaseAccess/addStudent.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/addStudent.php";
 
             String data = URLEncoder.encode("bankerid", "UTF-8") + "=" +
                           URLEncoder.encode(bankerID, "UTF-8");

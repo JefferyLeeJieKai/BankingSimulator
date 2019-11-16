@@ -1,0 +1,180 @@
+<android.support.percent.PercentRelativeLayout
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:text="ISSUE BANKNOTES"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="90dp"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
+
+    <TextView
+        android:id="@+id/twodollar"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="5%"
+        android:text="$2"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform" />
+
+    <EditText
+        android:id="@+id/twodollarinput"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/twodollar"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:ems="10"
+        android:hint="No. of notes"
+        android:inputType="textPersonName"
+        android:textColorHint="#66000000"
+        android:textStyle="italic"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"/>
+
+    <TextView
+        android:id="@+id/fivedollar"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/title"
+        android:layout_alignRight="@id/title"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="5%"
+        android:text="$5"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform" />
+
+    <EditText
+        android:id="@+id/fivedollarinput"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/fivedollar"
+        android:layout_alignRight="@id/title"
+        app:layout_marginRightPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:ems="10"
+        android:hint="No. of notes"
+        android:inputType="textPersonName"
+        android:textColorHint="#66000000"
+        android:textStyle="italic"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"/>
+
+    <TextView
+        android:id="@+id/tendollar"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/twodollarinput"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="2%"
+        android:text="$10"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform" />
+
+    <EditText
+        android:id="@+id/tendollarinput"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/tendollar"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:ems="10"
+        android:hint="No. of notes"
+        android:inputType="textPersonName"
+        android:textColorHint="#66000000"
+        android:textStyle="italic"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"/>
+
+    <TextView
+        android:id="@+id/fiftydollar"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/fivedollarinput"
+        android:layout_alignRight="@id/title"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="2%"
+        android:text="$50"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform"/>
+
+    <EditText
+        android:id="@+id/fiftydollarinput"
+        app:layout_widthPercent="35%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/fiftydollar"
+        android:layout_alignRight="@id/title"
+        app:layout_marginRightPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:ems="10"
+        android:hint="No. of notes"
+        android:textColorHint="#66000000"
+        android:textStyle="italic"
+        android:inputType="textPassword"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"/>
+
+    <Button
+        android:id="@+id/issue"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="6%"
+        android:layout_below="@id/tendollarinput"
+        app:layout_marginTopPercent="3%"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_buttons"
+        android:onClick="login"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:padding="8dp"
+        android:text="ISSUE NOTES"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/goalDetailsRv"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/issue"
+        app:layout_widthPercent="80%"
+        app:layout_marginTopPercent="3%"
+        android:layout_height="wrap_content"/>
+
+
+</android.support.percent.PercentRelativeLayout>

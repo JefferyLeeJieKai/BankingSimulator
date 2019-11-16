@@ -41,7 +41,7 @@ public class OTPAsync extends AsyncTask<String, String, String> {
         userID = args[0];
 
         try{
-            String link="http://www.kidzsmart.tk/databaseAccess/emailOTP.php";
+            String link="https://www.kidzsmartapp.com/databaseAccess/emailOTP.php";
             String data  = URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
 

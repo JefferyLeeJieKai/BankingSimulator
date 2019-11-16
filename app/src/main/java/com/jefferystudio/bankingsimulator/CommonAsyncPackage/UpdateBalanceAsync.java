@@ -37,7 +37,7 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
         String userID = args[0];
 
         try{
-            String link="http://www.kidzsmart.tk/databaseAccess/checkBalance.php";
+            String link="https://www.kidzsmartapp.com/databaseAccess/checkBalance.php";
             data  = URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
 

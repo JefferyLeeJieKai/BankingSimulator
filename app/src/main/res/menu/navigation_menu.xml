@@ -38,11 +38,6 @@
             android:title="View Saving Goals">
         </item>
 
-        <item
-            android:id="@+id/addSavingGoalsAmount"
-            android:title="Add Amount To Goal">
-        </item>
-
         <!--<item
             android:id="@+id/changePassword"
             android:title="Change password">

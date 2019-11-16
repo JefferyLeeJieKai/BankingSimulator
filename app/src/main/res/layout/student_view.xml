@@ -96,7 +96,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ahDetailsRv"
-        android:layout_width="340dp"
+        app:layout_widthPercent="90%"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="380dp" />

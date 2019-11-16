@@ -40,7 +40,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
             try {
 
-                link = "http://www.kidzsmart.tk/databaseAccess/editClasses.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/editClasses.php";
                 data = URLEncoder.encode("classid", "UTF-8") + "=" +
                         URLEncoder.encode(classID, "UTF-8");
                 data += "&" + URLEncoder.encode("flag", "UTF-8") + "=" +
@@ -57,7 +57,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
                 String classID = args[0];
 
-                link = "http://www.kidzsmart.tk/databaseAccess/editClasses.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/editClasses.php";
                 data = URLEncoder.encode("classid", "UTF-8") + "=" +
                         URLEncoder.encode(classID, "UTF-8");
                 data += "&" + URLEncoder.encode("flag", "UTF-8") + "=" +
@@ -75,7 +75,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
                 String classID = args[0];
                 String accountholder_ID = args[1];
 
-                link = "http://www.kidzsmart.tk/databaseAccess/editClasses.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/editClasses.php";
                 data = URLEncoder.encode("classid", "UTF-8") + "=" +
                         URLEncoder.encode(classID, "UTF-8");
                 data += "&" + URLEncoder.encode("accountholder_id", "UTF-8") + "=" +

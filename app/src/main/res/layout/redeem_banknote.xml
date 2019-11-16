@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/clouds"
+    android:background="@drawable/slippers"
     >
 
     <TextView
@@ -14,7 +14,7 @@
         app:layout_heightPercent="9%"
         app:layout_marginTopPercent="6%"
         android:layout_centerHorizontal="true"
-        android:text="WITHDRAW FUNDS"
+        android:text="DEPOSIT FUNDS"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"
@@ -26,7 +26,7 @@
 
     //display account holder's profile
     <View
-        android:id="@+id/Rect"
+        android:id="@+id/rect"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="20%"
         app:layout_marginLeftPercent="0%"
@@ -69,59 +69,12 @@
         android:layout_alignRight="@id/textView"
         app:autoSizeTextType="uniform" />
 
-    //get amount
-    <TextView
-        android:id="@+id/amount"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/detailsRv"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/rect"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="6%"
         app:layout_marginTopPercent="3%"
-        android:layout_below="@id/Rect"
-        android:layout_alignLeft="@id/Rect"
-        android:textColor="#000000"
-        android:text="Please enter amount to withdraw below."
-        android:background="@drawable/username_field"
-        app:autoSizeTextType="uniform"/>
-
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/amountTxt"
-        app:layout_widthPercent="80%"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-5dp"
-        android:layout_below="@id/amount"
-        android:layout_alignLeft="@id/amount"
-        android:background="@drawable/password_field">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:hint="Amount" />
-    </android.support.design.widget.TextInputLayout>
-
-    //display button
-    <Button
-        android:id="@+id/backBtn"
-        app:layout_widthPercent="25%"
-        app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="8%"
-        android:layout_below="@id/amountTxt"
-        android:layout_alignLeft="@id/amountTxt"
-        android:background="@color/buttonBG"
-        android:textColor="@color/buttonWord"
-        android:text="Back" />
-
-    <Button
-        android:id="@+id/nextBtn"
-        app:layout_widthPercent="25%"
-        app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="8%"
-        app:layout_marginRightPercent="0%"
-        android:layout_below="@id/amountTxt"
-        android:layout_alignRight="@id/textView"
-        android:background="@color/buttonBG"
-        android:textColor="@color/buttonWord"
-        android:text="Next" />
+        android:layout_height="wrap_content"/>
 
 </android.support.percent.PercentRelativeLayout>

@@ -31,7 +31,7 @@ public class FingerprintAsync extends AsyncTask<String,String,String> {
 
         try {
 
-            String link="http://www.kidzsmart.tk/databaseAccess/handleFingerprint.php";
+            String link="https://www.kidzsmartapp.com/databaseAccess/handleFingerprint.php";
             String data  = URLEncoder.encode("flag", "UTF-8") + "=" +
                     URLEncoder.encode(flag, "UTF-8");
             data += "&" + URLEncoder.encode("userid", "UTF-8") + "=" +

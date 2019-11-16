@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
+    android:background="@drawable/recycler_view_field"
     >
 
     <TextView
@@ -28,8 +29,8 @@
         android:layout_height="20dp"
         android:background="@drawable/ic_search_black_24dp"
         android:backgroundTint="#A9A9A9"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
         />
 
     <Button
@@ -38,8 +39,8 @@
         android:layout_height="20dp"
         android:background="@drawable/mode_edit"
         android:backgroundTint="#A9A9A9"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
         />
 
     <Button
@@ -48,8 +49,8 @@
         android:layout_height="20dp"
         android:background="@drawable/ic_delete_black_24dp"
         android:backgroundTint="#A9A9A9"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
         />
     
 </LinearLayout>
