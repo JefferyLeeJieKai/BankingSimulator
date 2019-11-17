@@ -65,7 +65,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
         StringBuffer sb = new StringBuffer("");
 
-        if(flag.equals("DepositUser") || flag.equals("DepositBanker")) {
+        if(flag.equals("DepositUser") || flag.equals("DepositBanker") || flag.equals("DepositUserRedeem")) {
 
             userID = args[0];
             depositAmount = args[1];

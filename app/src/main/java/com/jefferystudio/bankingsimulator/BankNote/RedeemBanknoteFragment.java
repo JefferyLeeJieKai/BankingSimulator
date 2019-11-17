@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.BankNote.RedeemNotesRecyclerView.RedeemNotesRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.R;
 
@@ -28,7 +29,7 @@ public class RedeemBanknoteFragment extends Fragment {
 
         userName = view.findViewById(R.id.usernameLbl);
         userName.setText(userID);
-        
+
         balance = view.findViewById(R.id.balanceLbl);
         new UpdateBalanceAsync(getActivity(), balance).execute(userID);
 
@@ -37,5 +38,16 @@ public class RedeemBanknoteFragment extends Fragment {
         new RetrieveNotesAsync(getActivity(), userID, "viewAccountHolder", notRedeemedNotes).execute();
 
         return view;
+    }
+
+    public void updateAdaptor (int entryPosition) {
+
+        RedeemNotesRecyclerViewAdaptor adaptor = (RedeemNotesRecyclerViewAdaptor)notRedeemedNotes.getAdapter();
+        adaptor.notifyItemRemoved(entryPosition);
+    }
+
+    public void updateBalance() {
+
+        new UpdateBalanceAsync(getActivity(), balance).execute(userID);
     }
 }

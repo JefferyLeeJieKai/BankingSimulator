@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankNote.DeleteNotesAsync;
 import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
@@ -150,7 +151,7 @@ public class IssueNotesRecyclerViewAdaptor extends RecyclerView.Adapter<IssueNot
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                                    IssueBanknoteFragment currentFrag = (IssueBanknoteFragment) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                    IssueBanknoteFragment currentFrag = (IssueBanknoteFragment) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
                                     currentFrag.updateAdaptor(entryPosition);
                                 }
                             });

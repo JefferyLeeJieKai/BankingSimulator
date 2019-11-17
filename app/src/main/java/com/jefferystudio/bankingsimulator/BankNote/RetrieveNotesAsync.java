@@ -93,13 +93,13 @@ public class RetrieveNotesAsync extends AsyncTask <String, String, String> {
         ArrayList<Notes> issuedList = new ArrayList<>();
 
         String[] resultArray = result.split(",");
-        int numberOfResults = resultArray.length / 7;
+        int numberOfResults = resultArray.length / 6;
 
         for(int i = 0; i < numberOfResults; i++) {
 
-            Notes note = new Notes(resultArray[(i * 7)], resultArray[(i * 7) + 1],
-                                   resultArray[(i * 7) + 2], resultArray[(i * 7) + 3],
-                                   resultArray[(i * 7) + 4], resultArray[(i * 7) + 5]);
+            Notes note = new Notes(resultArray[(i * 6)], resultArray[(i * 6) + 1],
+                                   resultArray[(i * 6) + 2], resultArray[(i * 6) + 3],
+                                   resultArray[(i * 6) + 4], resultArray[(i * 6) + 5]);
 
             issuedList.add(note);
         }

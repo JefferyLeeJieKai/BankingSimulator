@@ -24,7 +24,8 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_marginTop="90dp"
+        android:layout_below="@id/title"
+        app:layout_marginTopPercent="3%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
@@ -45,7 +46,7 @@
     <EditText
         android:id="@+id/ahIDInput"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="5%"
+        app:layout_heightPercent="6%"
         android:layout_below="@id/ahID"
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
@@ -75,7 +76,7 @@
     <EditText
         android:id="@+id/twodollarinput"
         app:layout_widthPercent="35%"
-        app:layout_heightPercent="5%"
+        app:layout_heightPercent="6%"
         android:layout_below="@id/twodollar"
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
@@ -106,7 +107,7 @@
     <EditText
         android:id="@+id/fivedollarinput"
         app:layout_widthPercent="35%"
-        app:layout_heightPercent="5%"
+        app:layout_heightPercent="6%"
         android:layout_below="@id/fivedollar"
         android:layout_alignRight="@id/title"
         app:layout_marginRightPercent="0%"
@@ -137,7 +138,7 @@
     <EditText
         android:id="@+id/tendollarinput"
         app:layout_widthPercent="35%"
-        app:layout_heightPercent="5%"
+        app:layout_heightPercent="6%"
         android:layout_below="@id/tendollar"
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
@@ -168,7 +169,7 @@
     <EditText
         android:id="@+id/fiftydollarinput"
         app:layout_widthPercent="35%"
-        app:layout_heightPercent="5%"
+        app:layout_heightPercent="6%"
         android:layout_below="@id/fiftydollar"
         android:layout_alignRight="@id/title"
         app:layout_marginRightPercent="0%"

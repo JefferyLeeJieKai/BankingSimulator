@@ -36,13 +36,15 @@ public class IssueBanknoteFragment extends Fragment {
 
         args = getArguments();
         userID = args.getString("userID");
+        issuedNotesView = view.findViewById(R.id.detailsRv);
+
+        new RetrieveNotesAsync(getActivity(), userID, "viewBanker", issuedNotesView).execute();
 
         accountholderCredsInput = view.findViewById(R.id.ahIDInput);
         twoDollarsInput = view.findViewById(R.id.twodollarinput);
         fiveDollarsInput = view.findViewById(R.id.fivedollarinput);
         tenDollarsInput = view.findViewById(R.id.tendollarinput);
         fiftyDollarsInput = view.findViewById(R.id.fiftydollarinput);
-        issuedNotesView = view.findViewById(R.id.detailsRv);
 
         issueBankNote = view.findViewById(R.id.issue);
         issueBankNote.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +113,8 @@ public class IssueBanknoteFragment extends Fragment {
                                 fiveDollarsInput.getText().clear();
                                 tenDollarsInput.getText().clear();
                                 fiftyDollarsInput.getText().clear();
+
+                                new RetrieveNotesAsync(getActivity(), userID, "viewBanker", issuedNotesView).execute();
                             }
                         });
 
@@ -118,7 +122,12 @@ public class IssueBanknoteFragment extends Fragment {
 
                             public void onClick(DialogInterface dialogInterface, int i) {
 
+                                Bundle newArgs = new Bundle();
+                                newArgs.putString("userID", args.getString("userID"));
+                                newArgs.putString("userName", args.getString("userName"));
+
                                 Fragment homeFrag = new HomeFragmentBanker();
+                                homeFrag.setArguments(newArgs);
                                 getActivity().getSupportFragmentManager().beginTransaction()
                                         .replace(R.id.frame_layout, homeFrag)
                                         .commit();
@@ -165,7 +174,6 @@ public class IssueBanknoteFragment extends Fragment {
             }
         });
 
-        new RetrieveNotesAsync(getActivity(), userID, "viewBanker", issuedNotesView).execute();
         return view;
     }
 

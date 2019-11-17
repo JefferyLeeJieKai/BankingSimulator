@@ -33,7 +33,6 @@
         android:shadowDx="20"
         android:shadowDy="20"
         android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
         android:text="Redeem"
         android:layout_weight="0.05"
         android:textColor="@color/loginButtonText"/>
