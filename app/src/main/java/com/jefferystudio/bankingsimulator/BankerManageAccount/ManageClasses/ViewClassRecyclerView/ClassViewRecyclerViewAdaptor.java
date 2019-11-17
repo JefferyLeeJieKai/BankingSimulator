@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
@@ -112,7 +113,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                 args.putString("classID", classEntry.getClassID());
                 args.putString("className", classEntry.getClassName());
 
-                Fragment editClass = new SavingGoalsEdit();
+                Fragment editClass = new EditClass();
                 editClass.setArguments(args);
 
                 ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()

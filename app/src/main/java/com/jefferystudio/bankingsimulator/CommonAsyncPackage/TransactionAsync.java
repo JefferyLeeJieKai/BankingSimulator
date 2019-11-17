@@ -206,6 +206,12 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
         if(resultArray[0].equals("True") && (flag.equals("DepositUser") || flag.equals("WithdrawalUser") || flag.equals("TransferFundsUser"))) {
 
+            //call UpdateTransAsync()
+            if(flag.equals("WithdrawalUser")) {
+
+                new UpdateTransAsync(context, "WithdrawFunds").execute(userID, withdrawAmount);
+            }
+
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
             builder.setTitle("DigiBank Alert");

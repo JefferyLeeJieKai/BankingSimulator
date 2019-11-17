@@ -3,6 +3,7 @@
 
     <!-- login screen colors -->
     <color name="loginButton">#00EAFF</color>
+    <color name="greenButton">#08C53D</color>
     <color name="loginButtonText">#FFFFFF</color>
     <color name="loginErrorMessage">#F44336</color>
     <color name="fingerprintBorder">#0178AA</color>

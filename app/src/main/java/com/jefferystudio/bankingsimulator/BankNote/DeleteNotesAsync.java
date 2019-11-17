@@ -11,27 +11,23 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class IssueNotesAsync extends AsyncTask <String, String, String> {
+public class DeleteNotesAsync extends AsyncTask<String, String, String> {
 
     private Context context;
     private ProgressDialog progDialog;
-    private String bankerID;
-    private String accountholderCreds;
-    private String totalBalance;
+    private String issueID;
 
-    public IssueNotesAsync(Context context, String bankerID, String accountholderCreds, String totalBalance) {
+    public DeleteNotesAsync(Context context, String issueID) {
 
         this.context = context;
-        this.bankerID = bankerID;
-        this.accountholderCreds = accountholderCreds;
-        this.totalBalance = totalBalance;
+        this.issueID = issueID;
     }
 
     @Override
     protected void onPreExecute() {
 
         progDialog = new ProgressDialog(context);
-        progDialog.setMessage("Issuing notes...");
+        progDialog.setMessage("Deleting note...");
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setCancelable(false);
@@ -45,13 +41,9 @@ public class IssueNotesAsync extends AsyncTask <String, String, String> {
 
         try {
 
-            String link = "https://www.kidzsmartapp.com/databaseAccess/issueNotes.php";
-            String data = URLEncoder.encode("bankerid", "UTF-8") + "=" +
-                          URLEncoder.encode(bankerID, "UTF-8");
-            data += "&" + URLEncoder.encode("accountholdercreds", "UTF-8") + "=" +
-                    URLEncoder.encode(accountholderCreds, "UTF-8");
-            data += "&" + URLEncoder.encode("totalbalance", "UTF-8") + "=" +
-                    URLEncoder.encode(totalBalance, "UTF-8");
+            String link = "https://www.kidzsmartapp.com/databaseAccess/deleteNotes.php";
+            String data = URLEncoder.encode("issueid", "UTF-8") + "=" +
+                    URLEncoder.encode(issueID, "UTF-8");
 
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
