@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bbb1">
+    android:background="@drawable/beach09">
 
     <TextView
         android:id="@+id/title"
@@ -37,7 +37,7 @@
         android:layout_height="145dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="110dp"
-        android:background="@drawable/emptyrect" />
+        android:background="#CCEEEEEE" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
@@ -161,20 +161,24 @@
 
     <Button
         android:id="@+id/createBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="630dp"
-        android:background="@drawable/buttonshadow"
+        android:textSize="17dp"
+        app:layout_heightPercent="6%"
+        app:layout_marginLeftPercent="60%"
+        app:layout_marginTopPercent="90%"
+        app:layout_widthPercent="25%"
+        android:background="@color/buttonConfirm"
+        android:textColor="@color/buttonWord"
         android:text="Create" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="630dp"
-        android:background="@drawable/buttonshadow"
+        android:textSize="17dp"
+        app:layout_heightPercent="6%"
+        app:layout_marginLeftPercent="15%"
+        app:layout_marginTopPercent="90%"
+        app:layout_widthPercent="25%"
+        android:background="@color/buttonBack"
+        android:textColor="@color/buttonWord"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

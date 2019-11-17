@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wb">
+    android:background="@drawable/beach11">
 
     <TextView
         android:id="@+id/titleofquizhp"
@@ -27,7 +27,8 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_marginTop="90dp"
+        android:layout_below="@id/titleofquizhp"
+        app:layout_marginTopPercent="1%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
@@ -53,11 +54,13 @@
 
     <Button
         android:id="@+id/backbtn"
+        android:background="@color/buttonBack"
+        android:textColor="@color/buttonWord"
+        android:layout_below="@id/titleofquizhp"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="80%"
-        app:layout_marginLeftPercent="20%"
-        android:background="@drawable/buttonshadow"
+        app:layout_marginTopPercent="4%"
+        app:layout_marginLeftPercent="5%"
         android:text="Back" />
 
 </android.support.percent.PercentRelativeLayout>

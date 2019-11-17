@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/crab"
+    android:background="@drawable/beach21"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -17,9 +17,11 @@
 
         <RelativeLayout
             android:id="@+id/relativeLayout1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="32dp"
+            android:background="#CC37474F"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -37,22 +39,20 @@
 
             <TextView
                 android:id="@+id/textView4"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="200dp"
-                android:layout_height="88dp"
+                android:layout_height="90dp"
                 android:elevation="20dp"
                 android:fontFamily="@font/titan_one"
                 android:shadowColor="#666666"
                 android:shadowDx="20"
                 android:shadowDy="20"
                 android:shadowRadius="20"
-                android:text="Welcome to KidzSmart, Bob"
-                android:textColor="#000000"
-                android:textColorHighlight="#0E1010"
-                android:textSize="20sp"
-                app:layout_heightPercent="18%"
-                app:layout_marginLeftPercent="6%"
-                app:layout_marginTopPercent="4%"
-                app:layout_widthPercent="70%" />
+                android:text="Welcome to KidzSmart,"
+                android:textColor="#FFFFFF"
+                app:autoSizeTextType="uniform" />
 
         </RelativeLayout>
 
@@ -70,7 +70,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="@drawable/emptyrect"/>
+                android:background="#CCEEEEEE"/>
 
             <TextView
                 android:layout_width="wrap_content"

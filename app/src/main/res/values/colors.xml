@@ -10,6 +10,8 @@
 
     <!-- button color -->
     <color name="buttonBG">#20ACF8</color>
+    <color name="buttonBack">#F82040</color>
+    \<color name="buttonConfirm">#31AC23</color>
     <color name="buttonWord">#FFFFFF</color>
 
     <!--font color -->
