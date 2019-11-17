@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
@@ -123,6 +124,11 @@ public class HomeScreenUser extends AppCompatActivity {
                 else if(item.getItemId() == R.id.viewSavingGoals) {
 
                     fragment = new SavingGoalsAll();
+                    fragment.setArguments(args);
+                }
+                else if(item.getItemId() == R.id.redeemBanknote) {
+
+                    fragment = new RedeemBanknoteFragment();
                     fragment.setArguments(args);
                 }
 

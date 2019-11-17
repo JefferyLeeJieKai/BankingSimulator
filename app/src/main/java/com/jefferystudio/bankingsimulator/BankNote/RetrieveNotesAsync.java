@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.BankNote.IssueNotesRecyclerView.IssueNotesRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.BankNote.IssueNotesRecyclerView.Notes;
@@ -52,7 +53,7 @@ public class RetrieveNotesAsync extends AsyncTask <String, String, String> {
 
         try {
 
-            String link = "https://www.kidzsmartapp.com/databaseAccess/viewNotes.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/getNotes.php";
             String data = URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
             data += "&" + URLEncoder.encode("flag", "UTF-8") + "=" +
@@ -88,17 +89,17 @@ public class RetrieveNotesAsync extends AsyncTask <String, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         ArrayList<Notes> issuedList = new ArrayList<>();
 
         String[] resultArray = result.split(",");
-        int numberOfResults = resultArray.length / 6;
+        int numberOfResults = resultArray.length / 7;
 
         for(int i = 0; i < numberOfResults; i++) {
 
-            Notes note = new Notes(resultArray[(i * 6)], resultArray[(i * 6) + 1],
-                                   resultArray[(i * 6) + 2], resultArray[(i * 6) + 3],
-                                   resultArray[(i * 6) + 4], resultArray[(i * 6) + 5]);
+            Notes note = new Notes(resultArray[(i * 7)], resultArray[(i * 7) + 1],
+                                   resultArray[(i * 7) + 2], resultArray[(i * 7) + 3],
+                                   resultArray[(i * 7) + 4], resultArray[(i * 7) + 5]);
 
             issuedList.add(note);
         }

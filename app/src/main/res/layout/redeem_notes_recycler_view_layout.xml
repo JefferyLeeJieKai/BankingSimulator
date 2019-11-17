@@ -23,6 +23,22 @@
         />
 
     <Button
+        android:id="@+id/redeemNotes"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:background="@drawable/round_button_green"
+        android:onClick="login"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:text="Redeem"
+        android:layout_weight="0.05"
+        android:textColor="@color/loginButtonText"/>
+
+    <Button
         android:id="@+id/viewNotes"
         android:layout_width="20dp"
         android:layout_height="20dp"

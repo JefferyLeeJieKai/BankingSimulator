@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
@@ -119,6 +120,11 @@ public class HomeScreenBanker extends AppCompatActivity {
                 else if(item.getItemId() == R.id.viewclass) {
 
                     fragment = new ViewClass();
+                    fragment.setArguments(args);
+                }
+                else if(item.getItemId() == R.id.issueBanknote) {
+
+                    fragment = new IssueBanknoteFragment();
                     fragment.setArguments(args);
                 }
                 /*

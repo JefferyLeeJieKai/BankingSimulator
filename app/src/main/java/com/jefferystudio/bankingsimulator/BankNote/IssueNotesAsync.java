@@ -16,17 +16,14 @@ public class IssueNotesAsync extends AsyncTask <String, String, String> {
     private Context context;
     private ProgressDialog progDialog;
     private String bankerID;
-    private String accountholderID;
-    private String accountholderUsername;
+    private String accountholderCreds;
     private String totalBalance;
 
-    public IssueNotesAsync(Context context, String bankerID, String accountholderID, String accountholderUsername,
-                           String totalBalance) {
+    public IssueNotesAsync(Context context, String bankerID, String accountholderCreds, String totalBalance) {
 
         this.context = context;
         this.bankerID = bankerID;
-        this.accountholderID = accountholderID;
-        this.accountholderUsername = accountholderUsername;
+        this.accountholderCreds = accountholderCreds;
         this.totalBalance = totalBalance;
     }
 
@@ -51,10 +48,8 @@ public class IssueNotesAsync extends AsyncTask <String, String, String> {
             String link = "https://www.kidzsmartapp.com/databaseAccess/issueNotes.php";
             String data = URLEncoder.encode("bankerid", "UTF-8") + "=" +
                           URLEncoder.encode(bankerID, "UTF-8");
-            data += "&" + URLEncoder.encode("accountholderid", "UTF-8") + "=" +
-                    URLEncoder.encode(accountholderID, "UTF-8");
-            data += "&" + URLEncoder.encode("accountholderusername", "UTF-8") + "=" +
-                    URLEncoder.encode(accountholderUsername, "UTF-8");
+            data += "&" + URLEncoder.encode("accountholdercreds", "UTF-8") + "=" +
+                    URLEncoder.encode(accountholderCreds, "UTF-8");
             data += "&" + URLEncoder.encode("totalbalance", "UTF-8") + "=" +
                     URLEncoder.encode(totalBalance, "UTF-8");
 

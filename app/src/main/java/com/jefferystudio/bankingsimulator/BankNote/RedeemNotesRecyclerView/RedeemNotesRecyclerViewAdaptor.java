@@ -12,25 +12,23 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.BankNote.DeleteNotesAsync;
 import com.jefferystudio.bankingsimulator.BankNote.IssueNotesRecyclerView.Notes;
+import com.jefferystudio.bankingsimulator.BankNote.RedeemNoteAsync;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class RedeemNotesRecyclerViewAdaptor extends RecyclerView.Adapter<RedeemNotesRecyclerViewAdaptor.ViewHolder> {
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView issueID;
-    public TextView ahName;
     public TextView dateIssued;
     public TextView totalBalance;
     public Button searchButton;
-    public Button deleteButton;
+    public Button redeemButton;
 
     public ViewHolder(View itemView) {
 
@@ -39,6 +37,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         dateIssued = itemView.findViewById(R.id.dateIssued);
         totalBalance = itemView.findViewById(R.id.totalbalance);
         searchButton = itemView.findViewById(R.id.viewNotes);
+        redeemButton = itemView.findViewById(R.id.redeemNotes);
     }
 }
 
@@ -82,7 +81,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         button.setText("Edit");
 
         Button searchBtn = viewHolder.searchButton;
-
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +94,22 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                 ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, viewNotesFrag)
                         .commit();
+            }
+        });
+
+        Button redeemButton = viewHolder.redeemButton;
+        redeemButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+
+                new RedeemNoteAsync(context, notesSet.getIssueID(), notesSet.getbankerID(), notesSet.getAccountholderID())
+                    .execute();
+
+                new TransactionAsync(context,"DepositUser", notesSet.getAccountholderUsername())
+                        .execute(notesSet.getAccountholderID(), notesSet.getTotalBalance());
+
+                new UpdateTransAsync(context, "DepositFunds")
+                        .execute(notesSet.getAccountholderID(), notesSet.getTotalBalance());
             }
         });
     }

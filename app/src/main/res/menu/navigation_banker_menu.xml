@@ -34,6 +34,10 @@
             android:title="Change password">
         </item>
         -->
+        <item
+            android:id="@+id/issueBanknote"
+            android:title="Issue Banknotes">
+        </item>
 
         <item
             android:id="@+id/createAHAccount"

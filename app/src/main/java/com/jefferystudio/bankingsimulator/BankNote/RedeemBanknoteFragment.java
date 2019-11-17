@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.R;
 
 public class RedeemBanknoteFragment extends Fragment {
@@ -26,7 +27,11 @@ public class RedeemBanknoteFragment extends Fragment {
         userID = args.getString("userID");
 
         userName = view.findViewById(R.id.usernameLbl);
+        userName.setText(userID);
+        
         balance = view.findViewById(R.id.balanceLbl);
+        new UpdateBalanceAsync(getActivity(), balance).execute(userID);
+
         notRedeemedNotes = view.findViewById(R.id.detailsRv);
 
         new RetrieveNotesAsync(getActivity(), userID, "viewAccountHolder", notRedeemedNotes).execute();

@@ -54,4 +54,17 @@ public class Validation {
 
         return result;
     }
+
+    public static boolean validateEmptyNonTextInputLayout(String input)
+    {
+        boolean result = true;
+
+        //if empty
+        if (input.isEmpty()) {
+
+            result = false;
+        }
+
+        return result;
+    }
 }
