@@ -91,7 +91,6 @@
         app:layout_widthPercent="80%"
         app:layout_heightPercent="8%"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="73dp"
         android:text="Back"
         android:textSize="22sp"
         android:background="@color/buttonBG"

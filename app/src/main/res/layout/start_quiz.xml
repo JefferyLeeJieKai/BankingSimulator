@@ -15,7 +15,7 @@
         android:textSize="36dp"
         android:gravity="center"
         app:layout_heightPercent="8%"
-        app:layout_marginLeftPercent="15%"
+        android:layout_centerHorizontal="true"
         app:layout_marginTopPercent="45%"
         app:layout_widthPercent="70%"
         app:autoSizeTextType="uniform" />
@@ -37,11 +37,12 @@
         android:id="@+id/button_start_quiz"
         android:layout_below="@id/CurrScore"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/buttonshadow"
+        android:background="@color/buttonBG"
+        android:textColor="@color/buttonWord"
         android:text="Start Quiz"
         app:layout_heightPercent="6%"
         app:layout_marginTopPercent="3%"
-        app:layout_widthPercent="27%"
+        app:layout_widthPercent="70%"
         app:autoSizeTextType="uniform" />
 
     <ImageView

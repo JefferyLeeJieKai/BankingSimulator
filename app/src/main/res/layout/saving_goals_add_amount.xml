@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sun">
+    android:background="@drawable/beach10">
 
     <TextView
         android:id="@+id/title"
@@ -32,7 +32,7 @@
     //display account holder's profile
 
     <View
-        android:background="@drawable/emptyrect"
+        android:background="#CCEEEEEE"
         app:layout_heightPercent="15%"
         app:layout_marginLeftPercent="8%"
         app:layout_marginTopPercent="15%"
@@ -216,21 +216,23 @@
 
     <Button
         android:id="@+id/confirmBtn"
-        android:background="@drawable/buttonshadow"
+        android:background="@color/buttonConfirm"
+        android:textColor="@color/buttonWord"
         android:text="Confirm"
-        app:autoSizeTextType="uniform"
+        android:textSize="17dp"
         app:layout_heightPercent="6%"
-        app:layout_marginLeftPercent="15%"
+        app:layout_marginLeftPercent="60%"
         app:layout_marginTopPercent="90%"
-        app:layout_widthPercent="25%" />
+        app:layout_widthPercent="25%"/>
 
     <Button
         android:id="@+id/cancelBtn"
-        android:background="@drawable/buttonshadow"
+        android:background="@color/buttonBack"
+        android:textColor="@color/buttonWord"
         android:text="Cancel"
-        app:autoSizeTextType="uniform"
+        android:textSize="17dp"
         app:layout_heightPercent="6%"
-        app:layout_marginLeftPercent="60%"
+        app:layout_marginLeftPercent="15%"
         app:layout_marginTopPercent="90%"
         app:layout_widthPercent="25%" />
 
