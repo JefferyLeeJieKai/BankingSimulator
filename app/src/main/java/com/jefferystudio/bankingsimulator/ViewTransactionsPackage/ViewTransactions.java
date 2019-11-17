@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.R;
 
 public class ViewTransactions extends Fragment {
@@ -31,13 +32,16 @@ public class ViewTransactions extends Fragment {
 
         userName = view.findViewById(R.id.usernameLbl);
         balance = view.findViewById(R.id.balanceLbl);
+
+        new UpdateBalanceAsync(getActivity(), balance).execute(currentUserID);
+
         recyclerView = view.findViewById(R.id.transactionsDetailsRv);
 
         recyclerView = view.findViewById(R.id.transactionsDetailsRv);
         new RetrieveTransactionsAsync(getActivity(), recyclerView).execute(currentUserID, currentUserName, currentBalance);
 
         userName.setText(currentUserName);
-        balance.setText(currentBalance);
+        //balance.setText(currentBalance);
 
         return view;
     }
