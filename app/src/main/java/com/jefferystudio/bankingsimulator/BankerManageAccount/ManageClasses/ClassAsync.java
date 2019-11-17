@@ -68,7 +68,7 @@ public class ClassAsync extends AsyncTask<String, String, String> {
             showDialog = true;
 
             try {
-                link = "http://www.kidzsmart.tk/databaseAccess/addClass.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/addClass.php";
                 data = URLEncoder.encode("userid", "UTF-8") + "=" +
                         URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("username", "UTF-8") + "=" +
@@ -83,7 +83,7 @@ public class ClassAsync extends AsyncTask<String, String, String> {
         else if(flag.equals("ViewClass")) {
 
             try {
-                link = "http://www.kidzsmart.tk/databaseAccess/viewClass.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/getClass.php";
                 data = URLEncoder.encode("userid", "UTF-8") + "=" +
                         URLEncoder.encode(userID, "UTF-8");
             }
@@ -95,7 +95,7 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
             try {
 
-                link = "http://www.kidzsmart.tk/databaseAccess/viewStudent.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/getStudent.php";
                 data = URLEncoder.encode("classid", "UTF-8") + "=" +
                         URLEncoder.encode(classID, "UTF-8");
             }

@@ -61,7 +61,7 @@ public class SettingsGoalsAsync extends AsyncTask<String, String, String> {
             goalPriority = args[4];
 
             try {
-                link = "http://www.kidzsmart.tk/databaseAccess/saveGoal.php";
+                link = "https://www.kidzsmartapp.com/databaseAccess/saveGoal.php";
                 data = URLEncoder.encode("userid", "UTF-8") + "=" +
                        URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("savinggoalname", "UTF-8") + "=" +

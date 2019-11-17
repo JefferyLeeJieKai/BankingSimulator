@@ -37,7 +37,7 @@ public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
 
         try {
 
-            String link = "http://www.kidzsmart.tk/databaseAccess/checkOwnership.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/checkOwnership.php";
             String data = URLEncoder.encode("accountholder", "UTF-8") + "=" +
                     URLEncoder.encode(input, "UTF-8");
             data += "&" + URLEncoder.encode("bankerid", "UTF-8") + "=" +

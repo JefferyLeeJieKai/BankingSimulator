@@ -76,7 +76,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             }
 
             try{
-                String link="http://www.kidzsmart.tk/databaseAccess/depositUser.php";
+                String link="https://www.kidzsmartapp.com/databaseAccess/depositUser.php";
                 data  = URLEncoder.encode("userid", "UTF-8") + "=" +
                         URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("mydeposit", "UTF-8") + "=" +
@@ -112,7 +112,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             withdrawAmount = args[1];
 
             try{
-                String link="http://www.kidzsmart.tk/databaseAccess/withdrawalUser.php";
+                String link="https://www.kidzsmartapp.com/databaseAccess/withdrawalUser.php";
                 data  = URLEncoder.encode("userid", "UTF-8") + "=" +
                         URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("mywithdrawal", "UTF-8") + "=" +
@@ -149,7 +149,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             withdrawAmount = args[2];
 
             try {
-                String link = "http://www.kidzsmart.tk/databaseAccess/transferfundsUser.php";
+                String link = "https://www.kidzsmartapp.com/databaseAccess/transferfundsUser.php";
                 data = URLEncoder.encode("payeruserid", "UTF-8") + "=" +
                         URLEncoder.encode(userID, "UTF-8");
                 data += "&" + URLEncoder.encode("payee", "UTF-8") + "=" +
@@ -205,6 +205,12 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
         String[] resultArray = result.split(",");
 
         if(resultArray[0].equals("True") && (flag.equals("DepositUser") || flag.equals("WithdrawalUser") || flag.equals("TransferFundsUser"))) {
+
+            //call UpdateTransAsync()
+            if(flag.equals("WithdrawalUser")) {
+
+                new UpdateTransAsync(context, "WithdrawFunds").execute(userID, withdrawAmount);
+            }
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -297,10 +303,17 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             builder.setMessage(resultArray[1] + " \nDo you want to retry your action?");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
+                //if retry action
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
+                    Fragment currentFragment = homeScreenUserActivity.getSupportFragmentManager().findFragmentById(R.id.frame_layout);
 
+                    //link back to the first withdrawal page
+                    if(flag.equals("WithdrawalUser")) {
+
+                        ((WithdrawalConfirm)currentFragment).recall();
+                    }
                 }
 
             });

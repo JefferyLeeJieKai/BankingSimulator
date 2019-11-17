@@ -30,6 +30,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginLeft="115dp"
         android:backgroundTint="#D3D3D3"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="0dp"
@@ -42,9 +43,10 @@
         android:layout_height="wrap_content"
         android:text="Edit Photo"
         android:contextClickable="true"
+        android:layout_below="@+id/profilephoto"
         android:textSize="25dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginLeft="150dp"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"
@@ -228,7 +230,7 @@
         android:backgroundTint="#86888A" />
 
 
-    <Button
+    <!-- <Button
         android:id="@+id/btnback"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
@@ -239,7 +241,7 @@
         android:background="@color/buttonBG"
         android:textColor="@color/buttonWord"
         android:layout_alignLeft="@id/tvEmail"
-        app:layout_marginBottomPercent="10%" />
+        app:layout_marginBottomPercent="10%" /> -->
 
 
 </android.support.percent.PercentRelativeLayout>

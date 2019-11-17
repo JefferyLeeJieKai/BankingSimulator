@@ -32,7 +32,7 @@ public class GetNoStudentsAsync extends AsyncTask<String, String, String> {
 
         try {
 
-            String link = "http://www.kidzsmart.tk/databaseAccess/getNoOfStudents.php";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/getNoOfStudents.php";
             String data = URLEncoder.encode("classid", "UTF-8") + "=" +
                           URLEncoder.encode(classID, "UTF-8");
 

@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
@@ -121,16 +122,25 @@ public class HomeScreenBanker extends AppCompatActivity {
                     fragment = new ViewClass();
                     fragment.setArguments(args);
                 }
+                else if(item.getItemId() == R.id.issueBanknote) {
+
+                    fragment = new IssueBanknoteFragment();
+                    fragment.setArguments(args);
+                }
+                /*
                 else if(item.getItemId() == R.id.changePassword) {
 
                     fragment = new ChangePasswordBanker();
                     fragment.setArguments(args);
                 }
+
+                 */
                 else if(item.getItemId() == R.id.createAHAccount) {
 
                     fragment = new account_create_ah1();
                     fragment.setArguments(args);
                 }
+                /*
                 else if(item.getItemId() == R.id.enableFingerprint) {
 
                     SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
@@ -218,12 +228,18 @@ public class HomeScreenBanker extends AppCompatActivity {
                     }
                 }
 
-                if(item.getItemId() != R.id.enableFingerprint) {
+                 */
+
+
+
+                //if(item.getItemId() != R.id.enableFingerprint) {
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.frame_layout, fragment);
                     transaction.commit();
                     drawer.closeDrawer(Gravity.START);
-                }
+              //  }
+
+
 
                 return true;
             }

@@ -64,7 +64,7 @@ public class HomeFragmentUser extends Fragment {
         try {
             ContextWrapper cw = new ContextWrapper(getActivity());
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.jpg");
+            File profilePicFile = new File(directory, "ProfilePicture.png");
             Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
             profilePic.setImageBitmap(picture);
         }
@@ -73,7 +73,7 @@ public class HomeFragmentUser extends Fragment {
         }
 
         greetingsMsg = view.findViewById(R.id.textView4);
-        greetingsMsg.setText("Welcome to KidzSmart, " + args.getString("userName"));
+        greetingsMsg.setText("Welcome to KidzSmart,\n" + args.getString("userName"));
 
         btnsavings = view.findViewById(R.id.savings);
         btntransfer = view.findViewById(R.id.transferfunds);

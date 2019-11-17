@@ -31,10 +31,21 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/classDetailsRv"
-        app:layout_widthPercent="70%"
+        app:layout_widthPercent="90%"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
-        android:layout_alignLeft="@id/margin"
         app:layout_marginTopPercent="10%" />
+
+    <Button
+        android:id="@+id/buttonback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_alignParentBottom="true"
+        app:layout_marginBottomPercent="6%"
+        app:layout_widthPercent="66%"
+        android:background="@drawable/buttonshadow"
+        android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>
