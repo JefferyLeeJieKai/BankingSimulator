@@ -21,6 +21,7 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintAsy
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Settings;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
 import com.jefferystudio.bankingsimulator.goalspage;
 
@@ -32,6 +33,7 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
     private Switch switchbtn;
     private Button backbtn;
     private Button btnchange;
+    private Button datetimebtn;
     private Bundle args;
 
     @Override
@@ -44,6 +46,7 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
         switchbtn = (Switch)findViewById(R.id.switch1);
         backbtn = (Button) findViewById(R.id.btnback);
         btnchange = (Button) findViewById(R.id.changepass);
+        datetimebtn = (Button) findViewById(R.id.btndatetime);
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +57,15 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
                 newArgs.putString("userName", args.getString("userName"));
                 Intent intent = new Intent(getApplicationContext(), HomeScreenBanker.class);
                 intent.putExtras(newArgs);
+                startActivity(intent);
+            }
+        });
+
+        datetimebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), Settings.class);
                 startActivity(intent);
             }
         });
