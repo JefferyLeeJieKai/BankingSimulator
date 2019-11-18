@@ -195,20 +195,22 @@
 
     <Button
         android:id="@+id/confirmBtn"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttongreen"
+        android:layout_alignParentBottom="true"
         android:text="CONFIRM"
+        android:layout_alignRight="@id/title"
         app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="20%"
-        app:layout_marginTopPercent="88%"
+        app:layout_marginBottomPercent="7%"
         app:layout_widthPercent="25%" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttonred"
+        android:layout_alignLeft="@id/title"
+        android:layout_alignParentBottom="true"
         android:text="CANCEL"
         app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="60%"
-        app:layout_marginTopPercent="88%"
+        app:layout_marginBottomPercent="7%"
         app:layout_widthPercent="25%" />
 
 </android.support.percent.PercentRelativeLayout>
