@@ -8,14 +8,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -28,19 +31,24 @@ public class SavingGoalsEdit extends Fragment {
     private String currentGoalName;
     private String currentCost;
     private String currentDeadline;
+    private String currentPriority;
     private TextView username;
     private TextView balance;
     private TextView goalName;
     private TextView cost;
     private TextView deadline;
+    private TextView priority;
     private EditText editGoalName;
     private EditText editCost;
     private EditText editDeadline;
+    private Spinner editPriority;
     private Button saveForGoal;
     private Button editGoalNameButton;
     private Button editItemCostButton;
     private Button editDeadlineButton;
+    private Button editPriorityButton;
     private Button cancelButton;
+    private ArrayList<String> priorityList;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -54,15 +62,37 @@ public class SavingGoalsEdit extends Fragment {
         currentGoalName = args.getString("goalName");
         currentCost = args.getString("itemCost");
         currentDeadline = args.getString("deadLine");
-
-        username = view.findViewById(R.id.usernameLbl);
-        balance = view.findViewById(R.id.balanceLbl);
+        currentPriority = args.getString("priority");
 
         goalName = view.findViewById(R.id.goal);
         cost = view.findViewById(R.id.itemvalue);
         deadline = view.findViewById(R.id.deadline);
+        priority = view.findViewById(R.id.priority);
         editGoalName = view.findViewById(R.id.goalinput);
         editCost = view.findViewById(R.id.itemvalueinput);
+
+        editPriority = view.findViewById(R.id.priorityinput);
+        priorityList = new ArrayList<>();
+        for(int i = 5; i >= 1; i--) {
+
+            if(i == 5) {
+
+                String entry = i + " (Highest priority)";
+                priorityList.add(entry);
+            }
+            else if(i == 1) {
+
+                String entry = i + " (Lowest priority)";
+                priorityList.add(entry);
+            }
+            else {
+
+                priorityList.add(String.valueOf(i));
+            }
+        }
+        ArrayAdapter<String> priorityAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, priorityList);
+        priorityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        editPriority.setAdapter(priorityAdapter);
 
         editDeadline = view.findViewById(R.id.deadlineinput);
         Calendar cal = Calendar.getInstance();
@@ -87,11 +117,10 @@ public class SavingGoalsEdit extends Fragment {
             }
         });
 
-        username.setText(currentUsername);
-        balance.setText(currentBalance);
         goalName.setText("Current goal name is: " + currentGoalName);
         cost.setText("Current saving goal is: $" + currentCost);
         deadline.setText("Current deadline is: " + currentDeadline);
+        priority.setText("Current priority is: " + currentPriority);
 
         saveForGoal = view.findViewById(R.id.savemoney);
         saveForGoal.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +209,15 @@ public class SavingGoalsEdit extends Fragment {
             }
         });
 
+        editPriorityButton = view.findViewById(R.id.editPriorityBtn);
+        editPriorityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                    String input = String.valueOf(editPriority.getSelectedItem());
+                    displayConfirmationDialog(input.substring(0, 1), "UpdatePriority");
+            }
+        });
 
         cancelButton = view.findViewById(R.id.cancelBtn);
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -232,6 +270,10 @@ public class SavingGoalsEdit extends Fragment {
 
             builder.setMessage("Do you want to update deadline to: " + input);
         }
+        else if(flag.equals("UpdatePriority")) {
+
+            builder.setMessage("Do you want to update priority to: " + input);
+        }
 
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -275,6 +317,10 @@ public class SavingGoalsEdit extends Fragment {
 
                                 deadline.setText("Current deadline is: " + input);
                                 editDeadline.getText().clear();
+                            }
+                            else if(flag.equals("UpdatePriority")) {
+
+                                priority.setText("Current priority is: " + input);
                             }
                         }
                     });

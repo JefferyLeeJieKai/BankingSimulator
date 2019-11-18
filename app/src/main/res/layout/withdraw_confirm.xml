@@ -157,7 +157,7 @@
         app:layout_marginLeftPercent="12%"
         app:layout_marginBottomPercent="5%"
         android:layout_alignParentBottom="true"
-        android:background="@color/buttonBG"
+        android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:text="Cancel" />
 
@@ -169,7 +169,7 @@
         android:layout_alignParentBottom="true"
         app:layout_marginRightPercent="12%"
         app:layout_marginBottomPercent="5%"
-        android:background="@color/buttonBG"
+        android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:text="Confirm" />
 

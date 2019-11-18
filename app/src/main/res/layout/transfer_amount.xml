@@ -199,7 +199,7 @@
 
     <Button
         android:id="@+id/nextBtn"
-        android:background="@color/buttonBG"
+        android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:layout_centerHorizontal="true"
         app:layout_heightPercent="7%"

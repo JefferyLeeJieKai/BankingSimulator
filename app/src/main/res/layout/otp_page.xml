@@ -45,9 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
-        android:fontFamily="@font/titan_one"
         android:text="Confirm"
-        android:textSize="20dp"
+        android:autoSizeTextType="uniform"
         android:background="@drawable/buttonshadow"
         app:layout_marginTopPercent="36%"/>
 

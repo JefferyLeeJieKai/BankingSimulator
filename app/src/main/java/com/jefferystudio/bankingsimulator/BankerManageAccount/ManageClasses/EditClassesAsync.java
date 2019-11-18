@@ -51,6 +51,26 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
             }
         }
+        else if(flag.equals("EditClassName")) {
+
+            String classID = args[0];
+            String toChange = args[1];
+
+            try {
+
+                link = "https://www.kidzsmartapp.com/databaseAccess/editClasses.php";
+                data = URLEncoder.encode("classid", "UTF-8") + "=" +
+                        URLEncoder.encode(classID, "UTF-8");
+                data += "&" + URLEncoder.encode("tochange", "UTF-8") + "=" +
+                        URLEncoder.encode(toChange, "UTF-8");
+                data += "&" + URLEncoder.encode("flag", "UTF-8") + "=" +
+                        URLEncoder.encode(flag, "UTF-8");
+            }
+            catch(Exception e) {
+
+
+            }
+        }
         else if(flag.equals("DeleteAllStudents")) {
 
             try {
