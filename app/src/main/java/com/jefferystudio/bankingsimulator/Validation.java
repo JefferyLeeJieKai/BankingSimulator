@@ -67,4 +67,31 @@ public class Validation {
 
         return result;
     }
+
+    public static boolean validateAmountNonTextInputLayout(String input) {
+
+        boolean result = true;
+
+        String regExp = "^-?[0-9]+([.][0-9]{1,2})?";
+
+        Pattern p = Pattern.compile(regExp);
+        Matcher m = p.matcher(input);
+
+        //if non-numeric values found
+        if (!m.matches()) {
+            result = false;
+        }
+        //if numeric values only
+        else {
+            //convert to float
+            float amount = Float.valueOf(input);
+
+            //if amount is negative or more than 10000
+            if (amount <= 0 || amount > 10000) {
+                result = false;
+            }
+        }
+
+        return result;
+    }
 }

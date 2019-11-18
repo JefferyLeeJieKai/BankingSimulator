@@ -145,8 +145,8 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/startquiz"
-                android:src="@drawable/startquiz"
+                android:id="@+id/addamount"
+                android:src="@drawable/addammountgoal"
                 android:scaleType="fitCenter"
                 android:background="@null"
                 android:layout_width="80dp"
