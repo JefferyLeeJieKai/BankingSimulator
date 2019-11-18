@@ -9,8 +9,8 @@
     <TextView
         android:id="@+id/title"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="9%"
-        app:layout_marginTopPercent="2%"
+        app:layout_heightPercent="12%"
+        app:layout_marginTopPercent="3%"
         android:layout_centerHorizontal="true"
         android:text="Edit Class"
         android:elevation="20dp"
@@ -20,52 +20,27 @@
         android:fontFamily="@font/titan_one"
         android:shadowRadius="20"
         android:textColor="#000000"
-        app:autoSizeTextType="uniform"/>
+        app:autoSizeTextType="uniform" />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_marginTop="90dp"
+        app:layout_marginTopPercent="1%"
+        android:layout_below="@id/title"
         android:background="#000000"
         android:paddingBottom="10dip" />
-
-    //get current class name
-    <TextView
-        android:id="@+id/text"
-        app:layout_widthPercent="80%"
-        app:layout_heightPercent="8%"
-        android:layout_below="@id/title"
-        android:layout_alignLeft="@id/title"
-        app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="8%"
-        android:textColor="#000000"
-        android:text="Class"
-        android:background="@drawable/username_field"
-        android:autoSizeTextType="uniform"/>
-
-    <TextView
-        android:id="@+id/classLbl"
-        app:layout_widthPercent="80%"
-        app:layout_heightPercent="8%"
-        android:layout_below="@id/text"
-        android:layout_alignLeft="@id/title"
-        android:textColor="#000000"
-        android:background="@drawable/password_field"
-        app:layout_marginLeftPercent="0%"
-        android:layout_marginTop="-5dp"
-        android:autoSizeTextType="uniform"/>
 
     //get new class
     <TextView
         android:id="@+id/classHeader"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="8%"
-        android:layout_below="@id/classLbl"
+        android:layout_below="@id/title"
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="5%"
         android:textColor="#000000"
-        android:text="New Class"
+        android:text="Current class name"
         android:background="@drawable/username_field"
         android:autoSizeTextType="uniform"/>
 
@@ -89,25 +64,43 @@
     //buttons
     //display buttons
     <Button
-        android:id="@+id/cancelBtn"
-        app:layout_widthPercent="25%"
-        app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="8%"
+        android:id="@+id/confirmBtn"
+        app:layout_widthPercent="90%"
+        app:layout_heightPercent="6%"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/classTxt"
-        android:layout_alignLeft="@id/classTxt"
-        android:background="@drawable/buttonshadow"
-        android:text="Cancel" />
+        app:layout_marginTopPercent="5%"
+        android:background="@drawable/round_button_green"
+        android:onClick="login"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:padding="8dp"
+        android:text="Save"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform"/>
 
     <Button
-        android:id="@+id/confirmBtn"
-        app:layout_widthPercent="25%"
-        app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="8%"
-        app:layout_marginRightPercent="0%"
-        android:layout_below="@id/classTxt"
-        android:layout_alignRight="@id/classTxt"
-        android:background="@drawable/buttonshadow"
-        android:text="Confirm" />
+        android:id="@+id/cancelBtn"
+        app:layout_widthPercent="90%"
+        app:layout_heightPercent="6%"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/confirmBtn"
+        app:layout_marginTopPercent="2%"
+        android:background="@drawable/round_button_green"
+        android:onClick="login"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:padding="8dp"
+        android:text="Cancel"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform"/>
 
 </android.support.percent.PercentRelativeLayout>
