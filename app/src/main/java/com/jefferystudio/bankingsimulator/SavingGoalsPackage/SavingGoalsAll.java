@@ -37,7 +37,7 @@ public class SavingGoalsAll extends Fragment {
         recyclerView = view.findViewById(R.id.goalDetailsRv);
 
         recyclerView = view.findViewById(R.id.goalDetailsRv);
-        new RetrieveSavingGoalsAsync(getActivity(), recyclerView).execute(currentUserID, currentUserName, currentBalance);
+        new RetrieveSavingGoalsAsync(getActivity(), recyclerView, "AccountHolder").execute(currentUserID, currentUserName, currentBalance);
 
         userName.setText(currentUserName);
         balance.setText(currentBalance);

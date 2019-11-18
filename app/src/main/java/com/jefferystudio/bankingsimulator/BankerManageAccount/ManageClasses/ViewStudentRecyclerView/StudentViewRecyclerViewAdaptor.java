@@ -2,7 +2,9 @@ package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.Vie
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoals;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
@@ -27,6 +30,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
         private TextView userName;
         private TextView interestRate;
+        private Button viewStudentButton;
         private Button interestRateButton;
         private Button deleteButton;
 
@@ -36,6 +40,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
             userName = view.findViewById(R.id.username);
             interestRate = view.findViewById(R.id.interestrate);
+            viewStudentButton = view.findViewById(R.id.viewStudent);
             interestRateButton = view.findViewById(R.id.editInterestRate);
             deleteButton = view.findViewById(R.id.deleteStudent);
         }
@@ -44,12 +49,19 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
     private Context context;
     private ArrayList<StudentEntry> studentList;
     private String classID;
+    private String className;
+    private String userID;
+    private String userName;
 
-    public StudentViewRecyclerViewAdaptor(Context context, ArrayList<StudentEntry> studentList, String classID) {
+    public StudentViewRecyclerViewAdaptor(Context context, ArrayList<StudentEntry> studentList, String classID,
+                                          String className, String userID, String userName) {
 
         this.context = context;
         this.studentList = studentList;
         this.classID = classID;
+        this.className = className;
+        this.userID = userID;
+        this.userName = userName;
     }
 
     @NonNull
@@ -76,8 +88,60 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
         TextView textView2 = viewHolder.userName;
         textView2.setText(studentEntry.getUsername());
 
-        Button button1 = viewHolder.deleteButton;
+        Button button1 =  viewHolder.viewStudentButton;
         button1.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("DigiBank Alert");
+                builder.setMessage("Select the item at which you want to view");
+
+                builder.setPositiveButton("Personal details", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.setNegativeButton("Saving goal", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Fragment checkSavingGoalsFrag = new CheckSavingGoals();
+                        Bundle args = new Bundle();
+                        args.putString("studentID", studentEntry.getUserID());
+                        args.putString("userID", userID);
+                        args.putString("userName", userName);
+                        args.putString("classID", classID);
+                        args.putString("className", className);
+                        checkSavingGoalsFrag.setArguments(args);
+
+                        ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frame_layout, checkSavingGoalsFrag)
+                                .commit();
+                    }
+                });
+
+                AlertDialog choiceDialog = builder.create();
+                choiceDialog.show();
+            }
+        });
+
+        Button button2 =  viewHolder.interestRateButton;
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                 ViewStudent viewStudentFrag = (ViewStudent)((HomeScreenBanker)context).getSupportFragmentManager()
+                                              .findFragmentById(R.id.frame_layout);
+
+                 viewStudentFrag.updateInterestRate(studentEntry);
+            }
+        });
+
+        Button button3 = viewHolder.deleteButton;
+        button3.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
@@ -98,8 +162,8 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                         try {
 
                             returnMessage = new EditClassesAsync(context, "DeleteStudent")
-                                            .execute(classID, studentEntry.getUserID())
-                                            .get(5000, TimeUnit.MILLISECONDS);
+                                    .execute(classID, studentEntry.getUserID())
+                                    .get(5000, TimeUnit.MILLISECONDS);
                         }
                         catch(Exception e) {
 
@@ -149,18 +213,6 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
                 AlertDialog ad = builder.create();
                 ad.show();
-            }
-        });
-
-        Button button2 =  viewHolder.interestRateButton;
-        button2.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                ViewStudent viewStudentFrag = (ViewStudent)((HomeScreenBanker)context).getSupportFragmentManager()
-                                              .findFragmentById(R.id.frame_layout);
-
-                viewStudentFrag.updateInterestRate(studentEntry);
             }
         });
     }
