@@ -26,7 +26,8 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_marginTop="90dp"
+        app:layout_marginTopPercent="1%"
+        android:layout_below="@id/title"
         android:background="#000000"
         android:paddingBottom="10dip" />
 

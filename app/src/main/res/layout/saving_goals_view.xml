@@ -12,31 +12,40 @@
     <TextView
         android:id="@+id/savinggoalstitle"
         app:layout_widthPercent="80%"
-        android:layout_height="wrap_content"
-        android:text="VIEW SAVING GOAL"
-        android:textColor="#000000"
-        android:fontFamily="@font/titan_one"
-        android:textSize="32sp"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="3%" />
+        android:text="VIEW SAVING GOALS"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
 
     //display account holder's profile
+
     <View
         android:id="@+id/profileview"
-        app:layout_widthPercent="65%"
-        app:layout_heightPercent="20%"
-        android:layout_alignLeft="@+id/savinggoalstitle"
-        app:layout_marginTopPercent="3%"
         android:layout_below="@+id/savinggoalstitle"
-        android:background="@drawable/emptyrect" />
+        android:layout_alignLeft="@+id/savinggoalstitle"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/emptyrect"
+        app:layout_heightPercent="15%"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="80%" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_alignLeft="@+id/savinggoalstitle"
+        android:layout_below="@+id/savinggoalstitle"
         app:layout_marginLeftPercent="1%"
-        android:layout_marginTop="105dp"
+        app:layout_marginTopPercent="3%"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -45,48 +54,60 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        app:layout_widthPercent="36%"
+        app:layout_widthPercent="52%"
         app:layout_heightPercent="5%"
         android:layout_alignRight="@+id/profileview"
-        android:layout_marginTop="110dp"
+        android:layout_below="@+id/savinggoalstitle"
+        app:layout_marginTopPercent="5%"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        app:layout_widthPercent="36%"
+        app:layout_widthPercent="52%"
         app:layout_heightPercent="5%"
         android:layout_below="@+id/usernameLbl"
         android:layout_alignRight="@+id/profileview"
-        app:layout_marginTopPercent="2%"
+        app:layout_marginTopPercent="1%"
         android:textSize="20sp" />
 
     //display progress bar
 
     <TextView
+        android:id="@+id/relativeLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/profileview"
+        android:layout_alignLeft="@+id/profileview"
+        app:layout_marginTopPercent="1%"
+        android:layout_marginRight="20dp"
+        android:background="#CC37474F"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%" />
+
+    <TextView
         android:id="@+id/progresslbling"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/savinggoalstitle"
+        android:layout_alignLeft="@+id/savedlbl"
         android:layout_below="@+id/profileview"
         app:layout_marginTopPercent="2%"
-        android:text="Progress (%):"
-        android:textColor="#000000" />
+        android:text="Progress (%): "
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/progressLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="53%"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/progresslbling"
+        android:layout_alignRight="@+id/profileview"
         android:layout_below="@+id/profileview"
         app:layout_marginTopPercent="2%"
-        android:textColor="#000000" />
+        android:textColor="#FFFFFF" />
 
     <ProgressBar
         android:id="@+id/amountPB"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_alignLeft="@+id/savinggoalstitle"
         android:layout_below="@+id/progressLbl"
-        app:layout_widthPercent="80%"
+        android:layout_centerHorizontal="true"
+        app:layout_widthPercent="78%"
         app:layout_heightPercent="3%"
         app:layout_marginTopPercent="1%"
         android:progressDrawable="@drawable/custom_progressbar" />
@@ -126,9 +147,9 @@
 
     <TextView
         android:id="@+id/asLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="41%"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/asCurrencyLbl"
+        android:layout_alignRight="@+id/profileview"
         android:layout_below="@+id/savedlbl"
         app:layout_marginLeftPercent="2%"
         app:layout_marginTopPercent="1%"
@@ -167,9 +188,9 @@
 
     <TextView
         android:id="@+id/arLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="33%"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/arCurrencyLbl"
+        android:layout_alignRight="@+id/profileview"
         android:layout_below="@+id/remaininglbl"
         app:layout_marginTopPercent="1%"
         android:textSize="18sp" />
@@ -182,8 +203,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/viewremaining"
         android:layout_alignLeft="@+id/savinggoalstitle"
-        app:layout_marginTopPercent="2%"
-        app:layout_heightPercent="29%"
+        app:layout_heightPercent="28%"
         app:layout_widthPercent="80%"
         android:background="#CCEEEEEE"/>
 
@@ -193,17 +213,17 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/remaininglbl"
         android:layout_below="@+id/viewremaining"
-        app:layout_marginTopPercent="4%"
+        app:layout_marginTopPercent="1%"
         android:text="Goal Name: "
         android:textColor="#000000" />
 
     <TextView
         android:id="@+id/goalNameLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="55%"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/goalnametv"
+        android:layout_alignRight="@+id/profileview"
         android:layout_below="@+id/viewremaining"
-        app:layout_marginTopPercent="4%"
+        app:layout_marginTopPercent="1%"
         android:textColor="#000000" />
 
     //display amount
@@ -219,22 +239,15 @@
         android:textColor="#000000" />
 
     <TextView
-        android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
+        android:id="@+id/amountLbl"
+        app:layout_widthPercent="55%"
         android:layout_height="wrap_content"
         android:layout_below="@id/goalnametv"
-        android:layout_alignRight="@+id/itemtv"
+        android:layout_alignRight="@+id/profileview"
         app:layout_marginTopPercent="4%"
         android:textColor="#000000" />
 
-    <TextView
-        android:id="@+id/amountLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/currencyLbl"
-        android:layout_below="@+id/goalnametv"
-        app:layout_marginTopPercent="4%"
-        android:textColor="#000000" />
+
 
     //display deadline
 
@@ -250,9 +263,9 @@
 
     <TextView
         android:id="@+id/goalDateLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="55%"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/achievetv"
+        android:layout_alignRight="@+id/profileview"
         android:layout_below="@id/itemtv"
         app:layout_marginTopPercent="4%"
         android:textColor="#000000" />
@@ -271,11 +284,31 @@
 
     <TextView
         android:id="@+id/priorityLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="55%"
         android:layout_height="wrap_content"
         android:layout_below="@+id/achievetv"
-        android:layout_alignRight="@+id/prioritytv"
+        android:layout_alignRight="@+id/profileview"
         app:layout_marginTopPercent="4%"
         android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/currencyLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/profileview"
+        android:layout_below="@+id/priorityLbl"
+        app:layout_marginTopPercent="4%"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/buttonback"
+        app:layout_widthPercent="80%"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:background="@color/buttonBG"
+        android:textColor="@color/buttonWord"
+        android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>

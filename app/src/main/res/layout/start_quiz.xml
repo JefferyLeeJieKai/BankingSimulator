@@ -11,7 +11,6 @@
         android:id="@+id/headerQuiz"
         android:text="QUIZ TIME!"
         android:textColor="#000000"
-
         android:fontFamily="@font/titan_one"
         android:layout_centerHorizontal="true"
         android:gravity="center"
@@ -21,14 +20,68 @@
         app:autoSizeTextType="uniform" />
 
     <TextView
-        android:text="1. Answer a total of 5 questions.\n 2. You have 30sec for each question."
-        android:textColor="#000000"
+        android:id="@+id/quizhelp"
         android:background="#CCFFFFFF"
         android:layout_below="@id/headerQuiz"
         android:layout_centerHorizontal="true"
         app:layout_marginTopPercent="5%"
-        app:layout_widthPercent="70%"
-        app:layout_heightPercent="15%"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="25%"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:text="1."
+        android:textColor="#000000"
+        android:layout_below="@id/headerQuiz"
+        android:layout_alignLeft="@id/quizhelp"
+        app:layout_marginTopPercent="7%"
+        app:layout_marginLeftPercent="4%"
+        app:layout_widthPercent="4%"
+        app:layout_heightPercent="3.5%"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:text="Answer a total of 5 banking questions."
+        android:textColor="#000000"
+        android:layout_below="@id/headerQuiz"
+        android:layout_alignLeft="@id/quizhelp"
+        app:layout_marginTopPercent="7%"
+        app:layout_marginLeftPercent="11%"
+        app:layout_widthPercent="65%"
+        app:layout_heightPercent="7%"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:text="2."
+        android:textColor="#000000"
+        android:layout_below="@id/headerQuiz"
+        android:layout_alignLeft="@id/quizhelp"
+        app:layout_marginTopPercent="16%"
+        app:layout_marginLeftPercent="4%"
+        app:layout_widthPercent="4%"
+        app:layout_heightPercent="3.5%"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:text="You have 30 seconds to answer each question."
+        android:textColor="#000000"
+        android:layout_below="@id/headerQuiz"
+        android:layout_alignLeft="@id/quizhelp"
+        app:layout_marginTopPercent="16%"
+        app:layout_marginLeftPercent="11%"
+        app:layout_widthPercent="65%"
+        app:layout_heightPercent="7%"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:text="GOOD LUCK!"
+        android:textColor="#000000"
+        android:layout_below="@id/headerQuiz"
+        android:layout_alignLeft="@id/quizhelp"
+        app:layout_marginTopPercent="25%"
+        app:layout_marginLeftPercent="27%"
+        app:layout_widthPercent="26%"
+        app:layout_heightPercent="4%"
         app:autoSizeTextType="uniform" />
 
     <TextView
@@ -40,7 +93,7 @@
         android:layout_below="@id/headerQuiz"
         app:layout_heightPercent="8%"
         android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="30%"
+        app:layout_marginTopPercent="33%"
         app:layout_widthPercent="70%"
         app:autoSizeTextType="uniform" />
 
@@ -65,7 +118,7 @@
         android:textColor="@color/buttonWord"
         android:text="Start Quiz"
         app:layout_heightPercent="6%"
-        app:layout_marginTopPercent="20%"
+        app:layout_marginTopPercent="17%"
         app:layout_widthPercent="70%"
         app:autoSizeTextType="uniform" />
 

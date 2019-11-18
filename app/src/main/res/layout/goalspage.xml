@@ -24,6 +24,15 @@
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
 
+    <View
+        android:id="@+id/line1"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        app:layout_marginTopPercent="1%"
+        android:layout_below="@id/goalpagetitle"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
+
     <!-- <ImageButton
         android:id="@+id/viewallgoals"
         android:background="@drawable/fingerprint_border"
@@ -148,5 +157,16 @@
 
 
     </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/buttonback"
+        app:layout_widthPercent="80%"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_marginBottomPercent="6%"
+        android:layout_alignParentBottom="true"
+        android:background="@color/buttonBG"
+        android:textColor="@color/buttonWord"
+        android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>
