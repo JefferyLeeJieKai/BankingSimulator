@@ -108,10 +108,11 @@
         android:layout_centerHorizontal="true"
         android:text="Confirm"
         app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="3%"
-        app:layout_widthPercent="60%"
-        android:background="@color/buttonBG"
-        android:textColor="@color/buttonWord"/>
+        app:layout_widthPercent="70%"
+        android:background="@drawable/buttonblue"
+        android:padding="10dp"
+        android:textColor="@color/buttonWord"
+        app:autoSizeTextType="uniform"/>
 
 </android.support.percent.PercentRelativeLayout>
