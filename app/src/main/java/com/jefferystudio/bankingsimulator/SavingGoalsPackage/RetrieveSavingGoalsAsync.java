@@ -22,15 +22,17 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
 
     private Context context;
     private RecyclerView recyclerView;
+    private String flag;
     private ProgressDialog progDialog;
     private String userID;
     private String username;
     private String currentBalance;
 
-    public RetrieveSavingGoalsAsync(Context context, RecyclerView recyclerView) {
+    public RetrieveSavingGoalsAsync(Context context, RecyclerView recyclerView, String flag) {
 
         this.context = context;
         this.recyclerView = recyclerView;
+        this.flag = flag;
     }
 
     @Override
@@ -106,7 +108,7 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
             savingGoals.add(goal);
         }
 
-        SavingGoalsRecyclerViewAdaptor adaptor = new SavingGoalsRecyclerViewAdaptor(context, savingGoals);
+        SavingGoalsRecyclerViewAdaptor adaptor = new SavingGoalsRecyclerViewAdaptor(context, savingGoals, flag);
         recyclerView.setAdapter(adaptor);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
     }

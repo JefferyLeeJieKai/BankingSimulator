@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="@drawable/recycler_view_field"
+    >
+
+    <TextView
+        android:id="@+id/savingGoalItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/daysLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:id="@+id/viewSavingGoal"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/ic_search_black_24dp"
+        android:backgroundTint="#A9A9A9"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        />
+
+</LinearLayout>

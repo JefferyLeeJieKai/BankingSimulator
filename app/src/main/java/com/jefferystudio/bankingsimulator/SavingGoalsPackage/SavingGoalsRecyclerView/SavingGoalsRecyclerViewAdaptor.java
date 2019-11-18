@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.DeleteSavingGoalsAsync;
@@ -51,11 +52,13 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
 
     private List<SavingGoal> savingGoals;
     private Context context;
+    private String flag;
 
-    public SavingGoalsRecyclerViewAdaptor(Context context, List<SavingGoal> savingGoals) {
+    public SavingGoalsRecyclerViewAdaptor(Context context, List<SavingGoal> savingGoals, String flag) {
 
         this.savingGoals = savingGoals;
         this.context = context;
+        this.flag = flag;
     }
 
     @Override
@@ -63,9 +66,16 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
+        View contactView = null;
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.saving_goals_recycler_row_layout, parent, false);
+        if(flag.equals("AccountHolder")) {
+
+            contactView = inflater.inflate(R.layout.saving_goals_recycler_row_layout, parent, false);
+        }
+        else if(flag.equals("Banker")) {
+
+             contactView = inflater.inflate(R.layout.banker_saving_goals_recycler_row_layout, parent, false);
+        }
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);
@@ -118,105 +128,106 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
 
         }
 
-        Button button = viewHolder.editButton;
-        button.setText("Edit");
+        if(flag.equals("AccountHolder")) {
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            Button button = viewHolder.editButton;
+            button.setText("Edit");
 
-                Bundle args = new Bundle();
-                args.putString("userID", savingGoal.getUserID());
-                args.putString("userName", savingGoal.getUsername());
-                args.putString("currentBalance", savingGoal.getCurrentBalance());
-                args.putString("currentValue", savingGoal.getCurrentValue());
-                args.putString("goalID", savingGoal.getGoalID());
-                args.putString("goalName", savingGoal.getGoalName());
-                args.putString("itemCost", savingGoal.getItemCost());
-                args.putString("deadLine", savingGoal.getDeadline());
-                args.putString("priority", savingGoal.getPriority());
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                Fragment editGoalFrag = new SavingGoalsEdit();
-                editGoalFrag.setArguments(args);
+                    Bundle args = new Bundle();
+                    args.putString("userID", savingGoal.getUserID());
+                    args.putString("userName", savingGoal.getUsername());
+                    args.putString("currentBalance", savingGoal.getCurrentBalance());
+                    args.putString("currentValue", savingGoal.getCurrentValue());
+                    args.putString("goalID", savingGoal.getGoalID());
+                    args.putString("goalName", savingGoal.getGoalName());
+                    args.putString("itemCost", savingGoal.getItemCost());
+                    args.putString("deadLine", savingGoal.getDeadline());
+                    args.putString("priority", savingGoal.getPriority());
 
-                ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_layout, editGoalFrag)
-                        .commit();
-            }
-        });
+                    Fragment editGoalFrag = new SavingGoalsEdit();
+                    editGoalFrag.setArguments(args);
 
-        //delete button
-        Button deleteBtn = viewHolder.deleteButton;
+                    ((HomeScreenUser) context).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, editGoalFrag)
+                            .commit();
+                }
+            });
 
-        deleteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            //delete button
+            Button deleteBtn = viewHolder.deleteButton;
 
-                String msg = "Are you sure you want to delete " + savingGoal.getGoalName() + "?";
+            deleteBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    String msg = "Are you sure you want to delete " + savingGoal.getGoalName() + "?";
 
-                builder.setTitle("Warning!");
-                builder.setMessage(msg);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                //yes button selected
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    builder.setTitle("Warning!");
+                    builder.setMessage(msg);
 
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    //yes button selected
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
-                        String result = "";
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
 
-                        try{
-                            result = new DeleteSavingGoalsAsync(context, savingGoal.getGoalID())
-                                            .execute()
-                                            .get(5000, TimeUnit.MILLISECONDS);
+                            String result = "";
+
+                            try {
+                                result = new DeleteSavingGoalsAsync(context, savingGoal.getGoalID())
+                                        .execute()
+                                        .get(5000, TimeUnit.MILLISECONDS);
+                            } catch (Exception e) {
+
+                            }
+
+                            String[] resultArray = result.split(",");
+
+                            if (resultArray[0].equals("Success")) {
+
+                                savingGoals.remove(entryPosition);
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                builder.setTitle("DigiBank Alert");
+                                builder.setMessage(savingGoal.getGoalName() + " successfully deleted.");
+
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                        SavingGoalsAll currentFrag = (SavingGoalsAll) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                        currentFrag.updateAdaptor(entryPosition);
+                                    }
+                                });
+
+                                AlertDialog confirmDialog = builder.create();
+                                confirmDialog.show();
+                            }
                         }
-                        catch(Exception e) {
+                    });
 
+                    //no button selected
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            dialogInterface.cancel();
                         }
+                    });
 
-                        String[] resultArray = result.split(",");
-
-                        if(resultArray[0].equals("Success")) {
-
-                            savingGoals.remove(entryPosition);
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setTitle("DigiBank Alert");
-                            builder.setMessage(savingGoal.getGoalName() + " successfully deleted.");
-
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-
-                                    SavingGoalsAll currentFrag = (SavingGoalsAll) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-                                    currentFrag.updateAdaptor(entryPosition);
-                                }
-                            });
-
-                            AlertDialog confirmDialog = builder.create();
-                            confirmDialog.show();
-                        }
-                    }
-                });
-
-                //no button selected
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        dialogInterface.cancel();
-                    }
-                });
-
-                AlertDialog ad = builder.create();
-                ad.show();
-            }
-        });
-
+                    AlertDialog ad = builder.create();
+                    ad.show();
+                }
+            });
+        }
         //search button
         Button searchBtn = viewHolder.searchButton;
 
@@ -236,7 +247,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 Fragment viewGoalFrag = new SavingGoalsView();
                 viewGoalFrag.setArguments(args);
 
-                ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
+                ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, viewGoalFrag)
                         .commit();
             }
