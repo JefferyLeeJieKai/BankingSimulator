@@ -1,13 +1,18 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 
 public class SavingGoalsView extends Fragment {
@@ -24,6 +29,7 @@ public class SavingGoalsView extends Fragment {
     private TextView deadline;
     private TextView priority;
     private TextView progressLabel;
+    private Button backbtn;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -40,6 +46,7 @@ public class SavingGoalsView extends Fragment {
         cost = view.findViewById(R.id.amountLbl);
         deadline = view.findViewById(R.id.goalDateLbl);
         priority = view.findViewById(R.id.priorityLbl);
+        backbtn = view.findViewById(R.id.buttonback);
 
         userName.setText(args.getString("userName"));
         balance.setText(args.getString("currentBalance"));
@@ -62,6 +69,13 @@ public class SavingGoalsView extends Fragment {
 
         savingsBar.setProgress(percentage);
 
+        backbtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+            }
+        });
+
         return view;
     }
 
@@ -73,4 +87,6 @@ public class SavingGoalsView extends Fragment {
 
         return percent;
     }
+
+
 }
