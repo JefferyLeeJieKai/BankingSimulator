@@ -34,12 +34,12 @@
 
     <Button
         android:id="@+id/submit"
-        app:layout_widthPercent="50%"
+        app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
         android:layout_below="@id/email"
         android:layout_centerHorizontal="true"
         app:layout_marginTopPercent="50%"
-        android:background="@drawable/rounded_buttons"
+        android:background="@drawable/buttonshadow3"
         android:elevation="20dp"
         android:fontFamily="@font/titan_one"
         android:onClick="forgetPassword"
