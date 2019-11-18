@@ -3,24 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/wood"
+    android:background="@drawable/beach04"
     android:layout_width="match_parent"
     tools:context=".LoginAndHomepagePackage.HomeScreenUser"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:elevation="4dp"
-        app:layout_scrollFlags="scroll|enterAlways"
+    <TextView
+        android:id="@+id/goalpagetitle"
+        android:text="GOAL HOMEPAGE"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"/>
 
-        />
-
-    <ImageButton
+    <!-- <ImageButton
         android:id="@+id/viewallgoals"
         android:background="@drawable/fingerprint_border"
         android:scaleType="fitCenter"
@@ -48,11 +52,101 @@
         app:layout_marginLeftPercent="38%"
         app:layout_marginTopPercent="40%"
         app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/addammountgoal" />
+        app:srcCompat="@drawable/addammountgoal" /> -->
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="12dp"
+        android:layout_alignLeft="@+id/goalpagetitle"
+        app:layout_marginTopPercent="25%"
+
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/viewallgoals"
+                android:src="@drawable/viewgoals"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
 
 
 
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="12dp"
+        android:layout_alignRight="@+id/goalpagetitle"
+        app:layout_marginTopPercent="25%"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/setnewgoals"
+                android:src="@drawable/setnewgoal"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
 
 
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="12dp"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="47%"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/startquiz"
+                android:src="@drawable/startquiz"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
+
+
+
+    </android.support.v7.widget.CardView>
 
 </android.support.percent.PercentRelativeLayout>

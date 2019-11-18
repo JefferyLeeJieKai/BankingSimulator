@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/titleofquizhp"
-        android:text="Quiz Homepage"
+        android:text="QUIZ HOMEPAGE"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="9%"
         app:layout_marginTopPercent="2%"
@@ -32,7 +32,7 @@
         android:background="#000000"
         android:paddingBottom="10dip" />
 
-    <ImageButton
+   <!-- <ImageButton
         android:id="@+id/startquiz"
         android:background="@null"
         android:scaleType="fitCenter"
@@ -40,9 +40,9 @@
         app:layout_marginLeftPercent="20%"
         app:layout_marginTopPercent="40%"
         app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/startquiz" />
+        app:srcCompat="@drawable/startquiz" /> -->
 
-    <ImageButton
+    <!-- <ImageButton
         android:id="@+id/viewquiz"
         android:background="@null"
         android:scaleType="fitCenter"
@@ -50,17 +50,80 @@
         app:layout_marginLeftPercent="56%"
         app:layout_marginTopPercent="40%"
         app:layout_widthPercent="21%"
-        app:srcCompat="@drawable/quizresult" />
+        app:srcCompat="@drawable/quizresult" /> -->
 
     <Button
         android:id="@+id/backbtn"
         android:background="@color/buttonBack"
         android:textColor="@color/buttonWord"
-        android:layout_below="@id/titleofquizhp"
-        app:layout_widthPercent="25%"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="4%"
+        app:layout_marginBottomPercent="4%"
         app:layout_marginLeftPercent="5%"
         android:text="Back" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="12dp"
+        android:layout_alignLeft="@+id/titleofquizhp"
+        app:layout_marginTopPercent="40%"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/startquiz"
+                android:src="@drawable/startquiz"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="12dp"
+        android:layout_alignRight="@+id/titleofquizhp"
+        app:layout_marginTopPercent="40%"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/viewquiz"
+                android:src="@drawable/quizresult"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
+
+
+
+    </android.support.v7.widget.CardView>
 
 </android.support.percent.PercentRelativeLayout>

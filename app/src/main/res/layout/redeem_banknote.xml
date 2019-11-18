@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/slippers"
+    android:background="@drawable/beach31"
     >
 
     <TextView
@@ -73,6 +73,7 @@
         android:id="@+id/detailsRv"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/rect"
+        android:background="#FFFFFF"
         app:layout_widthPercent="80%"
         app:layout_marginTopPercent="3%"
         android:layout_height="wrap_content"/>
