@@ -88,6 +88,7 @@ public class HomeFragmentUser extends Fragment {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(getActivity().getApplicationContext(), goalspage.class);
+                intent.putExtras(args);
                 startActivity(intent);
             }
         });
