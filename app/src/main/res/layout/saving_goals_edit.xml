@@ -19,57 +19,11 @@
         android:fontFamily="@font/titan_one"
         app:autoSizeTextType="uniform"/>
 
-    //display account holder's profile
-    <View
-        android:id="@+id/Rect"
-        app:layout_widthPercent="80%"
-        app:layout_heightPercent="16%"
-        android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="2%"
-        android:layout_below="@id/title"
-        android:background="@drawable/emptyrect" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilephoto"
-        app:layout_widthPercent="27%"
-        app:layout_heightPercent="15%"
-        app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="3%"
-        android:layout_below="@id/title"
-        android:layout_alignLeft="@id/Rect"
-        android:backgroundTint="#D3D3D3"
-        android:background="@drawable/accountcircle"
-        app:civ_border_color="#FFFFFF"
-        app:civ_border_width="0dp"
-        />
-
-    <TextView
-        android:id="@+id/usernameLbl"
-        app:layout_widthPercent="50%"
-        app:layout_heightPercent="5%"
-        app:layout_marginRightPercent="0%"
-        app:layout_marginTopPercent="5%"
-        android:layout_below="@id/title"
-        android:layout_alignRight="@id/Rect"
-        app:autoSizeTextType="uniform" />
-
-    <TextView
-        android:id="@+id/balanceLbl"
-        app:layout_widthPercent="50%"
-        app:layout_heightPercent="5%"
-        app:layout_marginRightPercent="0%"
-        app:layout_marginTopPercent="11%"
-        android:layout_below="@id/title"
-        android:layout_alignRight="@id/Rect"
-        app:autoSizeTextType="uniform" />
-
-    //display information starting here
-    //display goal name
     <TextView
         android:id="@+id/goal"
         app:layout_widthPercent="75%"
         app:layout_heightPercent="5%"
-        android:layout_below="@id/Rect"
+        android:layout_below="@id/title"
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="3%"
@@ -99,7 +53,7 @@
 
     <Button
         android:id="@+id/editGoalNameBtn"
-        android:layout_below="@id/Rect"
+        android:layout_below="@id/title"
         android:layout_alignRight="@id/title"
         app:layout_heightPercent="5%"
         app:layout_widthPercent="14%"
@@ -158,10 +112,50 @@
         app:autoSizeTextType="uniform" />
 
     <TextView
-        android:id="@+id/deadline"
+        android:id="@+id/priority"
         app:layout_widthPercent="75%"
         app:layout_heightPercent="5%"
         android:layout_below="@id/itemvalueinput"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="1%"
+        android:text="Current priority"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform" />
+
+    <Spinner
+        android:id="@+id/priorityinput"
+        app:layout_widthPercent="75%"
+        app:layout_heightPercent="6%"
+        android:layout_below="@+id/priority"
+        android:layout_alignRight="@id/priority"
+        app:layout_marginLeftPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:background="@drawable/password_field"
+        ></Spinner>
+
+    <Button
+        android:id="@+id/editPriorityBtn"
+        android:layout_below="@id/itemvalueinput"
+        android:layout_alignRight="@id/title"
+        app:layout_heightPercent="5%"
+        app:layout_widthPercent="14%"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="3%"
+        android:background="@drawable/rounded_buttons"
+        android:fontFamily="@font/titan_one"
+        android:padding="4dp"
+        android:text="Save"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/deadline"
+        app:layout_widthPercent="75%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/priorityinput"
         android:layout_alignLeft="@id/title"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="1%"
@@ -191,7 +185,7 @@
 
     <Button
         android:id="@+id/editDeadlineBtn"
-        android:layout_below="@id/itemvalueinput"
+        android:layout_below="@id/priorityinput"
         android:layout_alignRight="@id/title"
         app:layout_heightPercent="5%"
         app:layout_widthPercent="14%"
