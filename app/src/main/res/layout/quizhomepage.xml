@@ -54,7 +54,7 @@
 
     <Button
         android:id="@+id/backbtn"
-        android:background="@color/buttonBack"
+        android:background="@drawable/buttonred"
         android:textColor="@color/buttonWord"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"

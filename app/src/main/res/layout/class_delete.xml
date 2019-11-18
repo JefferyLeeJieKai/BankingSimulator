@@ -9,41 +9,44 @@
     <TextView
         android:id="@+id/title"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="9%"
+        app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
         android:text="Delete Class"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
+        android:padding="2dp"
+        android:gravity="center"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
 
     <View
+        android:layout_below="@id/title"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_marginTop="90dp"
+        app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
     //search class
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="155dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="9%"
+        app:layout_widthPercent="24%"
+        android:padding="3dp"
         android:textColor="#000000"
-        android:text="Search Class:" />
+        android:text="Search Class:"
+        app:autoSizeTextType="uniform"/>
 
     <android.support.design.widget.TextInputLayout
+        android:layout_alignRight="@id/searchBtn"
+        android:layout_below="@id/title"
         android:id="@+id/classTxt"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="130dp">
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="9%"
+        app:layout_marginRightPercent="5%"
+        app:layout_marginTopPercent="6%"
+        app:autoSizeTextType="uniform">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -53,90 +56,91 @@
 
     <Button
         android:id="@+id/searchBtn"
+        android:layout_alignRight="@id/title"
+        android:layout_below="@id/title"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:background="@drawable/ic_search_black_24dp"
         android:backgroundTint="#000000"
-        android:layout_marginLeft="310dp"
-        android:layout_marginTop="155dp" />
+        app:layout_marginLeftPercent="40%"
+        app:layout_marginTopPercent="9%" />
 
     //get class
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="135dp"
-        android:layout_marginTop="240dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
         android:textColor="#000000"
-        android:text="Class:" />
+        android:text="Class:"
+        app:layout_heightPercent="3.5%"
+        app:layout_widthPercent="14%"
+        app:layout_marginTopPercent="18%"
+        android:padding="2dp"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/classLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="240dp" />
+        android:layout_alignRight="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="3.5%"
+        app:layout_widthPercent="44%"
+        app:layout_marginTopPercent="18%"
+        app:layout_marginLeftPercent="36%"
+        android:padding="3dp"
+        app:autoSizeTextType="uniform" />
 
     //get interest rate
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="280dp"
+        android:id="@+id/textinterest"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
         android:textColor="#000000"
-        android:text="Set Interest Rate (%):" />
+        android:text="Set Interest Rate (%):"
+        app:layout_heightPercent="3.5%"
+        app:layout_widthPercent="34%"
+        app:layout_marginTopPercent="24%"
+        android:padding="2dp"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/intRateLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="280dp" />
+        android:layout_alignRight="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="3.5%"
+        app:layout_widthPercent="44%"
+        app:layout_marginTopPercent="24%"
+        app:layout_marginLeftPercent="36%"
+        android:padding="3dp"
+        app:autoSizeTextType="uniform" /><![CDATA[
 
     //display AH information -> link with account_delete_recycler_row_layout
 
+    ]]>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ahDetailsRv"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="380dp" />
+        android:layout_alignTop="@id/title"
+        android:layout_centerHorizontal="true"
+        app:layout_heightPercent="32%"
+        app:layout_marginTopPercent="45%"
+        app:layout_widthPercent="89%" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="330dp"
-        android:text="Name"
-        android:textColor="#000000" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="330dp"
-        android:text="Account No."
-        android:textColor="#000000" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="210dp"
-        android:layout_marginTop="330dp"
-        android:text="Username"
-        android:textColor="#000000" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="330dp"
-        android:text="Password"
-        android:textColor="#000000" />
+        android:layout_alignTop="@id/title"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="90%"
+        app:layout_marginTopPercent="38%"
+        android:text="Name\t\t\t\t Account No.\t\t\t\t Username\t\t\t\t Password"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
 
     <View
+        android:layout_alignTop="@id/title"
+        android:layout_centerHorizontal="true"
         android:layout_width="fill_parent"
         android:layout_height="0.5dp"
-        android:layout_marginTop="365dp"
+        app:layout_marginTopPercent="43%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
@@ -144,20 +148,28 @@
 
     <Button
         android:id="@+id/deleteBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="620dp"
-        android:background="@drawable/buttonshadow"
-        android:text="DELETE" />
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="75%"
+        android:layout_below="@id/title"
+        android:layout_alignRight="@id/title"
+        android:background="@drawable/buttonblue"
+        android:textColor="#FFFFFF"
+        android:text="Delete"
+        android:padding="15dp"
+        app:autoSizeTextType="uniform"/>
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="620dp"
-        android:background="@drawable/buttonshadow"
-        android:text="CANCEL" />
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="75%"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/title"
+        android:background="@drawable/buttonred"
+        android:textColor="#FFFFFF"
+        android:text="Cancel"
+        android:padding="15dp"
+        app:autoSizeTextType="uniform" />
 
 </android.support.percent.PercentRelativeLayout>

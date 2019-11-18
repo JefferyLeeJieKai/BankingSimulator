@@ -5,13 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/starfish"
+    android:background="@drawable/beach02"
     >
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EDIT SAVING GOALS"
+        android:layout_centerHorizontal="true"
         android:fontFamily="@font/titan_one"
         android:textColor="#000000"
         android:textSize="32dp"
@@ -19,19 +21,35 @@
         android:layout_marginTop="20dp" />
 
     //display account holder's profile
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_below="@+id/profileview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:background="#CCEEEEEE"
+        app:layout_heightPercent="21%"
+        app:layout_marginTopPercent="5%"
+        app:layout_widthPercent="90%" />
+
     <View
-        android:layout_width="280dp"
+        android:id="@+id/profileview"
         android:layout_height="145dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="105dp"
-        android:background="@drawable/emptyrect" />
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@+id/title"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/emptyrect"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="80%" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="125dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_widthPercent="28%"
+        app:layout_heightPercent="15%"
+        app:layout_marginTopPercent="5%"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -40,26 +58,32 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="50%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="130dp"
-        android:textSize="20dp" />
+        android:layout_alignRight="@id/title"
+        android:layout_below="@+id/title"
+        app:layout_marginTopPercent="7%"
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="50%"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/usernameLbl"
         android:layout_marginLeft="160dp"
-        android:layout_marginTop="190dp"
-        android:textSize="20dp" />
+        app:layout_marginTopPercent="2%"
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     //display amount
     <TextView
+        android:id="@+id/itemcosttv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="290dp"
+        android:layout_below="@id/profileview"
+        android:layout_alignLeft="@+id/title"
+        app:layout_marginTopPercent="8%"
         android:textColor="#000000"
         android:text="Item Cost:" />
 
@@ -67,42 +91,49 @@
         android:id="@+id/currencyLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="290dp"
+        android:layout_below="@id/itemcosttv"
+        android:layout_alignRight="@+id/itemcosttv"
+        android:textColor="#000000"
         android:text="currency" />
 
     <TextView
         android:id="@+id/amountLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="59%"
+        android:layout_below="@+id/profileview"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@id/title"
         android:textColor="#000000"
-        android:layout_marginLeft="180dp"
-        android:layout_marginTop="290dp" />
+        app:layout_marginTopPercent="8%" />
 
     //get new amount
     <TextView
+        android:id="@+id/newitemtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="370dp"
+        android:layout_alignRight="@id/itemcosttv"
+        android:layout_below="@id/itemcosttv"
+        app:layout_marginTopPercent="7%"
         android:textColor="#000000"
         android:text="New Item" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="390dp"
+        android:layout_below="@+id/newitemtv"
+        android:layout_alignRight="@id/newitemtv"
+        app:layout_marginTopPercent="1%"
         android:textColor="#000000"
         android:text="Cost:" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        android:layout_width="210dp"
+        app:layout_widthPercent="59%"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/profileview"
+        android:layout_below="@+id/itemcosttv"
         android:textColor="#000000"
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="350dp">
+        app:layout_marginTopPercent="7%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -113,20 +144,24 @@
     //display buttons
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="110dp"
+        app:layout_widthPercent="25%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="600dp"
-        android:background="@drawable/buttonshadow"
+        app:layout_marginBottomPercent="10%"
+        android:layout_alignRight="@id/profileview"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/buttongreen"
+        android:textColor="@color/buttonWord"
         android:text="Confirm" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
+        app:layout_widthPercent="25%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
-        android:background="@drawable/buttonshadow"
+        app:layout_marginBottomPercent="10%"
+        android:layout_alignLeft="@id/profileview"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/buttonred"
+        android:textColor="@color/buttonWord"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

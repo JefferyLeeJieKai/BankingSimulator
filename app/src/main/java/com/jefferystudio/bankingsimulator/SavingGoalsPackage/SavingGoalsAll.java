@@ -27,6 +27,7 @@ public class SavingGoalsAll extends Fragment {
         View view = inflater.inflate(R.layout.saving_goals_all, container, false);
 
         args = getArguments();
+
         currentUserID = args.getString("userID");
         currentUserName = args.getString("userName");
         currentBalance = args.getString("currentBalance");
