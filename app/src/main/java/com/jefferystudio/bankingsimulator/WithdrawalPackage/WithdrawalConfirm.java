@@ -13,6 +13,10 @@ import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class WithdrawalConfirm extends Fragment {
 
     private String userName;
@@ -24,6 +28,7 @@ public class WithdrawalConfirm extends Fragment {
     private Bundle args;
     private Button confirmButton;
     private Button cancelButton;
+    private TextView TextViewdate;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -43,6 +48,10 @@ public class WithdrawalConfirm extends Fragment {
 
         confirmButton = view.findViewById(R.id.confirmBtn);
         cancelButton = view.findViewById(R.id.cancelBtn);
+        TextViewdate = view.findViewById(R.id.dateLbl);
+
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        TextViewdate.setText(date);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override

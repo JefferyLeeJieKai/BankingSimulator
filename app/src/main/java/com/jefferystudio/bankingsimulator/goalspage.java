@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
@@ -48,14 +49,12 @@ public class goalspage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Bundle newArgs = new Bundle();
-                newArgs.putString("userID", args.getString("userID"));
-                newArgs.putString("userName", args.getString("userName"));
                 Fragment savingGoalsAll = new SavingGoalsAll();
                 savingGoalsAll.setArguments(args);
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, savingGoalsAll);
-                transaction.commit();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, savingGoalsAll)
+                        .commit();
             }
         });
 

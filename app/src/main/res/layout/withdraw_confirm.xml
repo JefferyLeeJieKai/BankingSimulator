@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/trees"
+    android:background="@drawable/beach06"
     >
 
     <TextView
@@ -31,6 +31,15 @@
         android:background="#000000"
         android:paddingBottom="10dip" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/profileview"
+        app:layout_widthPercent="90%"
+        app:layout_heightPercent="21%"
+        app:layout_marginTopPercent="4%"
+        android:background="#CCEEEEEE"/>
+
     //header
     <TextView
         app:layout_widthPercent="80%"
@@ -46,7 +55,7 @@
     <TextView
         app:layout_widthPercent="18%"
         app:layout_heightPercent="6%"
-        app:layout_marginTopPercent="33%"
+        app:layout_marginTopPercent="30%"
         app:layout_marginLeftPercent="8%"
         android:textColor="#000000"
         android:text="Withdraw From:"
@@ -54,6 +63,7 @@
 
     //display account holder's profile
     <View
+        android:id="@+id/profileview"
         app:layout_widthPercent="65%"
         app:layout_heightPercent="16%"
         app:layout_marginTopPercent="29%"
@@ -134,7 +144,7 @@
         android:id="@+id/dateLbl"
         app:layout_widthPercent="40%"
         app:layout_heightPercent="5%"
-        app:layout_marginLeftPercent="25%"
+        app:layout_marginLeftPercent="27%"
         app:layout_marginTopPercent="63%"
         android:textColor="#000000"
         app:autoSizeTextType="uniform" />
@@ -145,7 +155,8 @@
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
         app:layout_marginLeftPercent="12%"
-        app:layout_marginTopPercent="75%"
+        app:layout_marginBottomPercent="5%"
+        android:layout_alignParentBottom="true"
         android:background="@color/buttonBG"
         android:textColor="@color/buttonWord"
         android:text="Cancel" />
@@ -155,8 +166,9 @@
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         app:layout_marginRightPercent="12%"
-        app:layout_marginTopPercent="75%"
+        app:layout_marginBottomPercent="5%"
         android:background="@color/buttonBG"
         android:textColor="@color/buttonWord"
         android:text="Confirm" />
