@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/title"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="9%"
+        app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
         android:text="Create Class"
@@ -18,9 +18,10 @@
         app:autoSizeTextType="uniform"/>
 
     <View
+        android:layout_below="@id/title"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        app:layout_marginTopPercent="13%"
+        app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
@@ -86,7 +87,7 @@
         android:id="@+id/cancelBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="40%"
+        app:layout_marginTopPercent="45%"
         android:layout_below="@id/classTxt"
         android:layout_alignLeft="@id/classTxt"
         android:background="@drawable/buttonred"
@@ -99,11 +100,11 @@
         android:id="@+id/createBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="40%"
+        app:layout_marginTopPercent="45%"
         android:layout_below="@id/classTxt"
         android:layout_alignRight="@id/classTxt"
         android:background="@drawable/buttonblue"
-        android:padding="10dp"
+        android:padding="15dp"
         android:textColor="#FFFFFF"
         android:text="Create" />
 

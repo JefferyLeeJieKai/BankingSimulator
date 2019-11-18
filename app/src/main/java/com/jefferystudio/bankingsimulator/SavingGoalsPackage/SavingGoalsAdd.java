@@ -114,14 +114,14 @@ public class SavingGoalsAdd extends Fragment {
                 inputName = savingGoalName.getEditText().getText().toString().trim();
                 inputAmount = savingGoalAmount.getEditText().getText().toString().trim();
                 inputDate = etDate.getText().toString().trim();
-                inputPriority = String.valueOf(priority.getSelectedItemId());
+                inputPriority = String.valueOf(priority.getSelectedItem());
 
                 if (!validateCost() | !validateDate() | !validateGoal()) {
 
                     return;
                 }
 
-                new SettingsGoalsAsync(getActivity(), "NewSavingGoal", args.getString("userName")).execute(currentID, inputName, inputAmount, inputDate, inputPriority);
+                new SettingsGoalsAsync(getActivity(), "NewSavingGoal", args.getString("userName")).execute(currentID, inputName, inputAmount, inputDate, inputPriority.substring(0, 1));
 
             }
         });
