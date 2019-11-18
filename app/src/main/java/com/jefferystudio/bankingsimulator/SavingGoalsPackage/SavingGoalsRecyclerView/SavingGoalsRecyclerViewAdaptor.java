@@ -133,7 +133,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 args.putString("goalID", savingGoal.getGoalID());
                 args.putString("goalName", savingGoal.getGoalName());
                 args.putString("itemCost", savingGoal.getItemCost());
-                args.putString("deadline", savingGoal.getDeadline());
+                args.putString("deadLine", savingGoal.getDeadline());
                 args.putString("priority", savingGoal.getPriority());
 
                 Fragment editGoalFrag = new SavingGoalsEdit();

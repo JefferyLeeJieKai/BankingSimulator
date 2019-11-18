@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -15,11 +16,23 @@ public class DeleteSavingGoalsAsync extends AsyncTask<String, String, String> {
 
     private Context context;
     private String goalID;
+    private ProgressDialog progDialog;
 
     public DeleteSavingGoalsAsync(Context context, String goalID) {
 
         this.context = context;
         this.goalID = goalID;
+    }
+
+    @Override
+    protected void onPreExecute() {
+
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Deleting saving goal...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -63,6 +76,7 @@ public class DeleteSavingGoalsAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }
