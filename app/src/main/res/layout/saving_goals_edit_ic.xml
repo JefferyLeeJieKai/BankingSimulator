@@ -151,6 +151,7 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/buttongreen"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="Confirm" />
 
     <Button
@@ -162,6 +163,7 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/buttonred"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

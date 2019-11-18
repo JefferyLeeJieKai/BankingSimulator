@@ -176,6 +176,7 @@
         android:layout_alignRight="@id/textView"
         android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="Confirm" />
 
     <Button
@@ -187,6 +188,7 @@
         android:layout_below="@id/textView"
         android:layout_alignLeft="@id/textView"
         android:background="@drawable/buttonblue"
+        android:fontFamily="@font/titan_one"
         android:textColor="@color/buttonWord"
         android:text="Cancel" />
 

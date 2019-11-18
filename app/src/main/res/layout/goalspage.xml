@@ -161,12 +161,13 @@
     <Button
         android:id="@+id/buttonback"
         app:layout_widthPercent="80%"
-        android:layout_height="wrap_content"
+        app:layout_heightPercent="7%"
         android:layout_centerHorizontal="true"
         app:layout_marginBottomPercent="6%"
         android:layout_alignParentBottom="true"
         android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>

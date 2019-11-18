@@ -277,6 +277,7 @@
         android:layout_alignRight="@id/title"
         android:textColor="@color/buttonWord"
         android:background="@drawable/buttonblue"
+        android:fontFamily="@font/titan_one"
         android:text="Submit" />
 
 </android.support.percent.PercentRelativeLayout>
