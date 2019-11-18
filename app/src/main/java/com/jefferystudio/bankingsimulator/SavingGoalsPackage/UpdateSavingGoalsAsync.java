@@ -1,11 +1,13 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
@@ -22,6 +24,7 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
 
     private Context context;
     private HomeScreenUser homeScreenUserActivity;
+    private ProgressDialog progDialog;
     private String userID;
     private String userName;
     private String flag;
@@ -39,6 +42,12 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Updating saving goals...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -91,78 +100,7 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-
-        String[] resultArray = result.split(",");
-
-        if(resultArray[0].equals("True")) {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-            builder.setTitle("DigiBank Alert");
-            builder.setMessage(resultArray[1] + " Do you want to change it again?");
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                }
-
-            });
-
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-                    Fragment homeFrag = new HomeFragmentUser();
-                    Bundle args = new Bundle();
-                    args.putString("userID", userID);
-                    args.putString("userName", userName);
-                    homeFrag.setArguments(args);
-
-                    homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frame_layout, homeFrag)
-                            .commit();
-                }
-            });
-
-            AlertDialog quitDialog = builder.create();
-            quitDialog.show();
-        }
-        else if(resultArray[0].equals("False")) {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-            builder.setTitle("DigiBank Alert");
-            builder.setMessage(resultArray[1] + " Do you want to retry your action?");
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                }
-
-            });
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-                    Fragment homeFrag = new HomeFragmentUser();
-                    Bundle args = new Bundle();
-                    args.putString("userID", userID);
-                    homeFrag.setArguments(args);
-
-                    homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frame_layout, homeFrag)
-                            .commit();
-                }
-            });
-
-            AlertDialog quitDialog = builder.create();
-            quitDialog.show();
-        }
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        progDialog.dismiss();
     }
 }

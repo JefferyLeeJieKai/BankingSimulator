@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
 
     private Context context;
     private RecyclerView recyclerView;
+    private ProgressDialog progDialog;
     private String userID;
     private String username;
     private String currentBalance;
@@ -34,6 +36,12 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Retrieving saving goals...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -81,6 +89,7 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         ArrayList<SavingGoal> savingGoals = new ArrayList<>();
 

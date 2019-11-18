@@ -10,30 +10,33 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EDIT SAVING GOALS"
+        app:layout_widthPercent="90%"
+        app:layout_heightPercent="6%"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="5%"
+        android:text="UPDATE SAVING GOALS"
         android:textColor="#000000"
-        android:textSize="32dp"
         android:fontFamily="@font/titan_one"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp" />
+        app:autoSizeTextType="uniform"/>
 
     //display account holder's profile
     <View
         android:id="@+id/Rect"
-        android:layout_width="280dp"
-        android:layout_height="145dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="105dp"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="16%"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="2%"
+        android:layout_below="@id/title"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="125dp"
+        app:layout_widthPercent="27%"
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="3%"
+        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/Rect"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -42,126 +45,164 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="130dp"
-        android:textSize="20dp" />
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="5%"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="5%"
+        android:layout_below="@id/title"
+        android:layout_alignRight="@id/Rect"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="190dp"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/savemoney"
-        app:layout_widthPercent="70%"
-        app:layout_heightPercent="8%"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/Rect"
-        app:layout_marginTopPercent="2%"
-        android:background="@drawable/rounded_buttons"
-        android:onClick="login"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
-        android:padding="8dp"
-        android:text="SAVE FOR GOAL"
-        android:textColor="@color/loginButtonText"
-        app:autoSizeTextType="uniform"/>
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="5%"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="11%"
+        android:layout_below="@id/title"
+        android:layout_alignRight="@id/Rect"
+        app:autoSizeTextType="uniform" />
 
     //display information starting here
     //display goal name
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="290dp"
+        android:id="@+id/goal"
+        app:layout_widthPercent="75%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/Rect"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="3%"
+        android:text="Current goal name"
         android:textColor="#000000"
-        android:text="Goal Name:" />
+        android:textStyle="bold"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform" />
 
-    <TextView
-        android:id="@+id/goalNameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="290dp" />
+    <EditText
+        android:id="@+id/goalinput"
+        app:layout_widthPercent="75%"
+        app:layout_heightPercent="6%"
+        android:layout_below="@id/goal"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:ems="10"
+        android:hint="Enter new goal name"
+        android:inputType="textPersonName"
+        android:textColorHint="#66000000"
+        android:textStyle="italic"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"/>
+
+    //display amount
 
     <Button
         android:id="@+id/editGoalNameBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@drawable/mode_edit"
-        android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="285dp" />
-
-    //display amount
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="330dp"
-        android:textColor="#000000"
-        android:text="Item Cost:" />
+        android:layout_below="@id/Rect"
+        android:layout_alignRight="@id/title"
+        app:layout_heightPercent="5%"
+        app:layout_widthPercent="14%"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="5%"
+        android:background="@drawable/rounded_buttons"
+        android:fontFamily="@font/titan_one"
+        android:padding="4dp"
+        android:text="Save"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform"/>
 
     <TextView
-        android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="330dp"
+        android:id="@+id/itemvalue"
+        app:layout_widthPercent="75%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/goalinput"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="1%"
+        android:text="Current amount to save"
         android:textColor="#000000"
-        android:text="SGD" />
+        android:textStyle="bold"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform" />
 
-    <TextView
-        android:id="@+id/amountLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="330dp" />
+    <EditText
+        android:id="@+id/itemvalueinput"
+        app:layout_widthPercent="75%"
+        app:layout_heightPercent="6%"
+        android:layout_below="@id/itemvalue"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:ems="10"
+        android:hint="Enter new amount to save"
+        android:inputType="textPersonName"
+        android:textColorHint="#66000000"
+        android:textStyle="italic"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"/>
 
     <Button
         android:id="@+id/editAmountBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@drawable/mode_edit"
-        android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="330dp" />
+        android:layout_below="@id/goalinput"
+        android:layout_alignRight="@id/title"
+        app:layout_heightPercent="5%"
+        app:layout_widthPercent="14%"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="3%"
+        android:background="@drawable/rounded_buttons"
+        android:fontFamily="@font/titan_one"
+        android:padding="4dp"
+        android:text="Save"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="370dp"
+        android:id="@+id/deadline"
+        app:layout_widthPercent="75%"
+        app:layout_heightPercent="5%"
+        android:layout_below="@id/itemvalueinput"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="1%"
+        android:text="Current deadline"
         android:textColor="#000000"
-        android:text="Deadline:" />
+        android:textStyle="bold"
+        android:background="@drawable/username_field"
+        app:autoSizeTextType="uniform" />
 
-    <TextView
-        android:id="@+id/deadlineLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="370dp" />
+    <EditText
+        android:id="@+id/deadlineinput"
+        app:layout_widthPercent="75%"
+        app:layout_heightPercent="6%"
+        android:layout_below="@id/deadline"
+        android:layout_alignLeft="@id/title"
+        app:layout_marginLeftPercent="0%"
+        android:layout_marginTop="-5dp"
+        android:ems="10"
+        android:hint="Enter new deadline"
+        android:inputType="textPersonName"
+        android:textColorHint="#66000000"
+        android:textStyle="italic"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"
+        android:clickable="true"
+        android:focusable="false"/>
 
     <Button
         android:id="@+id/editDeadlineBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@drawable/mode_edit"
-        android:backgroundTint="#A9A9A9"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="370dp" />
+        android:layout_below="@id/itemvalueinput"
+        android:layout_alignRight="@id/title"
+        app:layout_heightPercent="5%"
+        app:layout_widthPercent="14%"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="3%"
+        android:background="@drawable/rounded_buttons"
+        android:fontFamily="@font/titan_one"
+        android:padding="4dp"
+        android:text="Save"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform" />
 
     //display buttons
     <!--<Button
@@ -173,12 +214,43 @@
         android:text="Confirm" />-->
 
     <Button
+        android:id="@+id/savemoney"
+        app:layout_widthPercent="90%"
+        app:layout_heightPercent="6%"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/deadlineinput"
+        app:layout_marginTopPercent="2%"
+        android:background="@drawable/round_button_green"
+        android:onClick="login"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:padding="8dp"
+        android:text="SAVE MONEY FOR YOUR GOAL"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform"/>
+
+    <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
-        android:background="@drawable/buttonshadow"
-        android:text="Cancel" />
+        app:layout_widthPercent="90%"
+        app:layout_heightPercent="6%"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/savemoney"
+        app:layout_marginTopPercent="2%"
+        android:background="@drawable/round_button_green"
+        android:onClick="login"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:padding="8dp"
+        android:text="CANCEL"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform"/>
 
 </android.support.percent.PercentRelativeLayout>

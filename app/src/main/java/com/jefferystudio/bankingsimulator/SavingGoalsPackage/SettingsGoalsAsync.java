@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
@@ -23,6 +24,7 @@ public class SettingsGoalsAsync extends AsyncTask<String, String, String> {
 
     private Context context;
     private HomeScreenUser homeScreenUserActivity;
+    private ProgressDialog progDialog;
     private ArrayList<Exception> elist = new ArrayList<>();
     private String flag;
     private String link;
@@ -45,6 +47,12 @@ public class SettingsGoalsAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Creating new saving goal...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -110,6 +118,7 @@ public class SettingsGoalsAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         String[] resultArray = result.split(",");
 
