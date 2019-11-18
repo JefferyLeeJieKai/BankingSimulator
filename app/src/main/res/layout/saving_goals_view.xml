@@ -307,7 +307,7 @@
         android:layout_below="@+id/textView3"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        android:background="@color/buttonBG"
+        android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:text="BACK" />
 

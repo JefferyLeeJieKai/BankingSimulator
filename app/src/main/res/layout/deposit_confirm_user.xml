@@ -174,7 +174,7 @@
         app:layout_marginTopPercent="70%"
         android:layout_below="@id/textView"
         android:layout_alignRight="@id/textView"
-        android:background="@color/buttonBG"
+        android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:text="Confirm" />
 
@@ -186,7 +186,7 @@
         app:layout_marginTopPercent="70%"
         android:layout_below="@id/textView"
         android:layout_alignLeft="@id/textView"
-        android:background="@color/buttonBG"
+        android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:text="Cancel" />
 

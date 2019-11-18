@@ -165,7 +165,7 @@
         android:layout_centerHorizontal="true"
         app:layout_marginBottomPercent="6%"
         android:layout_alignParentBottom="true"
-        android:background="@color/buttonBG"
+        android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:text="BACK" />
 

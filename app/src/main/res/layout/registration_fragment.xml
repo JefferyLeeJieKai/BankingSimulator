@@ -275,7 +275,8 @@
             app:layout_marginRightPercent="0%"
             android:layout_below="@id/identitytype"
             android:layout_alignRight="@id/title"
-            android:background="@drawable/buttonshadow"
+            android:background="@drawable/buttonblue"
+            android:textColor="@color/buttonWord"
             android:text="Submit" />
 
     </android.support.percent.PercentRelativeLayout>

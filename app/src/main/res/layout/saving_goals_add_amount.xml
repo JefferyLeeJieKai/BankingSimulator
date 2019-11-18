@@ -216,7 +216,7 @@
 
     <Button
         android:id="@+id/confirmBtn"
-        android:background="@color/buttonConfirm"
+        android:background="@drawable/buttongreen"
         android:textColor="@color/buttonWord"
         android:text="Confirm"
         android:textSize="17dp"
@@ -227,7 +227,7 @@
 
     <Button
         android:id="@+id/cancelBtn"
-        android:background="@color/buttonBack"
+        android:background="@drawable/buttonred"
         android:textColor="@color/buttonWord"
         android:text="Cancel"
         android:textSize="17dp"
