@@ -13,35 +13,35 @@
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
         android:text="Create Class"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
+       android:gravity="center"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_marginTop="90dp"
+        app:layout_marginTopPercent="13%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
     //get class
+
     <TextView
         android:id="@+id/classHeader"
-        app:layout_widthPercent="80%"
-        app:layout_heightPercent="8%"
-        android:layout_below="@id/title"
         android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="76dp"
+        android:autoSizeTextType="uniform"
+        android:background="#CCFFFFFF"
+        android:text="Class name"
+        android:textColor="#000000"
+        app:layout_heightPercent="8%"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="10%"
-        android:textColor="#000000"
-        android:text="Class"
-        android:background="@drawable/username_field"
-        android:autoSizeTextType="uniform"/>
+        app:layout_widthPercent="80%"
+        android:padding="10dp"
+        app:autoSizeTextType="uniform"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/classTxt"
@@ -49,9 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/classHeader"
         android:layout_alignLeft="@id/classHeader"
-        app:layout_marginLeftPercent="0%"
-        android:layout_marginTop="-5dp"
-        android:background="@drawable/password_field">
+        android:padding="10dp"
+        android:background="#CCFFFFFF">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -87,22 +86,25 @@
         android:id="@+id/cancelBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="8%"
+        app:layout_marginTopPercent="40%"
         android:layout_below="@id/classTxt"
         android:layout_alignLeft="@id/classTxt"
-        android:background="@drawable/buttonshadow"
-        android:text="Cancel" />
+        android:background="@drawable/buttonred"
+        android:textColor="#FFFFFF"
+        android:text="Cancel"
+        android:padding="15dp"
+        app:autoSizeTextType="uniform"/>
 
     <Button
         android:id="@+id/createBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="8%"
-        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="40%"
         android:layout_below="@id/classTxt"
         android:layout_alignRight="@id/classTxt"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttonblue"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
         android:text="Create" />
 
 </android.support.percent.PercentRelativeLayout>
