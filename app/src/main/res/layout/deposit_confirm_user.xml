@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/boat"
+    android:background="@drawable/beach28"
     >
 
     <TextView
@@ -135,7 +135,7 @@
         android:id="@+id/amountLbl"
         app:layout_widthPercent="40%"
         app:layout_heightPercent="5%"
-        app:layout_marginLeftPercent="16%"
+        app:layout_marginLeftPercent="14%"
         app:layout_marginTopPercent="48%"
         android:layout_below="@id/textView"
         android:layout_alignLeft="@id/textView"
