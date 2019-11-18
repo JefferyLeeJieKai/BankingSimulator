@@ -12,7 +12,7 @@
         android:id="@+id/textView"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="9%"
-        app:layout_marginTopPercent="6%"
+        app:layout_marginTopPercent="3%"
         android:layout_centerHorizontal="true"
         android:text="DEPOSIT FUNDS"
         android:elevation="20dp"
@@ -24,14 +24,23 @@
         android:textColor="#000000"
         app:autoSizeTextType="uniform" />
 
+    <View
+        android:id="@+id/line1"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        app:layout_marginTopPercent="1%"
+        android:layout_below="@id/textView"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
+
     //display account holder's profile
     <View
         android:id="@+id/Rect"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="20%"
         app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="0%"
-        android:layout_below="@id/textView"
+        app:layout_marginTopPercent="4%"
+        android:layout_below="@id/line1"
         android:layout_alignLeft="@id/textView"
         android:background="@drawable/emptyrect" />
 
@@ -40,7 +49,7 @@
         app:layout_widthPercent="27%"
         app:layout_heightPercent="15%"
         app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="3%"
+        app:layout_marginTopPercent="7%"
         android:layout_below="@id/textView"
         android:layout_alignLeft="@id/textView"
         android:backgroundTint="#D3D3D3"
@@ -54,7 +63,7 @@
         app:layout_widthPercent="50%"
         app:layout_heightPercent="5%"
         app:layout_marginRightPercent="0%"
-        app:layout_marginTopPercent="5%"
+        app:layout_marginTopPercent="9%"
         android:layout_below="@id/textView"
         android:layout_alignRight="@id/textView"
         app:autoSizeTextType="uniform" />
@@ -64,8 +73,8 @@
         app:layout_widthPercent="50%"
         app:layout_heightPercent="5%"
         app:layout_marginRightPercent="0%"
-        app:layout_marginTopPercent="11%"
-        android:layout_below="@id/textView"
+        app:layout_marginTopPercent="1%"
+        android:layout_below="@id/usernameLbl"
         android:layout_alignRight="@id/textView"
         app:autoSizeTextType="uniform" />
 
@@ -74,7 +83,7 @@
         android:id="@+id/amount"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="6%"
-        app:layout_marginTopPercent="3%"
+        app:layout_marginTopPercent="6%"
         android:layout_below="@id/Rect"
         android:layout_alignLeft="@id/Rect"
         android:textColor="#000000"
