@@ -9,30 +9,43 @@
     >
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EDIT SAVING GOALS"
         android:fontFamily="@font/titan_one"
+        android:layout_centerHorizontal="true"
         android:textSize="32dp"
         android:textColor="#000000"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp" />
+        app:layout_marginTopPercent="3%" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_below="@id/title"
+        app:layout_marginTopPercent="3%"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
     //display account holder's profile
     <View
         android:id="@+id/profileview"
-        android:layout_width="280dp"
-        android:layout_height="145dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="105dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/line1"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="18%"
+        app:layout_marginTopPercent="3%"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="125dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/line1"
+        app:layout_widthPercent="30%"
+        app:layout_heightPercent="16%"
+        app:layout_marginTopPercent="4%"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -41,18 +54,21 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="50%"
+        android:layout_below="@id/line1"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="130dp"
+        android:layout_alignRight="@id/profileview"
+        app:layout_marginTopPercent="7%"
+        android:textColor="#000000"
         android:textSize="20dp" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="50%"
+        android:layout_below="@id/usernameLbl"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="190dp"
+        android:layout_alignRight="@id/profileview"
+        app:layout_marginTopPercent="2%"
         android:textSize="20dp" />
 
     <TextView
@@ -66,45 +82,53 @@
 
     //display goal name
     <TextView
+        android:id="@+id/goalnametv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="290dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/profileview"
+        app:layout_marginTopPercent="6%"
         android:textColor="#000000"
         android:text="Goal Name:" />
 
     <TextView
         android:id="@+id/goalNameLbl"
-        android:layout_width="wrap_content"
+        app:layout_widthPercent="59%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
+        android:layout_alignRight="@id/profileview"
+        android:layout_below="@id/profileview"
         android:textColor="#000000"
-        android:layout_marginTop="290dp" />
+        app:layout_marginTopPercent="6%" />
 
     //get new goal name
     <TextView
+        android:id="@+id/newgoaltv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="370dp"
+        android:layout_alignRight="@+id/goalnametv"
+        android:layout_below="@+id/goalnametv"
+        app:layout_marginTopPercent="5%"
         android:textColor="#000000"
         android:text="New Goal" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/newgoaltv"
+        android:layout_alignRight="@id/goalnametv"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="390dp"
+        app:layout_marginTopPercent="2%"
         android:textColor="#000000"
         android:text="Name:" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/goalNameTxt"
-        android:layout_width="210dp"
+        android:layout_alignRight="@id/profileview"
+        android:layout_below="@id/goalnametv"
+        app:layout_widthPercent="59%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
         android:textColor="#000000"
-        android:layout_marginTop="350dp">
+        app:layout_marginTopPercent="6%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -115,22 +139,26 @@
     //display buttons
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="110dp"
+        app:layout_widthPercent="25%"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="250sp"
-        android:layout_marginTop="600dp"
+        android:layout_alignRight="@id/profileview"
+        android:layout_alignParentBottom="true"
+        app:layout_marginBottomPercent="11%"
         android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="Confirm" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
+        app:layout_widthPercent="25%"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@id/profileview"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="600sp"
+        app:layout_marginBottomPercent="11%"
         android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="Cancel" />
 
 </android.support.percent.PercentRelativeLayout>

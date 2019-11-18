@@ -119,6 +119,7 @@
         android:layout_alignLeft="@id/amountTxt"
         android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="Back" />
 
     <Button
@@ -131,6 +132,7 @@
         android:layout_alignRight="@id/textView"
         android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="Next" />
 
 </android.support.percent.PercentRelativeLayout>
