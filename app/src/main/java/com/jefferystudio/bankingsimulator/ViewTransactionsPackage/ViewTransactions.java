@@ -6,9 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 
 public class ViewTransactions extends Fragment {
@@ -20,6 +22,7 @@ public class ViewTransactions extends Fragment {
     private TextView userName;
     private TextView balance;
     private RecyclerView recyclerView;
+    private Button backbtn;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -32,6 +35,22 @@ public class ViewTransactions extends Fragment {
 
         userName = view.findViewById(R.id.usernameLbl);
         balance = view.findViewById(R.id.balanceLbl);
+        backbtn = view.findViewById(R.id.backbtn);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment homeFrag = new HomeFragmentUser();
+                Bundle homeBundle = new Bundle();
+                homeBundle.putString("userID", currentUserID);
+                homeFrag.setArguments(homeBundle);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, homeFrag)
+                        .commit();
+            }
+        });
 
         new UpdateBalanceAsync(getActivity(), balance).execute(currentUserID);
 

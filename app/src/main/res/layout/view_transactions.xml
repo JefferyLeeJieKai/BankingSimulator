@@ -72,7 +72,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/transactionsDetailsRv"
         app:layout_widthPercent="90%"
-        android:layout_height="wrap_content"
+        app:layout_heightPercent="35%"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="360dp" />
 
@@ -101,7 +101,17 @@
         android:background="#000000"
         android:paddingBottom="10dip" />
 
-
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_alignLeft="@id/textView"
+        android:layout_alignParentBottom="true"
+        app:layout_marginBottomPercent="5%"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
+        android:background="@drawable/buttonblue"
+        android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
+        android:text="BACK" />
 
 
 </android.support.percent.PercentRelativeLayout>

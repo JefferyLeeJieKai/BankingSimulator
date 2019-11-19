@@ -7,28 +7,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7E3C4"
-    android:angle="45">
+    >
+    <!--android:angle="45"-->
 
     <com.q42.android.scrollingimageview.ScrollingImageView
 
         android:id="@+id/scrollingImageView"
         android:layout_width="match_parent"
-        android:scaleType="center"
+        app:layout_heightPercent="10%"
         app:speed="0.2dp"
         app:src="@drawable/beachchair"
-        android:elevation="100dp"
         android:outlineAmbientShadowColor="#000"
-        android:shadowRadius="200"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="45dp" />
+        android:shadowRadius="200" />
 
 
     <ImageButton
         android:id="@+id/loginposb"
         app:layout_widthPercent="15%"
+        android:layout_alignParentBottom="true"
         app:layout_heightPercent="10%"
         app:layout_marginLeftPercent="22%"
-        app:layout_marginTopPercent="89%"
+        app:layout_marginBottomPercent="2%"
         android:scaleType="fitCenter"
         android:background="@null"
         android:src="@drawable/login1" />
@@ -49,14 +48,12 @@
         android:id="@+id/signup"
         app:layout_widthPercent="15%"
         app:layout_heightPercent="10%"
-        app:layout_marginTopPercent="89%"
+        android:layout_alignParentBottom="true"
+        app:layout_marginBottomPercent="2%"
         app:layout_marginLeftPercent="62%"
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/signup1" />
 
 </android.support.percent.PercentRelativeLayout >

@@ -42,22 +42,22 @@
         android:id="@+id/confirmBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        android:layout_alignLeft="@id/title"
+        android:layout_alignRight="@id/title"
         android:layout_below="@id/input"
         app:layout_marginTopPercent="4%"
         android:gravity="center"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttongreen"
         android:text="CONFIRM" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_alignRight="@id/title"
+        android:layout_alignLeft="@id/title"
         app:layout_widthPercent="25%"
         android:gravity="center"
         app:layout_heightPercent="7%"
         android:layout_below="@id/input"
         app:layout_marginTopPercent="4%"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttonred"
         android:text="CANCEL" />
 
 </android.support.percent.PercentRelativeLayout>
