@@ -1,17 +1,21 @@
 package com.jefferystudio.bankingsimulator;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -192,13 +196,13 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //do something
             }
         });
 
         builder.setView(v);
         android.app.AlertDialog ad = builder.create();
         ad.show();
+        ad.getWindow().setLayout(1000, 1500);
     }
 
     @Override
