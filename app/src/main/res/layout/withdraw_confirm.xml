@@ -178,7 +178,7 @@
         app:layout_heightPercent="7%"
         app:layout_marginBottomPercent="5%"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/buttonblue"
+        android:background="@drawable/buttonred"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
         android:text="Cancel" />
@@ -190,7 +190,7 @@
         app:layout_heightPercent="7%"
         android:layout_alignParentBottom="true"
         app:layout_marginBottomPercent="5%"
-        android:background="@drawable/buttonblue"
+        android:background="@drawable/buttongreen"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
         android:text="Confirm" />

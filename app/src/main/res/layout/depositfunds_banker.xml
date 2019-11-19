@@ -23,6 +23,7 @@
         app:autoSizeTextType="uniform" />
 
     <View
+        android:id="@+id/line1"
         android:layout_below="@id/textView"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
@@ -49,7 +50,6 @@
         app:layout_widthPercent="27%"
         app:layout_heightPercent="15%"
         app:layout_marginTopPercent="17%"
-        app:layout_marginLeftPercent="5%"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignTop="@+id/textView"
         android:backgroundTint="#D3D3D3"
@@ -60,22 +60,21 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_toRightOf="@+id/profilephoto"
-        android:layout_alignTop="@+id/profilephoto"
+        android:layout_alignRight="@+id/textView"
+        android:layout_below="@id/line1"
         app:autoSizeTextType="uniform"
-        app:layout_marginLeftPercent="2%"
+        app:layout_marginTopPercent="9%"
         app:layout_heightPercent="5%"
-        app:layout_widthPercent="35%" />
+        app:layout_widthPercent="51%" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        app:layout_widthPercent="35%"
+        app:layout_widthPercent="51%"
         app:layout_heightPercent="5%"
-        android:layout_toRightOf="@+id/profilephoto"
-        android:layout_alignTop="@+id/textView"
+        android:layout_alignRight="@id/textView"
+        android:layout_below="@id/usernameLbl"
         app:layout_marginLeftPercent="2%"
-
-        app:layout_marginTopPercent="25%"
+        app:layout_marginTopPercent="2%"
         app:autoSizeTextType="uniform" />
 
     //user input starting from here

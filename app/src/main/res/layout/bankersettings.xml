@@ -8,27 +8,21 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="211dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:elevation="20dp"
-        android:fontFamily="@font/titan_one"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:shadowRadius="20"
         android:text="Settings"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:padding="2dp"
         android:gravity="center"
         android:textColor="#000000"
-        app:autoSizeTextType="uniform"
-        app:layout_heightPercent="9%"
-        app:layout_marginTopPercent="2%"
-        app:layout_widthPercent="80%" />
+        app:autoSizeTextType="uniform" />
 
     <View
+        android:layout_below="@id/title"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_marginTop="90dp"
+        app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
@@ -42,11 +36,12 @@
         android:layout_below="@id/title"
         android:background="@drawable/buttonshadow2"
         android:text="Change Password"
-        android:textSize="22sp"
         android:bottomRightRadius="10dp"
         android:bottomLeftRadius="10dp"
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp"
+        app:autoSizeTextType="uniform"
+        android:padding="15dp"
         />
 
     <Button
@@ -58,28 +53,34 @@
         android:layout_below="@id/changepass"
         android:background="@drawable/buttonshadow2"
         android:text="TIMEZONE/CURRENCY"
-        android:textSize="22sp"
         android:bottomRightRadius="10dp"
         android:bottomLeftRadius="10dp"
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp"
+        app:autoSizeTextType="uniform"
+        android:padding="15dp"
         />
 
     <TextView
         android:id="@+id/classHeader2"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
         android:layout_below="@id/btndatetime"
         android:layout_alignLeft="@id/title"
-        android:background="#FFFFFF"
-        android:gravity="center_vertical"
-        android:text="     FINGERPRINT"
+        android:background="@drawable/buttonshadow2"
+        android:gravity="left"
+        android:text="\t\t\t\t\tFINGERPRINT"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_heightPercent="8%"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="3%"
-        app:layout_widthPercent="80%" />
+        app:layout_widthPercent="80%"
+        android:bottomRightRadius="10dp"
+        android:bottomLeftRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"
+        app:autoSizeTextType="uniform"
+        android:padding="15dp"/>
 
     <Switch
         android:id="@+id/switch1"
@@ -101,7 +102,10 @@
         android:layout_alignParentBottom="true"
         app:layout_marginBottomPercent="10%"
         app:layout_widthPercent="80%"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttonblue"
+        android:textColor="#FFFFFF"
+        app:autoSizeTextType="uniform"
+        android:padding="10dp"
         android:text="BACK" />
 
 

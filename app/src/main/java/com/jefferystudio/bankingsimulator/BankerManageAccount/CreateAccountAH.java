@@ -10,15 +10,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
 public class CreateAccountAH extends Fragment {
 
     private TextInputLayout name;
-    private EditText dob;
+    private TextView dob;
     private TextInputLayout phone;
     private TextInputLayout username;
     private TextInputLayout password;
@@ -52,7 +56,9 @@ public class CreateAccountAH extends Fragment {
                         dob.setText(strDate);
                     }
                 },year,month,day);
+                datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 datePickerDialog.show();
+
             }
         });
 

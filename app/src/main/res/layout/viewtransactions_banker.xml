@@ -40,11 +40,10 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/usernameTxt"
-        android:layout_alignRight="@id/searchBtn"
-        app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="17%"
-        app:layout_marginRightPercent="7%"
-        app:layout_widthPercent="40%"
+        android:layout_alignRight="@id/textView"
+        app:layout_heightPercent="10%"
+        app:layout_marginTopPercent="16%"
+        app:layout_widthPercent="47%"
         app:autoSizeTextType="uniform"
         >
 

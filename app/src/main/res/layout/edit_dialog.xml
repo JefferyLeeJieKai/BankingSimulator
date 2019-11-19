@@ -1,47 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/title"
+        app:layout_widthPercent="80%"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="180dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        app:layout_marginTopPercent="3%"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:textSize="30sp"
         android:text="EDIT"/>
 
     <TextView
         android:id="@+id/inputLbl"
-        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/title"
+        android:textColor="#000000"
+        app:layout_widthPercent="80%"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp" />
+        app:layout_marginTopPercent="8%" />
 
     <EditText
         android:id="@+id/input"
-        android:layout_width="match_parent"
+        app:layout_widthPercent="80%"
+        android:layout_below="@+id/inputLbl"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:digits="0123456789"
+        android:inputType="number"
+        app:layout_marginTopPercent="2%" />
 
     //display buttons
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/buttonshadow"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        android:layout_alignRight="@id/title"
+        android:layout_below="@id/input"
+        app:layout_marginTopPercent="4%"
+        android:gravity="center"
+        android:background="@drawable/buttongreen"
         android:text="CONFIRM" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/buttonshadow"
+        android:layout_alignLeft="@id/title"
+        app:layout_widthPercent="25%"
+        android:gravity="center"
+        app:layout_heightPercent="7%"
+        android:layout_below="@id/input"
+        app:layout_marginTopPercent="4%"
+        android:background="@drawable/buttonred"
         android:text="CANCEL" />
 
 </android.support.percent.PercentRelativeLayout>
