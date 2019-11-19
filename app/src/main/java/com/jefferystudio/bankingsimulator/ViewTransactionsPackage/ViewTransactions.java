@@ -57,7 +57,7 @@ public class ViewTransactions extends Fragment {
         recyclerView = view.findViewById(R.id.transactionsDetailsRv);
 
         recyclerView = view.findViewById(R.id.transactionsDetailsRv);
-        new RetrieveTransactionsAsync(getActivity(), recyclerView).execute(currentUserID, currentUserName, currentBalance);
+        new RetrieveTransactionsAsync(getActivity(), recyclerView, "viewAH").execute(currentUserID, currentUserName, currentBalance);
 
         userName.setText(currentUserName);
         //balance.setText(currentBalance);

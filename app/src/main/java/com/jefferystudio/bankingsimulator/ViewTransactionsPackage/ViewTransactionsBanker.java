@@ -3,6 +3,7 @@ package com.jefferystudio.bankingsimulator.ViewTransactionsPackage;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +12,16 @@ import android.widget.Button;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsRecyclerView.TransactionsRecyclerViewAdaptor;
 
 import java.util.ArrayList;
 
 public class ViewTransactionsBanker extends Fragment {
 
-    private TextInputLayout username;
-    private Button searchButton;
-    private String input;
     private Button btnback;
     private Bundle args;
-    private ArrayList<String> list;
     private String currentID;
+    private RecyclerView transactionDetails;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -30,26 +29,8 @@ public class ViewTransactionsBanker extends Fragment {
 
         args = getArguments();
         currentID = args.getString("userID");
-        list = args.getStringArrayList("BankerList");
 
-        username = view.findViewById(R.id.usernameTxt);
         btnback = view.findViewById(R.id.backBtn);
-
-        //search button
-        searchButton = view.findViewById(R.id.searchBtn);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                input = username.getEditText().getText().toString().trim();
-
-                //if not empty
-                if (Validation.validateEmpty(input, username)) {
-                    username.setError(null);
-                }
-            }
-        });
-
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +43,8 @@ public class ViewTransactionsBanker extends Fragment {
             }
         });
 
+        transactionDetails = view.findViewById(R.id.transactionsDetailsRv);
+        new RetrieveTransactionsAsync(getActivity(), transactionDetails, "viewBanker").execute(currentID, args.getString("userName"), args.getString("currentBalance"));
         return view;
     }
 }

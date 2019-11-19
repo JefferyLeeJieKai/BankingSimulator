@@ -16,6 +16,7 @@ public class TransactionsRecyclerViewAdaptor extends RecyclerView.Adapter<Transa
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
+    private TextView transactionDate;
     public TextView transaction;
     public TextView amount;
 
@@ -23,6 +24,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
         super(itemView);
 
+        transactionDate = itemView.findViewById(R.id.transactionDate);
         transaction = itemView.findViewById(R.id.transactionItem);
         amount = itemView.findViewById(R.id.amountInvolved);
     }
@@ -30,11 +32,13 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     private List<Transaction> transactions;
     private Context context;
+    private String flag;
 
-    public TransactionsRecyclerViewAdaptor(Context context, List<Transaction> transactions) {
+    public TransactionsRecyclerViewAdaptor(Context context, List<Transaction> transactions, String flag) {
 
         this.transactions = transactions;
         this.context = context;
+        this.flag = flag;
     }
 
     @Override
@@ -58,6 +62,9 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         final Transaction transaction = transactions.get(position);
 
         // Set item views based on your views and data model
+        TextView transactionDate = viewHolder.transactionDate;
+        transactionDate.setText(transaction.getTransactionDate());
+
         TextView transactionDetails = viewHolder.transaction;
         TextView amountDetails = viewHolder.amount;
 
@@ -87,6 +94,18 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                 amountDetails.setTextColor(Color.parseColor("#ff0000"));
                 amountDetails.setText("-" + transaction.getTransactedAmt());
             }
+        }
+        else if(transaction.getTypeTrans().equals("BankerDeposit") && flag.equals("viewAH")) {
+
+            transactionDetails.setText("Deposit from Banker " + transaction.getTransactionUsername());
+            amountDetails.setTextColor(Color.parseColor("#33cc33"));
+            amountDetails.setText("+" + transaction.getTransactedAmt());
+        }
+        else if(transaction.getTypeTrans().equals("BankerDeposit") && flag.equals("viewBanker")) {
+
+            transactionDetails.setText("Deposit to " + transaction.getPayeeName());
+            amountDetails.setTextColor(Color.parseColor("#33cc33"));
+            amountDetails.setText("+" + transaction.getTransactedAmt());
         }
     }
 

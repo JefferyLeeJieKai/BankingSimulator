@@ -27,11 +27,13 @@ public class RetrieveTransactionsAsync extends AsyncTask<String, String, String>
     private String username;
     private String currentBalance;
     private String data;
+    private String flag;
 
-    public RetrieveTransactionsAsync(Context context, RecyclerView recyclerView) {
+    public RetrieveTransactionsAsync(Context context, RecyclerView recyclerView, String flag) {
 
         this.context = context;
         this.recyclerView = recyclerView;
+        this.flag = flag;
     }
 
     @Override
@@ -95,19 +97,20 @@ public class RetrieveTransactionsAsync extends AsyncTask<String, String, String>
         ArrayList<Transaction> transactions = new ArrayList<>();
 
         String[] resultArray = result.split(",");
-        int numberOfResults = resultArray.length / 7;
+        int numberOfResults = resultArray.length / 8;
 
         for (int i = 0; i < numberOfResults; i++) {
 
-            Transaction transaction = new Transaction(userID, username, currentBalance, resultArray[(i * 7)],
-                    resultArray[(i * 7) + 1], resultArray[(i * 7) + 2],
-                    resultArray[(i * 7) + 3], resultArray[(i * 7) + 4],
-                    resultArray[(i * 7) + 5], resultArray[(i * 7) + 6]);
+            Transaction transaction = new Transaction(userID, username, currentBalance, resultArray[(i * 8)],
+                    resultArray[(i * 8) + 1], resultArray[(i * 8) + 2],
+                    resultArray[(i * 8) + 3], resultArray[(i * 8) + 4],
+                    resultArray[(i * 8) + 5], resultArray[(i * 8) + 6],
+                    resultArray[(i * 8) + 7]);
 
             transactions.add(transaction);
         }
 
-        TransactionsRecyclerViewAdaptor adaptor = new TransactionsRecyclerViewAdaptor(context, transactions);
+        TransactionsRecyclerViewAdaptor adaptor = new TransactionsRecyclerViewAdaptor(context, transactions, flag);
         recyclerView.setAdapter(adaptor);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
     }

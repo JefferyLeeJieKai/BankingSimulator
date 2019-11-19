@@ -43,7 +43,7 @@ public class DepositConfirmUser extends Fragment {
         username = view.findViewById(R.id.usernameLbl);
         username.setText("Username: " + userName);
         accNo = view.findViewById(R.id.accountLbl);
-        accNo.setText("Account No: " + currentID);
+        accNo.setText("Acc No. : " + currentID);
         amount = view.findViewById(R.id.amountLbl);
         amount.setText(input);
 

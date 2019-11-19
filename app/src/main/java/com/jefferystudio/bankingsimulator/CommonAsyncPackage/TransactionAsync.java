@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmBanker;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmUser;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
@@ -15,6 +16,8 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUs
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.TransferFundsPackage.Transfer_Amount;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalConfirm;
 
 import java.io.BufferedReader;
@@ -232,17 +235,36 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
                     Fragment currentFragment = homeScreenUserActivity.getSupportFragmentManager().findFragmentById(R.id.frame_layout);
 
+                    Bundle newArgs = new Bundle();
+                    newArgs.putString("userID", userID);
+                    newArgs.putString("userName", userName);
+
                     if(flag.equals("DepositUser")) {
 
-                        ((DepositConfirmUser)currentFragment).recall();
+                        Fragment depositFrag = new DepositAH();
+                        depositFrag.setArguments(newArgs);
+
+                        homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frame_layout, depositFrag)
+                                .commit();
                     }
                     else if(flag.equals("WithdrawalUser")) {
 
-                        ((WithdrawalConfirm)currentFragment).recall();
+                        Fragment withdrawalFrag = new WithdrawalAH();
+                        withdrawalFrag.setArguments(newArgs);
+
+                        homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frame_layout, withdrawalFrag)
+                                .commit();
                     }
                     else if(flag.equals("TransferFundsUser")) {
 
+                        Fragment transferFrag = new Transfer_Amount();
+                        transferFrag.setArguments(newArgs);
 
+                        homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frame_layout, transferFrag)
+                                .commit();
                     }
                 }
 

@@ -12,10 +12,12 @@ public class Transaction {
     private String transactedAmt;
     private String purpose;
     private String typeTrans;
+    private String transactionDate;
 
     public Transaction(String userID, String username, String currentBalance,
                        String transactionUserID, String transactionUsername, String payeeID,
-                       String payeeName, String transactedAmt, String purpose, String typeTrans) {
+                       String payeeName, String transactedAmt, String purpose, String typeTrans,
+                       String transactionDate) {
 
         this.userID = userID;
         this.username = username;
@@ -27,6 +29,7 @@ public class Transaction {
         this.transactedAmt = transactedAmt;
         this.purpose = purpose;
         this.typeTrans = typeTrans;
+        this.transactionDate = transactionDate;
     }
 
     public String getUserID() {
@@ -77,5 +80,10 @@ public class Transaction {
     public String getTypeTrans() {
 
         return typeTrans;
+    }
+
+    public String getTransactionDate() {
+
+        return transactionDate;
     }
 }
