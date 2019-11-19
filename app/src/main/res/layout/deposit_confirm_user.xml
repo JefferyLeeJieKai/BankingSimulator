@@ -174,7 +174,7 @@
         app:layout_marginTopPercent="70%"
         android:layout_below="@id/textView"
         android:layout_alignRight="@id/textView"
-        android:background="@drawable/buttonblue"
+        android:background="@drawable/buttongreen"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
         android:text="Confirm" />

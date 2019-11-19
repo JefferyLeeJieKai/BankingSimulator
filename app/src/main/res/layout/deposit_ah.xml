@@ -119,7 +119,7 @@
         app:layout_marginBottomPercent="7%"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@id/amountTxt"
-        android:background="@drawable/buttonblue"
+        android:background="@drawable/buttonred"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
         android:text="Back" />
