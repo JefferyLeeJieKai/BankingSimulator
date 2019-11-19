@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/title"
-        android:text="Create Account"
+        android:text="CREATE ACCOUNT"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
@@ -195,11 +195,11 @@
     //display buttons
     <Button
         android:id="@+id/submitBtn"
-        app:layout_widthPercent="25%"
         android:layout_alignRight="@id/title"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content"
-        app:layout_marginBottomPercent="10%"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        app:layout_marginBottomPercent="7%"
         android:background="@drawable/buttongreen"
         android:textColor="@color/loginButtonText"
         app:autoSizeTextType="uniform"
@@ -208,11 +208,11 @@
 
     <Button
         android:id="@+id/cancelBtn"
+        app:layout_marginBottomPercent="7%"
         android:layout_alignParentBottom="true"
         app:layout_widthPercent="25%"
-        android:layout_height="wrap_content"
+        app:layout_heightPercent="7%"
         android:layout_alignLeft="@id/title"
-        app:layout_marginBottomPercent="10%"
         android:background="@drawable/buttonred"
         android:textColor="@color/loginButtonText"
         android:text="CANCEL"

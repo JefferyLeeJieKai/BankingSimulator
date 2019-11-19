@@ -27,7 +27,7 @@
         android:layout_alignParentBottom="true"
         app:layout_heightPercent="10%"
         app:layout_marginLeftPercent="22%"
-        app:layout_marginBottomPercent="2%"
+        app:layout_marginBottomPercent="5%"
         android:scaleType="fitCenter"
         android:background="@null"
         android:src="@drawable/login1" />
@@ -49,7 +49,7 @@
         app:layout_widthPercent="15%"
         app:layout_heightPercent="10%"
         android:layout_alignParentBottom="true"
-        app:layout_marginBottomPercent="2%"
+        app:layout_marginBottomPercent="5%"
         app:layout_marginLeftPercent="62%"
         android:background="@null"
         android:scaleType="fitCenter"

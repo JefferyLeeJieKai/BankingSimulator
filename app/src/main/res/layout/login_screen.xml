@@ -70,7 +70,7 @@
         android:shadowDy="20"
         android:fontFamily="@font/titan_one"
         android:shadowRadius="20"
-        android:padding="13dp"
+        android:padding="15dp"
         android:text="Login"
         android:textColor="@color/loginButtonText"
         app:autoSizeTextType="uniform"/>
