@@ -1,6 +1,7 @@
 package com.jefferystudio.bankingsimulator.Registration;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import java.net.URLEncoder;
 public class verifyRegistrationAsync extends AsyncTask <String, String, String> {
 
     private Activity activity;
+    private ProgressDialog progDialog;
     private String username;
     private String email;
     private String data;
@@ -25,7 +27,13 @@ public class verifyRegistrationAsync extends AsyncTask <String, String, String> 
 
     @Override
     protected void onPreExecute() {
-        super.onPreExecute();
+
+        progDialog = new ProgressDialog(activity);
+        progDialog.setMessage("Checking username and email...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -73,6 +81,8 @@ public class verifyRegistrationAsync extends AsyncTask <String, String, String> 
 
     @Override
     protected void onPostExecute(String result) {
+
+        progDialog.dismiss();
         //Toast.makeText(activity, data, Toast.LENGTH_LONG).show();
         //Toast.makeText(activity, result, Toast.LENGTH_LONG).show();
         //((Registration)activity).returnVerification(result);

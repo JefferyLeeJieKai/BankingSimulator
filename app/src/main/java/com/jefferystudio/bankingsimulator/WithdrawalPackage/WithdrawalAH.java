@@ -35,7 +35,7 @@ public class WithdrawalAH extends Fragment
 
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);
-        userID.setText(currentID);
+        userID.setText("Account No.: " + currentID);
         new UpdateBalanceAsync(getActivity(), userBalance).execute(currentID);
 
         amountToWithdraw = view.findViewById(R.id.amountTxt);

@@ -9,24 +9,20 @@
     <TextView
         android:id="@+id/title"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="9%"
-        app:layout_marginTopPercent="3%"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
+        android:padding="3dp"
         android:text="ISSUE BANKNOTES"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
+        android:gravity="center"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
 
     <View
+        android:layout_below="@id/title"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_below="@id/title"
-        app:layout_marginTopPercent="1%"
+        app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
@@ -213,6 +209,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/issue"
         app:layout_widthPercent="80%"
+        app:layout_heightPercent="21%"
         app:layout_marginTopPercent="3%"
         android:layout_height="wrap_content"/>
 

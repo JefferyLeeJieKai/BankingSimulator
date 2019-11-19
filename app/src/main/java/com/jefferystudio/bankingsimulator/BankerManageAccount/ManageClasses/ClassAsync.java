@@ -1,6 +1,7 @@
 package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
@@ -32,6 +33,7 @@ import java.util.concurrent.TimeUnit;
 public class ClassAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private String flag;
     private String link;
     private String data;
@@ -57,6 +59,12 @@ public class ClassAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Retriving class details...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -140,7 +148,9 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+
+        progDialog.dismiss();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         String[] resultArray = result.split(",");
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 

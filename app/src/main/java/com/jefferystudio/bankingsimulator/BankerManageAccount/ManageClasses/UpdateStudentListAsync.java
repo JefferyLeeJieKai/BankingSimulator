@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import java.net.URLEncoder;
 public class UpdateStudentListAsync extends AsyncTask<String, String, String>{
 
     private Context context;
+    private ProgressDialog progDialog;
     private String bankerID;
     private String username;
     private String classID;
@@ -27,6 +29,17 @@ public class UpdateStudentListAsync extends AsyncTask<String, String, String>{
         this.username = username;
         this.classID = classID;
         this.className = className;
+    }
+
+    @Override
+    protected void onPreExecute() {
+
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Adding new student to class...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override

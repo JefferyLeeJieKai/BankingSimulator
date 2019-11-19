@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.OTP;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import java.net.URLEncoder;
 public class OTPAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private String flag;
     private String userID;
 
@@ -31,6 +33,12 @@ public class OTPAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Sending OTP...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -74,6 +82,7 @@ public class OTPAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         Fragment fragment = null;
 
         if(flag.equals("AccountHolder")) {

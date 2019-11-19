@@ -1,6 +1,7 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,6 +24,7 @@ import java.net.URLEncoder;
 public class CredentialsResetAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private String flag;
     private String accountType;
     private String userID;
@@ -46,6 +48,12 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -173,6 +181,8 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
+
+        progDialog.dismiss();
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         //Toast.makeText(context, data, Toast.LENGTH_LONG).show();
 
