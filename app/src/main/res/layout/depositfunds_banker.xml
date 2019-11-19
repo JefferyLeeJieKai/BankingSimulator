@@ -12,18 +12,23 @@
 
     <TextView
         android:id="@+id/textView"
-        app:layout_widthPercent="70%"
-        app:layout_heightPercent="9%"
+        android:text="Deposit Funds"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        android:text="Deposit Funds"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:shadowRadius="20"
+        android:padding="2dp"
+        android:gravity="center"
         android:textColor="#000000"
         app:autoSizeTextType="uniform" />
+
+    <View
+        android:layout_below="@id/textView"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        app:layout_marginTopPercent="2%"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
 
     //display account holder's profile
@@ -32,7 +37,7 @@
         app:layout_widthPercent="80%"
         app:layout_heightPercent="20%"
         android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="15%"
+        app:layout_marginTopPercent="17%"
         android:background="@drawable/emptyrect" />
 
 
@@ -74,26 +79,26 @@
     <TextView
         android:id="@+id/accountDDLText"
         app:layout_widthPercent="28%"
-        app:layout_heightPercent="5%"
-        android:layout_alignLeft="@id/accountDDL"
-        app:layout_marginTopPercent="40%"
+        app:layout_heightPercent="3%"
+        android:layout_alignLeft="@id/border"
+        app:layout_marginTopPercent="42%"
         android:textColor="#000000"
         android:text="Account Number:"
         app:autoSizeTextType="uniform"/>
 
     <Spinner
         android:id="@+id/accountDDL"
-        app:layout_widthPercent="70%"
+        app:layout_widthPercent="80%"
         app:layout_heightPercent="5%"
         android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="43%"
+        app:layout_marginTopPercent="46%"
         android:textColor="#000000"/>
 
     //get amount
     <TextView
         app:layout_widthPercent="15%"
-        app:layout_heightPercent="5%"
-        app:layout_marginTopPercent="50%"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="56%"
         android:textColor="#000000"
         android:layout_alignLeft="@id/border"
         android:text="Amount:"
@@ -102,8 +107,8 @@
     <TextView
         android:id="@+id/currencyLbl"
         app:layout_widthPercent="10%"
-        app:layout_heightPercent="5%"
-        app:layout_marginTopPercent="55%"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="62%"
         android:layout_alignLeft="@id/border"
         android:textColor="#000000"
         android:text="SGD"
@@ -111,12 +116,11 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        app:layout_widthPercent="55%"
+        app:layout_widthPercent="65%"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/accountDDL"
+        android:layout_alignRight="@id/border"
         android:layout_centerHorizontal="true"
-        app:layout_marginRightPercent="9%"
-        app:layout_marginTopPercent="5%">
+        app:layout_marginTopPercent="60%">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -130,21 +134,27 @@
         android:id="@+id/backBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginBottomPercent="17%"
+        app:layout_marginBottomPercent="7%"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@id/textView"
-        android:background="@drawable/buttonshadow"
-        android:text="Back" />
+        android:background="@drawable/buttonred"
+        android:text="Back"
+        android:padding="15dp"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform" />
 
     <Button
         android:id="@+id/nextBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginBottomPercent="17%"
+        app:layout_marginBottomPercent="7%"
         android:layout_alignRight="@id/textView"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/buttonshadow"
-        android:text="Next" />
+        android:background="@drawable/buttonblue"
+        android:text="Next"
+        android:padding="15dp"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform"/>
 
 
 

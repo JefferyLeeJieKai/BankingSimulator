@@ -33,42 +33,50 @@
     </android.support.v4.widget.DrawerLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="DEPOSIT FUNDS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/navHeaderText"
-        android:textSize="25dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="10dp" />
+        android:id="@+id/title"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7.5%"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="4dp"
+        app:autoSizeTextType="uniform" />
 
     //header
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="10%"
+        app:layout_widthPercent="60%"
         android:textColor="#000000"
         android:text="Please provide deposit details:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:autoSizeTextType="uniform" />
 
     //user input starting from here
     //get account holder's username
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="180dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="18%"
+        app:layout_widthPercent="30%"
         android:textColor="#000000"
-        android:text="Account Holder:" />
+        android:text="Account Holder:"
+        app:autoSizeTextType="uniform" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/usernameTxt"
-        android:layout_width="325dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:textColor="#000000"
-        android:layout_marginTop="200dp">
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="21%"
+        app:layout_widthPercent="70%"
+        android:padding="2dp"
+        android:textColor="#000000">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -78,46 +86,56 @@
 
     //get account number
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="310dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="36%"
+        app:layout_widthPercent="30%"
         android:textColor="#000000"
+        app:autoSizeTextType="uniform"
         android:text="Account Number:" />
 
     <Spinner
         android:id="@+id/accountDDL"
-        android:layout_width="325dp"
-        android:layout_height="35dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="5%"
+        app:layout_marginTopPercent="39%"
+        app:layout_widthPercent="70%"
         android:textColor="#000000"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="340dp" />
+        android:padding="1dp"
+        app:autoSizeTextType="uniform" />
 
     //get amount
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="410dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="48%"
+        app:layout_widthPercent="17%"
         android:textColor="#000000"
+        app:autoSizeTextType="uniform"
         android:text="Amount:" />
 
     <TextView
         android:id="@+id/currencyLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="455dp"
+        android:layout_alignLeft="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="54%"
+        app:layout_widthPercent="10%"
         android:textColor="#000000"
-        android:text="currency" />
+        app:autoSizeTextType="uniform"
+        android:text="SGD" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/amountTxt"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="430dp">
+        android:layout_alignRight="@id/title"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="9%"
+        app:layout_marginTopPercent="51%"
+        app:layout_widthPercent="67%"
+        android:textColor="#000000">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -128,11 +146,16 @@
     //display button
     <Button
         android:id="@+id/nextBtn"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="600dp"
-        android:background="@drawable/buttonshadow"
-        android:text="Next" />
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        app:layout_marginRightPercent="0%"
+        app:layout_marginTopPercent="75%"
+        android:background="@drawable/buttonblue"
+        android:textColor="@color/loginButtonText"
+        android:text="Next"
+        app:autoSizeTextType="uniform"
+        android:padding="10dp" />
 
 </android.support.percent.PercentRelativeLayout>
