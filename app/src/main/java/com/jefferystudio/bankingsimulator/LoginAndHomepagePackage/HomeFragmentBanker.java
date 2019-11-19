@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageAccHome;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClass;
@@ -41,6 +42,7 @@ public class HomeFragmentBanker extends Fragment {
     private ImageButton btndeleteclass;
     private ImageButton btnviewclass;
     private ImageButton btncreateacc;
+    private ImageButton btnissuenotes;
 
     public HomeFragmentBanker(){
 
@@ -65,6 +67,7 @@ public class HomeFragmentBanker extends Fragment {
         btndeleteclass = view.findViewById(R.id.deleteclassbtn);
         btnviewclass = view.findViewById(R.id.viewclassbtn);
         btncreateacc = view.findViewById(R.id.btncreateacc);
+        btnissuenotes = view.findViewById(R.id.btnissuenotes);
 
 
 
@@ -87,6 +90,19 @@ public class HomeFragmentBanker extends Fragment {
             }
         });
 
+
+        btnissuenotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+
+                Fragment issuenotes = new IssueBanknoteFragment();
+                issuenotes.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, issuenotes);
+                transaction.commit();
+
+            }
+        });
 
         btnViewTransactions.setOnClickListener(new View.OnClickListener() {
             @Override
