@@ -122,7 +122,7 @@
         android:layout_alignParentBottom="true"
         app:layout_marginBottomPercent="10%"
         android:layout_alignRight="@id/title"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttongreen"
         android:text="NEXT" />
 
     <Button
@@ -132,7 +132,7 @@
         android:layout_alignParentBottom="true"
         app:layout_marginBottomPercent="10%"
         android:layout_alignLeft="@id/title"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttonred"
         android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>
