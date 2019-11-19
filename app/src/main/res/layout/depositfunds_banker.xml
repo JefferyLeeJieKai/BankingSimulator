@@ -49,7 +49,9 @@
         app:layout_widthPercent="27%"
         app:layout_heightPercent="15%"
         app:layout_marginTopPercent="17%"
+        app:layout_marginLeftPercent="5%"
         android:layout_alignLeft="@+id/textView"
+        android:layout_alignTop="@+id/textView"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -58,12 +60,11 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_width="146dp"
-        android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/profilephoto"
+        android:layout_alignTop="@+id/profilephoto"
         app:autoSizeTextType="uniform"
+        app:layout_marginLeftPercent="2%"
         app:layout_heightPercent="5%"
-        app:layout_marginTopPercent="18%"
         app:layout_widthPercent="35%" />
 
     <TextView
@@ -71,7 +72,10 @@
         app:layout_widthPercent="35%"
         app:layout_heightPercent="5%"
         android:layout_toRightOf="@+id/profilephoto"
-        app:layout_marginTopPercent="24%"
+        android:layout_alignTop="@+id/textView"
+        app:layout_marginLeftPercent="2%"
+
+        app:layout_marginTopPercent="25%"
         app:autoSizeTextType="uniform" />
 
     //user input starting from here
@@ -98,7 +102,7 @@
     <TextView
         app:layout_widthPercent="15%"
         app:layout_heightPercent="3%"
-        app:layout_marginTopPercent="56%"
+        app:layout_marginTopPercent="57%"
         android:textColor="#000000"
         android:layout_alignLeft="@id/border"
         android:text="Amount:"
