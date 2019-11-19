@@ -187,7 +187,7 @@
         app:layout_marginTopPercent="70%"
         android:layout_below="@id/textView"
         android:layout_alignLeft="@id/textView"
-        android:background="@drawable/buttonblue"
+        android:background="@drawable/buttonred"
         android:fontFamily="@font/titan_one"
         android:textColor="@color/buttonWord"
         android:text="Cancel" />
