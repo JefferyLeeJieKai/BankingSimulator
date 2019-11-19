@@ -101,7 +101,7 @@
         android:paddingBottom="10dip" />
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/backBtn"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
         android:layout_below="@id/textView"
