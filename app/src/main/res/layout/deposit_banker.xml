@@ -146,16 +146,16 @@
     //display button
     <Button
         android:id="@+id/nextBtn"
+        android:text="Next"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
-        android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
         app:layout_marginRightPercent="0%"
-        app:layout_marginTopPercent="75%"
+        app:layout_marginBottomPercent="7%"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/buttonblue"
         android:textColor="@color/loginButtonText"
-        android:text="Next"
         app:autoSizeTextType="uniform"
-        android:padding="10dp" />
+        android:padding="12dp" />
 
 </android.support.percent.PercentRelativeLayout>

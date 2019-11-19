@@ -8,17 +8,13 @@
 
     <TextView
         android:id="@+id/title"
+        android:text="EDIT ACCOUNT"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="9%"
+        app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        android:text="Edit Account"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
+        android:padding="2dp"
+        android:gravity="center"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
 
@@ -195,22 +191,31 @@
 
     <Button
         android:id="@+id/confirmBtn"
-        android:background="@drawable/buttongreen"
-        android:layout_alignParentBottom="true"
         android:text="CONFIRM"
-        android:layout_alignRight="@id/title"
+        app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="75%"
         app:layout_marginBottomPercent="7%"
-        app:layout_widthPercent="25%" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@id/title"
+        android:background="@drawable/buttongreen"
+        android:textColor="#FFFFFF"
+        android:padding="15dp"
+        app:autoSizeTextType="uniform"
+         />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:background="@drawable/buttonred"
-        android:layout_alignLeft="@id/title"
-        android:layout_alignParentBottom="true"
         android:text="CANCEL"
+        app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
         app:layout_marginBottomPercent="7%"
-        app:layout_widthPercent="25%" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@id/title"
+        android:background="@drawable/buttonred"
+        android:textColor="#FFFFFF"
+        android:padding="15dp"
+        app:autoSizeTextType="uniform"
+         />
 
 </android.support.percent.PercentRelativeLayout>
