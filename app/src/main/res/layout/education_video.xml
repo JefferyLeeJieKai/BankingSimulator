@@ -48,7 +48,7 @@
         app:layout_heightPercent="7%"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        app:layout_marginBottomPercent="6%"
+        app:layout_marginBottomPercent="7%"
         android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
