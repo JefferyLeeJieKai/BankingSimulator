@@ -206,6 +206,7 @@
         android:layout_below="@id/remainingLimitLbl"
         app:layout_marginTopPercent="16%"
         app:layout_widthPercent="70%"
+        android:fontFamily="@font/titan_one"
         android:text="Next" />
 
 </android.support.percent.PercentRelativeLayout>

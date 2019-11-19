@@ -43,6 +43,13 @@
 
         </activity>
 
+        <activity
+            android:name=".Education.eduhomepage"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
         <!-- <activity
             android:name=".LoginAndHomepagePackage.LoginScreen"
             android:screenOrientation="portrait"

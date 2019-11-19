@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.Education.eduhomepage;
+import com.jefferystudio.bankingsimulator.Education.edupage;
 import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Transfer_Amount;
@@ -45,6 +47,7 @@ public class HomeFragmentUser extends Fragment {
     private ImageButton btnviewtransaction;
     private ImageButton btnwithdraw;
     private ImageButton btnusersettings;
+    private ImageButton btnvideo;
 
 
 
@@ -82,12 +85,22 @@ public class HomeFragmentUser extends Fragment {
         btnviewtransaction = view.findViewById(R.id.viewtransaction);
         btnwithdraw = view.findViewById(R.id.withdraw);
         btnusersettings = view.findViewById(R.id.settingsuser);
+        btnvideo = view.findViewById(R.id.btnvideo);
 
 
         btnsavings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(getActivity().getApplicationContext(), goalspage.class);
+                intent.putExtras(args);
+                startActivity(intent);
+            }
+        });
+
+        btnvideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getActivity().getApplicationContext(), eduhomepage.class);
                 intent.putExtras(args);
                 startActivity(intent);
             }

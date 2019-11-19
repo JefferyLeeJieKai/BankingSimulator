@@ -139,8 +139,9 @@ public class ViewStudent extends Fragment {
 
                                         public void onClick (DialogInterface dialogInterace, int i) {
 
-                                            new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), args.getString("userName"),
-                                                    args.getString("classID"), studentDetails).execute();
+                                            new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"),
+                                                    args.getString("userName"), args.getString("classID"),
+                                                    studentDetails).execute(args.getString("className"));
                                         }
                                     });
 
@@ -179,7 +180,7 @@ public class ViewStudent extends Fragment {
         studentDetails = view.findViewById(R.id.ahDetailsRv);
 
         new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), args.getString("userName"),
-                       args.getString("classID"), studentDetails).execute();
+                       args.getString("classID"), studentDetails).execute(args.getString("className"));
 
         return view;
     }
@@ -242,7 +243,7 @@ public class ViewStudent extends Fragment {
                                 public void onClick(DialogInterface dialogInterace, int i) {
 
                                     new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), args.getString("userName"),
-                                            args.getString("classID"), studentDetails).execute();
+                                            args.getString("classID"), studentDetails).execute(args.getString("className"));
                                 }
                             });
 

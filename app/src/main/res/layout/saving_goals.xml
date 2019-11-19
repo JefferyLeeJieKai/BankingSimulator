@@ -189,7 +189,7 @@
 
     <Button
         android:id="@+id/createBtn"
-        app:layout_heightPercent="6%"
+        app:layout_heightPercent="7%"
         app:layout_widthPercent="25%"
         app:layout_marginBottomPercent="6%"
         android:textSize="17sp"
@@ -197,20 +197,23 @@
         android:layout_alignRight="@id/viewprofile"
         android:background="@color/buttonConfirm"
         android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
         android:text="Create" />
 
     <Button
         android:id="@+id/cancelBtn"
-        android:textSize="17sp"
-        android:background="@color/buttonBack"
-        android:textColor="@color/buttonWord"
-        android:text="Cancel"
-        android:layout_alignParentBottom="true"
         android:layout_alignLeft="@id/viewprofile"
-        app:layout_heightPercent="6%"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="3dp"
+        android:layout_marginBottom="45dp"
+        android:background="@color/buttonBack"
+        android:text="Cancel"
+        android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
+        android:textSize="17sp"
+        app:layout_heightPercent="7%"
         app:layout_marginBottomPercent="6%"
         app:layout_widthPercent="25%" />
-
 
 
 </android.support.percent.PercentRelativeLayout>

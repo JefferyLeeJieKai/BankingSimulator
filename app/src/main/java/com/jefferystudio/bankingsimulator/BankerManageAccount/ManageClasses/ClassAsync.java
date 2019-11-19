@@ -39,10 +39,12 @@ public class ClassAsync extends AsyncTask<String, String, String> {
     private String username;
     private String bankerName;
     private String classID;
+    private String className;
     private boolean showDialog;
     private RecyclerView recyclerView;
 
-    public ClassAsync(Context context, String flag, String userID, String username, String classID, RecyclerView recyclerView) {
+    public ClassAsync(Context context, String flag, String userID, String username, String classID,
+                      RecyclerView recyclerView) {
 
         this.context = context;
         this.flag = flag;
@@ -92,6 +94,8 @@ public class ClassAsync extends AsyncTask<String, String, String> {
             }
         }
         else if(flag.equals("ViewStudent")) {
+
+            className = args[0];
 
             try {
 
@@ -190,7 +194,8 @@ public class ClassAsync extends AsyncTask<String, String, String> {
                 studentList.add(studentEntry);
             }
 
-            StudentViewRecyclerViewAdaptor adaptor = new StudentViewRecyclerViewAdaptor(context, studentList, classID);
+            StudentViewRecyclerViewAdaptor adaptor = new StudentViewRecyclerViewAdaptor(context, studentList, classID,
+                                                                                        className, userID, username);
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
         }
