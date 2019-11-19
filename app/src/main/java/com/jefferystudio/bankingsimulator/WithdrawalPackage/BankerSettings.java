@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePasswordBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePasswordFragment;
@@ -35,6 +36,11 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
     private Button btnchange;
     private Button datetimebtn;
     private Bundle args;
+    private TextView fingerEnable;
+    private Boolean lock;
+
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String FINGER_LOCK = "fingerLock";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +53,8 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
         backbtn = (Button) findViewById(R.id.btnback);
         btnchange = (Button) findViewById(R.id.changepass);
         datetimebtn = (Button) findViewById(R.id.btndatetime);
+        fingerEnable = findViewById(R.id.fingerOnOff);
+        loadFinger();
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +124,8 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
 
                     builder.setTitle("DigiBank Alert");
                     builder.setMessage("Fingerprint enabled!");
+                    updateFingerUnlock(true);
+                    fingerEnable.setText("FINGERPRINT ENABLED");
 
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
@@ -157,6 +167,8 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
 
                 builder.setTitle("DigiBank Alert");
                 builder.setMessage("Fingerprint disabled!");
+                updateFingerUnlock(false);
+                fingerEnable.setText("FINGERPRINT DISABLED");
 
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
@@ -172,5 +184,29 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
         }
 
 
+    }
+
+    private void updateFingerUnlock(boolean locknew) {
+
+        lock = locknew;
+
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(FINGER_LOCK, lock);
+        editor.apply();
+    }
+
+    private void loadFinger() {
+        SharedPreferences pref = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        lock = pref.getBoolean(FINGER_LOCK, false);
+        switchbtn.setChecked(lock);
+
+        if (lock == true) {
+            fingerEnable.setText("FINGERPRINT ENABLED");
+        }
+
+        else if (lock == false){
+            fingerEnable.setText("FINGERPRINT DISABLED");
+        }
     }
 }

@@ -13,10 +13,13 @@
     <com.q42.android.scrollingimageview.ScrollingImageView
 
         android:id="@+id/scrollingImageView"
-        android:layout_width="match_parent"
-        app:layout_heightPercent="10%"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         app:speed="0.2dp"
-        app:src="@drawable/beachchair"
+        app:src="@drawable/beachmorning"
         android:outlineAmbientShadowColor="#000"
         android:shadowRadius="200" />
 
@@ -30,7 +33,7 @@
         app:layout_marginBottomPercent="5%"
         android:scaleType="fitCenter"
         android:background="@null"
-        android:src="@drawable/login1" />
+        android:src="@drawable/logincolor" />
 
     <!--<ImageButton
         android:id="@+id/transferposb"
@@ -54,6 +57,6 @@
         android:background="@null"
         android:scaleType="fitCenter"
         android:visibility="visible"
-        android:src="@drawable/signup1" />
+        android:src="@drawable/signupcolor" />
 
 </android.support.percent.PercentRelativeLayout >
