@@ -65,7 +65,9 @@
         app:autoSizeTextType="uniform"
         app:layout_marginTopPercent="9%"
         app:layout_heightPercent="5%"
-        app:layout_widthPercent="51%" />
+        app:layout_widthPercent="51%"
+        android:gravity="center"
+        android:padding="2dp"/>
 
     <TextView
         android:id="@+id/balanceLbl"
@@ -75,6 +77,8 @@
         android:layout_below="@id/usernameLbl"
         app:layout_marginLeftPercent="2%"
         app:layout_marginTopPercent="2%"
+        android:gravity="center"
+        android:padding="2dp"
         app:autoSizeTextType="uniform" />
 
     //user input starting from here
