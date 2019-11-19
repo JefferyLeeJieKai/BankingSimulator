@@ -10,10 +10,16 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%"
         android:text="EDIT SAVING GOALS"
         android:fontFamily="@font/titan_one"
+        android:gravity="center"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:shadowRadius="20"
         android:layout_centerHorizontal="true"
         android:textSize="32dp"
         android:textColor="#000000"
@@ -144,7 +150,7 @@
         android:layout_alignRight="@id/profileview"
         android:layout_alignParentBottom="true"
         app:layout_marginBottomPercent="11%"
-        android:background="@drawable/buttonblue"
+        android:background="@drawable/buttongreen"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
         android:text="Confirm" />
@@ -156,7 +162,7 @@
         android:layout_alignLeft="@id/profileview"
         android:layout_height="wrap_content"
         app:layout_marginBottomPercent="11%"
-        android:background="@drawable/buttonblue"
+        android:background="@drawable/buttonred"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
         android:text="Cancel" />

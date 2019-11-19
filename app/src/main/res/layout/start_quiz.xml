@@ -13,10 +13,15 @@
         android:textColor="#000000"
         android:fontFamily="@font/titan_one"
         android:layout_centerHorizontal="true"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:shadowRadius="20"
         android:gravity="center"
         app:layout_marginTopPercent="5%"
-        app:layout_widthPercent="70%"
-        app:layout_heightPercent="10%"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="9%"
         app:autoSizeTextType="uniform" />
 
     <TextView
