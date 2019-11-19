@@ -112,15 +112,28 @@
 
     <Button
         android:id="@+id/button_start_quiz"
-        android:layout_below="@id/CurrScore"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/buttonblue"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/buttongreen"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
+        android:layout_alignRight="@id/headerQuiz"
         android:text="Start Quiz"
-        app:layout_heightPercent="6%"
-        app:layout_marginTopPercent="17%"
-        app:layout_widthPercent="70%"
+        app:layout_heightPercent="7%"
+        app:layout_marginBottomPercent="7%"
+        app:layout_widthPercent="25%"
         app:autoSizeTextType="uniform" />
+
+    <Button
+        android:id="@+id/button"
+        app:layout_widthPercent="25%"
+        app:layout_heightPercent="7%"
+        android:layout_alignLeft="@id/headerQuiz"
+        app:layout_marginBottomPercent="7%"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonred"
+        android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
+        android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>
