@@ -3,6 +3,7 @@ package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
@@ -27,6 +28,11 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
     private String userID;
     private String username;
     private String currentBalance;
+    private String bankerID;
+    private String bankerUsername;
+    private String classID;
+    private String className;
+    private SavingGoalsRecyclerViewAdaptor adaptor;
 
     public RetrieveSavingGoalsAsync(Context context, RecyclerView recyclerView, String flag) {
 
@@ -52,6 +58,14 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
         userID = args[0];
         username = args[1];
         currentBalance = args[2];
+
+        if(flag.equals("Banker")) {
+
+            bankerID = args[3];
+            bankerUsername = args[4];
+            classID = args[5];
+            className = args[6];
+        }
 
         StringBuffer sb = new StringBuffer("");
 
@@ -108,7 +122,21 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
             savingGoals.add(goal);
         }
 
-        SavingGoalsRecyclerViewAdaptor adaptor = new SavingGoalsRecyclerViewAdaptor(context, savingGoals, flag);
+        if(flag.equals("AccountHolder")) {
+
+           adaptor = new SavingGoalsRecyclerViewAdaptor(context, savingGoals, flag, null);
+        }
+        else if(flag.equals("Banker")) {
+
+            Bundle bankerBundle = new Bundle();
+            bankerBundle.putString("userID", bankerID);
+            bankerBundle.putString("userName", bankerUsername);
+            bankerBundle.putString("classID", classID);
+            bankerBundle.putString("className", className);
+
+            adaptor = new SavingGoalsRecyclerViewAdaptor(context, savingGoals, flag, bankerBundle);
+        }
+
         recyclerView.setAdapter(adaptor);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
     }

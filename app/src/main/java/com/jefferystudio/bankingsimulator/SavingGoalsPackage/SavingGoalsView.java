@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoals;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
@@ -18,7 +19,7 @@ import com.jefferystudio.bankingsimulator.R;
 public class SavingGoalsView extends Fragment {
 
     private Bundle args;
-
+    private Bundle newArgs;
     private TextView userName;
     private TextView balance;
     private ProgressBar savingsBar;
@@ -29,6 +30,7 @@ public class SavingGoalsView extends Fragment {
     private TextView deadline;
     private TextView priority;
     private TextView progressLabel;
+    private String flag;
     private Button backbtn;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class SavingGoalsView extends Fragment {
         View view = inflater.inflate(R.layout.saving_goals_view, container, false);
 
         args = getArguments();
+        newArgs = new Bundle();
 
         userName = view.findViewById(R.id.usernameLbl);
         balance = view.findViewById(R.id.balanceLbl);
@@ -55,6 +58,7 @@ public class SavingGoalsView extends Fragment {
         cost.setText(args.getString("itemCost"));
         deadline.setText(args.getString("dateline"));
         priority.setText(args.getString("priority"));
+        flag = args.getString("flag");
 
         float itemAmount = Float.valueOf(args.getString("itemCost"));
         float savedAmount = Float.valueOf(args.getString("currentValue"));
@@ -73,6 +77,32 @@ public class SavingGoalsView extends Fragment {
 
             public void onClick(View v) {
 
+                if(flag.equals("AccountHolder")) {
+
+                    Fragment viewAllSavingGoalsFrag = new SavingGoalsAll();
+                    newArgs.putString("userID", args.getString("userID"));
+                    newArgs.putString("userName", args.getString("userName"));
+                    newArgs.putString("currentBalance", args.getString("currentBalance"));
+                    viewAllSavingGoalsFrag.setArguments(newArgs);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                                 .replace(R.id.frame_layout, viewAllSavingGoalsFrag)
+                                 .commit();
+                }
+                else if(flag.equals("Banker")) {
+
+                    Fragment viewStudSavingGoalsFrag = new CheckSavingGoals();
+                    newArgs.putString("studentID", args.getString("userID"));
+                    newArgs.putString("userID", args.getString("bankerID"));
+                    newArgs.putString("userName", args.getString("bankerUsername"));
+                    newArgs.putString("classID", args.getString("classID"));
+                    newArgs.putString("className", args.getString("className"));
+                    viewStudSavingGoalsFrag.setArguments(newArgs);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, viewStudSavingGoalsFrag)
+                            .commit();
+                }
             }
         });
 
