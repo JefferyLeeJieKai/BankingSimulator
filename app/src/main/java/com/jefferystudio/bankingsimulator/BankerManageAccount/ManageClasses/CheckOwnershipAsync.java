@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import java.net.URLEncoder;
 public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
 
     public CheckOwnershipAsync(Context context) {
 
@@ -23,6 +25,12 @@ public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Adding new student...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -77,5 +85,6 @@ public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
     }
 }

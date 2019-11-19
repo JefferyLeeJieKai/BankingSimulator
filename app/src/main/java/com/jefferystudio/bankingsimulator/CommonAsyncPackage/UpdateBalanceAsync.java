@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.CommonAsyncPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private TextView currentUserBalance;
     private ArrayList<Exception> elist = new ArrayList<Exception>();
     private String data;
@@ -27,7 +29,13 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPreExecute() {
-        super.onPreExecute();
+
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Updating balance...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -75,6 +83,7 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
             Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
         }*/
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        progDialog.dismiss();
 
         currentUserBalance.setText(result);
     }

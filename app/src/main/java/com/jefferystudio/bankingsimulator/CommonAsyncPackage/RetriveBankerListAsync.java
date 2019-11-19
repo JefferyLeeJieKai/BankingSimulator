@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.CommonAsyncPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -15,6 +16,7 @@ import java.net.URLEncoder;
 public class RetriveBankerListAsync extends AsyncTask <String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private String userID;
 
     public RetriveBankerListAsync(Context context) {
@@ -25,6 +27,12 @@ public class RetriveBankerListAsync extends AsyncTask <String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Retrieving associated accounts...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -69,6 +77,7 @@ public class RetriveBankerListAsync extends AsyncTask <String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         ((HomeScreenBanker)context).updateBankerList(result);
     }
 }

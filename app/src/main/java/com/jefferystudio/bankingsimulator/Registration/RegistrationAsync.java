@@ -1,6 +1,7 @@
 package com.jefferystudio.bankingsimulator.Registration;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,6 +28,7 @@ import java.net.URLEncoder;
 public class RegistrationAsync extends AsyncTask<String, String, String> {
 
     private Activity activity;
+    private ProgressDialog progDialog;
     private String name;
     private String email;
     private String username;
@@ -45,6 +47,12 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(activity);
+        progDialog.setMessage("Registering new user...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -108,6 +116,7 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         String[] resultArray = result.split(",");
 
         if(resultArray[0].equals("Success") && !flag.equals("fromBanker")) {

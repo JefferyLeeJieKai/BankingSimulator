@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5"
+    >
+
+    <TextView
+        android:id="@+id/particularstitle"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:text="VIEW SAVING GOALS"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/particularstitle"
+        android:layout_alignLeft="@+id/particularstitle"
+        app:layout_heightPercent="40%"
+        app:layout_widthPercent="80%"
+        android:background="#CCEEEEEE"/>
+
+    <TextView
+        android:id="@+id/idtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/particularstitle"
+        app:layout_marginTopPercent="2%"
+        app:layout_marginLeftPercent="1%"
+        android:text="Student ID: "
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/idLbl"
+        app:layout_widthPercent="55%"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_below="@+id/particularstitle"
+        app:layout_marginTopPercent="2%"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/nametv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/idtv"
+        android:layout_below="@+id/idtv"
+        app:layout_marginTopPercent="4%"
+        app:layout_marginLeftPercent="0%"
+        android:text="Name: "
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/nameLbl"
+        app:layout_widthPercent="55%"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_below="@+id/idLbl"
+        app:layout_marginTopPercent="2%"
+        android:textColor="#000000" />
+
+        //display amount
+
+    <TextView
+        android:id="@+id/usernametv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nametv"
+        android:layout_below="@+id/nametv"
+        app:layout_marginTopPercent="4%"
+        android:text="Username: "
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/usernameLbl"
+        app:layout_widthPercent="55%"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameLbl"
+        android:layout_alignRight="@+id/textView3"
+        app:layout_marginTopPercent="4%"
+        android:textColor="#000000" />
+
+        //display deadline
+
+    <TextView
+        android:id="@+id/emailtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/usernametv"
+        android:layout_below="@+id/usernametv"
+        app:layout_marginTopPercent="4%"
+        android:text="Email: "
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/emailLbl"
+        app:layout_widthPercent="55%"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_below="@id/usernameLbl"
+        app:layout_marginTopPercent="4%"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/datetv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/emailtv"
+        android:layout_below="@+id/emailtv"
+        app:layout_marginTopPercent="4%"
+        android:text="Date created: "
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/dateLbl"
+        app:layout_widthPercent="55%"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_below="@id/emailLbl"
+        app:layout_marginTopPercent="4%"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/balancetv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/datetv"
+        android:layout_below="@id/datetv"
+        app:layout_marginTopPercent="4%"
+        android:text="Balance: "
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/balanceLbl"
+        app:layout_widthPercent="55%"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dateLbl"
+        android:layout_alignRight="@+id/textView3"
+        app:layout_marginTopPercent="4%"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/currencyLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/profileview"
+        android:layout_below="@+id/priorityLbl"
+        app:layout_marginTopPercent="4%"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/buttonback"
+        app:layout_widthPercent="80%"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        app:layout_marginTopPercent="2%"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonblue"
+        android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
+        android:text="BACK" />
+
+</android.support.percent.PercentRelativeLayout>
