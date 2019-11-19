@@ -83,7 +83,7 @@
 
             <ImageButton
                 android:id="@+id/viewallgoals"
-                android:src="@drawable/viewgoals"
+                android:src="@drawable/viewgoal1"
                 android:scaleType="fitCenter"
                 android:background="@null"
                 android:layout_width="80dp"
@@ -114,7 +114,7 @@
 
             <ImageButton
                 android:id="@+id/setnewgoals"
-                android:src="@drawable/setnewgoal"
+                android:src="@drawable/setnewgoal1"
                 android:scaleType="fitCenter"
                 android:background="@null"
                 android:layout_width="80dp"
@@ -146,7 +146,7 @@
 
             <ImageButton
                 android:id="@+id/addamount"
-                android:src="@drawable/addammountgoal"
+                android:src="@drawable/addamtgoal"
                 android:scaleType="fitCenter"
                 android:background="@null"
                 android:layout_width="80dp"

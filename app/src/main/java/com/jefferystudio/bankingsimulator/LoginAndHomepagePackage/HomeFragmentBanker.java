@@ -16,6 +16,7 @@ import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.Crea
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
@@ -39,6 +40,7 @@ public class HomeFragmentBanker extends Fragment {
     private ImageButton btneditclass;
     private ImageButton btndeleteclass;
     private ImageButton btnviewclass;
+    private ImageButton btncreateacc;
 
     public HomeFragmentBanker(){
 
@@ -62,6 +64,7 @@ public class HomeFragmentBanker extends Fragment {
         btneditclass = view.findViewById(R.id.editclassbtn);
         btndeleteclass = view.findViewById(R.id.deleteclassbtn);
         btnviewclass = view.findViewById(R.id.viewclassbtn);
+        btncreateacc = view.findViewById(R.id.btncreateacc);
 
 
 
@@ -88,10 +91,23 @@ public class HomeFragmentBanker extends Fragment {
         btnViewTransactions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+
                 Fragment viewTransBanker = new ViewTransactionsBanker();
                 viewTransBanker.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, viewTransBanker);
+                transaction.commit();
+
+            }
+        });
+
+        btncreateacc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Fragment acccreate = new account_create_ah1();
+                acccreate.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, acccreate);
                 transaction.commit();
 
             }

@@ -243,13 +243,23 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 args.putString("goalName", savingGoal.getGoalName());
                 args.putString("deadline", savingGoal.getDeadline());
                 args.putString("priority", savingGoal.getPriority());
+                args.putString("flag", flag);
 
                 Fragment viewGoalFrag = new SavingGoalsView();
                 viewGoalFrag.setArguments(args);
 
-                ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_layout, viewGoalFrag)
-                        .commit();
+                if(flag.equals("AccountHolder")) {
+
+                    ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
+                                             .replace(R.id.frame_layout, viewGoalFrag)
+                                             .commit();
+                }
+                else if(flag.equals("Banker")) {
+
+                    ((HomeScreenBanker) context).getSupportFragmentManager().beginTransaction()
+                                                .replace(R.id.frame_layout, viewGoalFrag)
+                                                .commit();
+                }
             }
         });
     }

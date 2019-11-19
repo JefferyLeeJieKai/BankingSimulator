@@ -11,8 +11,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
+
+import java.util.ArrayList;
 
 public class account_create_ah1 extends Fragment {
 
@@ -22,10 +25,18 @@ public class account_create_ah1 extends Fragment {
     private TextView interest;
     private Button nextButton;
     private String input;
+    private Button btnback;
+    private Bundle args;
+    private ArrayList<String> list;
+    private String currentID;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.account_create_ah1, container, false);
+
+        args = getArguments();
+        currentID = args.getString("userID");
+        list = args.getStringArrayList("BankerList");
 
         //default
         classLabel = view.findViewById(R.id.classLbl);
@@ -53,6 +64,19 @@ public class account_create_ah1 extends Fragment {
                     classLabel.setText(input);
                     interest.setText("0.2");
                 }
+            }
+        });
+
+        btnback = view.findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Fragment homeFrag = new HomeFragmentBanker();
+                homeFrag.setArguments(args);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, homeFrag)
+                        .commit();
             }
         });
 

@@ -9,42 +9,44 @@
     <TextView
         android:id="@+id/textView"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="9%"
+        app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        android:text="Transactions"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
+        android:padding="2dp"
+        android:gravity="center"
         android:textColor="#000000"
-        app:autoSizeTextType="uniform"  />
+        app:autoSizeTextType="uniform"
+        android:text="Transactions" />
 
     <View
+        android:layout_below="@id/textView"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_marginTop="90dp"
+        app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
     //search username
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="145dp"
-        android:text="Search Username:"
-        android:textColor="#000000" />
+        android:id="@+id/classHeader"
+        android:layout_alignLeft="@id/textView"
+        android:textColor="#000000"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="19%"
+        app:layout_widthPercent="30%"
+        app:autoSizeTextType="uniform"
+        android:text="Search Username:"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/usernameTxt"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="120dp">
+        android:layout_alignRight="@id/searchBtn"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="17%"
+        app:layout_marginRightPercent="7%"
+        app:layout_widthPercent="40%"
+        app:autoSizeTextType="uniform"
+        >
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -54,47 +56,62 @@
 
     <Button
         android:id="@+id/searchBtn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="330dp"
-        android:layout_marginTop="145dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_marginTopPercent="18%"
+        android:layout_alignRight="@id/textView"
+        android:layout_alignTop="@id/textView"
         android:background="@drawable/ic_search_black_24dp"
         android:backgroundTint="#000000" />
 
     //display all transactions
     <android.support.v7.widget.RecyclerView
         android:id="@+id/transactionsDetailsRv"
-        android:layout_width="338dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="290dp" />
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="35%"
+        app:layout_marginTopPercent="42%"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="230dp"
+        android:layout_alignLeft="@id/transactionsDetailsRv"
+        android:layout_alignTop="@id/textView"
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="40%"
+        app:layout_marginTopPercent="30%"
         android:text="Description"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/Amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="230dp"
+        android:layout_alignRight="@id/transactionsDetailsRv"
+        android:layout_alignTop="@id/textView"
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="40%"
+        app:layout_marginTopPercent="30%"
         android:text="Amount"
         android:textColor="#000000" />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="0.5dp"
-        android:layout_marginTop="265dp"
+        app:layout_marginTopPercent="38%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
-
+    <Button
+        android:id="@+id/backBtn"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="75%"
+        android:background="@drawable/buttonblue"
+        android:padding="10dp"
+        android:text="Back"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform" />
 
 
 </android.support.percent.PercentRelativeLayout>
