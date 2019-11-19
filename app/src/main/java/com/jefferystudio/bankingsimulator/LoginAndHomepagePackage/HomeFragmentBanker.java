@@ -108,9 +108,12 @@ public class HomeFragmentBanker extends Fragment {
             @Override
             public void onClick(View v){
 
-                Intent intent = new Intent(getActivity().getApplicationContext(), BankerSettings.class);
-                intent.putExtras(args);
-                startActivity(intent);
+                Fragment viewtransactions = new ViewTransactionsBanker();
+                viewtransactions.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, viewtransactions);
+                transaction.commit();
+
 
             }
         });
