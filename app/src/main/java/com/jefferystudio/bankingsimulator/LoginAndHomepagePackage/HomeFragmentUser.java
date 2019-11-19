@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
+import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.Education.eduhomepage;
@@ -48,6 +50,7 @@ public class HomeFragmentUser extends Fragment {
     private ImageButton btnwithdraw;
     private ImageButton btnusersettings;
     private ImageButton btnvideo;
+    private ImageButton btnredeem;
 
 
 
@@ -86,6 +89,7 @@ public class HomeFragmentUser extends Fragment {
         btnwithdraw = view.findViewById(R.id.withdraw);
         btnusersettings = view.findViewById(R.id.settingsuser);
         btnvideo = view.findViewById(R.id.btnvideo);
+        btnredeem = view.findViewById(R.id.btnredeemBanknote);
 
 
         btnsavings.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +107,19 @@ public class HomeFragmentUser extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(), eduhomepage.class);
                 intent.putExtras(args);
                 startActivity(intent);
+            }
+        });
+
+        btnredeem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+
+                Fragment redeemnotes = new RedeemBanknoteFragment();
+                redeemnotes.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, redeemnotes);
+                transaction.commit();
+
             }
         });
 

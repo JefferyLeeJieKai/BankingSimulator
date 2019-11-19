@@ -122,7 +122,8 @@
         android:layout_alignParentBottom="true"
         app:layout_marginBottomPercent="10%"
         android:layout_alignRight="@id/title"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttonblue"
+        android:textColor="@color/loginButtonText"
         android:text="NEXT" />
 
     <Button
@@ -132,7 +133,8 @@
         android:layout_alignParentBottom="true"
         app:layout_marginBottomPercent="10%"
         android:layout_alignLeft="@id/title"
-        android:background="@drawable/buttonshadow"
+        android:background="@drawable/buttonred"
+        android:textColor="@color/loginButtonText"
         android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>

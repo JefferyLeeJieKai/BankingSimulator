@@ -6,10 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankNote.RedeemNotesRecyclerView.RedeemNotesRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 
 public class RedeemBanknoteFragment extends Fragment {
@@ -19,6 +21,7 @@ public class RedeemBanknoteFragment extends Fragment {
     private TextView userName;
     private TextView balance;
     private RecyclerView notRedeemedNotes;
+    private Button btnback;
 
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -36,6 +39,22 @@ public class RedeemBanknoteFragment extends Fragment {
         notRedeemedNotes = view.findViewById(R.id.detailsRv);
 
         new RetrieveNotesAsync(getActivity(), userID, "viewAccountHolder", notRedeemedNotes).execute();
+
+        btnback = view.findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment homeFrag = new HomeFragmentUser();
+                Bundle homeBundle = new Bundle();
+                homeBundle.putString("userID", userID);
+                homeFrag.setArguments(homeBundle);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, homeFrag)
+                        .commit();
+            }
+        });
 
         return view;
     }

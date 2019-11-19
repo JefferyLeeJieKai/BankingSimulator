@@ -274,12 +274,12 @@
     <Button
         android:id="@+id/cancelBtn"
         android:background="@drawable/buttonred"
+        android:fontFamily="@font/titan_one"
         android:textColor="@color/buttonWord"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@id/title"
         android:text="Cancel"
         android:textSize="17dp"
-        android:fontFamily="@font/titan_one"
         app:layout_heightPercent="7%"
         app:layout_marginBottomPercent="5%"
         app:layout_widthPercent="25%" />

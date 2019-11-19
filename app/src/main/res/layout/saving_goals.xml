@@ -195,7 +195,7 @@
         android:textSize="17sp"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@id/viewprofile"
-        android:background="@color/buttonConfirm"
+        android:background="@drawable/buttongreen"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
         android:text="Create" />
@@ -206,7 +206,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="3dp"
         android:layout_marginBottom="45dp"
-        android:background="@color/buttonBack"
+        android:background="@drawable/buttonred"
         android:text="Cancel"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"

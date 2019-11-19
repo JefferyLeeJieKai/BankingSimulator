@@ -76,6 +76,18 @@
         android:background="#FFFFFF"
         app:layout_widthPercent="80%"
         app:layout_marginTopPercent="3%"
-        android:layout_height="wrap_content"/>
+        app:layout_heightPercent="47%"/>
+
+    <Button
+        android:id="@+id/btnback"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
+        app:layout_marginBottomPercent="5%"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@id/textView"
+        android:background="@drawable/buttonblue"
+        android:textColor="@color/buttonWord"
+        android:fontFamily="@font/titan_one"
+        android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>
