@@ -68,7 +68,6 @@
         android:layout_alignLeft="@id/title"
         android:background="@drawable/buttonshadow2"
         android:gravity="left"
-        android:text="\t\t\t\t\tFINGERPRINT"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_heightPercent="8%"
@@ -81,6 +80,21 @@
         android:topRightRadius="10dp"
         app:autoSizeTextType="uniform"
         android:padding="15dp"/>
+
+    <TextView
+        android:id="@+id/fingerOnOff"
+        android:layout_below="@id/btndatetime"
+        android:layout_alignLeft="@id/classHeader2"
+        android:textColor="#000000"
+        app:layout_heightPercent="6%"
+        android:text="FINGERPRINT"
+        android:gravity="center"
+        app:layout_marginLeftPercent="3%"
+        app:layout_marginTopPercent="4%"
+        app:layout_widthPercent="54%"
+        android:textSize="18sp"
+        app:autoSizeTextType="uniform"
+        android:padding="7dp"/>
 
     <Switch
         android:id="@+id/switch1"

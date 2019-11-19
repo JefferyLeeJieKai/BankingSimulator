@@ -67,13 +67,15 @@
         android:layout_below="@id/changepass"
         android:layout_alignLeft="@id/classHeader2"
         android:textColor="#000000"
+        android:fontFamily="@font/titan_one"
         app:layout_heightPercent="6%"
         android:text="FINGERPRINT"
         android:gravity="center"
         app:layout_marginLeftPercent="3%"
         app:layout_marginTopPercent="4%"
         app:layout_widthPercent="54%"
-        android:textSize="18sp"/>
+        app:autoSizeTextType="uniform"
+        android:padding="8dp"/>
 
     <Switch
         android:id="@+id/switch1"
