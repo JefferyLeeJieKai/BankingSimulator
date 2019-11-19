@@ -15,15 +15,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
 import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.Education.eduhomepage;
-import com.jefferystudio.bankingsimulator.Education.edupage;
 import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.Transfer_Amount;
+import com.jefferystudio.bankingsimulator.TransferFundsPackage.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.UserSettings;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;

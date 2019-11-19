@@ -46,9 +46,9 @@ public class DepositConfirmBanker extends Fragment {
         input = args.getString("amount");
 
         username = view.findViewById(R.id.usernameLbl);
-        username.setText(targetName);
+        username.setText("Username: " + targetName);
         accNo = view.findViewById(R.id.accountLbl);
-        accNo.setText(targetID);
+        accNo.setText("Account No.: " + targetID);
         amount = view.findViewById(R.id.amountLbl);
         amount.setText(input);
 

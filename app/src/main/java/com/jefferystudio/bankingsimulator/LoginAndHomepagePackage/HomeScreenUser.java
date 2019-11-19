@@ -3,7 +3,6 @@ package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -24,14 +23,11 @@ import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAddAmount;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
-import com.jefferystudio.bankingsimulator.Transfer_Amount;
+import com.jefferystudio.bankingsimulator.TransferFundsPackage.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.ProfileSettings.ProfilePage;
-
-import java.util.concurrent.TimeUnit;
 
 public class HomeScreenUser extends AppCompatActivity {
 

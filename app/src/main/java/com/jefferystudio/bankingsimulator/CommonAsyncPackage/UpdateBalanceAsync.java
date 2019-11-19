@@ -85,6 +85,6 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         progDialog.dismiss();
 
-        currentUserBalance.setText(result);
+        currentUserBalance.setText("Current balance: " + result);
     }
 }
