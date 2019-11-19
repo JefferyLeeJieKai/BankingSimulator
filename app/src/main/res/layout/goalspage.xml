@@ -10,7 +10,8 @@
 
     <TextView
         android:id="@+id/goalpagetitle"
-        android:text="GOAL HOMEPAGE"
+        android:text="GOALS HOMEPAGE"
+        android:gravity="center"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="9%"
         app:layout_marginTopPercent="2%"
@@ -163,7 +164,7 @@
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
         android:layout_centerHorizontal="true"
-        app:layout_marginBottomPercent="6%"
+        app:layout_marginBottomPercent="7%"
         android:layout_alignParentBottom="true"
         android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"

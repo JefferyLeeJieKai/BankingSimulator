@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/beach18">
+    android:background="@drawable/maldives">
 
     <TextView
         android:id="@+id/textView"
@@ -13,7 +13,8 @@
         app:layout_heightPercent="9%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        android:text="Transactions"
+        android:gravity="center"
+        android:text="TRANSACTIONS"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"
@@ -24,28 +25,31 @@
         app:autoSizeTextType="uniform"  />
 
     <View
+        android:id="@+id/line1"
         android:layout_width="fill_parent"
+        android:layout_below="@id/textView"
         android:layout_height="2dip"
-        app:layout_marginTopPercent="12%"
+        app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
     //display account holder's profile
     <View
-        android:id="@+id/accdetails"
-        app:layout_heightPercent="17%"
+        android:id="@+id/profileview"
         app:layout_widthPercent="80%"
-        app:layout_marginTopPercent="17%"
-        android:layout_centerHorizontal="true"
+        app:layout_heightPercent="19%"
+        android:layout_alignLeft="@id/textView"
+        app:layout_marginTopPercent="3%"
+        android:layout_below="@id/line1"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_alignLeft="@id/accdetails"
-        android:layout_alignTop="@id/accdetails"
-        app:layout_marginLeftPercent="2%"
+        android:layout_alignLeft="@id/textView"
+        android:layout_below="@id/line1"
+        app:layout_widthPercent="26%"
+        app:layout_heightPercent="15%"
+        app:layout_marginTopPercent="5%"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
@@ -54,59 +58,59 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        android:layout_alignRight="@id/accdetails"
-        android:layout_alignTop="@id/accdetails"
-        app:layout_widthPercent="49%"
+        app:layout_widthPercent="53%"
         app:layout_heightPercent="4%"
+        android:layout_below="@id/line1"
         android:textColor="#000000"
-        app:layout_marginLeftPercent="2%"
-        app:layout_marginTopPercent="2%"
-        android:textSize="20dp" />
+        android:layout_alignRight="@id/textView"
+        app:layout_marginTopPercent="7%"
+        android:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/balanceLbl"
-        android:layout_alignRight="@id/accdetails"
-        android:layout_alignTop="@id/accdetails"
-        app:layout_widthPercent="49%"
+        android:layout_below="@id/usernameLbl"
+        app:layout_widthPercent="53%"
         app:layout_heightPercent="4%"
+        android:layout_alignRight="@id/textView"
         android:textColor="#000000"
-        app:layout_marginLeftPercent="2%"
-        app:layout_marginTopPercent="9%"
-        android:textSize="20dp" />
+        app:layout_marginTopPercent="1%"
+        android:autoSizeTextType="uniform" />
 
     //display all transactions
     <android.support.v7.widget.RecyclerView
         android:id="@+id/transactionsDetailsRv"
-        android:background="#CCEEEEEE"
-        app:layout_widthPercent="80%"
+        android:layout_below="@+id/line2"
+        app:layout_widthPercent="90%"
         app:layout_heightPercent="35%"
         android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="49%"
-        />
+        app:layout_marginTopPercent="2%" />
 
     <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignLeft="@id/transactionsDetailsRv"
-        android:layout_alignTop="@id/textView"
-        app:layout_heightPercent="3%"
-        app:layout_widthPercent="20%"
-        app:layout_marginTopPercent="39%"
+        android:layout_below="@+id/profileview"
+        app:layout_marginTopPercent="6%"
         android:text="Description"
         android:textColor="#000000" />
 
     <TextView
         android:id="@+id/Amount"
-        android:layout_alignRight="@id/transactionsDetailsRv"
-        android:layout_alignTop="@id/textView"
-        app:layout_heightPercent="3%"
-        app:layout_widthPercent="38%"
-        app:layout_marginTopPercent="39%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profileview"
+        android:layout_marginLeft="220dp"
+        app:layout_marginTopPercent="6%"
         android:text="Amount"
         android:textColor="#000000" />
 
     <View
+        android:id="@+id/line2"
         android:layout_width="fill_parent"
         android:layout_height="0.5dp"
-        app:layout_marginTopPercent="46%"
+        android:layout_below="@+id/description"
+        app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
@@ -114,7 +118,7 @@
         android:id="@+id/backbtn"
         android:layout_alignLeft="@id/textView"
         android:layout_alignParentBottom="true"
-        app:layout_marginBottomPercent="5%"
+        app:layout_marginBottomPercent="7%"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
         android:background="@drawable/buttonblue"

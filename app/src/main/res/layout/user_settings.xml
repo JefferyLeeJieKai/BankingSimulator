@@ -8,16 +8,15 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="211dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:elevation="20dp"
         android:fontFamily="@font/titan_one"
+        android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"
         android:shadowDy="20"
         android:shadowRadius="20"
-        android:text="Settings"
+        android:text="SETTINGS"
         android:gravity="center"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"
@@ -99,7 +98,7 @@
         android:textColor="@color/buttonWord"
         android:layout_alignLeft="@id/title"
         android:fontFamily="@font/titan_one"
-        app:layout_marginBottomPercent="10%" />
+        app:layout_marginBottomPercent="7%" />
 
 
     <!--//get interest rate

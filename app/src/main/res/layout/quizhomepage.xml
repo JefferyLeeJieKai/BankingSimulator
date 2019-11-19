@@ -15,6 +15,7 @@
         app:layout_heightPercent="9%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:elevation="20dp"
         android:shadowColor="#666666"
         android:shadowDx="20"
@@ -54,14 +55,14 @@
 
     <Button
         android:id="@+id/backbtn"
-        android:background="@drawable/buttonred"
+        android:background="@drawable/buttonblue"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
-        app:layout_marginBottomPercent="4%"
+        app:layout_marginBottomPercent="7%"
         app:layout_marginLeftPercent="5%"
         android:text="Back" />
 
