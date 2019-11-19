@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -13,6 +14,7 @@ import java.net.URLEncoder;
 public class UpdateInterestRateAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private String studentID;
     private String interestRate;
 
@@ -21,6 +23,17 @@ public class UpdateInterestRateAsync extends AsyncTask<String, String, String> {
         this.context = context;
         this.studentID = studentID;
         this.interestRate = interestRate;
+    }
+
+    @Override
+    protected void onPreExecute() {
+
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Updating interest rate...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -60,5 +73,11 @@ public class UpdateInterestRateAsync extends AsyncTask<String, String, String> {
         }
 
         return sb.toString();
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+
+        progDialog.dismiss();
     }
 }

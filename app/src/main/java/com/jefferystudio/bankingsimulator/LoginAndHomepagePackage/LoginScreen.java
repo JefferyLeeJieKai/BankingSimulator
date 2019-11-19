@@ -93,6 +93,7 @@ public class LoginScreen extends AppCompatActivity {
     private boolean validateUsername() {
 
         username = usernameTextBox.getEditText().getText().toString().trim();
+        username = username.toLowerCase();
 
         boolean result = Validation.validateEmpty(username, usernameTextBox);
 

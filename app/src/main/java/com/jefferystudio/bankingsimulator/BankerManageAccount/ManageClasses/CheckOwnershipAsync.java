@@ -26,7 +26,7 @@ public class CheckOwnershipAsync extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
 
         progDialog = new ProgressDialog(context);
-        progDialog.setMessage("Adding new student...");
+        progDialog.setMessage("Adding student to class...");
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setCancelable(false);

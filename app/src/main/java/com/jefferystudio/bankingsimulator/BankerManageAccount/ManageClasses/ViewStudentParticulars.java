@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.R;
@@ -21,6 +22,7 @@ public class ViewStudentParticulars extends Fragment {
     private TextView dateCreated;
     private TextView currentBalance;
     private String currentUserID;
+    private Button backButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -59,6 +61,23 @@ public class ViewStudentParticulars extends Fragment {
             dateCreated.setText(resultArray[4]); ;
             currentBalance.setText(resultArray[5]); ;
         }
+
+        backButton = view.findViewById(R.id.buttonback);
+        backButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment viewStudentFrag = new ViewStudent();
+                viewStudentFrag.setArguments(args);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                             .replace(R.id.frame_layout, viewStudentFrag)
+                             .commit();
+            }
+        });
+
+
+
 
         return view;
     }

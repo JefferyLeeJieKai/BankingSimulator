@@ -118,6 +118,7 @@ public class RegistrationFragment extends Fragment {
 
         String email = emailBox.getText().toString().trim();
         String username = usernameBox.getText().toString().trim();
+        username = username.toLowerCase();
 
         ArrayList<String> errorList = new ArrayList<>();
 
