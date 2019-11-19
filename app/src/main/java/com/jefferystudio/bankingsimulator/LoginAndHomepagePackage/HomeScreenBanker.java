@@ -291,31 +291,35 @@ public class HomeScreenBanker extends AppCompatActivity {
     }
 
     public void onBackPressed() {
+        if(getSupportFragmentManager().getBackStackEntryCount() != 0){
+            super.onBackPressed();
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Do you want to exit the application?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
-        builder.setTitle("DigiBank Alert");
-        builder.setMessage("Do you want to exit the application?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
 
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+                    System.exit(0);
+                }
 
-                System.exit(0);
-            }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
 
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
 
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+                }
+            });
 
-                dialogInterface.cancel();
-            }
-        });
+            AlertDialog quitDialog = builder.create();
+            quitDialog.show();
+        }
 
-        AlertDialog quitDialog = builder.create();
-        quitDialog.show();
     }
 
     public void updateBankerList(String result) {
