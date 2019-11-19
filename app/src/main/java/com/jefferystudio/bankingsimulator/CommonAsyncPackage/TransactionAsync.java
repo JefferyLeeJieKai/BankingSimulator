@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.CommonAsyncPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 public class TransactionAsync extends AsyncTask <String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private String flag;
     private HomeScreenUser homeScreenUserActivity;
     private HomeScreenBanker homeScreenBankerActivity;
@@ -58,6 +60,12 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Performing transaction...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -187,6 +195,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         /*for(Exception e : elist) {
 
             Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();

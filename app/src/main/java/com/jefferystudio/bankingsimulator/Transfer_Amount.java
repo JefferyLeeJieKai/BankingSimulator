@@ -37,12 +37,6 @@ public class Transfer_Amount extends Fragment{
         userID = view.findViewById(R.id.payerLbl);
         userID.setText(currentID);
 
-        //purpose = (Spinner) view.findViewById(R.id.purposeDDL);
-        ArrayAdapter<String> purposeAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.transfer_purpose));
-        purposeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        purpose.setAdapter(purposeAdapter);
-
         amountToTransfer = view.findViewById(R.id.amountTxt);
         payee = view.findViewById(R.id.payeeLbl);
         nextButton = view.findViewById(R.id.nextBtn);
@@ -64,7 +58,7 @@ public class Transfer_Amount extends Fragment{
                 fragTransc.commit();*/
 
                 new TransactionAsync(getActivity(),"TransferFundsUser", args.getString("userName")).execute(currentID, currentPayee, input);
-                new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee, String.valueOf(purpose.getSelectedItem()));
+                new UpdateTransAsync(getActivity(),"TransferFunds").execute(currentID, input, currentPayee);
             }
         });
 

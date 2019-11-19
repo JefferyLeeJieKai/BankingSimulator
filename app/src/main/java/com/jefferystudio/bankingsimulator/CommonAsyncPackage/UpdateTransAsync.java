@@ -44,7 +44,6 @@ public class UpdateTransAsync extends AsyncTask<String, String, String> {
             userID = args[0];
             transacAmt = args[1];
             payeeID = args[2];
-            purpose = args[3];
 
             link = "https://www.kidzsmartapp.com/databaseAccess/transactionsUpdate.php";
 
@@ -57,8 +56,6 @@ public class UpdateTransAsync extends AsyncTask<String, String, String> {
                         URLEncoder.encode(transacAmt, "UTF-8");
                 data += "&" + URLEncoder.encode("payeeid", "UTF-8") + "=" +
                         URLEncoder.encode(payeeID, "UTF-8");
-                data += "&" + URLEncoder.encode("purpose", "UTF-8") + "=" +
-                        URLEncoder.encode(purpose, "UTF-8");
             }
             catch(Exception e) {
 

@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.ViewTransactionsPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class RetrieveTransactionsAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private RecyclerView recyclerView;
     private String userID;
     private String username;
@@ -35,6 +37,12 @@ public class RetrieveTransactionsAsync extends AsyncTask<String, String, String>
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Retrieving transactions...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -82,6 +90,7 @@ public class RetrieveTransactionsAsync extends AsyncTask<String, String, String>
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         ArrayList<Transaction> transactions = new ArrayList<>();
 

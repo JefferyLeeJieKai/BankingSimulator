@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoals;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentParticulars;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
 
@@ -101,6 +102,18 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                        Fragment checkPersonalParticularFrag = new ViewStudentParticulars();
+                        Bundle args = new Bundle();
+                        args.putString("studentID", studentEntry.getUserID());
+                        args.putString("userID", userID);
+                        args.putString("userName", userName);
+                        args.putString("classID", classID);
+                        args.putString("className", className);
+                        checkPersonalParticularFrag.setArguments(args);
+
+                        ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frame_layout, checkPersonalParticularFrag)
+                                .commit();
                     }
                 });
 

@@ -1,9 +1,8 @@
-package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
+package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,25 +11,22 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class FingerprintAsync extends AsyncTask<String,String,String> {
+public class getPersonalParticularsAsync extends AsyncTask<String, String, String> {
 
     private Context context;
     private ProgressDialog progDialog;
-    private String flag;
-    private String userID;
+    private String studentID;
 
-    public FingerprintAsync(Context context, String flag, String userID) {
+    public getPersonalParticularsAsync(Context context) {
 
         this.context = context;
-        this.flag = flag;
-        this.userID = userID;
     }
 
     @Override
     protected void onPreExecute() {
 
         progDialog = new ProgressDialog(context);
-        progDialog.setMessage("Confirming fingerprint...");
+        progDialog.setMessage("Retrieving particulars...");
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setCancelable(false);
@@ -38,17 +34,16 @@ public class FingerprintAsync extends AsyncTask<String,String,String> {
     }
 
     @Override
-    protected String doInBackground(String... strings) {
+    protected String doInBackground(String[] args) {
 
+        studentID = args[0];
         StringBuffer sb = new StringBuffer("");
 
         try {
 
-            String link="https://www.kidzsmartapp.com/databaseAccess/handleFingerprint.php";
-            String data  = URLEncoder.encode("flag", "UTF-8") + "=" +
-                    URLEncoder.encode(flag, "UTF-8");
-            data += "&" + URLEncoder.encode("userid", "UTF-8") + "=" +
-                    URLEncoder.encode(userID, "UTF-8");
+            String link = "https://www.kidzsmartapp.com/databaseAccess/getStudentParticulars.php";
+            String data = URLEncoder.encode("studentid", "UTF-8") + "=" +
+                    URLEncoder.encode(studentID, "UTF-8");
 
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
@@ -64,7 +59,7 @@ public class FingerprintAsync extends AsyncTask<String,String,String> {
             String line = null;
 
             // Read Server Response
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 sb.append(line);
                 break;
             }
@@ -72,13 +67,13 @@ public class FingerprintAsync extends AsyncTask<String,String,String> {
         catch(Exception e) {
 
         }
+
         return sb.toString();
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(String s) {
 
         progDialog.dismiss();
-        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }

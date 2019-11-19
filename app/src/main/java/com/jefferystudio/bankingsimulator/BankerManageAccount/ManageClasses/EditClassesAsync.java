@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import java.net.URLEncoder;
 public class EditClassesAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private String flag;
     private String link;
     private String data;
@@ -27,6 +29,12 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Editing class details...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -141,6 +149,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }
