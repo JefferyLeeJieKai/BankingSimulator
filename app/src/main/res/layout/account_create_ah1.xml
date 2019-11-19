@@ -9,56 +9,44 @@
     <TextView
         android:id="@+id/title"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="9%"
+        app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
         android:text="Create Account"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
+        android:padding="2dp"
+        android:gravity="center"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
 
     <View
-        android:id="@+id/line1"
+        android:layout_below="@id/title"
         android:layout_width="fill_parent"
-        android:layout_below="@+id/title"
         android:layout_height="2dip"
         app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
-    //search class
-
-    <TextView
-        android:id="@+id/textview1"
-        app:layout_widthPercent="55%"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/line1"
-        app:layout_marginTopPercent="1%"
-        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/searchtv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/line1"
         android:layout_alignLeft="@id/title"
-        app:layout_marginTopPercent="8%"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="15%"
+        app:layout_widthPercent="26%"
+        app:autoSizeTextType="uniform"
         android:textColor="#000000"
+        android:gravity="center_vertical"
         android:text="Search Class:" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/classTxt"
-        app:layout_widthPercent="32%"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/line1"
-        android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="4%">
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="12%"
+        app:layout_widthPercent="45%"
+        android:layout_below="@id/title"
+        android:gravity="center_vertical"
+        android:layout_alignRight="@id/title" >
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -68,71 +56,83 @@
 
     <Button
         android:id="@+id/searchBtn"
-        android:layout_below="@id/line1"
+        android:layout_alignTop="@id/searchtv"
         app:layout_widthPercent="7%"
         app:layout_heightPercent="4%"
         android:background="@drawable/ic_search_black_24dp"
-        android:layout_alignRight="@id/textview1"
-        android:backgroundTint="#000000"
-        app:layout_marginTopPercent="6%" />
+        android:layout_toRightOf="@id/classTxt"
+        android:backgroundTint="#000000"/>
 
     //get class
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/searchtv"
-        android:layout_below="@id/searchtv"
-        app:layout_marginTopPercent="4%"
+        android:layout_alignLeft="@id/searchtv"
+        android:layout_below="@id/title"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="24%"
+        app:layout_widthPercent="12%"
+        app:autoSizeTextType="uniform"
         android:textColor="#000000"
+        android:gravity="center_vertical"
         android:text="Class:" />
 
     <TextView
         android:id="@+id/classLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/searchtv"
-        android:layout_alignLeft="@id/classTxt"
-        android:textColor="#000000"
-        app:layout_marginTopPercent="4%" />
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="24%"
+        app:layout_widthPercent="45%"
+        android:layout_below="@id/title"
+        android:layout_alignRight="@id/title"
+        android:gravity="center_vertical"
+        android:textColor="#000000"/>
 
     //get interest rate
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:layout_heightPercent="4%"
+        app:layout_marginTopPercent="33%"
+        app:layout_widthPercent="33%"
         android:layout_alignLeft="@id/searchtv"
-        android:layout_below="@id/classLbl"
-        app:layout_marginTopPercent="5%"
+        android:layout_below="@id/title"
         android:textColor="#000000"
-        android:text="Set Interest Rate (%):" />
+        android:text="Set Interest Rate (%):"
+        android:gravity="center_vertical"
+        app:autoSizeTextType="uniform"/>
 
     <TextView
         android:id="@+id/intRateLbl"
-        app:layout_widthPercent="20%"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/classLbl"
-        android:layout_alignRight="@id/classTxt"
+        app:layout_widthPercent="45%"
+        app:layout_heightPercent="4%"
+        android:layout_below="@id/title"
+        android:layout_alignRight="@id/title"
         android:textColor="#000000"
-        app:layout_marginTopPercent="5%" />
+        android:gravity="center_vertical"
+        app:layout_marginTopPercent="33%" />
 
     //display button
     <Button
         android:id="@+id/nextBtn"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        android:layout_alignParentBottom="true"
-        app:layout_marginBottomPercent="10%"
+        app:layout_marginTopPercent="75%"
+        android:layout_below="@id/title"
         android:layout_alignRight="@id/title"
-        android:background="@drawable/buttonshadow"
-        android:text="NEXT" />
+        android:background="@drawable/buttonblue"
+        android:textColor="#FFFFFF"
+        android:onClick="login"
+        android:padding="15dp"
+        android:text="Next"
+        app:autoSizeTextType="uniform" />
 
     <Button
         android:id="@+id/btnback"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        android:layout_alignParentBottom="true"
-        app:layout_marginBottomPercent="10%"
+        app:layout_marginTopPercent="75%"
+        android:layout_below="@id/title"
         android:layout_alignLeft="@id/title"
-        android:background="@drawable/buttonshadow"
-        android:text="BACK" />
+        android:background="@drawable/buttonred"
+        android:padding="15dp"
+        android:text="Cancel"
+        android:textColor="@color/loginButtonText"
+        app:autoSizeTextType="uniform" />
 
 </android.support.percent.PercentRelativeLayout>
