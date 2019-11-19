@@ -53,12 +53,14 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
     private List<SavingGoal> savingGoals;
     private Context context;
     private String flag;
+    private Bundle bankerBundle;
 
-    public SavingGoalsRecyclerViewAdaptor(Context context, List<SavingGoal> savingGoals, String flag) {
+    public SavingGoalsRecyclerViewAdaptor(Context context, List<SavingGoal> savingGoals, String flag, Bundle bankerBundle) {
 
         this.savingGoals = savingGoals;
         this.context = context;
         this.flag = flag;
+        this.bankerBundle = bankerBundle;
     }
 
     @Override
@@ -236,6 +238,8 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
             public void onClick(View v) {
 
                 Bundle args = new Bundle();
+                args.putString("userID", savingGoal.getUserID());
+                args.putString("userName", savingGoal.getUsername());
                 args.putString("goalName", savingGoal.getGoalName());
                 args.putString("itemCost", savingGoal.getItemCost());
                 args.putString("currentBalance", savingGoal.getCurrentBalance());
@@ -243,13 +247,30 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 args.putString("goalName", savingGoal.getGoalName());
                 args.putString("deadline", savingGoal.getDeadline());
                 args.putString("priority", savingGoal.getPriority());
+                args.putString("flag", flag);
 
                 Fragment viewGoalFrag = new SavingGoalsView();
-                viewGoalFrag.setArguments(args);
 
-                ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_layout, viewGoalFrag)
-                        .commit();
+                if(flag.equals("AccountHolder")) {
+
+                    viewGoalFrag.setArguments(args);
+
+                    ((HomeScreenUser)context).getSupportFragmentManager().beginTransaction()
+                                             .replace(R.id.frame_layout, viewGoalFrag)
+                                             .commit();
+                }
+                else if(flag.equals("Banker")) {
+
+                    args.putString("bankerID", bankerBundle.getString("userID"));
+                    args.putString("bankerUsername", bankerBundle.getString("userName"));
+                    args.putString("classID", bankerBundle.getString("classID"));
+                    args.putString("className", bankerBundle.getString("className"));
+                    viewGoalFrag.setArguments(args);
+
+                    ((HomeScreenBanker) context).getSupportFragmentManager().beginTransaction()
+                                                .replace(R.id.frame_layout, viewGoalFrag)
+                                                .commit();
+                }
             }
         });
     }
