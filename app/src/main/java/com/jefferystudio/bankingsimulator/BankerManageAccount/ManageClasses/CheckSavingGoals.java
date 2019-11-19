@@ -27,7 +27,9 @@ public class CheckSavingGoals extends Fragment {
         currentUserID = args.getString("studentID");
 
         recyclerView = view.findViewById(R.id.goalDetailsRv);
-        new RetrieveSavingGoalsAsync(getActivity(), recyclerView, "Banker").execute(currentUserID, null, null);
+        new RetrieveSavingGoalsAsync(getActivity(), recyclerView, "Banker")
+                .execute(currentUserID, null, null, args.getString("userID"), args.getString("userName"),
+                         args.getString("classID"), args.getString("className"));
 
         backButton = view.findViewById(R.id.backBtn);
         backButton.setOnClickListener(new View.OnClickListener() {

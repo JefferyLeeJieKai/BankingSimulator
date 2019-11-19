@@ -93,6 +93,10 @@ public class SavingGoalsView extends Fragment {
 
                     Fragment viewStudSavingGoalsFrag = new CheckSavingGoals();
                     newArgs.putString("studentID", args.getString("userID"));
+                    newArgs.putString("userID", args.getString("bankerID"));
+                    newArgs.putString("userName", args.getString("bankerUsername"));
+                    newArgs.putString("classID", args.getString("classID"));
+                    newArgs.putString("className", args.getString("className"));
                     viewStudSavingGoalsFrag.setArguments(newArgs);
 
                     getActivity().getSupportFragmentManager().beginTransaction()
