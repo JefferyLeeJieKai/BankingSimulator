@@ -20,6 +20,7 @@ import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAs
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
@@ -36,7 +37,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     private TextInputLayout usernameTextBox;
     private TextInputLayout passwordTextBox;
     private String username;
-    private ArrayList<Exception> errorList = new ArrayList<Exception>();
+    private ArrayList<String> errorList = new ArrayList<String>();
 
     public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox) {
 
@@ -101,9 +102,9 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
             publishProgress("50");
         }
-        catch(Exception e){
+        catch(IOException e){
 
-            errorList.add(e);
+            errorList.add("Unable to communicate with server.");
         }
 
         String[] resultArray = sb.toString().split(",");
@@ -182,17 +183,18 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
     protected void onProgressUpdate(String[] args) {
 
-        super.onProgressUpdate(args);
         int progress = Integer.valueOf(args[0]);
         progDialog.setProgress(progress);
 
         if(progress == 5) {
 
             progDialog.setMessage("Credentials Retrieved...");
+
         }
         else if(progress == 15) {
 
             progDialog.setMessage("Packing Data for transfer...");
+
         }
         else if(progress == 20) {
 

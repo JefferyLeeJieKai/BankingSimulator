@@ -62,75 +62,36 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
 
-            SharedPreferences pref = appContext.getSharedPreferences("userLoginPref",Context.MODE_PRIVATE);
+        SharedPreferences pref = appContext.getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
 
-            if(pref.getString("userID", "NotFound").equals("NotFound")) {
+        if (pref.getString("userID", "NotFound").equals("NotFound")) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(appContext);
+            AlertDialog.Builder builder = new AlertDialog.Builder(appContext);
 
-                builder.setTitle("DigiBank Alert");
-                builder.setMessage("Please enable fingerprint login in your settings.");
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Please enable fingerprint login in your settings.");
 
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                public void onClick(DialogInterface dialogInterface, int i) {
 
-
-                    }
-                });
-
-                AlertDialog noFingerprintDialog = builder.create();
-                noFingerprintDialog.show();
-            }
-            else {
-
-                Bundle args = new Bundle();
-                args.putString("userID", pref.getString("userID", null));
-                args.putString("userName", pref.getString("username", null));
-
-                String fingerprintResult = "";
-
-                try {
-
-                    fingerprintResult = new FingerprintAsync(appContext, "checkfingerprint", args.getString("userID"))
-                            .execute()
-                            .get(5000, TimeUnit.MILLISECONDS);
-                }
-                catch(Exception e) {
 
                 }
+            });
 
-                String[] resultArray = fingerprintResult.split(",");
+            AlertDialog noFingerprintDialog = builder.create();
+            noFingerprintDialog.show();
+        }
+        else {
 
-                if(resultArray[0].equals("True")) {
+            Bundle args = new Bundle();
+            args.putString("userID", pref.getString("userID", null));
+            args.putString("userName", pref.getString("username", null));
 
+            new FingerprintAsync(appContext, "checkfingerprint", args.getString("userID"))
+                    .execute(args);
 
-                    Intent intent = new Intent(appContext.getApplicationContext(), HomeScreenUser.class);
-                    intent.putExtras(args);
+        }
 
-                    appContext.startActivity(intent);
-
-                    Activity login = (Activity) appContext;
-                    login.finish();
-                }
-                else {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(appContext);
-
-                    builder.setTitle("DigiBank Alert");
-                    builder.setMessage("Please enable fingerprint login in your settings.");
-
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                        }
-                    });
-
-                    AlertDialog noFingerprintDialog = builder.create();
-                    noFingerprintDialog.show();
-                }
-            }
     }
 }

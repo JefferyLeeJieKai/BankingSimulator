@@ -8,10 +8,12 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
 
@@ -19,9 +21,9 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
     private File file;
     private String link;
     private Bitmap bitmap;
-    private ArrayList<Exception> errorList = new ArrayList<Exception>();
+    private ArrayList<String> errorList = new ArrayList<String>();
 
-    public RetrieveProfilePicAsync(Context context, File file, ArrayList<Exception> errorList) {
+    public RetrieveProfilePicAsync(Context context, File file, ArrayList<String> errorList) {
 
         this.context = context;
         this.file = file;
@@ -51,9 +53,10 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
             fos.close();
 
 
-        } catch (Exception e) {
+        }
+        catch (IOException e) {
 
-            errorList.add(e);
+            errorList.add("Unable to communicate with server.");
         }
 
         return "Success";
