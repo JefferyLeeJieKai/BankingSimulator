@@ -193,7 +193,7 @@ public class HomeFragmentBanker extends Fragment {
 
         currentID = args.getString("userID");
         currentAccountNo.setText(currentID);
-        new UpdateBalanceAsync(getActivity(), currentUserBalance).execute(currentID);
+        new UpdateBalanceAsync(getActivity(), currentUserBalance, null).execute(currentID);
 
 
         return view;

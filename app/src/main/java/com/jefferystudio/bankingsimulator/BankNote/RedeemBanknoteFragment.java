@@ -34,7 +34,7 @@ public class RedeemBanknoteFragment extends Fragment {
         userName.setText(userID);
 
         balance = view.findViewById(R.id.balanceLbl);
-        new UpdateBalanceAsync(getActivity(), balance).execute(userID);
+        new UpdateBalanceAsync(getActivity(), balance, null).execute(userID);
 
         notRedeemedNotes = view.findViewById(R.id.detailsRv);
 
@@ -67,6 +67,6 @@ public class RedeemBanknoteFragment extends Fragment {
 
     public void updateBalance() {
 
-        new UpdateBalanceAsync(getActivity(), balance).execute(userID);
+        new UpdateBalanceAsync(getActivity(), balance, null).execute(userID);
     }
 }

@@ -52,7 +52,7 @@ public class ViewTransactions extends Fragment {
             }
         });
 
-        new UpdateBalanceAsync(getActivity(), balance).execute(currentUserID);
+        new UpdateBalanceAsync(getActivity(), balance, null).execute(currentUserID);
 
         recyclerView = view.findViewById(R.id.transactionsDetailsRv);
 
