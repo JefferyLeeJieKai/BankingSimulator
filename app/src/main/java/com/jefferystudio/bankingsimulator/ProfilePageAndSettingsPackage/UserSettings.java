@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -59,6 +60,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
                 Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
                 intent.putExtras(newArgs);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -68,6 +70,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
                 Intent intent = new Intent(getApplicationContext(), ChangePasswordFragment.class);
                 startActivity(intent);
+                finish();
             }
         });
 
