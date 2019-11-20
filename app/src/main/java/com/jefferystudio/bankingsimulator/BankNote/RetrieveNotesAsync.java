@@ -88,8 +88,7 @@ public class RetrieveNotesAsync extends AsyncTask <String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
-        progDialog.dismiss();
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         ArrayList<Notes> issuedList = new ArrayList<>();
 
         String[] resultArray = result.split(",");
@@ -116,5 +115,7 @@ public class RetrieveNotesAsync extends AsyncTask <String, String, String> {
             issuedNotesView.setAdapter(adaptor);
             issuedNotesView.setLayoutManager(new LinearLayoutManager(context));
         }
+
+        progDialog.dismiss();
     }
 }

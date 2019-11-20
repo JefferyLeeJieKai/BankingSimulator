@@ -148,13 +148,13 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-
-        progDialog.dismiss();
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         String[] resultArray = result.split(",");
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         if(flag.equals("AddClass")) {
+
+            progDialog.dismiss();
 
             builder.setMessage("Class added successfully.\nDo you want to stay on the page?");
         }
@@ -190,6 +190,8 @@ public class ClassAsync extends AsyncTask<String, String, String> {
             ClassViewRecyclerViewAdaptor adaptor = new ClassViewRecyclerViewAdaptor(context, classList);
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+            progDialog.dismiss();
         }
         else if(flag.equals("ViewStudentFragment")) {
 
@@ -208,10 +210,13 @@ public class ClassAsync extends AsyncTask<String, String, String> {
                                                                                         className, userID, username);
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+            progDialog.dismiss();
         }
 
         if(resultArray[0].equals("Success") && showDialog) {
 
+            progDialog.dismiss();
 
             builder.setTitle("DigiBank Alert");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

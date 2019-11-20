@@ -91,8 +91,6 @@ public class RetrieveTransactionsAsync extends AsyncTask<String, String, String>
 
     @Override
     protected void onPostExecute(String result) {
-
-        progDialog.dismiss();
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         ArrayList<Transaction> transactions = new ArrayList<>();
 
@@ -113,5 +111,7 @@ public class RetrieveTransactionsAsync extends AsyncTask<String, String, String>
         TransactionsRecyclerViewAdaptor adaptor = new TransactionsRecyclerViewAdaptor(context, transactions, flag);
         recyclerView.setAdapter(adaptor);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+        progDialog.dismiss();
     }
 }

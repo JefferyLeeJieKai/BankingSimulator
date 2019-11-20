@@ -43,7 +43,7 @@ public class UpdateScoreAsync extends AsyncTask <String, String, String>{
 
         try {
 
-            String link = "https://www.kidzsmartapp.com/databaseAccess/uploadQuizScore";
+            String link = "https://www.kidzsmartapp.com/databaseAccess/uploadQuizScore.php";
             String data = URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(currentUserID, "UTF-8");
             data += "&" + URLEncoder.encode("score", "UTF-8") + "=" +

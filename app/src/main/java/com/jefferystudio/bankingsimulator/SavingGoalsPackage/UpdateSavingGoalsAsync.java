@@ -100,7 +100,7 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         progDialog.dismiss();
     }
 }

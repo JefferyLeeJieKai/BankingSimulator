@@ -87,8 +87,6 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
             Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
         }*/
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-        progDialog.dismiss();
-
         String[] resultArray = result.split(",");
 
         if(currentUserBalance != null) {
@@ -100,5 +98,7 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
 
             currentLimit.setText("Remaining limit: " + resultArray[1]);
         }
+
+        progDialog.dismiss();
     }
 }

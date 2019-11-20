@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.CommonAsyncPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 public class UpdateTransAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private String flag;
     private String link;
     private String data;
@@ -32,6 +34,12 @@ public class UpdateTransAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Updating transaction to server...");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog.setCancelable(false);
+        progDialog.show();
     }
 
     @Override
@@ -114,6 +122,7 @@ public class UpdateTransAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         /*for(Exception e : elist) {
 
             Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();

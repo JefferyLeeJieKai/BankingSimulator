@@ -88,6 +88,7 @@ public class UpdateStudentListAsync extends AsyncTask<String, String, String>{
     @Override
     protected void onPostExecute(String result) {
 
+        progDialog.dismiss();
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }
