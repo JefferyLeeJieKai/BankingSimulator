@@ -20,7 +20,7 @@ import com.jefferystudio.bankingsimulator.Validation;
 
 import java.util.concurrent.TimeUnit;
 
-public class Transfer_Amount extends Fragment{
+public class TransferAmountFragment extends Fragment{
 
     private Bundle args;
     private String currentID;
@@ -155,7 +155,7 @@ public class Transfer_Amount extends Fragment{
             else{
 
                 /*FragmentTransaction fragTransc = getChildFragmentManager().beginTransaction();
-                fragTransc.replace(R.id.outer_frame, new DepositConfirmBanker());
+                fragTransc.replace(R.id.outer_frame, new DepositConfirmBankerFragment());
                 fragTransc.addToBackStack(null);
                 fragTransc.commit();*/
         /*

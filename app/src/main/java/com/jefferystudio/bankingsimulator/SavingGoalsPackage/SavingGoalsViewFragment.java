@@ -1,9 +1,7 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +9,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoals;
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoalsFragment;
 import com.jefferystudio.bankingsimulator.R;
 
-public class SavingGoalsView extends Fragment {
+public class SavingGoalsViewFragment extends Fragment {
 
     private Bundle args;
     private Bundle newArgs;
@@ -79,7 +75,7 @@ public class SavingGoalsView extends Fragment {
 
                 if(flag.equals("AccountHolder")) {
 
-                    Fragment viewAllSavingGoalsFrag = new SavingGoalsAll();
+                    Fragment viewAllSavingGoalsFrag = new SavingGoalsAllFragment();
                     newArgs.putString("userID", args.getString("userID"));
                     newArgs.putString("userName", args.getString("userName"));
                     newArgs.putString("currentBalance", args.getString("currentBalance"));
@@ -91,7 +87,7 @@ public class SavingGoalsView extends Fragment {
                 }
                 else if(flag.equals("Banker")) {
 
-                    Fragment viewStudSavingGoalsFrag = new CheckSavingGoals();
+                    Fragment viewStudSavingGoalsFrag = new CheckSavingGoalsFragment();
                     newArgs.putString("studentID", args.getString("userID"));
                     newArgs.putString("userID", args.getString("bankerID"));
                     newArgs.putString("userName", args.getString("bankerUsername"));

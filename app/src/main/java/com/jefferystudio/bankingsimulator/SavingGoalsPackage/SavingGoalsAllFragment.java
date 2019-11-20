@@ -10,11 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClassRecyclerView.ClassViewRecyclerViewAdaptor;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView.SavingGoalsRecyclerViewAdaptor;
 
-public class SavingGoalsAll extends Fragment {
+public class SavingGoalsAllFragment extends Fragment {
 
     private Bundle args;
     private String currentUserID;
@@ -37,6 +38,8 @@ public class SavingGoalsAll extends Fragment {
 
         userName = view.findViewById(R.id.usernameLbl);
         balance = view.findViewById(R.id.balanceLbl);
+        new UpdateBalanceAsync(getActivity(), balance, null).execute(currentUserID);
+
         recyclerView = view.findViewById(R.id.goalDetailsRv);
 
         recyclerView = view.findViewById(R.id.goalDetailsRv);
@@ -53,6 +56,7 @@ public class SavingGoalsAll extends Fragment {
                 Fragment homeFrag = new HomeFragmentUser();
                 Bundle homeBundle = new Bundle();
                 homeBundle.putString("userID", currentUserID);
+                homeBundle.putString("userName", currentUserName);
                 homeFrag.setArguments(homeBundle);
 
                 getActivity().getSupportFragmentManager().beginTransaction()

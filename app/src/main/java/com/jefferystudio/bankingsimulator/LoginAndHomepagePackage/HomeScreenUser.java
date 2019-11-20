@@ -20,13 +20,13 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAHFragment;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAdd;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
-import com.jefferystudio.bankingsimulator.TransferFundsPackage.Transfer_Amount;
-import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAddFragment;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAllFragment;
+import com.jefferystudio.bankingsimulator.TransferFundsPackage.TransferAmountFragment;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsFragment;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAHFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.ProfilePage;
 
 public class HomeScreenUser extends AppCompatActivity {
@@ -94,32 +94,32 @@ public class HomeScreenUser extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.depositAH) {
 
-                    fragment = new DepositAH();
+                    fragment = new DepositAHFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.withdrawalAH) {
 
-                    fragment = new WithdrawalAH();
+                    fragment = new WithdrawalAHFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.transferAH) {
 
-                    fragment = new Transfer_Amount();
+                    fragment = new TransferAmountFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.transaction) {
 
-                    fragment = new ViewTransactions();
+                    fragment = new ViewTransactionsFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.addSavingGoals) {
 
-                    fragment = new SavingGoalsAdd();
+                    fragment = new SavingGoalsAddFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.viewSavingGoals) {
 
-                    fragment = new SavingGoalsAll();
+                    fragment = new SavingGoalsAllFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.redeemBanknote) {

@@ -11,14 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.UpdateSavingGoalsAsync;
 import com.jefferystudio.bankingsimulator.Validation;
 
 import java.util.concurrent.TimeUnit;
 
-public class EditClass extends Fragment {
+public class EditClassFragment extends Fragment {
 
     private Bundle args;
     private String currentUserID;
@@ -74,7 +72,7 @@ public class EditClass extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment viewClassFrag = new ViewClass();
+                Fragment viewClassFrag = new ViewClassFragment();
                 viewClassFrag.setArguments(args);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, viewClassFrag)

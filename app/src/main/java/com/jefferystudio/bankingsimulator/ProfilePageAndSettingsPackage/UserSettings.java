@@ -1,6 +1,5 @@
 package com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,8 +17,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePasswordFragment;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintLoginAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePassword;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintSettingAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
@@ -131,9 +129,8 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), ChangePasswordFragment.class);
+                Intent intent = new Intent(getApplicationContext(), ChangePassword.class);
                 startActivity(intent);
-                finish();
             }
         });
 

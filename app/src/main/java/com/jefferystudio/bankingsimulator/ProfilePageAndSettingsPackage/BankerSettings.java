@@ -81,7 +81,6 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
 
                 Intent intent = new Intent(getApplicationContext(), ChangePasswordBanker.class);
                 startActivity(intent);
-                finish();
             }
         });
 

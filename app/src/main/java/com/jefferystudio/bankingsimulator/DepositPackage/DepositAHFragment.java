@@ -1,95 +1,100 @@
 package com.jefferystudio.bankingsimulator.DepositPackage;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Validation;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
 
-public class DepositBanker extends Fragment
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class DepositAHFragment extends Fragment
 {
     private Bundle args;
     private String currentID;
+    private CircleImageView profilePic;
     private TextView userID;
     private TextView userBalance;
-    private ArrayList<String> list;
     private TextView accountNos;
     private Spinner accounts;
     private TextInputLayout amountToDeposit;
     private String input;
+    private Button backButton;
     private Button nextButton;
-    private Button backbtn;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
-        View view = inflater.inflate(R.layout.depositfunds_banker, container, false);
-
-        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+        View view = inflater.inflate(R.layout.deposit_ah, container, false);
 
         args = getArguments();
         currentID = args.getString("userID");
-        list = args.getStringArrayList("BankerList");
 
-        accountNos = view.findViewById(R.id.accountDDLText);
+        /*accountNos = view.findViewById(R.id.accountDDLText);
         accounts = view.findViewById(R.id.accountDDL);
+        accountNos.setVisibility(View.GONE);
+        accounts.setVisibility(View.GONE);*/
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "profile.jpg");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);
         userID.setText("Acc No. : " + currentID);
         new UpdateBalanceAsync(getActivity(), userBalance, null).execute(currentID);
 
-        accounts = view.findViewById(R.id.accountDDL);
-        ArrayAdapter<String> accountsAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
-        accountsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        accounts.setAdapter(accountsAdapter);
+        amountToDeposit = view.findViewById(R.id.amountTxt);
 
-        backbtn = view.findViewById(R.id.backBtn);
-
-        backbtn.setOnClickListener(new View.OnClickListener() {
+        backButton = view.findViewById(R.id.backBtn);
+        backButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                Fragment homeFrag = new HomeFragmentBanker();
-                homeFrag.setArguments(args);
+                Fragment homeFrag = new HomeFragmentUser();
+                Bundle homeBundle = new Bundle();
+                homeBundle.putString("userID", currentID);
+                homeBundle.putString("userName", args.getString("userName"));
+                homeFrag.setArguments(homeBundle);
+
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, homeFrag)
                         .commit();
             }
         });
 
-        amountToDeposit = view.findViewById(R.id.amountTxt);
         nextButton = view.findViewById(R.id.nextBtn);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 input = amountToDeposit.getEditText().getText().toString().trim();
 
                 if(Validation.validateAmount(input, amountToDeposit))
                 {
-                    Fragment depositConfirmFrag = new DepositConfirmBanker();
+                    Fragment depositConfirmFrag = new DepositConfirmUserFragment();
                     args.putString("amount", input);
-                    String preSplit = String.valueOf(accounts.getSelectedItem());
-                    String[] splitArray = preSplit.split(":");
-                    String[] targetNameArray = splitArray[0].split(" ");
-                    args.putString("targetName", targetNameArray[0]);
-                    String targetID = splitArray[1].substring(1);
-                    args.putString("targetID", targetID);
                     depositConfirmFrag.setArguments(args);
 
                     getActivity().getSupportFragmentManager().beginTransaction()
@@ -114,7 +119,7 @@ public class DepositBanker extends Fragment
         }
 
         try{
-
+           
             float amount = Float.valueOf(input);
             int befDec = 0;
             int currentCount = 0;
@@ -134,18 +139,12 @@ public class DepositBanker extends Fragment
             }
             else{
 
-                Fragment depositConfirmFrag = new DepositConfirmBanker();
+                Fragment OTPFrag = new OTPFragment();
                 args.putString("amount", input);
-                String preSplit = String.valueOf(accounts.getSelectedItem());
-                String[] splitArray = preSplit.split(":");
-                String[] targetNameArray = splitArray[0].split(" ");
-                args.putString("targetName", targetNameArray[0]);
-                String targetID = splitArray[1].substring(1);
-                args.putString("targetID", targetID);
-                depositConfirmFrag.setArguments(args);
+                OTPFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_layout, depositConfirmFrag)
+                        .replace(R.id.frame_layout, OTPFrag)
                         .commit();
 
                 //new TransactionAsync(getActivity(),"DepositUser").execute(currentID, input);
@@ -163,4 +162,3 @@ public class DepositBanker extends Fragment
     }
     */
 }
-

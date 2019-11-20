@@ -16,7 +16,7 @@ import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactio
 
 import java.util.ArrayList;
 
-public class ViewTransactionsBanker extends Fragment {
+public class ViewTransactionsBankerFragment extends Fragment {
 
     private Button btnback;
     private Bundle args;

@@ -14,13 +14,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClassFragment;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentFragment;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -93,7 +92,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                 args.putString("classID", classEntry.getClassID());
                 args.putString("className", classEntry.getClassName());
 
-                Fragment editStudents = new ViewStudent();
+                Fragment editStudents = new ViewStudentFragment();
                 editStudents.setArguments(args);
 
                 ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
@@ -113,7 +112,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                 args.putString("classID", classEntry.getClassID());
                 args.putString("className", classEntry.getClassName());
 
-                Fragment editClass = new EditClass();
+                Fragment editClass = new EditClassFragment();
                 editClass.setArguments(args);
 
                 ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
@@ -145,7 +144,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                          String returnMessage = "";
                          try {
 
-                             returnMessage = new EditClassesAsync(context, "DeleteClass")
+                             returnMessage = new EditClassesAsync(context, "DeleteClassFragment")
                                              .execute(classEntry.getClassID())
                                              .get(5000, TimeUnit.MILLISECONDS);
 
@@ -178,7 +177,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                                  public void onClick(DialogInterface dialogInterface, int i) {
 
 
-                                     ViewClass currentFrag = (ViewClass) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                     ViewClassFragment currentFrag = (ViewClassFragment) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
                                      currentFrag.updateAdaptor(entryPosition);
                                  }
                              });

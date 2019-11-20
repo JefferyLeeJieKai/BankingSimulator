@@ -12,7 +12,7 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBa
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
-public class CreateClass extends Fragment {
+public class CreateClassFragment extends Fragment {
 
     private Bundle args;
     private TextInputLayout searchClass;

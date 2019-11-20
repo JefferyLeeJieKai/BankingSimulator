@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class DepositConfirmUser extends Fragment {
+public class DepositConfirmUserFragment extends Fragment {
 
     private String userName;
     private String currentID;
@@ -81,7 +81,7 @@ public class DepositConfirmUser extends Fragment {
 
     public void recall() {
 
-        Fragment recallFrag = new DepositAH();
+        Fragment recallFrag = new DepositAHFragment();
         recallFrag.setArguments(args);
 
         getActivity().getSupportFragmentManager().beginTransaction()

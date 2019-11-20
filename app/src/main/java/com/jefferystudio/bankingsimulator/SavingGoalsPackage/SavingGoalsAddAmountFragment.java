@@ -18,7 +18,7 @@ import com.jefferystudio.bankingsimulator.Validation;
 import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 
-public class SavingGoalsAddAmount extends Fragment {
+public class SavingGoalsAddAmountFragment extends Fragment {
 
     private Bundle args;
     private ProgressBar progress;

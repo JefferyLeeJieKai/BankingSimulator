@@ -17,15 +17,15 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAHFragment;
 import com.jefferystudio.bankingsimulator.Education.eduhomepage;
 import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.TransferFundsPackage.Transfer_Amount;
-import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
+import com.jefferystudio.bankingsimulator.TransferFundsPackage.TransferAmountFragment;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.UserSettings;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
-import com.jefferystudio.bankingsimulator.goalspage;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAHFragment;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.GoalsPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -93,10 +93,13 @@ public class HomeFragmentUser extends Fragment {
         btnsavings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), goalspage.class);
-                intent.putExtras(args);
-                startActivity(intent);
-                getActivity().finish();
+
+                Fragment goalsPageFragment = new GoalsPage();
+                goalsPageFragment.setArguments(args);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                             .replace(R.id.frame_layout, goalsPageFragment)
+                             .commit();
             }
         });
 
@@ -116,6 +119,7 @@ public class HomeFragmentUser extends Fragment {
 
                 Fragment redeemnotes = new RedeemBanknoteFragment();
                 redeemnotes.setArguments(args);
+
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, redeemnotes);
                 transaction.commit();
@@ -136,7 +140,7 @@ public class HomeFragmentUser extends Fragment {
         btntransfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment transferpayees = new Transfer_Amount();
+                Fragment transferpayees = new TransferAmountFragment();
                 transferpayees.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, transferpayees);
@@ -148,7 +152,7 @@ public class HomeFragmentUser extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment depositFrag = new DepositAH();
+                Fragment depositFrag = new DepositAHFragment();
                 depositFrag.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, depositFrag);
@@ -159,7 +163,7 @@ public class HomeFragmentUser extends Fragment {
         btnwithdraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment Withdrawalah = new WithdrawalAH();
+                Fragment Withdrawalah = new WithdrawalAHFragment();
                 Withdrawalah.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, Withdrawalah);
@@ -180,7 +184,7 @@ public class HomeFragmentUser extends Fragment {
         btnviewtransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment viewTransactions = new ViewTransactions();
+                Fragment viewTransactions = new ViewTransactionsFragment();
                 viewTransactions.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, viewTransactions);

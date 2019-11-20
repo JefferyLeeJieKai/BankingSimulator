@@ -17,9 +17,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
 
-public class DepositConfirmBanker extends Fragment {
+public class DepositConfirmBankerFragment extends Fragment {
 
     private String targetName;
     private String targetID;
@@ -64,7 +63,7 @@ public class DepositConfirmBanker extends Fragment {
             @Override
             public void onClick(View v) {
 
-                new TransactionAsync(getActivity(),"DepositBanker", args.getString("userName")).execute(targetID, input, args.getString("userID"));
+                new TransactionAsync(getActivity(),"DepositBankerFragment", args.getString("userName")).execute(targetID, input, args.getString("userID"));
                 new UpdateTransAsync(getActivity(), "BankerDeposit").execute(args.getString("userID"), input, targetID, "NotApplicable");
             }
         });
@@ -88,7 +87,7 @@ public class DepositConfirmBanker extends Fragment {
 
     public void recall() {
 
-        Fragment recallFrag = new DepositBanker();
+        Fragment recallFrag = new DepositBankerFragment();
         recallFrag.setArguments(args);
 
         getActivity().getSupportFragmentManager().beginTransaction()

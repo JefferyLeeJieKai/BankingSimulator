@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
@@ -21,7 +22,7 @@ import com.jefferystudio.bankingsimulator.Validation;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class SavingGoalsAdd extends Fragment {
+public class SavingGoalsAddFragment extends Fragment {
 
     private Bundle args;
     private String currentID;
@@ -49,8 +50,9 @@ public class SavingGoalsAdd extends Fragment {
         currentID = args.getString("userID");
 
         username = view.findViewById(R.id.usernameLbl);
-        userBalance = view.findViewById(R.id.amountLbl);
+        userBalance = view.findViewById(R.id.balanceLbl);
         username.setText(userName);
+        new UpdateBalanceAsync(getActivity(), userBalance, null).execute(currentID);
 
         savingGoalName = view.findViewById(R.id.goalNameTxt);
         savingGoalAmount = view.findViewById(R.id.amountTxt);
@@ -131,7 +133,10 @@ public class SavingGoalsAdd extends Fragment {
             public void onClick(View v) {
 
                 Fragment homeFrag = new HomeFragmentUser();
-                homeFrag.setArguments(args);
+                Bundle homeBundle = new Bundle();
+                homeBundle.putString("userID", args.getString("userID"));
+                homeBundle.putString("userName", args.getString("userName"));
+                homeFrag.setArguments(homeBundle);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, homeFrag)

@@ -8,17 +8,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmBanker;
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmUser;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositAHFragment;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmBankerFragment;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.TransferFundsPackage.Transfer_Amount;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalConfirm;
+import com.jefferystudio.bankingsimulator.TransferFundsPackage.TransferAmountFragment;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAHFragment;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalConfirmFragment;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -54,7 +53,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
             homeScreenUserActivity = (HomeScreenUser) context;
         }
-        else if(flag.equals("DepositBanker")) {
+        else if(flag.equals("DepositBankerFragment")) {
 
             homeScreenBankerActivity = (HomeScreenBanker) context;
         }
@@ -76,12 +75,12 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
         StringBuffer sb = new StringBuffer("");
 
-        if(flag.equals("DepositUser") || flag.equals("DepositBanker") || flag.equals("DepositUserRedeem")) {
+        if(flag.equals("DepositUser") || flag.equals("DepositBankerFragment") || flag.equals("DepositUserRedeem")) {
 
             userID = args[0];
             depositAmount = args[1];
 
-            if(flag.equals("DepositBanker")) {
+            if(flag.equals("DepositBankerFragment")) {
 
                 bankerID = args[2];
             }
@@ -241,7 +240,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
                     if(flag.equals("DepositUser")) {
 
-                        Fragment depositFrag = new DepositAH();
+                        Fragment depositFrag = new DepositAHFragment();
                         depositFrag.setArguments(newArgs);
 
                         homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
@@ -250,7 +249,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     }
                     else if(flag.equals("WithdrawalUser")) {
 
-                        Fragment withdrawalFrag = new WithdrawalAH();
+                        Fragment withdrawalFrag = new WithdrawalAHFragment();
                         withdrawalFrag.setArguments(newArgs);
 
                         homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
@@ -259,7 +258,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     }
                     else if(flag.equals("TransferFundsUser")) {
 
-                        Fragment transferFrag = new Transfer_Amount();
+                        Fragment transferFrag = new TransferAmountFragment();
                         transferFrag.setArguments(newArgs);
 
                         homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
@@ -289,7 +288,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             AlertDialog quitDialog = builder.create();
             quitDialog.show();
         }
-        else if(resultArray[0].equals("True") && flag.equals("DepositBanker")) {
+        else if(resultArray[0].equals("True") && flag.equals("DepositBankerFragment")) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -302,7 +301,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
                     Fragment currentFragment = homeScreenBankerActivity.getSupportFragmentManager().findFragmentById(R.id.frame_layout);
 
-                    ((DepositConfirmBanker)currentFragment).recall();
+                    ((DepositConfirmBankerFragment)currentFragment).recall();
                 }
 
             });
@@ -343,7 +342,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     //link back to the first withdrawal page
                     if(flag.equals("WithdrawalUser")) {
 
-                        ((WithdrawalConfirm)currentFragment).recall();
+                        ((WithdrawalConfirmFragment)currentFragment).recall();
                     }
                 }
 

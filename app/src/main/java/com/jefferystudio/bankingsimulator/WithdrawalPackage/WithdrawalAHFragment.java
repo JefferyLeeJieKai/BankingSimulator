@@ -8,14 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Validation;
 
-public class WithdrawalAH extends Fragment
+public class WithdrawalAHFragment extends Fragment
 {
     private Bundle args;
     private String currentID;
@@ -50,6 +49,7 @@ public class WithdrawalAH extends Fragment
                 Fragment homeFrag = new HomeFragmentUser();
                 Bundle homeBundle = new Bundle();
                 homeBundle.putString("userID", currentID);
+                homeBundle.putString("userName", args.getString("userName"));
                 homeFrag.setArguments(homeBundle);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
@@ -69,7 +69,7 @@ public class WithdrawalAH extends Fragment
                 {
                     if(Validation.validateLimit(input, amountToWithdraw, currentLimit.getText().toString())) {
 
-                        Fragment withdrawalConfirmFrag = new WithdrawalConfirm();
+                        Fragment withdrawalConfirmFrag = new WithdrawalConfirmFragment();
                         args.putString("amount", input);
                         withdrawalConfirmFrag.setArguments(args);
 
@@ -113,7 +113,7 @@ public class WithdrawalAH extends Fragment
             }
             else{
 
-                Fragment withdrawalConfirmFrag = new WithdrawalConfirm();
+                Fragment withdrawalConfirmFrag = new WithdrawalConfirmFragment();
                 args.putString("amount", input);
                 withdrawalConfirmFrag.setArguments(args);
 

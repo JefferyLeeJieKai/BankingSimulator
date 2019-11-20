@@ -90,7 +90,7 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
             }
         }
-        else if(flag.equals("ViewClass")) {
+        else if(flag.equals("ViewClassFragment")) {
 
             try {
                 link = "https://www.kidzsmartapp.com/databaseAccess/getClass.php";
@@ -101,7 +101,7 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
             }
         }
-        else if(flag.equals("ViewStudent")) {
+        else if(flag.equals("ViewStudentFragment")) {
 
             className = args[0];
 
@@ -158,7 +158,7 @@ public class ClassAsync extends AsyncTask<String, String, String> {
 
             builder.setMessage("Class added successfully.\nDo you want to stay on the page?");
         }
-        else if(flag.equals("ViewClass")) {
+        else if(flag.equals("ViewClassFragment")) {
 
             ArrayList<ClassEntry> classList = new ArrayList<>();
 
@@ -191,7 +191,7 @@ public class ClassAsync extends AsyncTask<String, String, String> {
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
         }
-        else if(flag.equals("ViewStudent")) {
+        else if(flag.equals("ViewStudentFragment")) {
 
             ArrayList<StudentEntry> studentList = new ArrayList<>();
 

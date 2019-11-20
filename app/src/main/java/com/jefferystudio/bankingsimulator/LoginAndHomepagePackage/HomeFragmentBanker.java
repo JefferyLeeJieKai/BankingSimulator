@@ -12,16 +12,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClassFragment;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClassFragment;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassFragment;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClassFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositBankerFragment;
 import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBankerFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.BankerSettings;
 
 public class HomeFragmentBanker extends Fragment {
@@ -106,7 +106,7 @@ public class HomeFragmentBanker extends Fragment {
             @Override
             public void onClick(View v){
 
-                Fragment viewtransactions = new ViewTransactionsBanker();
+                Fragment viewtransactions = new ViewTransactionsBankerFragment();
                 viewtransactions.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, viewtransactions);
@@ -131,7 +131,7 @@ public class HomeFragmentBanker extends Fragment {
         btncreateclass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment createclass = new CreateClass();
+                Fragment createclass = new CreateClassFragment();
                 createclass.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, createclass);
@@ -143,7 +143,7 @@ public class HomeFragmentBanker extends Fragment {
         btneditclass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment editclass = new EditClass();
+                Fragment editclass = new EditClassFragment();
                 editclass.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, editclass);
@@ -155,7 +155,7 @@ public class HomeFragmentBanker extends Fragment {
         btndeleteclass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment deleteclass = new DeleteClass();
+                Fragment deleteclass = new DeleteClassFragment();
                 deleteclass.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, deleteclass);
@@ -167,7 +167,7 @@ public class HomeFragmentBanker extends Fragment {
         btnviewclass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment viewclass = new ViewClass();
+                Fragment viewclass = new ViewClassFragment();
                 viewclass.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, viewclass);
@@ -179,7 +179,7 @@ public class HomeFragmentBanker extends Fragment {
         btnDeposit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment dBanker = new DepositBanker();
+                Fragment dBanker = new DepositBankerFragment();
                 dBanker.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, dBanker);

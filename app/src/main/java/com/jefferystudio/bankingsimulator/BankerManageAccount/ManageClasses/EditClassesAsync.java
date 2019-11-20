@@ -42,7 +42,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
         StringBuffer sb = new StringBuffer("");
 
-        if(flag.equals("DeleteClass")) {
+        if(flag.equals("DeleteClassFragment")) {
 
             String classID = args[0];
 

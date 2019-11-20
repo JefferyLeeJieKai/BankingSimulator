@@ -16,14 +16,13 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentRecyclerView.StudentEntry;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentRecyclerView.StudentViewRecyclerViewAdaptor;
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositAH;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Registration.RegistrationFragment;
 import com.jefferystudio.bankingsimulator.Validation;
 
 import java.util.concurrent.TimeUnit;
 
-public class ViewStudent extends Fragment {
+public class ViewStudentFragment extends Fragment {
 
     private Bundle args;
     private TextInputLayout searchClass;
@@ -76,7 +75,7 @@ public class ViewStudent extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment viewClass = new ViewClass();
+                Fragment viewClass = new ViewClassFragment();
                 viewClass.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, viewClass);
@@ -139,7 +138,7 @@ public class ViewStudent extends Fragment {
 
                                         public void onClick (DialogInterface dialogInterace, int i) {
 
-                                            new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"),
+                                            new ClassAsync(getActivity(), "ViewStudentFragment", args.getString("userID"),
                                                     args.getString("userName"), args.getString("classID"),
                                                     studentDetails).execute(args.getString("className"));
                                         }
@@ -179,7 +178,7 @@ public class ViewStudent extends Fragment {
 
         studentDetails = view.findViewById(R.id.ahDetailsRv);
 
-        new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), args.getString("userName"),
+        new ClassAsync(getActivity(), "ViewStudentFragment", args.getString("userID"), args.getString("userName"),
                        args.getString("classID"), studentDetails).execute(args.getString("className"));
 
         return view;
@@ -242,7 +241,7 @@ public class ViewStudent extends Fragment {
 
                                 public void onClick(DialogInterface dialogInterace, int i) {
 
-                                    new ClassAsync(getActivity(), "ViewStudent", args.getString("userID"), args.getString("userName"),
+                                    new ClassAsync(getActivity(), "ViewStudentFragment", args.getString("userID"), args.getString("userName"),
                                             args.getString("classID"), studentDetails).execute(args.getString("className"));
                                 }
                             });

@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class WithdrawalConfirm extends Fragment {
+public class WithdrawalConfirmFragment extends Fragment {
 
     private String userName;
     private String currentID;
@@ -81,7 +81,7 @@ public class WithdrawalConfirm extends Fragment {
 
     public void recall() {
 
-        Fragment recallFrag = new WithdrawalAH();
+        Fragment recallFrag = new WithdrawalAHFragment();
         recallFrag.setArguments(args);
 
         getActivity().getSupportFragmentManager().beginTransaction()

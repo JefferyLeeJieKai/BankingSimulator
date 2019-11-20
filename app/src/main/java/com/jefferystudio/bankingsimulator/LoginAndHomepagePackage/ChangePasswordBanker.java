@@ -54,6 +54,11 @@ public class ChangePasswordBanker extends AppCompatActivity {
         });
 
     }
+
+    public void onBackPressed() {
+
+        finish();
+    }
 }
 
 /*

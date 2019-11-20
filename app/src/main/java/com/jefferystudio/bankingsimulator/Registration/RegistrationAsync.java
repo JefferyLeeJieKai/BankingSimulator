@@ -2,21 +2,12 @@ package com.jefferystudio.bankingsimulator.Registration;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmUser;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.LoginScreen;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
-import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalConfirm;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

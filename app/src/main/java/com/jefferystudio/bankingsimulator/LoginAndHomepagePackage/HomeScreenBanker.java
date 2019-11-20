@@ -21,14 +21,14 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClass;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClassFragment;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClassFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositBankerFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.ProfilePageBanker;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
+import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBankerFragment;
 
 import java.util.ArrayList;
 
@@ -102,22 +102,22 @@ public class HomeScreenBanker extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.deposit) {
 
-                    fragment = new DepositBanker();
+                    fragment = new DepositBankerFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.transaction) {
 
-                    fragment = new ViewTransactionsBanker();
+                    fragment = new ViewTransactionsBankerFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.createclass) {
 
-                    fragment = new CreateClass();
+                    fragment = new CreateClassFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.viewclass) {
 
-                    fragment = new ViewClass();
+                    fragment = new ViewClassFragment();
                     fragment.setArguments(args);
                 }
                 else if(item.getItemId() == R.id.issueBanknote) {

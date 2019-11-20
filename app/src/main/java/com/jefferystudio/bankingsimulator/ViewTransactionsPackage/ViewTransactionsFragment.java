@@ -13,7 +13,7 @@ import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 
-public class ViewTransactions extends Fragment {
+public class ViewTransactionsFragment extends Fragment {
 
     private Bundle args;
     private String currentUserID;

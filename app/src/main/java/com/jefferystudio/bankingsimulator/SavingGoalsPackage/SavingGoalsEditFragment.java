@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
-public class SavingGoalsEdit extends Fragment {
+public class SavingGoalsEditFragment extends Fragment {
 
     private Bundle args;
     private String currentUserID;
@@ -127,7 +127,7 @@ public class SavingGoalsEdit extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment saveMoneyFrag = new SavingGoalsAddAmount();
+                Fragment saveMoneyFrag = new SavingGoalsAddAmountFragment();
                 saveMoneyFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
@@ -224,7 +224,7 @@ public class SavingGoalsEdit extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment savingGoalFrag = new SavingGoalsAll();
+                Fragment savingGoalFrag = new SavingGoalsAllFragment();
                 savingGoalFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()

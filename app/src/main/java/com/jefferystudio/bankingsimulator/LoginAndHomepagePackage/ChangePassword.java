@@ -17,7 +17,7 @@ import com.jefferystudio.bankingsimulator.R;
 
 import java.security.acl.LastOwnerException;
 
-public class ChangePasswordFragment extends AppCompatActivity {
+public class ChangePassword extends AppCompatActivity {
 
     private Bundle args;
     private TextInputLayout oldPasswordField;
@@ -66,6 +66,10 @@ public class ChangePasswordFragment extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    public void onBackPressed() {
+
+        finish();
     }
 }

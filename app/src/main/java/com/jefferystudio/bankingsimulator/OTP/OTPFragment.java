@@ -7,9 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmUser;
+import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmUserFragment;
 import com.jefferystudio.bankingsimulator.R;
 
 public class OTPFragment extends Fragment {
@@ -38,7 +37,7 @@ public class OTPFragment extends Fragment {
 
                 if(verificationCode.equals(actualVerificationCode)) {
 
-                    Fragment depositConfirmFrag = new DepositConfirmUser();
+                    Fragment depositConfirmFrag = new DepositConfirmUserFragment();
                     depositConfirmFrag.setArguments(args);
 
                     getActivity().getSupportFragmentManager().beginTransaction()

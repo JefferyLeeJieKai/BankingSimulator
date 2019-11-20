@@ -2,7 +2,6 @@ package com.jefferystudio.bankingsimulator.Registration;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -15,12 +14,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.UpdateStudentListAsync;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentFragment;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.util.ArrayList;
@@ -242,7 +239,7 @@ public class RegistrationFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
-                            Fragment viewStudentFrag = new ViewStudent();
+                            Fragment viewStudentFrag = new ViewStudentFragment();
                             viewStudentFrag.setArguments(args);
                             getActivity().getSupportFragmentManager().beginTransaction()
                                     .replace(R.id.frame_layout, viewStudentFrag)

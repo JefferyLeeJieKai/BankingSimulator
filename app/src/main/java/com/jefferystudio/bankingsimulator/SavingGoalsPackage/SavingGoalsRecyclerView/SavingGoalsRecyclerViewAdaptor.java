@@ -12,17 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.DeleteSavingGoalsAsync;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEdit;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsView;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAllFragment;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsEditFragment;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsViewFragment;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -150,7 +148,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                     args.putString("deadLine", savingGoal.getDeadline());
                     args.putString("priority", savingGoal.getPriority());
 
-                    Fragment editGoalFrag = new SavingGoalsEdit();
+                    Fragment editGoalFrag = new SavingGoalsEditFragment();
                     editGoalFrag.setArguments(args);
 
                     ((HomeScreenUser) context).getSupportFragmentManager().beginTransaction()
@@ -204,7 +202,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                                        SavingGoalsAll currentFrag = (SavingGoalsAll) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                                        SavingGoalsAllFragment currentFrag = (SavingGoalsAllFragment) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
                                         currentFrag.updateAdaptor(entryPosition);
                                     }
                                 });
@@ -249,7 +247,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                 args.putString("priority", savingGoal.getPriority());
                 args.putString("flag", flag);
 
-                Fragment viewGoalFrag = new SavingGoalsView();
+                Fragment viewGoalFrag = new SavingGoalsViewFragment();
 
                 if(flag.equals("AccountHolder")) {
 

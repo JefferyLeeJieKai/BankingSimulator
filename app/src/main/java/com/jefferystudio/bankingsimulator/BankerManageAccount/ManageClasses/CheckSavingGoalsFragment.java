@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.RetrieveSavingGoalsAsync;
 
-public class CheckSavingGoals extends Fragment {
+public class CheckSavingGoalsFragment extends Fragment {
 
     private Bundle args;
     private String currentUserID;
@@ -36,7 +36,7 @@ public class CheckSavingGoals extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment studentViewFrag = new ViewStudent();
+                Fragment studentViewFrag = new ViewStudentFragment();
                 studentViewFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()

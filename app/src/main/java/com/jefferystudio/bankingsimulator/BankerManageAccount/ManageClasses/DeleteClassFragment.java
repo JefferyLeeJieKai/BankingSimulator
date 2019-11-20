@@ -16,7 +16,7 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBa
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
-public class DeleteClass extends Fragment {
+public class DeleteClassFragment extends Fragment {
 
     private TextInputLayout searchClass;
     private Button searchButton;

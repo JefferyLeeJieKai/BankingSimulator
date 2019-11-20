@@ -17,7 +17,6 @@ import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

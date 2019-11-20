@@ -14,15 +14,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoals;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoalsFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassesAsync;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudent;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentParticulars;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentFragment;
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentParticularsFragment;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<StudentViewRecyclerViewAdaptor.ViewHolder> {
@@ -102,7 +101,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        Fragment checkPersonalParticularFrag = new ViewStudentParticulars();
+                        Fragment checkPersonalParticularFrag = new ViewStudentParticularsFragment();
                         Bundle args = new Bundle();
                         args.putString("studentID", studentEntry.getUserID());
                         args.putString("userID", userID);
@@ -121,7 +120,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        Fragment checkSavingGoalsFrag = new CheckSavingGoals();
+                        Fragment checkSavingGoalsFrag = new CheckSavingGoalsFragment();
                         Bundle args = new Bundle();
                         args.putString("studentID", studentEntry.getUserID());
                         args.putString("userID", userID);
@@ -146,7 +145,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
             public void onClick(View v) {
 
-                 ViewStudent viewStudentFrag = (ViewStudent)((HomeScreenBanker)context).getSupportFragmentManager()
+                 ViewStudentFragment viewStudentFrag = (ViewStudentFragment)((HomeScreenBanker)context).getSupportFragmentManager()
                                               .findFragmentById(R.id.frame_layout);
 
                  viewStudentFrag.updateInterestRate(studentEntry);
@@ -196,7 +195,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
 
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    ViewStudent viewStudentFrag = (ViewStudent) ((HomeScreenBanker) context)
+                                    ViewStudentFragment viewStudentFrag = (ViewStudentFragment) ((HomeScreenBanker) context)
                                             .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
                                     viewStudentFrag.updateAdaptor(entryPosition);
                                 }

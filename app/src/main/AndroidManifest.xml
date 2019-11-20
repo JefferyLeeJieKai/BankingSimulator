@@ -84,7 +84,7 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".DepositPackage.DepositBanker"
+            android:name=".DepositPackage.DepositBankerFragment"
             android:windowSoftInputMode="adjustNothing"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
@@ -108,7 +108,7 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".LoginAndHomepagePackage.ChangePasswordFragment"
+            android:name=".LoginAndHomepagePackage.ChangePassword"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
@@ -146,7 +146,7 @@
             android:windowSoftInputMode="adjustNothing"></activity>
 
         <activity
-            android:name=".goalspage"
+            android:name=".SavingGoalsPackage.GoalsPage"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
@@ -182,7 +182,7 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".ViewTransactionsPackage.ViewTransactions"
+            android:name=".ViewTransactionsPackage.ViewTransactionsFragment"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 

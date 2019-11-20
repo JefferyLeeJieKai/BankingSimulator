@@ -12,7 +12,7 @@ import com.jefferystudio.bankingsimulator.R;
 
 import java.util.concurrent.TimeUnit;
 
-public class ViewStudentParticulars extends Fragment {
+public class ViewStudentParticularsFragment extends Fragment {
 
     private Bundle args;
     private TextView currentID;
@@ -67,7 +67,7 @@ public class ViewStudentParticulars extends Fragment {
 
             public void onClick(View v) {
 
-                Fragment viewStudentFrag = new ViewStudent();
+                Fragment viewStudentFrag = new ViewStudentFragment();
                 viewStudentFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
