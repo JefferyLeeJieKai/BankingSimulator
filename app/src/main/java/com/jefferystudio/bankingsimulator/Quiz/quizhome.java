@@ -54,6 +54,7 @@ public class quizhome extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
                 intent.putExtras(newArgs);
                 startActivity(intent);
+                finish();
             }
         });
     }

@@ -89,6 +89,18 @@
         android:theme="@style/SCBSwitch"
         app:layout_marginTopPercent="3%" />
 
+    <Spinner
+        android:id="@+id/limitspinner"
+        android:layout_below="@id/classHeader2"
+        android:layout_alignLeft="@id/title"
+        android:textColor="#000000"
+        android:fontFamily="@font/titan_one"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="8%"
+        android:background="@drawable/middle_field"/>
+
     <Button
         android:id="@+id/btnback"
         app:layout_widthPercent="80%"
