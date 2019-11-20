@@ -110,16 +110,16 @@ public class DailyLimitAsync extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+
         String[] resultArray = result.split(",");
 
         if(flag.equals("RetrieveLimit") && !resultArray[0].equals("Fail")) {
 
             int position = checkPosition(resultArray[0]);
 
-            dailyLimitSpinner.setSelection(position);
+            ((UserSettings)context).updateDailyLimit(Float.valueOf(resultArray[0]), Float.valueOf(resultArray[1]), position);
 
-            ((UserSettings)context).updateDailyLimit(Float.valueOf(resultArray[0]), Float.valueOf(resultArray[1]), true);
+            dailyLimitSpinner.setSelection(position);
         }
         else if(flag.equals("UpdateLimit")) {
 
@@ -129,14 +129,16 @@ public class DailyLimitAsync extends AsyncTask<String, String, String> {
             if(resultArray[0].equals("Success")) {
 
                 builder.setMessage("Daily Limit successfully changed!");
-                ((UserSettings)context).updateDailyLimit(Float.valueOf(newDailyLimit), Float.valueOf(newCurrentLimit), true);
+
+                int position = checkPosition(newDailyLimit);
+                ((UserSettings)context).updateDailyLimit(Float.valueOf(newDailyLimit), Float.valueOf(newCurrentLimit), position);
             }
             else if(resultArray[0].equals("Fail")) {
 
                 builder.setMessage("Error occurred when changing daily limit. Please try again");
 
                 int position = checkPosition(((UserSettings)context).getCurrentDailyLimit());
-                ((UserSettings)context).setInitialUpdate(false);
+                //((UserSettings)context).setInitialUpdate(false);
                 dailyLimitSpinner.setSelection(position);
             }
 

@@ -59,8 +59,10 @@ public class Validation {
 
         boolean result = true;
 
+        String dollarCurrentLimit = currentLimit.substring(16);
+
         Float withdrawAmount = Float.valueOf(input);
-        Float currentLimitAmount = Float.valueOf(currentLimit);
+        Float currentLimitAmount = Float.valueOf(dollarCurrentLimit);
 
         if(withdrawAmount > currentLimitAmount) {
 

@@ -159,7 +159,7 @@
 
     //display limit
 
-    <TextView
+    <!--<TextView
         android:id="@+id/daily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -181,7 +181,7 @@
         android:layout_below="@id/amountTxt"
         android:layout_alignRight="@id/title"
         app:autoSizeTextType="uniform"
-        android:text="auto limit" />
+        android:text="auto limit" />-->
 
     //display remaining limit
 
@@ -189,7 +189,7 @@
         android:id="@+id/remaining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/daily"
+        android:layout_below="@id/amountTxt"
         android:layout_alignLeft="@id/title"
         app:layout_marginTopPercent="2%"
         app:layout_marginLeftPercent="0%"
@@ -203,7 +203,7 @@
         app:layout_heightPercent="3%"
         app:layout_marginTopPercent="2%"
         app:layout_marginRightPercent="0%"
-        android:layout_below="@id/limitLbl"
+        android:layout_below="@id/amountTxt"
         android:layout_alignRight="@id/title"
         app:autoSizeTextType="uniform"
         android:text="auto limit" />

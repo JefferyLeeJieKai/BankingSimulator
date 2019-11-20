@@ -91,11 +91,14 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
 
         String[] resultArray = result.split(",");
 
-        currentUserBalance.setText("Balance: " + resultArray[0]);
+        if(currentUserBalance != null) {
+
+            currentUserBalance.setText("Balance: " + resultArray[0]);
+        }
 
         if(currentLimit != null) {
 
-            currentLimit.setText("Current limit: " + resultArray[1]);
+            currentLimit.setText("Remaining limit: " + resultArray[1]);
         }
     }
 }

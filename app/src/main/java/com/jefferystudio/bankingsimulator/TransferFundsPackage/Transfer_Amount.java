@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
@@ -25,10 +26,10 @@ public class Transfer_Amount extends Fragment{
     private String currentID;
     private String currentPayee;
     private TextView userID;
+    private TextView currentLimit;
     private TextInputLayout payee;
     private TextInputLayout amountToTransfer;
     private String input;
-    private Spinner purpose;
     private Button nextButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +42,9 @@ public class Transfer_Amount extends Fragment{
         userID = view.findViewById(R.id.payerLbl);
         userID.setText(currentID);
 
+        currentLimit = view.findViewById(R.id.remainingLimitLbl);
+        new UpdateBalanceAsync(getActivity(), null, currentLimit).execute(currentID);
+
         amountToTransfer = view.findViewById(R.id.amountTxt);
         payee = view.findViewById(R.id.payeeLbl);
         nextButton = view.findViewById(R.id.nextBtn);
@@ -51,28 +55,29 @@ public class Transfer_Amount extends Fragment{
                 currentPayee = payee.getEditText().getText().toString().trim();
                 input = amountToTransfer.getEditText().getText().toString().trim();
 
-                if(!validatePayee() | !validateAmount()) {
+                if(!validatePayee() | !validateAmount() || !validateLimit()) {
 
                     return;
                 }
+                else {
 
-                String result = "";
+                    String result = "";
 
-                try {
+                    try {
 
-                    result = new TransactionAsync(getActivity(), "TransferFundsUser", args.getString("userName"))
-                                        .execute(currentID, currentPayee, input)
-                                        .get(5000, TimeUnit.MILLISECONDS);
-                }
-                catch(Exception e) {
+                        result = new TransactionAsync(getActivity(), "TransferFundsUser", args.getString("userName"))
+                                .execute(currentID, currentPayee, input)
+                                .get(5000, TimeUnit.MILLISECONDS);
+                    } catch (Exception e) {
 
-                }
+                    }
 
-                String[] resultArray = result.split(",");
+                    String[] resultArray = result.split(",");
 
-                if(resultArray[0].equals("True")) {
+                    if (resultArray[0].equals("True")) {
 
-                    new UpdateTransAsync(getActivity(), "TransferFunds").execute(currentID, input, currentPayee);
+                        new UpdateTransAsync(getActivity(), "TransferFunds").execute(currentID, input, currentPayee);
+                    }
                 }
             }
         });
@@ -97,6 +102,19 @@ public class Transfer_Amount extends Fragment{
     private boolean validateAmount() {
 
         boolean result = Validation.validateAmount(input, amountToTransfer);
+
+        //if not empty
+        if (result) {
+
+            amountToTransfer.setError(null);
+        }
+
+        return result;
+    }
+
+    private boolean validateLimit() {
+
+        boolean result = Validation.validateLimit(input, amountToTransfer, currentLimit.getText().toString());
 
         //if not empty
         if (result) {

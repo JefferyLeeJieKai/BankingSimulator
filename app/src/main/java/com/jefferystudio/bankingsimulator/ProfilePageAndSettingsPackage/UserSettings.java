@@ -39,7 +39,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
     private Spinner dailyLimitSpinner;
     private float dailyLimit;
     private float currentLimit;
-    private boolean initialUpdate;
+    private int currentPosition;
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String FINGER_LOCK = "fingerLock";
@@ -48,7 +48,6 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_settings);
-        initialUpdate = false;
 
         args = getIntent().getExtras();
         switchbtn = (Switch)findViewById(R.id.switch1);
@@ -58,7 +57,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
         loadFinger();
 
         dailyLimitSpinner = findViewById(R.id.limitspinner);
-        ArrayAdapter<CharSequence> dailyLimitAdapter = ArrayAdapter.createFromResource(this, R.array.dailylimit,
+        final ArrayAdapter<CharSequence> dailyLimitAdapter = ArrayAdapter.createFromResource(this, R.array.dailylimit,
                                                                                        android.R.layout.simple_spinner_item);
         dailyLimitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dailyLimitSpinner.setAdapter(dailyLimitAdapter);
@@ -68,7 +67,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
-                if(initialUpdate == true) {
+                if(position != currentPosition) {
 
                     String newLimit = adapterView.getItemAtPosition(position).toString();
                     final String truncatedLimit = newLimit.substring(1);
@@ -98,6 +97,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
                         public void onClick(DialogInterface dialogInterface, int i) {
 
+                            dailyLimitSpinner.setSelection(currentPosition);
                         }
                     });
 
@@ -261,16 +261,11 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
         }
     }
 
-    public void updateDailyLimit(float dailyLimit, float currentLimit, boolean initialUpdate) {
+    public void updateDailyLimit(float dailyLimit, float currentLimit, int currentPosition) {
 
         this.dailyLimit = dailyLimit;
         this.currentLimit = currentLimit;
-        this.initialUpdate = initialUpdate;
-    }
-
-    public void setInitialUpdate(boolean initialUpdate) {
-
-        this.initialUpdate = initialUpdate;
+        this.currentPosition = currentPosition;
     }
 
     public String getCurrentDailyLimit() {
