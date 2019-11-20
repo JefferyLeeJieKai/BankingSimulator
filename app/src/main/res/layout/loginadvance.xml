@@ -59,4 +59,21 @@
         android:visibility="visible"
         android:src="@drawable/signupcolor" />
 
+    <TextView
+        android:id="@+id/textView5"
+        app:layout_widthPercent="90%"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="30%"
+        android:textSize="45sp"
+        android:elevation="20dp"
+        android:shadowColor="#666666"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:fontFamily="@font/titan_one"
+        android:shadowRadius="20"
+        android:textColor="#000000"
+        android:text="WELCOME TO KIDZSMART BANK" />
+
 </android.support.percent.PercentRelativeLayout >

@@ -57,33 +57,22 @@
         app:autoSizeTextType="uniform" />
 
     //display information starting from here
-    <TextView
-        android:id="@+id/withdrawtv"
-        app:layout_widthPercent="18%"
-        app:layout_heightPercent="6%"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_below="@id/verifytitle"
-        app:layout_marginTopPercent="4%"
-        android:textColor="#000000"
-        android:text="Withdraw From:"
-        app:autoSizeTextType="uniform" />
 
     //display account holder's profile
+
     <View
         android:id="@+id/profileview"
-        android:layout_alignRight="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
         android:layout_below="@id/verifytitle"
-        app:layout_widthPercent="60%"
+        app:layout_widthPercent="80%"
         app:layout_heightPercent="15%"
         app:layout_marginTopPercent="4%"
-        app:layout_marginLeftPercent="26%"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
         android:layout_alignLeft="@+id/textView"
         android:layout_below="@id/verifytitle"
-        app:layout_marginLeftPercent="20%"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="15%"
         app:layout_marginTopPercent="4%"
@@ -98,7 +87,7 @@
         android:id="@+id/usernameLbl"
         android:layout_alignRight="@+id/textView"
         android:layout_below="@id/verifytitle"
-        app:layout_widthPercent="35%"
+        app:layout_widthPercent="53%"
         app:layout_heightPercent="5%"
         app:layout_marginTopPercent="6%"
         android:textColor="#000000"
@@ -108,7 +97,7 @@
         android:id="@+id/accountLbl"
         android:layout_alignRight="@+id/textView"
         android:layout_below="@+id/usernameLbl"
-        app:layout_widthPercent="35%"
+        app:layout_widthPercent="53%"
         app:layout_heightPercent="5%"
         app:layout_marginTopPercent="1%"
         android:textColor="#000000"
@@ -145,7 +134,6 @@
         app:layout_heightPercent="5%"
         app:layout_marginTopPercent="1%"
         android:textColor="#000000"
-        android:gravity="center"
         app:autoSizeTextType="uniform" />
 
     //display date
