@@ -96,10 +96,11 @@
         android:text="Current daily limit"
         android:textColor="#000000"
         android:fontFamily="@font/titan_one"
+        android:gravity="center_horizontal"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="4%"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="6%"
+        app:layout_heightPercent="5%"
         android:background="@drawable/middle_field"
         app:autoSizeTextType="uniform"/>
 
@@ -112,7 +113,7 @@
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="0%"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="6%"
+        app:layout_heightPercent="5%"
         android:background="@drawable/middle_field"/>
 
     <Button

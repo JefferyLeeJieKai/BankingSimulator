@@ -30,7 +30,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/transactionsDetailsRv"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="30%"
+        app:layout_heightPercent="55%"
         app:layout_marginTopPercent="25%"
         android:layout_centerHorizontal="true"/>
 
@@ -67,8 +67,8 @@
         app:layout_widthPercent="80%"
         app:layout_heightPercent="7%"
         android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="3%"
-        android:layout_below="@id/transactionsDetailsRv"
+        app:layout_marginBottomPercent="7%"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/buttonblue"
         android:padding="11dp"
         android:text="Back"
