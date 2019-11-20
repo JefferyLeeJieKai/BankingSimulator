@@ -64,13 +64,13 @@
             android:theme="@style/AppTheme"></activity> -->
 
         <activity
-            android:name=".ProfileSettings.ProfilePage"
+            android:name=".ProfilePageAndSettingsPackage.ProfilePage"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".ProfileSettings.ProfilePageBanker"
+            android:name=".ProfilePageAndSettingsPackage.ProfilePageBanker"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing"
@@ -90,13 +90,13 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".WithdrawalPackage.UserSettings"
+            android:name=".ProfilePageAndSettingsPackage.UserSettings"
             android:windowSoftInputMode="adjustNothing"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".WithdrawalPackage.BankerSettings"
+            android:name=".ProfilePageAndSettingsPackage.BankerSettings"
             android:windowSoftInputMode="adjustNothing"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>

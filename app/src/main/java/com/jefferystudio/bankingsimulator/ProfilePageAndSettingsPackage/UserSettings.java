@@ -1,13 +1,12 @@
-package com.jefferystudio.bankingsimulator.WithdrawalPackage;
+package com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,10 +16,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePasswordFragment;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintLoginAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintSettingAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.goalspage;
 
 
 import java.util.concurrent.TimeUnit;
@@ -61,6 +60,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
                 Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
                 intent.putExtras(newArgs);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -70,6 +70,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
                 Intent intent = new Intent(getApplicationContext(), ChangePasswordFragment.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -94,7 +95,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
                 try {
 
-                    result = new FingerprintAsync(this, "enablefingerprint", args.getString("userID"))
+                    result = new FingerprintSettingAsync(this, "enablefingerprint", args.getString("userID"))
                             .execute()
                             .get(5000, TimeUnit.MILLISECONDS);
                 }
@@ -138,7 +139,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
             try {
 
-                result = new FingerprintAsync(this, "disablefingerprint", args.getString("userID"))
+                result = new FingerprintSettingAsync(this, "disablefingerprint", args.getString("userID"))
                         .execute()
                         .get(5000, TimeUnit.MILLISECONDS);
             }

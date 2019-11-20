@@ -27,7 +27,7 @@ import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAll;
 import com.jefferystudio.bankingsimulator.TransferFundsPackage.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
-import com.jefferystudio.bankingsimulator.ProfileSettings.ProfilePage;
+import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.ProfilePage;
 
 public class HomeScreenUser extends AppCompatActivity {
 
@@ -145,7 +145,7 @@ public class HomeScreenUser extends AppCompatActivity {
 
                         try {
 
-                            result = new FingerprintAsync(context, "enablefingerprint", args.getString("userID"))
+                            result = new FingerprintLoginAsync(context, "enablefingerprint", args.getString("userID"))
                                     .execute()
                                     .get(5000, TimeUnit.MILLISECONDS);
                         }
@@ -185,7 +185,7 @@ public class HomeScreenUser extends AppCompatActivity {
 
                         try {
 
-                            result = new FingerprintAsync(context, "disablefingerprint", args.getString("userID"))
+                            result = new FingerprintLoginAsync(context, "disablefingerprint", args.getString("userID"))
                                     .execute()
                                     .get(5000, TimeUnit.MILLISECONDS);
                         }

@@ -3,7 +3,6 @@ package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -27,12 +26,11 @@ import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.View
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
-import com.jefferystudio.bankingsimulator.ProfileSettings.ProfilePageBanker;
+import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.ProfilePageBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class HomeScreenBanker extends AppCompatActivity {
 
@@ -157,7 +155,7 @@ public class HomeScreenBanker extends AppCompatActivity {
 
                         try {
 
-                            result = new FingerprintAsync(context, "enablefingerprint", args.getString("userID"))
+                            result = new FingerprintLoginAsync(context, "enablefingerprint", args.getString("userID"))
                                     .execute()
                                     .get(5000, TimeUnit.MILLISECONDS);
                         }
@@ -197,7 +195,7 @@ public class HomeScreenBanker extends AppCompatActivity {
 
                         try {
 
-                            result = new FingerprintAsync(context, "disablefingerprint", args.getString("userID"))
+                            result = new FingerprintLoginAsync(context, "disablefingerprint", args.getString("userID"))
                                     .execute()
                                     .get(5000, TimeUnit.MILLISECONDS);
                         }

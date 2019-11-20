@@ -1,25 +1,37 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.Toast;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
-public class FingerprintAsync extends AsyncTask<String,String,String> {
+public class FingerprintSettingAsync extends AsyncTask<Bundle, String, String> {
 
     private Context context;
     private ProgressDialog progDialog;
     private String flag;
     private String userID;
+    private Bundle args;
+    private ArrayList<String> errorList = new ArrayList<String>();
 
-    public FingerprintAsync(Context context, String flag, String userID) {
+    public FingerprintSettingAsync(Context context, String flag, String userID) {
 
         this.context = context;
         this.flag = flag;
@@ -30,7 +42,7 @@ public class FingerprintAsync extends AsyncTask<String,String,String> {
     protected void onPreExecute() {
 
         progDialog = new ProgressDialog(context);
-        progDialog.setMessage("Confirming fingerprint...");
+        progDialog.setMessage("Handling fingerprint enable/disable request");
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setCancelable(false);
@@ -38,14 +50,14 @@ public class FingerprintAsync extends AsyncTask<String,String,String> {
     }
 
     @Override
-    protected String doInBackground(String... strings) {
+    protected String doInBackground(Bundle[] bundle) {
 
         StringBuffer sb = new StringBuffer("");
 
         try {
 
-            String link="https://www.kidzsmartapp.com/databaseAccess/handleFingerprint.php";
-            String data  = URLEncoder.encode("flag", "UTF-8") + "=" +
+            String link = "https://www.kidzsmartapp.com/databaseAccess/handleFingerprint.php";
+            String data = URLEncoder.encode("flag", "UTF-8") + "=" +
                     URLEncoder.encode(flag, "UTF-8");
             data += "&" + URLEncoder.encode("userid", "UTF-8") + "=" +
                     URLEncoder.encode(userID, "UTF-8");
@@ -64,21 +76,21 @@ public class FingerprintAsync extends AsyncTask<String,String,String> {
             String line = null;
 
             // Read Server Response
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 sb.append(line);
                 break;
             }
         }
-        catch(Exception e) {
+        catch (Exception e) {
 
         }
+
         return sb.toString();
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(String s) {
 
         progDialog.dismiss();
-        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }
