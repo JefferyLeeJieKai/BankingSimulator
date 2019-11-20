@@ -101,7 +101,7 @@
         android:layout_marginTop="-5dp"
         android:layout_below="@id/amount"
         android:layout_alignLeft="@id/amount"
-        android:background="@drawable/password_field">
+        android:background="@drawable/middle_field">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -111,6 +111,17 @@
             android:inputType="number"
             android:hint="Amount" />
     </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/currentLimit"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="6%"
+        android:layout_marginTop="-5dp"
+        android:layout_below="@id/amountTxt"
+        android:layout_alignLeft="@id/Rect"
+        android:textColor="#000000"
+        android:background="@drawable/password_field"
+        app:autoSizeTextType="uniform"/>
 
     //display button
     <Button

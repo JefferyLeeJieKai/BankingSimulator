@@ -55,6 +55,22 @@ public class Validation {
         return result;
     }
 
+    public static boolean validateLimit(String input, TextInputLayout inputBox, String currentLimit) {
+
+        boolean result = true;
+
+        Float withdrawAmount = Float.valueOf(input);
+        Float currentLimitAmount = Float.valueOf(currentLimit);
+
+        if(withdrawAmount > currentLimitAmount) {
+
+            inputBox.setError("Withdrawal exceeds the current limit. Increase your daily limit to perform transaction");
+            result = false;
+        }
+
+        return result;
+    }
+
     public static boolean validateEmptyNonTextInputLayout(String input)
     {
         boolean result = true;

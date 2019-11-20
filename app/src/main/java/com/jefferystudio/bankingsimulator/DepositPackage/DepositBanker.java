@@ -51,7 +51,7 @@ public class DepositBanker extends Fragment
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);
         userID.setText("Acc No. : " + currentID);
-        new UpdateBalanceAsync(getActivity(), userBalance).execute(currentID);
+        new UpdateBalanceAsync(getActivity(), userBalance, null).execute(currentID);
 
         accounts = view.findViewById(R.id.accountDDL);
         ArrayAdapter<String> accountsAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);

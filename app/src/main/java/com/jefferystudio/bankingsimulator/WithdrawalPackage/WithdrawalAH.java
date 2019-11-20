@@ -21,6 +21,7 @@ public class WithdrawalAH extends Fragment
     private String currentID;
     private TextView userID;
     private TextView userBalance;
+    private TextView currentLimit;
     private TextInputLayout amountToWithdraw;
     private String input;
     private Button backButton;
@@ -35,8 +36,9 @@ public class WithdrawalAH extends Fragment
 
         userID = view.findViewById(R.id.usernameLbl);
         userBalance = view.findViewById(R.id.balanceLbl);
+        currentLimit = view.findViewById(R.id.currentLimit);
         userID.setText("Acc No. : " + currentID);
-        new UpdateBalanceAsync(getActivity(), userBalance).execute(currentID);
+        new UpdateBalanceAsync(getActivity(), userBalance, currentLimit).execute(currentID);
 
         amountToWithdraw = view.findViewById(R.id.amountTxt);
 
@@ -65,16 +67,16 @@ public class WithdrawalAH extends Fragment
 
                 if(Validation.validateAmount(input, amountToWithdraw))
                 {
-                    Fragment withdrawalConfirmFrag = new WithdrawalConfirm();
-                    args.putString("amount", input);
-                    withdrawalConfirmFrag.setArguments(args);
+                    if(Validation.validateLimit(input, amountToWithdraw, currentLimit.getText().toString())) {
 
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frame_layout, withdrawalConfirmFrag)
-                            .commit();
+                        Fragment withdrawalConfirmFrag = new WithdrawalConfirm();
+                        args.putString("amount", input);
+                        withdrawalConfirmFrag.setArguments(args);
 
-                    //new TransactionAsync(getActivity(),"WithdrawalUser").execute(currentID, input);
-                    //new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
+                        getActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frame_layout, withdrawalConfirmFrag)
+                                .commit();
+                    }
                 }
             }
         });
