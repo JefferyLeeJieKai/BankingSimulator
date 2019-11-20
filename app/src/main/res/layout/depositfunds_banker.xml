@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/bg5"
+    android:background="@drawable/gradient11"
     >
 
 
@@ -41,10 +41,6 @@
         app:layout_marginTopPercent="17%"
         android:background="@drawable/emptyrect" />
 
-
-
-
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
         app:layout_widthPercent="27%"
@@ -65,7 +61,9 @@
         app:autoSizeTextType="uniform"
         app:layout_marginTopPercent="9%"
         app:layout_heightPercent="5%"
-        app:layout_widthPercent="51%" />
+        app:layout_widthPercent="51%"
+        android:gravity="center"
+        android:padding="2dp"/>
 
     <TextView
         android:id="@+id/balanceLbl"
@@ -75,6 +73,8 @@
         android:layout_below="@id/usernameLbl"
         app:layout_marginLeftPercent="2%"
         app:layout_marginTopPercent="2%"
+        android:gravity="center"
+        android:padding="2dp"
         app:autoSizeTextType="uniform" />
 
     //user input starting from here
@@ -129,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:digits="0123456789"
+            android:digits="0123456789."
             android:inputType="number"
             android:hint="Amount" />
     </android.support.design.widget.TextInputLayout>

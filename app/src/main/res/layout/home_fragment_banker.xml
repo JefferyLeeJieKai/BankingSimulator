@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/bg3"
+    android:background="@drawable/gradient09"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -87,21 +87,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Current Balance:"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginLeft="20dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/actualCurrentBalance"
                 android:textSize="18dp"
                 android:textColor="#000000"
                 android:layout_marginTop="55dp"
-                android:layout_marginLeft="165dp"
+                android:layout_marginLeft="20dp"
                 />
 
         </RelativeLayout>

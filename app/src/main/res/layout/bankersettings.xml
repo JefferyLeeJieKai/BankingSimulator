@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg5">
+    android:background="@drawable/gradient05">
 
     <TextView
         android:id="@+id/title"
@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:padding="2dp"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:autoSizeTextType="uniform" />
 
     <View
@@ -23,7 +23,7 @@
         android:layout_width="fill_parent"
         android:layout_height="2dip"
         app:layout_marginTopPercent="2%"
-        android:background="#000000"
+        android:background="#FFFFFF"
         android:paddingBottom="10dip" />
 
     //get class
@@ -68,7 +68,6 @@
         android:layout_alignLeft="@id/title"
         android:background="@drawable/buttonshadow2"
         android:gravity="left"
-        android:text="\t\t\t\t\tFINGERPRINT"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_heightPercent="8%"
@@ -81,6 +80,21 @@
         android:topRightRadius="10dp"
         app:autoSizeTextType="uniform"
         android:padding="15dp"/>
+
+    <TextView
+        android:id="@+id/fingerOnOff"
+        android:layout_below="@id/btndatetime"
+        android:layout_alignLeft="@id/classHeader2"
+        android:textColor="#000000"
+        app:layout_heightPercent="6%"
+        android:text="FINGERPRINT"
+        android:gravity="center"
+        app:layout_marginLeftPercent="3%"
+        app:layout_marginTopPercent="4%"
+        app:layout_widthPercent="54%"
+        android:textSize="18sp"
+        app:autoSizeTextType="uniform"
+        android:padding="7dp"/>
 
     <Switch
         android:id="@+id/switch1"

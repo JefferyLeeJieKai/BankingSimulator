@@ -7,7 +7,7 @@
     tools:context=".LoginAndHomepagePackage.HomeScreenUser"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg10"
+    android:background="@drawable/gradient12"
     >
 
     <android.support.v7.widget.Toolbar
@@ -220,13 +220,14 @@
     </LinearLayout>
 
     <Button
-            android:id="@+id/confirmBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="260dp"
-            android:background="@drawable/buttonshadow"
-            android:text="Confirm" />
+        android:id="@+id/confirmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="260dp"
+        android:background="@drawable/buttonblue"
+        android:textColor="@color/loginButtonText"
+        android:text="Confirm" />
 
 
 

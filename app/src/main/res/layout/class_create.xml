@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg5">
+    android:background="@drawable/gradient04">
 
     <TextView
         android:id="@+id/title"
@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:text="Create Class"
        android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:autoSizeTextType="uniform"/>
 
     <View
@@ -22,7 +22,7 @@
         android:layout_width="fill_parent"
         android:layout_height="2dip"
         app:layout_marginTopPercent="2%"
-        android:background="#000000"
+        android:background="#FFFFFF"
         android:paddingBottom="10dip" />
 
     //get class
@@ -85,27 +85,29 @@
     //display buttons
     <Button
         android:id="@+id/cancelBtn"
+        android:text="Cancel"
+        android:background="@drawable/buttonred"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="45%"
-        android:layout_below="@id/classTxt"
-        android:layout_alignLeft="@id/classTxt"
-        android:background="@drawable/buttonred"
+        app:layout_marginBottomPercent="7%"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@id/title"
         android:textColor="#FFFFFF"
-        android:text="Cancel"
         android:padding="15dp"
         app:autoSizeTextType="uniform"/>
 
     <Button
         android:id="@+id/createBtn"
+        android:text="Create"
+        android:background="@drawable/buttonblue"
         app:layout_widthPercent="25%"
         app:layout_heightPercent="7%"
-        app:layout_marginTopPercent="45%"
-        android:layout_below="@id/classTxt"
-        android:layout_alignRight="@id/classTxt"
-        android:background="@drawable/buttonblue"
-        android:padding="15dp"
+        app:layout_marginTopPercent="75%"
+        app:layout_marginBottomPercent="7%"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@id/title"
         android:textColor="#FFFFFF"
-        android:text="Create" />
+        android:padding="15dp"
+        app:autoSizeTextType="uniform"/>
 
 </android.support.percent.PercentRelativeLayout>
