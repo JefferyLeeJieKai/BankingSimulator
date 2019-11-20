@@ -52,8 +52,6 @@ public class FingerprintSettingAsync extends AsyncTask<Bundle, String, String> {
     @Override
     protected String doInBackground(Bundle[] bundle) {
 
-        args = bundle[0];
-
         StringBuffer sb = new StringBuffer("");
 
         try {

@@ -127,7 +127,7 @@ public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
                 try {
 
                     catchString = new RetrieveProfilePicAsync(context, file, errorList)
-                            .execute(resultArray[4])
+                            .execute(resultArray[2])
                             .get(5000, TimeUnit.MILLISECONDS);
 
                     publishProgress("90");
