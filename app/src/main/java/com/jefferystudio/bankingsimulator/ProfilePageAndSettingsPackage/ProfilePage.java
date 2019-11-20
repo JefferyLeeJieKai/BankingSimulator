@@ -1,9 +1,6 @@
-package com.jefferystudio.bankingsimulator.ProfileSettings;
+package com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -11,27 +8,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 
-
-public class ProfilePageBanker extends AppCompatActivity implements Dialog.ExampleDialogListener {
+public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDialogListener {
 
     private Bundle args;
     private Context context;
@@ -46,50 +32,51 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
     private ImageButton editEmailbtn;
 
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.profilepages);
 
-        @Override
-        protected void onCreate(@Nullable Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.profilepage_banker);
-            args = getIntent().getExtras();
-            context = this;
+        args = getIntent().getExtras();
+        context = this;
 
-            Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
-            homeScreenToolbar.setTitle("Profile");
-            setSupportActionBar(homeScreenToolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
+        homeScreenToolbar.setTitle("Profile");
+        setSupportActionBar(homeScreenToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         profilebtn = (TextView)findViewById(R.id.editbtn);
         profilepic = (ImageView)findViewById(R.id.profilephoto);
+
+        profilebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                openGallery();
+            }
+        });
 
         getlblname = (TextView)findViewById(R.id.lblname);
         getlblemail = (TextView)findViewById(R.id.lblemail);
         editNamebtn = (ImageButton) findViewById(R.id.modeEditName);
         editEmailbtn = (ImageButton) findViewById(R.id.modeEditEmail);
 
-        profilebtn.setOnClickListener(new View.OnClickListener() {
+
+        editNamebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openGallery();
+
+                openDialogName();
             }
         });
 
-            editNamebtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+        editEmailbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                    openDialogName();
-                }
-            });
-
-            editEmailbtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    openDialogEmail();
-                }
-            });
-
+                openDialogEmail();
+            }
+        });
 
     }
 
@@ -99,8 +86,8 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
     }
 
     public void openDialogEmail(){
-        DialogEmail dialog = new DialogEmail();
-        dialog.show(getSupportFragmentManager(), "dialogEmail");
+        DialogEmail dialogemail = new DialogEmail();
+        dialogemail.show(getSupportFragmentManager(), "dialogEmail");
     }
 
     @Override
@@ -110,11 +97,13 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
         getlblname.setText(name);
     }
 
+
     public void applyTextsEmail(String email) {
 
         getlblemail.setTextColor(Color.parseColor("#000000"));
         getlblemail.setText(email);
     }
+
 
 
     private void openGallery(){
@@ -123,26 +112,25 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        //super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK && requestCode == PICK_IMAGE){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
 
             imageUri = data.getData();
 
             String result = "";
-
             try {
 
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                Toast.makeText(context, "StartingAsync", Toast.LENGTH_LONG).show();
+
                 new UploadPicProgressBarAsync(context, args.getString("userID"), profilepic, imageUri).execute(bitmap);
+
+                //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
             }
             catch(Exception e) {
 
-                Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
             }
-
-
         }
     }
 
@@ -152,5 +140,4 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
         onBackPressed();
         return super.onSupportNavigateUp();
     }
-
 }

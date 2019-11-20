@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator.ProfileSettings;
+package com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage;
 
 import android.content.Context;
 import android.content.DialogInterface;

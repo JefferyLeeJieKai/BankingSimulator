@@ -23,7 +23,7 @@ import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.TransferFundsPackage.Transfer_Amount;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactions;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.UserSettings;
+import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.UserSettings;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAH;
 import com.jefferystudio.bankingsimulator.goalspage;
 

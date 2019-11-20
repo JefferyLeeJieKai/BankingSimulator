@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator.WithdrawalPackage;
+package com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,20 +14,22 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePasswordFragment;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintAsync;
-import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePasswordBanker;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintLoginAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintSettingAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.goalspage;
+import com.jefferystudio.bankingsimulator.Settings;
 
 
 import java.util.concurrent.TimeUnit;
 
-public class UserSettings extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class BankerSettings extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private Switch switchbtn;
     private Button backbtn;
     private Button btnchange;
+    private Button datetimebtn;
     private Bundle args;
     private TextView fingerEnable;
     private Boolean lock;
@@ -40,16 +40,16 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_settings);
+        setContentView(R.layout.bankersettings);
 
 
         args = getIntent().getExtras();
         switchbtn = (Switch)findViewById(R.id.switch1);
         backbtn = (Button) findViewById(R.id.btnback);
         btnchange = (Button) findViewById(R.id.changepass);
+        datetimebtn = (Button) findViewById(R.id.btndatetime);
         fingerEnable = findViewById(R.id.fingerOnOff);
         loadFinger();
-
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +58,17 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
                 Bundle newArgs = new Bundle();
                 newArgs.putString("userID", args.getString("userID"));
                 newArgs.putString("userName", args.getString("userName"));
-                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
+                Intent intent = new Intent(getApplicationContext(), HomeScreenBanker.class);
                 intent.putExtras(newArgs);
+                startActivity(intent);
+            }
+        });
+
+        datetimebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), Settings.class);
                 startActivity(intent);
             }
         });
@@ -68,7 +77,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), ChangePasswordFragment.class);
+                Intent intent = new Intent(getApplicationContext(), ChangePasswordBanker.class);
                 startActivity(intent);
             }
         });
@@ -94,7 +103,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
                 try {
 
-                    result = new FingerprintAsync(this, "enablefingerprint", args.getString("userID"))
+                    result = new FingerprintSettingAsync(this, "enablefingerprint", args.getString("userID"))
                             .execute()
                             .get(5000, TimeUnit.MILLISECONDS);
                 }
@@ -112,7 +121,6 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
                     builder.setMessage("Fingerprint enabled!");
                     updateFingerUnlock(true);
                     fingerEnable.setText("FINGERPRINT ENABLED");
-
 
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
@@ -138,7 +146,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
             try {
 
-                result = new FingerprintAsync(this, "disablefingerprint", args.getString("userID"))
+                result = new FingerprintSettingAsync(this, "disablefingerprint", args.getString("userID"))
                         .execute()
                         .get(5000, TimeUnit.MILLISECONDS);
             }
@@ -196,5 +204,4 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
             fingerEnable.setText("FINGERPRINT DISABLED");
         }
     }
-
 }

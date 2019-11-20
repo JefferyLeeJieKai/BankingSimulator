@@ -12,7 +12,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
-import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageAccHome;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.DeleteClass;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClass;
@@ -22,9 +21,8 @@ import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBanker;
 import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
 import com.jefferystudio.bankingsimulator.R;
-import com.jefferystudio.bankingsimulator.Settings;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBanker;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.BankerSettings;
+import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.BankerSettings;
 
 public class HomeFragmentBanker extends Fragment {
 

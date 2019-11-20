@@ -1,10 +1,8 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -13,8 +11,6 @@ import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
-
-import java.util.concurrent.TimeUnit;
 
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
 
@@ -88,7 +84,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
             args.putString("userID", pref.getString("userID", null));
             args.putString("userName", pref.getString("username", null));
 
-            new FingerprintAsync(appContext, "checkfingerprint", args.getString("userID"))
+            new FingerprintLoginAsync(appContext, "checkfingerprint", args.getString("userID"))
                     .execute(args);
 
         }

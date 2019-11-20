@@ -23,7 +23,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class FingerprintAsync extends AsyncTask<Bundle, String, String> {
+public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
 
     private Context context;
     private ProgressDialog progDialog;
@@ -32,7 +32,7 @@ public class FingerprintAsync extends AsyncTask<Bundle, String, String> {
     private Bundle args;
     private ArrayList<String> errorList = new ArrayList<String>();
 
-    public FingerprintAsync(Context context, String flag, String userID) {
+    public FingerprintLoginAsync(Context context, String flag, String userID) {
 
         this.context = context;
         this.flag = flag;
