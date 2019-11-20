@@ -89,16 +89,30 @@
         android:theme="@style/SCBSwitch"
         app:layout_marginTopPercent="3%" />
 
+    <TextView
+        android:id="@+id/limitext"
+        android:layout_below="@id/classHeader2"
+        android:layout_alignLeft="@id/title"
+        android:text="Current daily limit"
+        android:textColor="#000000"
+        android:fontFamily="@font/titan_one"
+        app:layout_marginLeftPercent="0%"
+        app:layout_marginTopPercent="4%"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="3%"
+        android:background="@drawable/middle_field"
+        app:autoSizeTextType="uniform"/>
+
     <Spinner
         android:id="@+id/limitspinner"
-        android:layout_below="@id/classHeader2"
+        android:layout_below="@id/limitext"
         android:layout_alignLeft="@id/title"
         android:textColor="#000000"
         android:fontFamily="@font/titan_one"
         app:layout_marginLeftPercent="0%"
-        app:layout_marginTopPercent="3%"
+        app:layout_marginTopPercent="0%"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="8%"
+        app:layout_heightPercent="5%"
         android:background="@drawable/middle_field"/>
 
     <Button
