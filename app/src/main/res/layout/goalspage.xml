@@ -71,7 +71,7 @@
         app:cardCornerRadius="12dp"
         android:layout_margin="12dp"
         android:layout_alignLeft="@+id/goalpagetitle"
-        app:layout_marginTopPercent="25%"
+        app:layout_marginTopPercent="35%"
 
         >
 
@@ -103,7 +103,7 @@
         app:cardCornerRadius="12dp"
         android:layout_margin="12dp"
         android:layout_alignRight="@+id/goalpagetitle"
-        app:layout_marginTopPercent="25%"
+        app:layout_marginTopPercent="35%"
         >
 
         <LinearLayout
@@ -128,36 +128,6 @@
     </android.support.v7.widget.CardView>
 
 
-    <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardElevation="6dp"
-        app:cardCornerRadius="12dp"
-        android:layout_margin="12dp"
-        android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="47%"
-        >
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageButton
-                android:id="@+id/addamount"
-                android:src="@drawable/addamtgoal"
-                android:scaleType="fitCenter"
-                android:background="@null"
-                android:layout_width="80dp"
-                android:layout_height="80dp"/>
-
-        </LinearLayout>
-
-
-
-    </android.support.v7.widget.CardView>
 
     <Button
         android:id="@+id/buttonback"
