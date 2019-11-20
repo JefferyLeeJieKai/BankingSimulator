@@ -12,10 +12,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
+import com.jefferystudio.bankingsimulator.Loading.loadingscreen;
+import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.goalspage;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,32 +32,42 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+
 public class SignInAsync extends AsyncTask<String, String, String> {
 
     private Bundle bArgs;
     private Context context;
-    private ProgressDialog progDialog;
+    //private ProgressDialog progDialog;
     private TextInputLayout usernameTextBox;
     private TextInputLayout passwordTextBox;
     private String username;
     private ArrayList<Exception> errorList = new ArrayList<Exception>();
+    private LoginScreen test;
+    private TextView progressBar;
 
-    public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox) {
+    public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox, LoginScreen test) {
 
         this.context = context;
         this.usernameTextBox = usernameTextBox;
         this.passwordTextBox = passwordTextBox;
+        this.test = test;
     }
 
     @Override
     protected void onPreExecute() {
 
-        progDialog = new ProgressDialog(context);
+        /*
         progDialog.setMessage("Retrieving Credentials");
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progDialog.setCancelable(false);
+
         progDialog.show();
+
+         */
+        test.setContentView(R.layout.loadingicon);
+        progressBar = test.findViewById(R.id.text_view);
+
     }
 
     @Override
@@ -157,7 +171,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
                 intent.putExtras(bArgs);
 
-                progDialog.dismiss();
+                //progDialog.dismiss();
 
                 context.startActivity(intent);
 
@@ -169,7 +183,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
                 intent.putExtras(bArgs);
 
-                progDialog.dismiss();
+                //progDialog.dismiss();
 
                 context.startActivity(intent);
 
@@ -184,9 +198,41 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
         super.onProgressUpdate(args);
         int progress = Integer.valueOf(args[0]);
-        progDialog.setProgress(progress);
-
+        progressBar.setText(progress + "%");
         if(progress == 5) {
+
+        }
+        else if(progress == 15) {
+
+        }
+        else if(progress == 20) {
+
+        }
+        else if(progress == 30) {
+
+        }
+        else if(progress == 40) {
+
+        }
+        else if(progress == 50) {
+
+        }
+        else if(progress == 60) {
+
+        }
+        else if(progress == 70) {
+
+        }
+        else if(progress == 90) {
+
+        }
+        else if(progress == 100) {
+
+        }
+
+        //progDialog.setProgress(progress);
+
+        /*if(progress == 5) {
 
             progDialog.setMessage("Credentials Retrieved...");
         }
@@ -224,14 +270,14 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         }
         else if(progress == 100) {
 
-            progDialog.setMessage("Logging in in now...");
-        }
+            progDialog.setMessage("Logging in now...");
+        }*/
     }
 
     @Override
     protected void onPostExecute(String result) {
 
-        progDialog.dismiss();
+        //progDialog.dismiss();
 
         //Toast.makeText(context, errorList.get(0).toString(), Toast.LENGTH_LONG).show();
 

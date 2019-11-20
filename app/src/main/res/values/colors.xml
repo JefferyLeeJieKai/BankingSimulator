@@ -43,4 +43,6 @@
     <color name="colorPrimaryDark1">#263238</color>
     <color name="colorAccent1">#ECEFF1</color>
 
+    <color name="loadingbackgrd">#1F6DC7</color>
+
 </resources>

@@ -44,6 +44,13 @@
         </activity>
 
         <activity
+            android:name=".Loading.loadingscreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity
             android:name=".Education.eduhomepage"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
