@@ -40,33 +40,23 @@
         app:autoSizeTextType="uniform"/>
 
     //display information starting from here
-    <TextView
-        app:layout_widthPercent="15%"
-        app:layout_heightPercent="6%"
-        app:layout_marginTopPercent="20%"
-        app:layout_marginLeftPercent="0%"
-        android:layout_below="@id/title"
-        android:layout_alignLeft="@id/title"
-        android:textColor="#000000"
-        android:text="Deposit To:"
-        app:autoSizeTextType="uniform"/>
 
     //display account holder's profile
+
     <View
-        app:layout_widthPercent="65%"
-        app:layout_heightPercent="16%"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="15%"
         app:layout_marginTopPercent="20%"
         app:layout_marginRightPercent="0%"
         android:layout_below="@id/title"
-        android:layout_alignRight="@id/title"
+        android:layout_alignLeft="@id/title"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        app:layout_widthPercent="25%"
+        app:layout_widthPercent="27%"
         app:layout_heightPercent="15%"
         app:layout_marginTopPercent="20%"
-        app:layout_marginLeftPercent="16%"
         android:layout_below="@id/title"
         android:layout_alignLeft="@id/title"
         android:backgroundTint="#D3D3D3"
@@ -77,7 +67,7 @@
 
     <TextView
         android:id="@+id/usernameLbl"
-        app:layout_widthPercent="36%"
+        app:layout_widthPercent="53%"
         app:layout_heightPercent="5%"
         app:layout_marginTopPercent="22%"
         app:layout_marginRightPercent="0%"
@@ -88,7 +78,7 @@
 
     <TextView
         android:id="@+id/accountLbl"
-        app:layout_widthPercent="36%"
+        app:layout_widthPercent="53%"
         app:layout_heightPercent="5%"
         app:layout_marginTopPercent="28%"
         app:layout_marginRightPercent="0%"
@@ -99,6 +89,7 @@
 
     //display amount
     <TextView
+        android:id="@+id/amounttv"
         app:layout_widthPercent="24%"
         app:layout_heightPercent="5%"
         app:layout_marginLeftPercent="0%"
@@ -116,19 +107,18 @@
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="48%"
         android:layout_below="@id/title"
-        android:layout_alignLeft="@id/title"
+        android:layout_alignRight="@id/amounttv"
         android:textColor="#000000"
         android:text="SGD"
         app:autoSizeTextType="uniform"/>
 
     <TextView
         android:id="@+id/amountLbl"
-        app:layout_widthPercent="40%"
+        app:layout_widthPercent="50%"
         app:layout_heightPercent="5%"
-        app:layout_marginLeftPercent="16%"
         app:layout_marginTopPercent="48%"
         android:layout_below="@id/title"
-        android:layout_alignLeft="@id/title"
+        android:layout_alignRight="@id/title"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
 
@@ -139,19 +129,18 @@
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="54%"
         android:layout_below="@id/title"
-        android:layout_alignLeft="@id/title"
+        android:layout_alignRight="@id/amounttv"
         android:textColor="#000000"
         android:text="Date:"
         app:autoSizeTextType="uniform"/>
 
     <TextView
         android:id="@+id/dateLbl"
-        app:layout_widthPercent="40%"
+        app:layout_widthPercent="50%"
         app:layout_heightPercent="5%"
-        app:layout_marginLeftPercent="16%"
         app:layout_marginTopPercent="54%"
         android:layout_below="@id/title"
-        android:layout_alignLeft="@id/title"
+        android:layout_alignRight="@id/title"
         android:textColor="#000000"
         app:autoSizeTextType="uniform" />
 
