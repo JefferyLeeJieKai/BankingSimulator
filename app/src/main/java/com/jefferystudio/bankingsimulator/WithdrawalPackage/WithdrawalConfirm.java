@@ -59,7 +59,7 @@ public class WithdrawalConfirm extends Fragment {
 
                 new TransactionAsync(getActivity(),"WithdrawalUser", args.getString("userName")).execute(currentID, input);
 
-                //new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
+                new UpdateTransAsync(getActivity(), "WithdrawFunds").execute(currentID, input);
             }
         });
 

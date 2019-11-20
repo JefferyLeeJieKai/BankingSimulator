@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -18,13 +20,15 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
     private Context context;
     private ProgressDialog progDialog;
     private TextView currentUserBalance;
+    private TextView currentLimit;
     private ArrayList<Exception> elist = new ArrayList<Exception>();
     private String data;
 
-    public UpdateBalanceAsync(Context context, TextView currentUserBalance) {
+    public UpdateBalanceAsync(Context context, TextView currentUserBalance, TextView currentLimit) {
 
         this.context = context;
         this.currentUserBalance = currentUserBalance;
+        this.currentLimit = currentLimit;
     }
 
     @Override
@@ -85,6 +89,13 @@ public class UpdateBalanceAsync extends AsyncTask<String, String, String> {
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         progDialog.dismiss();
 
-        currentUserBalance.setText("Balance: " + result);
+        String[] resultArray = result.split(",");
+
+        currentUserBalance.setText("Balance: " + resultArray[0]);
+
+        if(currentLimit != null) {
+
+            currentLimit.setText("Current limit: " + resultArray[1]);
+        }
     }
 }

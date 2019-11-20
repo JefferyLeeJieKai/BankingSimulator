@@ -10,8 +10,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -26,12 +29,17 @@ import java.util.concurrent.TimeUnit;
 
 public class UserSettings extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
+    private Context context = this;
     private Switch switchbtn;
     private Button backbtn;
     private Button btnchange;
     private Bundle args;
     private TextView fingerEnable;
     private Boolean lock;
+    private Spinner dailyLimitSpinner;
+    private float dailyLimit;
+    private float currentLimit;
+    private boolean initialUpdate;
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String FINGER_LOCK = "fingerLock";
@@ -40,7 +48,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_settings);
-
+        initialUpdate = false;
 
         args = getIntent().getExtras();
         switchbtn = (Switch)findViewById(R.id.switch1);
@@ -48,6 +56,61 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
         btnchange = (Button) findViewById(R.id.changepass);
         fingerEnable = findViewById(R.id.fingerOnOff);
         loadFinger();
+
+        dailyLimitSpinner = findViewById(R.id.limitspinner);
+        ArrayAdapter<CharSequence> dailyLimitAdapter = ArrayAdapter.createFromResource(this, R.array.dailylimit,
+                                                                                       android.R.layout.simple_spinner_item);
+        dailyLimitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dailyLimitSpinner.setAdapter(dailyLimitAdapter);
+        new DailyLimitAsync(this, "RetrieveLimit", dailyLimitSpinner).execute(args.getString("userID"));
+
+        dailyLimitSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+
+                if(initialUpdate == true) {
+
+                    String newLimit = adapterView.getItemAtPosition(position).toString();
+                    final String truncatedLimit = newLimit.substring(1);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("DigiBank Alert");
+                    builder.setMessage("Do you want to set daily limit to: " + newLimit + "?");
+
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            float newLimitFloat = Float.valueOf(truncatedLimit);
+                            float currentLimitDiff = newLimitFloat - dailyLimit;
+                            float newCurrentLimit = currentLimit + currentLimitDiff;
+
+                            if (newCurrentLimit < 0) {
+
+                                newCurrentLimit = 0;
+                            }
+
+                            new DailyLimitAsync(context, "UpdateLimit", dailyLimitSpinner).execute(args.getString("userID"), truncatedLimit,
+                                    Float.toString(newCurrentLimit));
+                        }
+                    });
+
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+
+                    AlertDialog confirmDialog = builder.create();
+                    confirmDialog.show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
         backbtn.setOnClickListener(new View.OnClickListener() {
@@ -198,4 +261,20 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
         }
     }
 
+    public void updateDailyLimit(float dailyLimit, float currentLimit, boolean initialUpdate) {
+
+        this.dailyLimit = dailyLimit;
+        this.currentLimit = currentLimit;
+        this.initialUpdate = initialUpdate;
+    }
+
+    public void setInitialUpdate(boolean initialUpdate) {
+
+        this.initialUpdate = initialUpdate;
+    }
+
+    public String getCurrentDailyLimit() {
+
+        return Float.toString(dailyLimit);
+    }
 }
