@@ -41,7 +41,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     private TextInputLayout usernameTextBox;
     private TextInputLayout passwordTextBox;
     private String username;
-    private ArrayList<Exception> errorList = new ArrayList<Exception>();
+    private ArrayList<String> errorList = new ArrayList<String>();
     private LoginScreen test;
     private TextView progressBar;
 
@@ -117,7 +117,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         }
         catch(Exception e){
 
-            errorList.add(e);
+            errorList.add(e.getMessage());
         }
 
         String[] resultArray = sb.toString().split(",");
