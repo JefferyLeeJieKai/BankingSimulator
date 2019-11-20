@@ -152,6 +152,8 @@
             android:layout_height="wrap_content"
             android:hint="Amount"
             app:autoSizeTextType="uniform"
+            android:digits="0123456789."
+            android:inputType="number"
             android:textColor="#000000" />
     </android.support.design.widget.TextInputLayout>
 
