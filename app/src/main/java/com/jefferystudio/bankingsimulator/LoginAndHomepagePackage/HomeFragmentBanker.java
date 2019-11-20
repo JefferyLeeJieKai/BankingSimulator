@@ -75,7 +75,7 @@ public class HomeFragmentBanker extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(), BankerSettings.class);
                 intent.putExtras(args);
                 startActivity(intent);
-
+                getActivity().finish();
             }
         });
 
@@ -84,7 +84,7 @@ public class HomeFragmentBanker extends Fragment {
             public void onClick(View v){
                 Intent intent = new Intent(getActivity().getApplicationContext(), QuizHistoryBanker.class);
                 startActivity(intent);
-
+                getActivity().finish();
             }
         });
 

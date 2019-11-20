@@ -96,6 +96,7 @@ public class HomeFragmentUser extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(), goalspage.class);
                 intent.putExtras(args);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 
@@ -105,6 +106,7 @@ public class HomeFragmentUser extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(), eduhomepage.class);
                 intent.putExtras(args);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 
@@ -127,6 +129,7 @@ public class HomeFragmentUser extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(), UserSettings.class);
                 intent.putExtras(args);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 
@@ -170,7 +173,7 @@ public class HomeFragmentUser extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(), quizhome.class);
                 intent.putExtras(args);
                 startActivity(intent);
-
+                getActivity().finish();
             }
         });
 
