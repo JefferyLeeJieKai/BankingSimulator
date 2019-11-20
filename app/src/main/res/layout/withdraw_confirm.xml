@@ -73,7 +73,7 @@
         android:id="@+id/profilephoto"
         android:layout_alignLeft="@+id/textView"
         android:layout_below="@id/verifytitle"
-        app:layout_widthPercent="25%"
+        app:layout_widthPercent="27%"
         app:layout_heightPercent="15%"
         app:layout_marginTopPercent="4%"
 
