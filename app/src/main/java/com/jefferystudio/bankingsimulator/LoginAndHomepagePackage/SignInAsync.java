@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.view.View;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
@@ -41,7 +42,6 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         this.context = context;
         this.usernameTextBox = usernameTextBox;
         this.passwordTextBox = passwordTextBox;
-        this.test = test;
     }
 
     @Override
@@ -148,15 +148,18 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
                 }
 
-                publishProgress("100");
+                //String[] catchStringArray = catchString.split(",");
 
-                intent.putExtras(bArgs);
+                //if(catchStringArray[0].equals("Success")) {
 
-                //progDialog.dismiss();
+                    publishProgress("100");
 
-                context.startActivity(intent);
+                    intent.putExtras(bArgs);
 
-                ((Activity) context).finish();
+                    context.startActivity(intent);
+
+                    ((Activity) context).finish();
+                //}
             }
             else {
 
@@ -184,13 +187,15 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
 
-        //progDialog.dismiss();
-
         //Toast.makeText(context, errorList.get(0).toString(), Toast.LENGTH_LONG).show();
 
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        ((LoginScreen)context).setContentView(R.layout.login_screen);
+        progressBar.setVisibility(View.GONE);
 
-        if (result.equals("False")) {
+        String[] resultArray = result.split(",");
+
+        if (resultArray[0].equals("False")) {
 
             usernameTextBox.setError("Invalid Username or Password");
             passwordTextBox.setError("Invalid Username or Password");

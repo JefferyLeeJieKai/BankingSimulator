@@ -79,7 +79,7 @@
         android:layout_centerHorizontal="true"
         app:layout_heightPercent="32%"
         app:layout_marginTopPercent="46%"
-        app:layout_widthPercent="80%" />
+        app:layout_widthPercent="90%" />
 
     <TextView
         android:id="@+id/descriptionquiz"

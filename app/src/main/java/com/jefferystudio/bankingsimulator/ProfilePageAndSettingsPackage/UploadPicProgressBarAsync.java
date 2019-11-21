@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -34,7 +35,7 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
     private Uri imageUri;
     private ArrayList<Exception> errorList = new ArrayList<Exception>();
 
-    public UploadPicProgressBarAsync(Context context, String userID, ImageView profilepic, Uri imageUri) {
+    public UploadPicProgressBarAsync(Context context, String userID) {
 
         this.context = context;
         this.userID = userID;
@@ -45,7 +46,6 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
     @Override
     protected void onPreExecute() {
 
-        super.onPreExecute();
         progDialog = new ProgressDialog(context);
         progDialog.setMessage("Uploading image");
         progDialog.setIndeterminate(false);
@@ -62,7 +62,7 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
         Bitmap bitmap = bitmaps[0];
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 30, out);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
         Bitmap compressed = BitmapFactory.decodeStream(new ByteArrayInputStream(out.toByteArray()));
 
         String uploadImage = getStringImage(compressed);
@@ -161,8 +161,8 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-
-        String[] resultArray = result.split(",");
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        /*String[] resultArray = result.split(",");
 
         if (resultArray[0].equals("Successfully Uploaded")) {
 
@@ -180,10 +180,10 @@ public class UploadPicProgressBarAsync extends AsyncTask<Bitmap, Integer, String
 
             AlertDialog uploadDoneDialog = builder.create();
             uploadDoneDialog.show();
-        }
+        }*/
     }
 
-        public String getStringImage(Bitmap bmp){
+    public String getStringImage(Bitmap bmp){
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, 70, baos);

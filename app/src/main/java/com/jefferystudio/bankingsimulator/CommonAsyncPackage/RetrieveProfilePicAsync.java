@@ -1,11 +1,13 @@
 package com.jefferystudio.bankingsimulator.CommonAsyncPackage;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,6 +20,7 @@ import java.util.List;
 public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
 
     private Context context;
+    private ProgressDialog progDialog;
     private File file;
     private String link;
     private Bitmap bitmap;
@@ -31,6 +34,17 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
     }
 
     @Override
+    protected void onPreExecute() {
+
+        progDialog = new ProgressDialog(context);
+        progDialog.setMessage("Retriving profile picture");
+        progDialog.setIndeterminate(false);
+        progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progDialog.setCancelable(false);
+        progDialog.show();
+    }
+
+    @Override
     protected String doInBackground(String[] args) {
 
         link = args[0];
@@ -40,15 +54,18 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
 
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
-            connection.setConnectTimeout(30000);
-            connection.setReadTimeout(30000);
 
             InputStream inputStream = connection.getInputStream();
             bitmap = BitmapFactory.decodeStream(inputStream);
             inputStream.close();
 
             FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            byte[] bitmapdata = bos.toByteArray();
+
+            fos.write(bitmapdata);
             fos.flush();
             fos.close();
 
@@ -57,8 +74,15 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
         catch (IOException e) {
 
             errorList.add("Unable to communicate with server.");
+            return "Fail,";
         }
 
-        return "Success";
+        return "Success,";
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+
+        progDialog.dismiss();
     }
 }
