@@ -1,7 +1,11 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -9,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,8 +22,12 @@ import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SavingGoalsAddAmountFragment extends Fragment {
 
@@ -33,6 +42,7 @@ public class SavingGoalsAddAmountFragment extends Fragment {
     private TextInputLayout amount;
     private Button confirmButton;
     private Button cancelButton;
+    private CircleImageView profilePic;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -72,6 +82,18 @@ public class SavingGoalsAddAmountFragment extends Fragment {
         //add amount
         amount = view.findViewById(R.id.amountTxt);
 
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.png");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
+
         //confirm button
         confirmButton = view.findViewById(R.id.confirmBtn);
         confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +112,7 @@ public class SavingGoalsAddAmountFragment extends Fragment {
 
                         AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
                         builder.setTitle("DigiBank Alert");
-                        builder.setMessage("Amount to save exceeds current goal!");
+                        builder.setMessage("Amount to save exceeds current goal");
 
                         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
@@ -102,12 +124,6 @@ public class SavingGoalsAddAmountFragment extends Fragment {
 
                         AlertDialog exceedDialog = builder.create();
                         exceedDialog.show();
-                    }
-                    else {
-
-                        new TransactionAsync(getActivity(), "WithdrawalUserNoShow", args.getString("userName"))
-                                .execute(args.getString("userID"), input, Float.toString(amountToUpdate),
-                                        args.getString("goalID"));
                     }
                 }
             }

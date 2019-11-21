@@ -45,6 +45,7 @@ public class quizhome extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Bundle newArgs = new Bundle();
                 newArgs.putString("userID", args.getString("userID"));
                 newArgs.putString("userName", args.getString("userName"));
@@ -58,6 +59,7 @@ public class quizhome extends AppCompatActivity {
 
     public void startquiz(){
         Intent intent = new Intent(getApplicationContext(), StartQuiz.class);
+        intent.putExtras(args);
         startActivity(intent);
     }
 

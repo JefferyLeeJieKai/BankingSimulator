@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 
 public class StartQuiz extends AppCompatActivity {
@@ -16,16 +17,22 @@ public class StartQuiz extends AppCompatActivity {
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String KEY_HIGHSCORE = "keyHighscore";
 
+    private Bundle args;
     private TextView textViewHighscore;
     private TextView textViewCurrScore;
     private int highscore;
     private Button btnstartquiz;
+    private Button backButton;
+    private String userID;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_quiz);
+
+        args = getIntent().getExtras();
+        userID = args.getString("userID");
 
         textViewHighscore = findViewById(R.id.HighScore);
         textViewCurrScore = findViewById(R.id.CurrScore);
@@ -41,6 +48,17 @@ public class StartQuiz extends AppCompatActivity {
             }
         });
 
+        backButton = findViewById(R.id.backbutton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
+                intent.putExtras(args);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void startquiz() {
@@ -59,6 +77,8 @@ public class StartQuiz extends AppCompatActivity {
                 if (score > highscore) {
                     updateHighscore(score);
                 }
+
+                new UpdateScoreAsync(this).execute(userID, Integer.toString(score));
             }
         }
     }

@@ -81,6 +81,13 @@ public class HomeFragmentUser extends Fragment {
         greetingsMsg = view.findViewById(R.id.textView4);
         greetingsMsg.setText("Welcome to KidzSmart,\n" + args.getString("userName"));
 
+        currentAccountNo = view.findViewById(R.id.actualAccountNo);
+        currentUserBalance = view.findViewById(R.id.actualCurrentBalance);
+
+        currentID = args.getString("userID");
+        currentAccountNo.setText(currentID);
+        new UpdateBalanceAsync(getActivity(), currentUserBalance, null).execute(currentID);
+
         btnsavings = view.findViewById(R.id.savings);
         btntransfer = view.findViewById(R.id.transferfunds);
         btndeposit = view.findViewById(R.id.depositfunds);
@@ -193,13 +200,6 @@ public class HomeFragmentUser extends Fragment {
                 transaction.commit();
             }
         });
-
-        currentAccountNo = view.findViewById(R.id.actualAccountNo);
-        currentUserBalance = view.findViewById(R.id.actualCurrentBalance);
-
-        currentID = args.getString("userID");
-        currentAccountNo.setText(currentID);
-        new UpdateBalanceAsync(getActivity(), currentUserBalance, null).execute(currentID);
 
         return view;
     }
