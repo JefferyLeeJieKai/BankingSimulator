@@ -37,12 +37,12 @@
     //display account holder's profile
     <View
         android:id="@+id/Rect"
-        app:layout_widthPercent="80%"
+        app:layout_widthPercent="85%"
         app:layout_heightPercent="19%"
         app:layout_marginLeftPercent="0%"
         app:layout_marginTopPercent="5%"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/line1"
-        android:layout_alignLeft="@id/textView"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -87,7 +87,7 @@
         app:layout_heightPercent="6%"
         app:layout_marginTopPercent="3%"
         android:layout_below="@id/Rect"
-        android:layout_alignLeft="@id/Rect"
+        android:layout_alignLeft="@id/textView"
         android:textColor="#000000"
         android:text="Please enter amount to withdraw below."
         android:background="@drawable/username_field"
@@ -118,7 +118,7 @@
         app:layout_heightPercent="6%"
         android:layout_marginTop="-5dp"
         android:layout_below="@id/amountTxt"
-        android:layout_alignLeft="@id/Rect"
+        android:layout_alignLeft="@id/textView"
         android:textColor="#000000"
         android:background="@drawable/password_field"
         app:autoSizeTextType="uniform"/>
@@ -131,7 +131,7 @@
         app:layout_marginLeftPercent="0%"
         app:layout_marginBottomPercent="7%"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@id/amountTxt"
+        android:layout_alignLeft="@id/textView"
         android:background="@drawable/buttonred"
         android:textColor="@color/buttonWord"
         android:fontFamily="@font/titan_one"

@@ -1,8 +1,11 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -18,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAHFragment;
@@ -28,6 +32,9 @@ import com.jefferystudio.bankingsimulator.TransferFundsPackage.TransferAmountFra
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsFragment;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAHFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.ProfilePage;
+
+import java.io.File;
+import java.io.FileInputStream;
 
 public class HomeScreenUser extends AppCompatActivity {
 
@@ -40,6 +47,7 @@ public class HomeScreenUser extends AppCompatActivity {
     private String currentBalance;
     private ImageButton btnprofile;
     private Context context;
+    private ImageButton profilePic;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -64,7 +72,21 @@ public class HomeScreenUser extends AppCompatActivity {
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+                profilePic = (ImageButton)findViewById(R.id.profileBtn);
+                try {
+                    ContextWrapper cw = new ContextWrapper(getApplication());
+                    File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+                    File profilePicFile = new File(directory, "ProfilePicture.jpg");
+                    Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+                    profilePic.setImageBitmap(picture);
+                }
+                catch(Exception e) {
+
+                }
             }
+
+
 
         };
 
