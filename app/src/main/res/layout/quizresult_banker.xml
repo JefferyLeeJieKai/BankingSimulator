@@ -31,17 +31,17 @@
     //display account holder's profile
     <View
         android:id="@+id/viewbox"
-        app:layout_widthPercent="80%"
-        app:layout_heightPercent="20%"
+        app:layout_widthPercent="85%"
+        app:layout_heightPercent="19%"
         app:layout_marginTopPercent="15%"
         android:layout_centerHorizontal="true"
         android:background="@drawable/emptyrect" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilephoto"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_alignLeft="@id/viewbox"
+        app:layout_widthPercent="27%"
+        app:layout_heightPercent="15%"
+        android:layout_alignLeft="@id/title"
         app:layout_marginTopPercent="17%"
         app:layout_marginLeftPercent="3%"
         android:backgroundTint="#D3D3D3"
@@ -54,7 +54,7 @@
         android:id="@+id/usernameLbl"
         android:layout_alignRight="@id/title"
         android:layout_alignTop="@id/viewbox"
-        app:layout_marginTopPercent="3%"
+        app:layout_marginTopPercent="5%"
         app:layout_widthPercent="47%"
         app:layout_heightPercent="4%"
         android:textColor="#000000"
@@ -79,7 +79,7 @@
         android:layout_centerHorizontal="true"
         app:layout_heightPercent="32%"
         app:layout_marginTopPercent="46%"
-        app:layout_widthPercent="90%" />
+        app:layout_widthPercent="85%" />
 
     <TextView
         android:id="@+id/descriptionquiz"
@@ -93,10 +93,10 @@
 
     <TextView
         android:id="@+id/quizresult"
-        android:text="Result"
+        android:text="Search"
         android:layout_alignRight="@id/quizResultDetailsRv"
         app:layout_heightPercent="3%"
-        app:layout_widthPercent="40%"
+        android:layout_width="wrap_content"
         app:layout_marginTopPercent="41%"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"/>
