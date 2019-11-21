@@ -62,7 +62,7 @@ public class SavingGoalsViewFragment extends Fragment {
         amountSaved.setText(args.getString("currentValue"));
         goalName.setText(args.getString("goalName"));
         cost.setText(args.getString("itemCost"));
-        deadline.setText(args.getString("dateline"));
+        deadline.setText(args.getString("deadLine"));
         priority.setText(args.getString("priority"));
         flag = args.getString("flag");
 
@@ -83,7 +83,7 @@ public class SavingGoalsViewFragment extends Fragment {
         try {
             ContextWrapper cw = new ContextWrapper(getActivity());
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.png");
+            File profilePicFile = new File(directory, "ProfilePicture.jpg");
             Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
             profilePic.setImageBitmap(picture);
         }

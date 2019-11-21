@@ -50,6 +50,18 @@ public class SavingGoalsAllFragment extends Fragment {
         balance = view.findViewById(R.id.balanceLbl);
         new UpdateBalanceAsync(getActivity(), balance, null).execute(currentUserID);
 
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.jpg");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
+
         recyclerView = view.findViewById(R.id.goalDetailsRv);
 
         recyclerView = view.findViewById(R.id.goalDetailsRv);

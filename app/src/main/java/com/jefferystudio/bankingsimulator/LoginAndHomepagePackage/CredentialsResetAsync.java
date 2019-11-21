@@ -49,7 +49,7 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
 
         progDialog = new ProgressDialog(context);
-        progDialog.setMessage("...");
+        progDialog.setMessage("Contacting KidzSmart...");
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setCancelable(false);
@@ -183,7 +183,7 @@ public class CredentialsResetAsync extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         //Toast.makeText(context, data, Toast.LENGTH_LONG).show();
 
         if (flag.equals("ChangePassword")) {

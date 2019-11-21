@@ -235,5 +235,6 @@ public class Registration extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), PreLogin.class);
         startActivity(intent);
+        finish();
     }
 }
