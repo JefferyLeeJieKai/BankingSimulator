@@ -61,7 +61,7 @@
         android:layout_alignRight="@id/title"
         android:layout_below="@id/line1"
         android:layout_height="wrap_content"
-        app:layout_marginTopPercent="8%"
+        app:layout_marginTopPercent="6%"
         android:textSize="20sp" />
 
     <TextView
@@ -70,7 +70,7 @@
         android:layout_below="@id/usernameLbl"
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/title"
-        app:layout_marginTopPercent="2%"
+        app:layout_marginTopPercent="3%"
         android:textSize="20sp" />
 
     //display all saving goals

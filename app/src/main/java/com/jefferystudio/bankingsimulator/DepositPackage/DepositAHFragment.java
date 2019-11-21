@@ -49,6 +49,7 @@ public class DepositAHFragment extends Fragment
         accounts = view.findViewById(R.id.accountDDL);
         accountNos.setVisibility(View.GONE);
         accounts.setVisibility(View.GONE);*/
+
         profilePic = view.findViewById(R.id.profilephoto);
         try {
             ContextWrapper cw = new ContextWrapper(getActivity());

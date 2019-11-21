@@ -1,5 +1,9 @@
 package com.jefferystudio.bankingsimulator.ViewTransactionsPackage;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +17,11 @@ import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
 import com.jefferystudio.bankingsimulator.R;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ViewTransactionsFragment extends Fragment {
 
     private Bundle args;
@@ -23,6 +32,7 @@ public class ViewTransactionsFragment extends Fragment {
     private TextView balance;
     private RecyclerView recyclerView;
     private Button backbtn;
+    private CircleImageView profilePic;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -51,6 +61,18 @@ public class ViewTransactionsFragment extends Fragment {
                         .commit();
             }
         });
+
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.jpg");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
         new UpdateBalanceAsync(getActivity(), balance, null).execute(currentUserID);
 
