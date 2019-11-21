@@ -15,6 +15,8 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUs
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAllFragment;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.UpdateSavingGoalsAsync;
 import com.jefferystudio.bankingsimulator.TransferFundsPackage.TransferAmountFragment;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAHFragment;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalConfirmFragment;
@@ -26,6 +28,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class TransactionAsync extends AsyncTask <String, String, String> {
 
@@ -42,6 +45,8 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
     private String depositAmount;
     private String withdrawAmount;
     private String data;
+    private String amountToUpdate;
+    private String goalID;
 
     public TransactionAsync(Context context, String flag, String userName) {
 
@@ -116,10 +121,16 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                 elist.add(e);
             }
         }
-        else if(flag.equals("WithdrawalUser")) {
+        else if(flag.equals("WithdrawalUser") || flag.equals("WithdrawalUserNoShow")) {
 
             userID = args[0];
             withdrawAmount = args[1];
+
+            if(flag.equals("WithdrawalUserNoShow")) {
+
+                amountToUpdate = args[2];
+                goalID = args[3];
+            }
 
             try{
                 String link="https://www.kidzsmartapp.com/databaseAccess/withdrawalUser.php";
@@ -324,6 +335,13 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
 
             AlertDialog quitDialog = builder.create();
             quitDialog.show();
+        }
+        if(resultArray[0].equals("True") && flag.equals("WithdrawalUserNoShow")) {
+
+            new UpdateSavingGoalsAsync(context, "SaveMoney", userName)
+                        .execute(userID, goalID, amountToUpdate);
+
+
         }
         else if(resultArray[0].equals("False")) {
 
