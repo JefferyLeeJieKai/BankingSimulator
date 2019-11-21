@@ -62,7 +62,7 @@ public class SavingGoalsViewFragment extends Fragment {
         amountSaved.setText(args.getString("currentValue"));
         goalName.setText(args.getString("goalName"));
         cost.setText(args.getString("itemCost"));
-        deadline.setText(args.getString("dateline"));
+        deadline.setText(args.getString("deadLine"));
         priority.setText(args.getString("priority"));
         flag = args.getString("flag");
 
