@@ -37,7 +37,9 @@ public class QuizHistoryBankerScoreView extends Fragment {
                 newArgs.putString("userName", args.getString("bankerUsername"));
                 quizHistoryStudFrag.setArguments(args);
 
-
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, quizHistoryStudFrag)
+                        .commit();
             }
         });
 

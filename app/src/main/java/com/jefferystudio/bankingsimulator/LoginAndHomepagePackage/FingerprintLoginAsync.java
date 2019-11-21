@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
+import com.jefferystudio.bankingsimulator.R;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -31,6 +33,7 @@ public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
     private String userID;
     private Bundle args;
     private ArrayList<String> errorList = new ArrayList<String>();
+    private TextView progressBar;
 
     public FingerprintLoginAsync(Context context, String flag, String userID) {
 
@@ -42,12 +45,8 @@ public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
     @Override
     protected void onPreExecute() {
 
-        progDialog = new ProgressDialog(context);
-        progDialog.setMessage("Initializing server verfication...");
-        progDialog.setIndeterminate(false);
-        progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progDialog.setCancelable(false);
-        progDialog.show();
+        ((LoginScreen)context).setContentView(R.layout.loadingicon);
+        progressBar = ((LoginScreen)context).findViewById(R.id.text_view);
     }
 
     @Override
@@ -180,47 +179,12 @@ public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-
-        progDialog.dismiss();
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 
     protected void onProgressUpdate(String[] args) {
 
         int progress = Integer.valueOf(args[0]);
-        progDialog.setProgress(progress);
-
-        if (progress == 20) {
-
-            progDialog.setMessage("Establishing connection...");
-        }
-        else if (progress == 30) {
-
-            progDialog.setMessage("Sending data over...");
-        }
-        else if (progress == 40) {
-
-            progDialog.setMessage("Waiting for a response...");
-        }
-        else if (progress == 50) {
-
-            progDialog.setMessage("Response received...");
-        }
-        else if (progress == 60) {
-
-            progDialog.setMessage("Login Success!");
-        }
-        else if (progress == 70) {
-
-            progDialog.setMessage("Preparing to retrieve account info...");
-        }
-        else if (progress == 90) {
-
-            progDialog.setMessage("Account info retrieved");
-        }
-        else if (progress == 100) {
-
-            progDialog.setMessage("Logging in in now...");
-        }
+        progressBar.setText(progress + "%");
     }
 }

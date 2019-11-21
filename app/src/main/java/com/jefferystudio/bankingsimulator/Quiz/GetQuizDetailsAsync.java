@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewStudentRecyclerView.StudentEntry;
 import com.jefferystudio.bankingsimulator.Quiz.QuizScoreRecyclerView.QuizEntry;
@@ -97,7 +98,7 @@ public class GetQuizDetailsAsync extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         String[] resultArray = result.split(",");
 
         if(flag.equals("GetStudents")) {

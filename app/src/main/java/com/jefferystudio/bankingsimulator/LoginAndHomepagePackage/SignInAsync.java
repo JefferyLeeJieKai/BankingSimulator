@@ -29,7 +29,6 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
     private Bundle bArgs;
     private Context context;
-    //private ProgressDialog progDialog;
     private TextInputLayout usernameTextBox;
     private TextInputLayout passwordTextBox;
     private String username;
@@ -37,7 +36,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     private LoginScreen test;
     private TextView progressBar;
 
-    public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox, LoginScreen test) {
+    public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox) {
 
         this.context = context;
         this.usernameTextBox = usernameTextBox;
@@ -48,18 +47,8 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
-        /*
-        progDialog.setMessage("Retrieving Credentials");
-        progDialog.setIndeterminate(false);
-        progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progDialog.setCancelable(false);
-
-        progDialog.show();
-
-         */
-        test.setContentView(R.layout.loadingicon);
-        progressBar = test.findViewById(R.id.text_view);
-
+        ((LoginScreen)context).setContentView(R.layout.loadingicon);
+        progressBar = ((LoginScreen)context).findViewById(R.id.text_view);
     }
 
     @Override
@@ -188,82 +177,8 @@ public class SignInAsync extends AsyncTask<String, String, String> {
 
     protected void onProgressUpdate(String[] args) {
 
-        super.onProgressUpdate(args);
         int progress = Integer.valueOf(args[0]);
         progressBar.setText(progress + "%");
-        if(progress == 5) {
-
-        }
-        else if(progress == 15) {
-
-        }
-        else if(progress == 20) {
-
-        }
-        else if(progress == 30) {
-
-        }
-        else if(progress == 40) {
-
-        }
-        else if(progress == 50) {
-
-        }
-        else if(progress == 60) {
-
-        }
-        else if(progress == 70) {
-
-        }
-        else if(progress == 90) {
-
-        }
-        else if(progress == 100) {
-
-        }
-
-        //progDialog.setProgress(progress);
-
-        /*if(progress == 5) {
-
-            progDialog.setMessage("Credentials Retrieved...");
-        }
-        else if(progress == 15) {
-
-            progDialog.setMessage("Packing Data for transfer...");
-        }
-        else if(progress == 20) {
-
-            progDialog.setMessage("Establishing connection...");
-        }
-        else if(progress == 30) {
-
-            progDialog.setMessage("Sending data over...");
-        }
-        else if(progress == 40) {
-
-            progDialog.setMessage("Waiting for a response...");
-        }
-        else if(progress == 50) {
-
-            progDialog.setMessage("Response received...");
-        }
-        else if(progress == 60) {
-
-            progDialog.setMessage("Login Success!");
-        }
-        else if(progress == 70) {
-
-            progDialog.setMessage("Preparing to retrieve account info...");
-        }
-        else if(progress == 90) {
-
-            progDialog.setMessage("Account info retrieved");
-        }
-        else if(progress == 100) {
-
-            progDialog.setMessage("Logging in now...");
-        }*/
     }
 
     @Override

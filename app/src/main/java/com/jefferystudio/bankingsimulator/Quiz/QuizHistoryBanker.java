@@ -45,7 +45,7 @@ public class QuizHistoryBanker extends Fragment {
                 Bundle newArgs = new Bundle();
                 newArgs.putString("userID", args.getString("userID"));
                 newArgs.putString("userName", args.getString("userName"));
-                Intent intent = new Intent(getActivity(), HomeScreenUser.class);
+                Intent intent = new Intent(getActivity(), HomeScreenBanker.class);
                 intent.putExtras(newArgs);
                 startActivity(intent);
             }

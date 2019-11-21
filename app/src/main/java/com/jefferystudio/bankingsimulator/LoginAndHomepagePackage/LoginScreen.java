@@ -87,7 +87,7 @@ public class LoginScreen extends AppCompatActivity {
             return;
         }
 
-        new SignInAsync(this, usernameTextBox, passwordTextBox,this).execute(username, password);
+        new SignInAsync(this, usernameTextBox, passwordTextBox).execute(username, password);
     }
 
     private boolean validateUsername() {

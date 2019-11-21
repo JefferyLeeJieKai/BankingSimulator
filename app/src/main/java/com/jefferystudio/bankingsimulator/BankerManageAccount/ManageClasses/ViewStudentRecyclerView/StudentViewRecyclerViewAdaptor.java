@@ -82,7 +82,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
         final int entryPosition = position;
 
         TextView textView1 = viewHolder.interestRate;
-        textView1.setText(studentEntry.getInterestRate());
+        textView1.setText(studentEntry.getInterestRate() + "%");
 
 
         TextView textView2 = viewHolder.userName;
