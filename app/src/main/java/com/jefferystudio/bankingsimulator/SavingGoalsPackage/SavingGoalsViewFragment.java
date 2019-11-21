@@ -1,5 +1,9 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +15,11 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoalsFragment;
 import com.jefferystudio.bankingsimulator.R;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SavingGoalsViewFragment extends Fragment {
 
@@ -28,6 +37,7 @@ public class SavingGoalsViewFragment extends Fragment {
     private TextView progressLabel;
     private String flag;
     private Button backbtn;
+    private CircleImageView profilePic;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -68,6 +78,18 @@ public class SavingGoalsViewFragment extends Fragment {
         progressLabel.setText(String.valueOf(percentage));
 
         savingsBar.setProgress(percentage);
+
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.png");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
         backbtn.setOnClickListener(new View.OnClickListener() {
 
