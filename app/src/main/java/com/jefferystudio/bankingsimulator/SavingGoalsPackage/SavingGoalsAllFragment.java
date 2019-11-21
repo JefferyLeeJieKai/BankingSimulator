@@ -1,5 +1,9 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +19,11 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUs
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView.SavingGoalsRecyclerViewAdaptor;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class SavingGoalsAllFragment extends Fragment {
 
     private Bundle args;
@@ -25,6 +34,7 @@ public class SavingGoalsAllFragment extends Fragment {
     private TextView balance;
     private RecyclerView recyclerView;
     private Button backButton;
+    private CircleImageView profilePic;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle onSavedInstance) {
 
@@ -47,6 +57,18 @@ public class SavingGoalsAllFragment extends Fragment {
 
         userName.setText(currentUserName);
         balance.setText(currentBalance);
+
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.png");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
         backButton = view.findViewById(R.id.backbtn);
         backButton.setOnClickListener(new View.OnClickListener() {

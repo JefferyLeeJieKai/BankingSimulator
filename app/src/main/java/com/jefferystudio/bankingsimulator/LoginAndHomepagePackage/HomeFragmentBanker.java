@@ -1,6 +1,10 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,6 +28,11 @@ import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBankerFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.BankerSettings;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeFragmentBanker extends Fragment {
 
     private TextView greetingsMsg;
@@ -41,6 +50,7 @@ public class HomeFragmentBanker extends Fragment {
     private ImageButton btnviewclass;
     private ImageButton btncreateacc;
     private ImageButton btnissuenotes;
+    private CircleImageView profilePic;
 
     public HomeFragmentBanker(){
 
@@ -66,6 +76,18 @@ public class HomeFragmentBanker extends Fragment {
         btnviewclass = view.findViewById(R.id.viewclassbtn);
         btncreateacc = view.findViewById(R.id.btncreateacc);
         btnissuenotes = view.findViewById(R.id.btnissuenotes);
+
+        profilePic = view.findViewById(R.id.profilephotomain);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.png");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
 
 
@@ -156,17 +178,6 @@ public class HomeFragmentBanker extends Fragment {
             }
         });
 
-        btndeleteclass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Fragment deleteclass = new DeleteClassFragment();
-                deleteclass.setArguments(args);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, deleteclass);
-                transaction.commit();
-
-            }
-        });
 
         btnviewclass.setOnClickListener(new View.OnClickListener() {
             @Override
