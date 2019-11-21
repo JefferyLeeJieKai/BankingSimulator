@@ -183,7 +183,7 @@
     <Button
         android:id="@+id/issue"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="6%"
+        app:layout_heightPercent="7%"
         android:layout_below="@id/tendollarinput"
         app:layout_marginTopPercent="3%"
         android:layout_centerHorizontal="true"
@@ -195,9 +195,8 @@
         android:shadowRadius="20"
         android:padding="8dp"
         android:text="ISSUE NOTES"
-        app:autoSizeTextType="uniform"
         android:background="@drawable/buttonblue"
-        android:textColor="@color/loginButtonText"
+        android:textColor="@color/buttonWord"
         />
     <!--android:background="@drawable/rounded_buttons"
     android:textColor="@color/loginButtonText"
@@ -212,6 +211,17 @@
         app:layout_heightPercent="21%"
         app:layout_marginTopPercent="3%"
         android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/buttonback"
+        app:layout_widthPercent="80%"
+        app:layout_heightPercent="7%"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:layout_marginBottomPercent="7%"
+        android:background="@drawable/buttonblue"
+        android:textColor="@color/buttonWord"
+        android:text="BACK" />
 
 
 </android.support.percent.PercentRelativeLayout>
