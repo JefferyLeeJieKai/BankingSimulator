@@ -1,5 +1,7 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -40,7 +42,7 @@ public class SavingGoalsAddAmountFragment extends Fragment {
 
         progress = view.findViewById(R.id.amountPB);
 
-        float savingAmount = Float.valueOf(args.getString("itemCost"));
+        final float savingAmount = Float.valueOf(args.getString("itemCost"));
         final float existAmount = Float.valueOf(args.getString("currentValue"));
         float remainAmount = savingAmount - existAmount;
         int percent = calculation(savingAmount, existAmount);
@@ -81,41 +83,53 @@ public class SavingGoalsAddAmountFragment extends Fragment {
                 //if invalid amount found
                 if (validateAmount(input)) {
 
-                    String withdrawalTest;
                     float amountToSave = Float.valueOf(input);
+                    float amountToUpdate = amountToSave + existAmount;
 
-                    try {
+                    if(amountToUpdate > savingAmount) {
 
-                        withdrawalTest = new TransactionAsync(getActivity(), "WithdrawalUser", args.getString("userName"))
-                                             .execute(args.getString("userID"), input)
-                                             .get(5000, TimeUnit.MILLISECONDS);
+                        AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
+                        builder.setTitle("DigiBank Alert");
+                        builder.setMessage("Amount to save exceeds current goal!");
 
-                        String[] withdrawalTestArray = withdrawalTest.split(",");
+                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
-                        if(withdrawalTestArray[0].equals("True")) {
+                                amount.getEditText().getText().clear();
+                            }
+                        });
 
-                            float amountToUpdate = amountToSave + existAmount;
-
-                            new UpdateSavingGoalsAsync(getActivity(), "SaveMoney", args.getString("userName"))
-                                    .execute(args.getString("userID"), args.getString("goalID"), Float.toString(amountToUpdate));
-                        }
-                        else if(withdrawalTestArray[0].equals("False")) {
-
-                            amount.setError("Amount to save exceeds your bank balance.");
-                        }
+                        AlertDialog exceedDialog = builder.create();
+                        exceedDialog.show();
                     }
-                    catch (Exception e) {
+                    else {
 
-
+                        new TransactionAsync(getActivity(), "WithdrawalUserNoShow", args.getString("userName"))
+                                .execute(args.getString("userID"), input, Float.toString(amountToUpdate),
+                                        args.getString("goalID"));
                     }
-                    return;
                 }
             }
         });
 
         //cancel button
         cancelButton = view.findViewById(R.id.cancelBtn);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
 
+            public void onClick(View v) {
+
+                Fragment viewAllSavingGoalsFrag = new SavingGoalsAllFragment();
+                args.putString("userID", args.getString("userID"));
+                args.putString("userName", args.getString("userName"));
+                args.putString("currentBalance", args.getString("currentBalance"));
+                viewAllSavingGoalsFrag.setArguments(args);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, viewAllSavingGoalsFrag)
+                        .commit();
+            }
+        });
         return view;
     }
 
@@ -141,4 +155,46 @@ public class SavingGoalsAddAmountFragment extends Fragment {
         return result;
     }
 
+    public void updateResult(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("True")) {
+
+            AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Amount saved to goal successfully.\nDo you want to save more?");
+
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    amount.getEditText().getText().clear();
+                }
+            });
+
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment viewAllSavingGoalsFrag = new SavingGoalsAllFragment();
+                    args.putString("userID", args.getString("userID"));
+                    args.putString("userName", args.getString("userName"));
+                    args.putString("currentBalance", args.getString("currentBalance"));
+                    viewAllSavingGoalsFrag.setArguments(args);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, viewAllSavingGoalsFrag)
+                            .commit();
+                }
+            });
+
+            android.app.AlertDialog quitDialog = builder.create();
+            quitDialog.show();
+        }
+        else if(resultArray[0].equals("False")) {
+
+            amount.setError("Amount to save exceeds your bank balance.");
+        }
+    }
 }

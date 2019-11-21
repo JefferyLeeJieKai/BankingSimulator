@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
 
@@ -102,5 +103,8 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         progDialog.dismiss();
+
+        SavingGoalsAddAmountFragment fragment = (SavingGoalsAddAmountFragment) ((HomeScreenUser)context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+        fragment.updateResult(result);
     }
 }

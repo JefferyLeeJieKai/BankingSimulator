@@ -64,6 +64,7 @@ public class DepositConfirmBankerFragment extends Fragment {
             public void onClick(View v) {
 
                 new TransactionAsync(getActivity(),"DepositBankerFragment", args.getString("userName")).execute(targetID, input, args.getString("userID"));
+
                 new UpdateTransAsync(getActivity(), "BankerDeposit").execute(args.getString("userID"), input, targetID, "NotApplicable");
             }
         });
