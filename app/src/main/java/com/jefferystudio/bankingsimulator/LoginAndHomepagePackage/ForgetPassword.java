@@ -71,4 +71,9 @@ public class ForgetPassword extends AppCompatActivity {
 
         return result;
     }
+
+    public void onBackPressed() {
+
+        finish();
+    }
 }

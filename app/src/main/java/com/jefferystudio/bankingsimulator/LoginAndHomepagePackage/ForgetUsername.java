@@ -41,4 +41,9 @@ public class ForgetUsername extends AppCompatActivity {
             }
         });
     }
+
+    public void onBackPressed() {
+
+        finish();
+    }
 }
