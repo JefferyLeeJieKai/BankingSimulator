@@ -1,6 +1,10 @@
 package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -19,8 +23,12 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUs
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SavingGoalsAddFragment extends Fragment {
 
@@ -40,6 +48,7 @@ public class SavingGoalsAddFragment extends Fragment {
     private Button createButton;
     private Button cancelButton;
     private EditText etDate;
+    private CircleImageView profilePic;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -53,6 +62,18 @@ public class SavingGoalsAddFragment extends Fragment {
         userBalance = view.findViewById(R.id.balanceLbl);
         username.setText(userName);
         new UpdateBalanceAsync(getActivity(), userBalance, null).execute(currentID);
+
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.jpg");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
         savingGoalName = view.findViewById(R.id.goalNameTxt);
         savingGoalAmount = view.findViewById(R.id.amountTxt);

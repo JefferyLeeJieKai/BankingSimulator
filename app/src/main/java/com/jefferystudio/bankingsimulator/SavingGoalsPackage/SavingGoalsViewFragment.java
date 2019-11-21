@@ -83,7 +83,7 @@ public class SavingGoalsViewFragment extends Fragment {
         try {
             ContextWrapper cw = new ContextWrapper(getActivity());
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.png");
+            File profilePicFile = new File(directory, "ProfilePicture.jpg");
             Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
             profilePic.setImageBitmap(picture);
         }
