@@ -124,12 +124,12 @@ public class GetQuizDetailsAsync extends AsyncTask<String, String, String> {
 
             ArrayList<QuizEntry> quizList = new ArrayList<>();
 
-            int numberOfResults = resultArray.length / 3;
+            int numberOfResults = resultArray.length / 4;
 
             for (int i = 0; i < numberOfResults; i++) {
 
-                QuizEntry quiz = new QuizEntry(resultArray[(i * 3)], resultArray[(i * 3) + 1],
-                                               resultArray[(i * 3) + 2], resultArray[(i * 3) + 3]);
+                QuizEntry quiz = new QuizEntry(resultArray[(i * 4)], resultArray[(i * 4) + 1],
+                                               resultArray[(i * 4) + 2], resultArray[(i * 4) + 3]);
 
                 quizList.add(quiz);
             }
