@@ -47,7 +47,7 @@ public class HomeScreenUser extends AppCompatActivity {
     private String currentBalance;
     private ImageButton btnprofile;
     private Context context;
-    private ImageView profilePic;
+    private ImageButton profilePic;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -73,7 +73,7 @@ public class HomeScreenUser extends AppCompatActivity {
                 super.onDrawerClosed(drawerView);
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
-                profilePic = (ImageView)findViewById(R.id.profileBtn);
+                profilePic = (ImageButton)findViewById(R.id.profileBtn);
                 try {
                     ContextWrapper cw = new ContextWrapper(getApplication());
                     File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
