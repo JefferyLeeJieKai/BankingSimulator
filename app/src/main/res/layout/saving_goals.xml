@@ -116,7 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/goalnametv"
-        android:layout_alignRight="@id/goalnametv"
+        android:layout_alignLeft="@id/goalnametv"
         app:layout_marginTopPercent="6%"
         android:text="Item Cost:"
         android:textColor="#000000" />
@@ -152,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/currencyLbl"
-        android:layout_alignRight="@id/itemcosttv"
+        android:layout_alignLeft="@id/itemcosttv"
         app:layout_marginTopPercent="4%"
         android:text="To Achieve\nGoal By:"
         android:textColor="#000000" />
@@ -172,7 +172,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/achievetv"
-        android:layout_alignRight="@+id/itemcosttv"
+        android:layout_alignLeft="@+id/itemcosttv"
         app:layout_marginTopPercent="6%"
         android:text="Priority: "
         android:textColor="#000000" />

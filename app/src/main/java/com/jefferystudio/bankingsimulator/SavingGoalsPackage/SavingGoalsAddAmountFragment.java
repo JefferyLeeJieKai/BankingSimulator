@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
@@ -43,12 +44,23 @@ public class SavingGoalsAddAmountFragment extends Fragment {
     private Button confirmButton;
     private Button cancelButton;
     private CircleImageView profilePic;
+    private TextView currentIDTextbox;
+    private TextView currentLimit;
+    private TextView currentBalance;
+    private String currentID;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.saving_goals_add_amount, container, false);
 
         args = getArguments();
+        currentID = args.getString("userID");
+
+        currentIDTextbox = view.findViewById(R.id.usernameLbl);
+        currentBalance = view.findViewById(R.id.balanceLbl);
+        currentLimit = view.findViewById(R.id.currentLimit);
+        currentIDTextbox.setText("Acc No. : " + currentID);
+        new UpdateBalanceAsync(getActivity(), currentBalance, currentLimit).execute(currentID);
 
         progress = view.findViewById(R.id.amountPB);
 
@@ -105,14 +117,24 @@ public class SavingGoalsAddAmountFragment extends Fragment {
                 //if invalid amount found
                 if (validateAmount(input)) {
 
+                    String dollarCurrentLimit = currentLimit.getText().toString().substring(16);
+                    float currentLimitFloat = Float.valueOf(dollarCurrentLimit);
                     float amountToSave = Float.valueOf(input);
                     float amountToUpdate = amountToSave + existAmount;
 
-                    if(amountToUpdate > savingAmount) {
+                    if(amountToUpdate > savingAmount || amountToSave > currentLimitFloat) {
 
                         AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
                         builder.setTitle("DigiBank Alert");
-                        builder.setMessage("Amount to save exceeds current goal");
+
+                        if(amountToUpdate > savingAmount) {
+
+                            builder.setMessage("Amount to save exceeds current goal.");
+                        }
+                        else if (amountToSave > currentLimitFloat) {
+
+                            builder.setMessage("Amount to save exceeds current limit. Increase your daily limit to commit savings.");
+                        }
 
                         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override

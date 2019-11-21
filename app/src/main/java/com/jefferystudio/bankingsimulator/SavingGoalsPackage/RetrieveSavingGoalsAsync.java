@@ -104,7 +104,7 @@ public class RetrieveSavingGoalsAsync extends AsyncTask<String, String, String> 
 
     @Override
     protected void onPostExecute(String result) {
-        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         ArrayList<SavingGoal> savingGoals = new ArrayList<>();
 
         String[] resultArray = result.split(",");
