@@ -82,9 +82,13 @@ public class HomeFragmentBanker extends Fragment {
         btnquizresult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), QuizHistoryBanker.class);
-                startActivity(intent);
-                getActivity().finish();
+
+                Fragment quizHistoryFrag = new QuizHistoryBanker();
+                quizHistoryFrag.setArguments(args);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, quizHistoryFrag)
+                        .commit();
             }
         });
 
