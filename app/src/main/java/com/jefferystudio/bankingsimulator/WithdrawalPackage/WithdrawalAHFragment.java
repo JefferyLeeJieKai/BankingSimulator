@@ -1,5 +1,9 @@
 package com.jefferystudio.bankingsimulator.WithdrawalPackage;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -14,6 +18,11 @@ import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Validation;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class WithdrawalAHFragment extends Fragment
 {
     private Bundle args;
@@ -25,6 +34,7 @@ public class WithdrawalAHFragment extends Fragment
     private String input;
     private Button backButton;
     private Button nextButton;
+    private CircleImageView profilePic;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -57,6 +67,18 @@ public class WithdrawalAHFragment extends Fragment
                         .commit();
             }
         });
+
+        profilePic = view.findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getActivity());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.jpg");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
         nextButton = view.findViewById(R.id.nextBtn);
         nextButton.setOnClickListener(new View.OnClickListener() {
