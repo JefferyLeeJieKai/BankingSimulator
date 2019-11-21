@@ -1,7 +1,9 @@
 package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -64,5 +66,33 @@ public class PreLogin extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Registration.class);
         startActivity(intent);
         finish();
+    }
+
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("DigiBank Alert");
+        builder.setMessage("Do you want to exit the application?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                System.exit(0);
+            }
+
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog quitDialog = builder.create();
+        quitDialog.show();
     }
 }
