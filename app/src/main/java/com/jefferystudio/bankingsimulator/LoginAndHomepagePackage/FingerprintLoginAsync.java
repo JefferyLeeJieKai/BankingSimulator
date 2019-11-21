@@ -140,8 +140,6 @@ public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
 
                 intent.putExtras(args);
 
-                progDialog.dismiss();
-
                 context.startActivity(intent);
 
                 ((Activity) context).finish();
