@@ -28,6 +28,8 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDialogListener {
 
     private Bundle args;
@@ -41,6 +43,7 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
     private ImageButton editEmailbtn;
     private ArrayList<String> errorList = new ArrayList<>();
     private String userID;
+    private CircleImageView profilePic;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +61,18 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
 
         profilebtn = (TextView)findViewById(R.id.editbtn);
         profilepic = (ImageView)findViewById(R.id.profilephoto);
+
+        profilePic = (CircleImageView)findViewById(R.id.profilephoto);
+        try {
+            ContextWrapper cw = new ContextWrapper(getApplication());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File profilePicFile = new File(directory, "ProfilePicture.jpg");
+            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
+            profilePic.setImageBitmap(picture);
+        }
+        catch(Exception e) {
+
+        }
 
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
