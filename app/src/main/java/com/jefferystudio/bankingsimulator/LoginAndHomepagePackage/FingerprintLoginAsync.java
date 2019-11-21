@@ -131,18 +131,26 @@ public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
 
                     publishProgress("90");
 
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
 
 
                 }
 
-                publishProgress("100");
+                //String[] catchStringArray = catchString.split(",");
 
-                intent.putExtras(args);
+                //if(catchStringArray[0].equals("Success")) {
 
-                context.startActivity(intent);
+                    publishProgress("100");
 
-                ((Activity) context).finish();
+                    intent.putExtras(args);
+
+                    //progDialog.dismiss();
+
+                    context.startActivity(intent);
+
+                    ((Activity) context).finish();
+                //}
             }
             else {
 

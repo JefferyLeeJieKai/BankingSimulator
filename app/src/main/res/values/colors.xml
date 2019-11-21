@@ -45,4 +45,8 @@
 
     <color name="loadingbackgrd">#1F6DC7</color>
 
+    <color name="ultra_dark">#29303F</color>
+    <color name="dark">#696E79</color>
+    <color name="ultra_dark_overlay">#0D29303F</color>
+
 </resources>

@@ -169,10 +169,10 @@ public class HomeFragmentBanker extends Fragment {
         btneditclass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Fragment editclass = new EditClassFragment();
-                editclass.setArguments(args);
+                Fragment viewClassFrag = new ViewClassFragment();
+               viewClassFrag.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_layout, editclass);
+                transaction.replace(R.id.frame_layout, viewClassFrag);
                 transaction.commit();
 
             }
