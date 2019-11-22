@@ -139,10 +139,10 @@ public class HomeFragmentUser extends Fragment {
         btnusersettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+
                 Intent intent = new Intent(getActivity().getApplicationContext(), UserSettings.class);
                 intent.putExtras(args);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
 

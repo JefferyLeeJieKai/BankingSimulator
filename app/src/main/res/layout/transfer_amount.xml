@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:autoSizeTextType="uniform"
-            android:hint="Payee AccNo. / Username"
+            android:hint="Payee AccNo."
             android:textColor="#000000" />
     </android.support.design.widget.TextInputLayout>
 

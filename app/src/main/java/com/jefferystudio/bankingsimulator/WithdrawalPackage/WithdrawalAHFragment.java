@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUser;
+import com.jefferystudio.bankingsimulator.OTP.OTPFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.Validation;
@@ -91,12 +92,13 @@ public class WithdrawalAHFragment extends Fragment
                 {
                     if(Validation.validateLimit(input, amountToWithdraw, currentLimit.getText().toString())) {
 
-                        Fragment withdrawalConfirmFrag = new WithdrawalConfirmFragment();
+                        Fragment otpFrag = new OTPFragment();
                         args.putString("amount", input);
-                        withdrawalConfirmFrag.setArguments(args);
+                        args.putString("flag", "Withdraw");
+                        otpFrag.setArguments(args);
 
                         getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.frame_layout, withdrawalConfirmFrag)
+                                .replace(R.id.frame_layout, otpFrag)
                                 .commit();
                     }
                 }

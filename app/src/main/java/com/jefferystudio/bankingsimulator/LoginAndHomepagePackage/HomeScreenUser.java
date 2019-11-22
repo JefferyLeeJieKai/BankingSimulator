@@ -25,6 +25,7 @@ import android.widget.ImageView;
 
 import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAHFragment;
+import com.jefferystudio.bankingsimulator.OTP.OTPFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAddFragment;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsAllFragment;
@@ -322,5 +323,16 @@ public class HomeScreenUser extends AppCompatActivity {
 
         AlertDialog quitDialog = builder.create();
         quitDialog.show();
+    }
+
+    public void onRestart() {
+
+        super.onRestart();
+
+        Fragment otpFragment = new OTPFragment();
+        args.putString("flag", "ChangeLimit");
+        otpFragment.setArguments(args);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, otpFragment).commit();
     }
 }

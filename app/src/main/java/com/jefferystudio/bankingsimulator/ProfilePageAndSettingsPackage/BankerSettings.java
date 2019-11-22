@@ -71,7 +71,6 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
 
                 Intent intent = new Intent(getApplicationContext(), Settings.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -80,6 +79,9 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
             public void onClick(View view) {
 
                 Intent intent = new Intent(getApplicationContext(), ChangePasswordBanker.class);
+                Bundle newArgs = new Bundle();
+                newArgs.putString("userID", args.getString("userID"));
+                newArgs.putString("userName", args.getString("userName"));
                 startActivity(intent);
             }
         });
