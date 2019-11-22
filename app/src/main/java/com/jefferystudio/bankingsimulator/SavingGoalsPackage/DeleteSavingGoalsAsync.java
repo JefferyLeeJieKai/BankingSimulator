@@ -3,7 +3,12 @@ package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
+import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.SavingGoalsPackage.SavingGoalsRecyclerView.SavingGoalsRecyclerViewAdaptor;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -78,5 +83,11 @@ public class DeleteSavingGoalsAsync extends AsyncTask<String, String, String> {
 
         progDialog.dismiss();
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        SavingGoalsAllFragment fragment = (SavingGoalsAllFragment)((HomeScreenUser)context).getSupportFragmentManager()
+                                          .findFragmentById(R.id.frame_layout);
+
+        RecyclerView recyclerView = fragment.getView().findViewById(R.id.goalDetailsRv);
+        SavingGoalsRecyclerViewAdaptor adapter = (SavingGoalsRecyclerViewAdaptor)recyclerView.getAdapter();
+        adapter.updateDelete(result);
     }
 }

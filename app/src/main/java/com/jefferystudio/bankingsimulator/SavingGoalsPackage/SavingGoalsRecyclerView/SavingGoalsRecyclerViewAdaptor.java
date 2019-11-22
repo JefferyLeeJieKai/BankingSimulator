@@ -52,6 +52,8 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
     private Context context;
     private String flag;
     private Bundle bankerBundle;
+    private int deletedPosition;
+    private String deleteSavingGoalName;
 
     public SavingGoalsRecyclerViewAdaptor(Context context, List<SavingGoal> savingGoals, String flag, Bundle bankerBundle) {
 
@@ -177,39 +179,10 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
-                            String result = "";
+                            new DeleteSavingGoalsAsync(context, savingGoal.getGoalID()).execute();
 
-                            try {
-                                result = new DeleteSavingGoalsAsync(context, savingGoal.getGoalID())
-                                        .execute()
-                                        .get(5000, TimeUnit.MILLISECONDS);
-                            } catch (Exception e) {
-
-                            }
-
-                            String[] resultArray = result.split(",");
-
-                            if (resultArray[0].equals("Success")) {
-
-                                savingGoals.remove(entryPosition);
-
-                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                                builder.setTitle("DigiBank Alert");
-                                builder.setMessage(savingGoal.getGoalName() + " successfully deleted.");
-
-                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                                        SavingGoalsAllFragment currentFrag = (SavingGoalsAllFragment) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-                                        currentFrag.updateAdaptor(entryPosition);
-                                    }
-                                });
-
-                                AlertDialog confirmDialog = builder.create();
-                                confirmDialog.show();
-                            }
+                            deletedPosition = entryPosition;
+                            deleteSavingGoalName = savingGoal.getGoalName();
                         }
                     });
 
@@ -278,5 +251,49 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
     public int getItemCount() {
 
         return savingGoals.size();
+    }
+
+    public void updateDelete(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if (resultArray[0].equals("Success")) {
+
+            savingGoals.remove(deletedPosition);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage(deleteSavingGoalName + " successfully deleted.");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    SavingGoalsAllFragment currentFrag = (SavingGoalsAllFragment) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                    currentFrag.updateAdaptor(deletedPosition);
+                }
+            });
+
+            AlertDialog confirmDialog = builder.create();
+            confirmDialog.show();
+        }
+        else if(resultArray[0].equals("Fail")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Error deleting from database!");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+
+            AlertDialog confirmDialog = builder.create();
+            confirmDialog.show();
+        }
     }
 }

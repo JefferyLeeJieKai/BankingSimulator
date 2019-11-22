@@ -49,6 +49,8 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
 
     private Context context;
     private ArrayList<ClassEntry> classList;
+    private int positionToDelete;
+    private String deleteClassName;
 
     public ClassViewRecyclerViewAdaptor(Context context, ArrayList<ClassEntry> classArrayList) {
 
@@ -141,56 +143,10 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                         String returnMessage = "";
-                         try {
+                        new EditClassesAsync(context, "DeleteClass").execute(classEntry.getClassID());
 
-                             returnMessage = new EditClassesAsync(context, "DeleteClass")
-                                             .execute(classEntry.getClassID())
-                                             .get(5000, TimeUnit.MILLISECONDS);
-
-                             String[] returnMessageArray = returnMessage.split(",");
-
-                             if(returnMessageArray[0].equals("Success")) {
-
-                                 new EditClassesAsync(context, "DeleteAllStudents")
-                                         .execute(classEntry.getClassID())
-                                         .get(5000, TimeUnit.MILLISECONDS);
-                             }
-                         }
-                         catch(Exception e) {
-
-
-                         }
-
-                         String[] returnArray = returnMessage.split(",");
-
-                         if(returnArray[0].equals("Success")) {
-
-                             classList.remove(entryPosition);
-
-                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                             builder.setTitle("DigiBank Alert");
-                             builder.setMessage(classEntry.getClassName() + " successfully deleted.");
-
-                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                                 public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                                     ViewClassFragment currentFrag = (ViewClassFragment) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-                                     currentFrag.updateAdaptor(entryPosition);
-                                 }
-                             });
-
-                             AlertDialog confirmDialog = builder.create();
-                             confirmDialog.show();
-                         }
-                         else if(returnArray[0].equals("Fail")){
-
-                             Toast.makeText(context,
-                                     "Deleting of " + classEntry.getClassName() + " failed.",
-                                     Toast.LENGTH_LONG).show();
-                         }
+                        positionToDelete = entryPosition;
+                        deleteClassName = classEntry.getClassName();
                     }
                 });
 
@@ -214,5 +170,27 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
     public int getItemCount() {
 
         return classList.size();
+    }
+
+    public void updateDeleteClass() {
+
+        classList.remove(positionToDelete);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("DigiBank Alert");
+        builder.setMessage(deleteClassName + " successfully deleted.");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                ViewClassFragment currentFrag = (ViewClassFragment) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                currentFrag.updateAdaptor(positionToDelete);
+            }
+        });
+
+        AlertDialog confirmDialog = builder.create();
+        confirmDialog.show();
     }
 }
