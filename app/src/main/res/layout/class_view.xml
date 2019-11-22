@@ -45,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         app:layout_marginTopPercent="5%"
-        android:text="No. of students"
+        android:text="No. of Students"
         android:textColor="#000000"
         app:autoSizeTextType="uniform" />
 
