@@ -40,35 +40,6 @@ public class ViewStudentFragment extends Fragment {
 
         args = getArguments();
 
-        //default
-        classLabel = view.findViewById(R.id.classLbl);
-        classLabel.setText("NIL");
-
-        interest = view.findViewById(R.id.intRateLbl);
-        interest.setText("NIL");
-
-        searchClass = view.findViewById(R.id.classTxt);
-
-        //search button
-        searchButton = view.findViewById(R.id.searchBtn);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                input = searchClass.getEditText().getText().toString().trim();
-
-                //if not empty
-                if(Validation.validateEmpty(input, searchClass)) {
-                    searchClass.setError(null);
-
-                    //draw out information from database
-                    //testing purpose
-                    classLabel.setText(input);
-                    interest.setText("0.2");
-                }
-            }
-        });
-
         backbutton = view.findViewById(R.id.buttonback);
 
         backbutton.setOnClickListener(new View.OnClickListener() {
