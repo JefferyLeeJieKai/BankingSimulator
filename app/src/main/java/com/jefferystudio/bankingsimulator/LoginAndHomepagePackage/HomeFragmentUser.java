@@ -20,6 +20,7 @@ import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAHFragment;
 import com.jefferystudio.bankingsimulator.Education.eduhomepage;
+import com.jefferystudio.bankingsimulator.Quiz.StartQuiz;
 import com.jefferystudio.bankingsimulator.Quiz.quizhome;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.TransferFundsPackage.TransferAmountFragment;
@@ -183,7 +184,7 @@ public class HomeFragmentUser extends Fragment {
         btnquiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity().getApplicationContext(), quizhome.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), StartQuiz.class);
                 intent.putExtras(args);
                 startActivity(intent);
                 getActivity().finish();
