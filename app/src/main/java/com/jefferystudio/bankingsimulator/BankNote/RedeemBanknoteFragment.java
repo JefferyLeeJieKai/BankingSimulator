@@ -58,6 +58,7 @@ public class RedeemBanknoteFragment extends Fragment {
                 Fragment homeFrag = new HomeFragmentUser();
                 Bundle homeBundle = new Bundle();
                 homeBundle.putString("userID", userID);
+                homeBundle.putString("userName", args.getString("userName"));
                 homeFrag.setArguments(homeBundle);
 
                 getActivity().getSupportFragmentManager().beginTransaction()

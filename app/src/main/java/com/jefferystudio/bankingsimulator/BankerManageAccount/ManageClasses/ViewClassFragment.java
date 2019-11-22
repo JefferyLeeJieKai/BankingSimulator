@@ -54,5 +54,6 @@ public class ViewClassFragment extends Fragment {
 
         ClassViewRecyclerViewAdaptor classListAdapter = (ClassViewRecyclerViewAdaptor)classDetails.getAdapter();
         classListAdapter.notifyItemRemoved(entryPosition);
+        classListAdapter.notifyItemRangeChanged(entryPosition, classListAdapter.getItemCount());
     }
 }

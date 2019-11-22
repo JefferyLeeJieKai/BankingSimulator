@@ -106,5 +106,6 @@ public class SavingGoalsAllFragment extends Fragment {
 
         SavingGoalsRecyclerViewAdaptor savingGoalsAdapter = (SavingGoalsRecyclerViewAdaptor)recyclerView.getAdapter();
         savingGoalsAdapter.notifyItemRemoved(entryPosition);
+        savingGoalsAdapter.notifyItemRangeChanged(entryPosition, savingGoalsAdapter.getItemCount());
     }
 }

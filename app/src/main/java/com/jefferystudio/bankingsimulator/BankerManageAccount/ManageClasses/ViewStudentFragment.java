@@ -65,7 +65,7 @@ public class ViewStudentFragment extends Fragment {
                 builder1.setMessage("Do you want to add: " +
                         "\n1)A previously created account? " +
                         "\n2)A new account?");
-                builder1.setPositiveButton("Previous Account", new DialogInterface.OnClickListener() {
+                builder1.setPositiveButton("Existing Account", new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -159,6 +159,7 @@ public class ViewStudentFragment extends Fragment {
 
         StudentViewRecyclerViewAdaptor adaptor = (StudentViewRecyclerViewAdaptor) studentDetails.getAdapter();
         adaptor.notifyItemRemoved(entryPosition);
+        adaptor.notifyItemRangeChanged(entryPosition, adaptor.getItemCount());
     }
 
     public void updateInterestRate(final StudentEntry studentEntry) {
