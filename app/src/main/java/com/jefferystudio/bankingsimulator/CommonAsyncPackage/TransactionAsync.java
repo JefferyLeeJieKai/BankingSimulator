@@ -7,7 +7,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.RecyclerView;
 
+import com.jefferystudio.bankingsimulator.BankNote.RedeemBanknoteFragment;
+import com.jefferystudio.bankingsimulator.BankNote.RedeemNotesRecyclerView.RedeemNotesRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositAHFragment;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositConfirmBankerFragment;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
@@ -336,12 +339,20 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             AlertDialog quitDialog = builder.create();
             quitDialog.show();
         }
-        if(resultArray[0].equals("True") && flag.equals("WithdrawalUserNoShow")) {
+        else if(resultArray[0].equals("True") && flag.equals("WithdrawalUserNoShow")) {
 
             new UpdateSavingGoalsAsync(context, "SaveMoney", userName)
                         .execute(userID, goalID, amountToUpdate);
 
+        }
+        else if(flag.equals("DepositUserRedeem")) {
 
+            RedeemBanknoteFragment fragment = (RedeemBanknoteFragment)((HomeScreenUser)context).getSupportFragmentManager()
+                    .findFragmentById(R.id.frame_layout);
+
+            RecyclerView recyclerView = fragment.getView().findViewById(R.id.detailsRv);
+            RedeemNotesRecyclerViewAdaptor adapter = (RedeemNotesRecyclerViewAdaptor)recyclerView.getAdapter();
+            adapter.updateTransactions(result);
         }
         else if(resultArray[0].equals("False")) {
 

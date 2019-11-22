@@ -3,7 +3,13 @@ package com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+
+import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClassRecyclerView.ClassViewRecyclerViewAdaptor;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
+import com.jefferystudio.bankingsimulator.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -19,6 +25,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
     private String flag;
     private String link;
     private String data;
+    private String classID;
 
     public EditClassesAsync(Context context, String flag) {
 
@@ -30,7 +37,24 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
 
         progDialog = new ProgressDialog(context);
-        progDialog.setMessage("Editing class details...");
+
+        if(flag.equals("DeleteClass")) {
+
+            progDialog.setMessage("Deleting class...");
+        }
+        else if(flag.equals("EditClassName")) {
+
+            progDialog.setMessage("Editing class name...");
+        }
+        else if(flag.equals("DeleteAllStudents")) {
+
+            progDialog.setMessage("Deleting all students...");
+        }
+        else if(flag.equals("DeleteStudent")) {
+
+            progDialog.setMessage("Deleting student...");
+        }
+
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setCancelable(false);
@@ -44,7 +68,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
         if(flag.equals("DeleteClass")) {
 
-            String classID = args[0];
+            classID = args[0];
 
             try {
 
@@ -61,7 +85,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
         }
         else if(flag.equals("EditClassName")) {
 
-            String classID = args[0];
+            classID = args[0];
             String toChange = args[1];
 
             try {
@@ -83,7 +107,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
             try {
 
-                String classID = args[0];
+                classID = args[0];
 
                 link = "https://www.kidzsmartapp.com/databaseAccess/editClasses.php";
                 data = URLEncoder.encode("classid", "UTF-8") + "=" +
@@ -100,7 +124,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
             try {
 
-                String classID = args[0];
+                classID = args[0];
                 String accountholder_ID = args[1];
 
                 link = "https://www.kidzsmartapp.com/databaseAccess/editClasses.php";
@@ -151,5 +175,42 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
         progDialog.dismiss();
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+
+        String[] resultArray = result.split(",");
+
+        if(flag.equals("DeleteClass")) {
+
+            if(resultArray[0].equals("Success")) {
+
+                new EditClassesAsync(context, "DeleteAllStudents").execute(classID);
+            }
+        }
+        else if(flag.equals("DeleteAllStudents")) {
+
+            if(resultArray[0].equals("Success")) {
+
+                ViewClassFragment fragment = (ViewClassFragment)((HomeScreenBanker)context)
+                                             .getSupportFragmentManager()
+                                             .findFragmentById(R.id.frame_layout);
+
+                RecyclerView recyclerView = fragment.getView().findViewById(R.id.classDetailsRv);
+                ClassViewRecyclerViewAdaptor adapter = (ClassViewRecyclerViewAdaptor)recyclerView.getAdapter();
+                adapter.updateDeleteClass();
+            }
+        }
+        else if(flag.equals("EditClassName")) {
+
+            EditClassFragment fragment = (EditClassFragment)((HomeScreenBanker)context)
+                                          .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+
+            if(resultArray[0].equals("Success")) {
+
+                fragment.updateResultSuccess();
+            }
+            else if(resultArray[0].equals("Fail")) {
+
+                fragment.updateResultFail();
+            }
+        }
     }
 }

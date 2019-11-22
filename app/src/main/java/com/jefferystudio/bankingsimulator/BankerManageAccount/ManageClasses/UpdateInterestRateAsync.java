@@ -4,6 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
+import com.jefferystudio.bankingsimulator.R;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -76,8 +79,13 @@ public class UpdateInterestRateAsync extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected void onPostExecute(String s) {
+    protected void onPostExecute(String result) {
 
         progDialog.dismiss();
+
+        ViewStudentFragment fragment = (ViewStudentFragment)((HomeScreenBanker)context).getSupportFragmentManager()
+                                        .findFragmentById(R.id.frame_layout);
+
+        fragment.updateInterestRateResult(result);
     }
 }

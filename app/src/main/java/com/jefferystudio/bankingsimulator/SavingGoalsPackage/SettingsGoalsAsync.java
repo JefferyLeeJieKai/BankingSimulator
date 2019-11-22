@@ -120,77 +120,10 @@ public class SettingsGoalsAsync extends AsyncTask<String, String, String> {
 
         progDialog.dismiss();
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-        String[] resultArray = result.split(",");
 
-        if(resultArray[0].equals("True")) {
+        SavingGoalsAddFragment fragment = (SavingGoalsAddFragment)((HomeScreenUser)context)
+                                          .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-            builder.setTitle("DigiBank Alert");
-            builder.setMessage(resultArray[1] + " Do you want to key in a new goal?");
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                }
-
-            });
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-                    Fragment homeFrag = new HomeFragmentUser();
-                    Bundle args = new Bundle();
-                    args.putString("userID", userID);
-                    args.putString("userName", userName);
-                    homeFrag.setArguments(args);
-
-                    homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frame_layout, homeFrag)
-                            .commit();
-                }
-            });
-
-            AlertDialog quitDialog = builder.create();
-            quitDialog.show();
-        }
-        else if(resultArray[0].equals("False")) {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-            builder.setTitle("DigiBank Alert");
-            builder.setMessage(resultArray[1] + " Do you want to retry your action?");
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                }
-
-            });
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-                    Fragment homeFrag = new HomeFragmentUser();
-                    Bundle args = new Bundle();
-                    args.putString("userID", userID);
-                    args.putString("userName", userName);
-                    homeFrag.setArguments(args);
-
-                    homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frame_layout, homeFrag)
-                            .commit();
-                }
-            });
-
-            AlertDialog quitDialog = builder.create();
-            quitDialog.show();
-        }
+        fragment.updateResult(result);
     }
 }

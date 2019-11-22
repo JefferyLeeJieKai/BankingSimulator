@@ -46,6 +46,7 @@ public class IssueNotesRecyclerViewAdaptor extends RecyclerView.Adapter<IssueNot
 
     private List<Notes> issuedList;
     private Context context;
+    private int deletePosition;
 
     public IssueNotesRecyclerViewAdaptor(Context context, List<Notes> issuedList) {
 
@@ -124,40 +125,8 @@ public class IssueNotesRecyclerViewAdaptor extends RecyclerView.Adapter<IssueNot
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        String result = "";
-
-                        try{
-                            result = new DeleteNotesAsync(context, notesSet.getIssueID())
-                                    .execute()
-                                    .get(5000, TimeUnit.MILLISECONDS);
-                        }
-                        catch(Exception e) {
-
-                        }
-
-                        String[] resultArray = result.split(",");
-
-                        if(resultArray[0].equals("Success")) {
-
-                            issuedList.remove(entryPosition);
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setTitle("DigiBank Alert");
-                            builder.setMessage("Issued banknotes successfully deleted.");
-
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-
-                                    IssueBanknoteFragment currentFrag = (IssueBanknoteFragment) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-                                    currentFrag.updateAdaptor(entryPosition);
-                                }
-                            });
-
-                            AlertDialog confirmDialog = builder.create();
-                            confirmDialog.show();
-                        }
+                        new DeleteNotesAsync(context, notesSet.getIssueID()).execute();
+                        deletePosition = entryPosition;
                     }
                 });
 
@@ -182,5 +151,32 @@ public class IssueNotesRecyclerViewAdaptor extends RecyclerView.Adapter<IssueNot
     public int getItemCount() {
 
         return issuedList.size();
+    }
+
+    public void updateResult(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("Success")) {
+
+            issuedList.remove(deletePosition);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Issued banknotes successfully deleted.");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    IssueBanknoteFragment currentFrag = (IssueBanknoteFragment) ((HomeScreenBanker) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                    currentFrag.updateAdaptor(deletePosition);
+                }
+            });
+
+            AlertDialog confirmDialog = builder.create();
+            confirmDialog.show();
+        }
     }
 }

@@ -147,6 +147,12 @@ public class SavingGoalsAddAmountFragment extends Fragment {
                         AlertDialog exceedDialog = builder.create();
                         exceedDialog.show();
                     }
+                    else {
+
+                        new TransactionAsync(getActivity(), "WithdrawalUserNoShow", args.getString("userName"))
+                                .execute(args.getString("userID"), input, Float.toString(amountToUpdate),
+                                        args.getString("goalID"));
+                    }
                 }
             }
         });
@@ -208,6 +214,7 @@ public class SavingGoalsAddAmountFragment extends Fragment {
                 public void onClick(DialogInterface dialogInterface, int i) {
 
                     amount.getEditText().getText().clear();
+                    new UpdateBalanceAsync(getActivity(), currentBalance, currentLimit).execute(currentID);
                 }
             });
 

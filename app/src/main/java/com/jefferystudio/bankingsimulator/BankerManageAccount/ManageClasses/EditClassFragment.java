@@ -23,6 +23,7 @@ public class EditClassFragment extends Fragment {
     private String currentUsername;
     private String currentClassID;
     private String currentClassName;
+    private String toChange;
     private TextView classLabel;
     private TextInputLayout newClassName;
     private Button cancelButton;
@@ -49,7 +50,7 @@ public class EditClassFragment extends Fragment {
 
             public void onClick(View v) {
 
-                String toChange = newClassName.getEditText().getText().toString().trim();
+                toChange = newClassName.getEditText().getText().toString().trim();
 
                 if (Validation.validateEmpty(toChange, newClassName)) {
 
@@ -95,38 +96,7 @@ public class EditClassFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                String result = "";
-
-                try {
-                    result = new EditClassesAsync(getActivity(), flag)
-                            .execute(currentClassID, input)
-                            .get(5000, TimeUnit.MILLISECONDS);
-                }
-                catch (Exception e) {
-
-
-                }
-
-                String[] resultArray = result.split(",");
-
-                if(resultArray[0].equals("Success")) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setTitle("DigiBank Alert");
-                    builder.setMessage("Update success!");
-
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            classLabel.setText("Current class name is: " + input);
-                            newClassName.getEditText().getText().clear();
-                        }
-                    });
-
-                    AlertDialog informDialog = builder.create();
-                    informDialog.show();
-                }
+                new EditClassesAsync(getActivity(), flag).execute(currentClassID, input);
             }
         });
 
@@ -140,5 +110,41 @@ public class EditClassFragment extends Fragment {
 
         AlertDialog confirmDialog = builder.create();
         confirmDialog.show();
+    }
+
+    public void updateResultSuccess() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("DigiBank Alert");
+        builder.setMessage("Update success!");
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                classLabel.setText("Current class name is: " + toChange);
+                newClassName.getEditText().getText().clear();
+            }
+        });
+
+        AlertDialog informDialog = builder.create();
+        informDialog.show();
+    }
+
+    public void updateResultFail() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("DigiBank Alert");
+        builder.setMessage("Error updating to database!");
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        AlertDialog informDialog = builder.create();
+        informDialog.show();
     }
 }

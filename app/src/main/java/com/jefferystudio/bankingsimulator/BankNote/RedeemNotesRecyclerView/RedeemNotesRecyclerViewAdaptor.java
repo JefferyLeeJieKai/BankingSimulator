@@ -46,6 +46,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     private List<Notes> issuedList;
     private Context context;
+    private Notes redeemedNote;
+    private int deletePosition;
 
     public RedeemNotesRecyclerViewAdaptor(Context context, List<Notes> issuedList) {
 
@@ -105,69 +107,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
             public void onClick(View view) {
 
-                String result1 = "";
-                String result2 = "";
-                String result3 = "";
-                String[] resultArray1;
-                String[] resultArray2;
-                boolean allSuccess = false;
+                redeemedNote = notesSet;
+                deletePosition = entryPosition;
 
-                try {
-
-                    result1 = new RedeemNoteAsync(context, notesSet.getIssueID())
-                                  .execute()
-                                  .get(5000, TimeUnit.MILLISECONDS);
-                    resultArray1 = result1.split(",");
-
-                    if(resultArray1[0].equals("Success")) {
-
-                        result2 = new TransactionAsync(context, "DepositUserRedeem", notesSet.getAccountholderUsername())
-                                .execute(notesSet.getAccountholderID(), notesSet.getTotalBalance())
-                                .get(5000, TimeUnit.MILLISECONDS);
-
-                        resultArray2 = result2.split(",");
-
-                        if(resultArray2[0].equals("True")) {
-
-                            result3 = new UpdateTransAsync(context, "DepositFunds")
-                                    .execute(notesSet.getAccountholderID(), notesSet.getTotalBalance())
-                                    .get(5000, TimeUnit.MILLISECONDS);
-
-                            if(result3.equals("1")) {
-
-                                allSuccess = true;
-                            }
-                        }
-                    }
-                }
-                catch(Exception e) {
-
-
-                }
-
-                if(allSuccess) {
-
-                    issuedList.remove(entryPosition);
-
-                    final RedeemBanknoteFragment currentFrag = (RedeemBanknoteFragment) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-                    currentFrag.updateBalance();
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("DigiBank Alert");
-                    builder.setMessage("Issued banknotes successfully redeemed.");
-
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            currentFrag.updateAdaptor(entryPosition);
-                        }
-                    });
-
-                    AlertDialog confirmDialog = builder.create();
-                    confirmDialog.show();
-                }
+                new RedeemNoteAsync(context, notesSet.getIssueID()).execute();
             }
         });
     }
@@ -177,5 +120,56 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public int getItemCount() {
 
         return issuedList.size();
+    }
+
+    public void updateRedeemedAmount(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("Success")){
+
+            new TransactionAsync(context,"DepositUserRedeem",redeemedNote.getAccountholderUsername())
+                .execute(redeemedNote.getAccountholderID(),redeemedNote.getTotalBalance());
+        }
+    }
+
+    public void updateTransactions(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("True")) {
+
+            new UpdateTransAsync(context, "DepositFundsRedeem")
+                    .execute(redeemedNote.getAccountholderID(), redeemedNote.getTotalBalance());
+        }
+    }
+
+    public void updateResult(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("1")) {
+
+            issuedList.remove(deletePosition);
+
+            final RedeemBanknoteFragment currentFrag = (RedeemBanknoteFragment) ((HomeScreenUser) context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+            currentFrag.updateBalance();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Issued banknotes successfully redeemed.");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    currentFrag.updateAdaptor(deletePosition);
+                }
+            });
+
+            AlertDialog confirmDialog = builder.create();
+            confirmDialog.show();
+        }
     }
 }

@@ -81,47 +81,9 @@ public class ViewStudentFragment extends Fragment {
                             public void onClick(DialogInterface dialogInterface, int i) {
 
                                 String data = input.getText().toString().trim();
-                                String response = "";
 
-                                try{
-
-                                    response = new CheckOwnershipAsync(getActivity())
-                                               .execute(data, args.getString("userID"), args.getString("classID"),
-                                                     args.getString("className"))
-                                               .get(5000, TimeUnit.MILLISECONDS);
-
-                                    String[] responseArray = response.split(",");
-
-                                    AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
-                                    builder3.setTitle("DigiBank Alert");
-
-                                    if(responseArray[0].equals("Success")) {
-
-                                        builder3.setMessage("Successfully added student to class.");
-                                    }
-                                    else if(responseArray[0].equals("Fail")) {
-
-                                        builder3.setMessage("Adding failed. Please make sure you " +
-                                                           "are adding an account you created.");
-                                    }
-
-                                    builder3.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-                                        public void onClick (DialogInterface dialogInterace, int i) {
-
-                                            new ClassAsync(getActivity(), "ViewStudentFragment", args.getString("userID"),
-                                                    args.getString("userName"), args.getString("classID"),
-                                                    studentDetails).execute(args.getString("className"));
-                                        }
-                                    });
-
-                                    AlertDialog quitDialog = builder3.create();
-                                    quitDialog.show();
-                                }
-                                catch(Exception e) {
-
-
-                                }
+                                new CheckOwnershipAsync(getActivity()).execute(data, args.getString("userID"),
+                                        args.getString("classID"), args.getString("className"));
                             }
                         });
 
@@ -193,38 +155,7 @@ public class ViewStudentFragment extends Fragment {
                         dataFloat += 1.0;
                         data = Float.toString(dataFloat);
 
-                        try {
-
-                            response = new UpdateInterestRateAsync(getActivity(), studentEntry.getUserID(), data)
-                                    .execute()
-                                    .get(5000, TimeUnit.MILLISECONDS);
-
-                            String[] responseArray = response.split(",");
-
-                            AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
-                            builder3.setTitle("DigiBank Alert");
-
-                            if (responseArray[0].equals("Success")) {
-
-                                builder3.setMessage("You have successfully updated the interest rate.");
-                            }
-
-                            builder3.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-                                public void onClick(DialogInterface dialogInterace, int i) {
-
-                                    new ClassAsync(getActivity(), "ViewStudentFragment", args.getString("userID"), args.getString("userName"),
-                                            args.getString("classID"), studentDetails).execute(args.getString("className"));
-                                }
-                            });
-
-                            AlertDialog quitDialog = builder3.create();
-                            quitDialog.show();
-                        }
-                        catch (Exception e) {
-
-
-                        }
+                        new UpdateInterestRateAsync(getActivity(), studentEntry.getUserID(), data).execute();
                     }
                 });
 
@@ -232,7 +163,6 @@ public class ViewStudentFragment extends Fragment {
                 inputDialog.show();
             }
         });
-
         //no button selected
         builder1.setNegativeButton("No", new DialogInterface.OnClickListener() {
 
@@ -245,5 +175,61 @@ public class ViewStudentFragment extends Fragment {
 
         AlertDialog ad = builder1.create();
         ad.show();
+    }
+
+    public void updateInterestRateResult(String response) {
+
+        String[] responseArray = response.split(",");
+
+        AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
+        builder3.setTitle("DigiBank Alert");
+
+        if (responseArray[0].equals("Success")) {
+
+            builder3.setMessage("You have successfully updated the interest rate.");
+        }
+
+        builder3.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialogInterace, int i) {
+
+                new ClassAsync(getActivity(), "ViewStudentFragment", args.getString("userID"), args.getString("userName"),
+                        args.getString("classID"), studentDetails).execute(args.getString("className"));
+            }
+        });
+
+        AlertDialog quitDialog = builder3.create();
+        quitDialog.show();
+    }
+
+    public void updateStudentListResult(String response) {
+
+        String[] responseArray = response.split(",");
+
+        AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
+        builder3.setTitle("DigiBank Alert");
+
+        if(responseArray[0].equals("Success")) {
+
+            builder3.setMessage("Successfully added student to class.");
+        }
+        else if(responseArray[0].equals("Fail")) {
+
+            builder3.setMessage("Adding failed. Please make sure you " +
+                    "are adding an account you created.");
+        }
+
+        builder3.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            public void onClick (DialogInterface dialogInterace, int i) {
+
+                new ClassAsync(getActivity(), "ViewStudentFragment", args.getString("userID"),
+                        args.getString("userName"), args.getString("classID"),
+                        studentDetails).execute(args.getString("className"));
+            }
+        });
+
+        AlertDialog quitDialog = builder3.create();
+        quitDialog.show();
     }
 }

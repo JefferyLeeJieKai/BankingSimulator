@@ -3,6 +3,13 @@ package com.jefferystudio.bankingsimulator.BankNote;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
+
+import com.jefferystudio.bankingsimulator.BankNote.IssueNotesRecyclerView.IssueNotesRecyclerViewAdaptor;
+import com.jefferystudio.bankingsimulator.BankNote.RedeemNotesRecyclerView.RedeemNotesRecyclerViewAdaptor;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
+import com.jefferystudio.bankingsimulator.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -75,5 +82,12 @@ public class DeleteNotesAsync extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
+
+        IssueBanknoteFragment fragment = (IssueBanknoteFragment) ((HomeScreenBanker)context).getSupportFragmentManager()
+                .findFragmentById(R.id.frame_layout);
+
+        RecyclerView recyclerView = fragment.getView().findViewById(R.id.detailsRv);
+        IssueNotesRecyclerViewAdaptor adapter = (IssueNotesRecyclerViewAdaptor) recyclerView.getAdapter();
+        adapter.updateResult(result);
     }
 }

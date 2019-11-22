@@ -49,6 +49,7 @@ public class SavingGoalsEditFragment extends Fragment {
     private Button editPriorityButton;
     private Button cancelButton;
     private ArrayList<String> priorityList;
+    private String input;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -141,7 +142,7 @@ public class SavingGoalsEditFragment extends Fragment {
 
             public void onClick(View v) {
 
-               String input = editGoalName.getText().toString().trim();
+               input = editGoalName.getText().toString().trim();
 
                if(!Validation.validateEmptyNonTextInputLayout(input)) {
 
@@ -159,7 +160,7 @@ public class SavingGoalsEditFragment extends Fragment {
 
             public void onClick(View v) {
 
-                String input = editCost.getText().toString().trim();
+                input = editCost.getText().toString().trim();
 
                 if(!Validation.validateEmptyNonTextInputLayout(input)) {
 
@@ -196,7 +197,7 @@ public class SavingGoalsEditFragment extends Fragment {
 
             public void onClick(View v) {
 
-                String input = editDeadline.getText().toString().trim();
+                input = editDeadline.getText().toString().trim();
 
                 if(!Validation.validateEmptyNonTextInputLayout(input)) {
 
@@ -214,8 +215,8 @@ public class SavingGoalsEditFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                    String input = String.valueOf(editPriority.getSelectedItem());
-                    displayConfirmationDialog(input.substring(0, 1), "UpdatePriority");
+                input = String.valueOf(editPriority.getSelectedItem());
+                displayConfirmationDialog(input.substring(0, 1), "UpdatePriority");
             }
         });
 
@@ -279,55 +280,8 @@ public class SavingGoalsEditFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                String result = "";
-
-                try {
-                result = new UpdateSavingGoalsAsync(getActivity(), flag, currentUsername)
-                            .execute(currentUserID, args.getString("goalID"), input)
-                            .get(5000, TimeUnit.MILLISECONDS);
-                }
-                catch (Exception e) {
-
-
-                }
-
-                String[] resultArray = result.split(",");
-
-                if(resultArray[0].equals("True")) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setTitle("DigiBank Alert");
-                    builder.setMessage("Update success!");
-
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            if(flag.equals("UpdateGoalName")) {
-
-                                goalName.setText("Current goal name is: " + input);
-                                editGoalName.getText().clear();
-                            }
-                            else if (flag.equals("UpdateAmount")) {
-
-                                cost.setText("Current saving goal is: $" + input);
-                                editCost.getText().clear();
-                            }
-                            else if(flag.equals("UpdateDeadline")) {
-
-                                deadline.setText("Current deadline is: " + input);
-                                editDeadline.getText().clear();
-                            }
-                            else if(flag.equals("UpdatePriority")) {
-
-                                priority.setText("Current priority is: " + input);
-                            }
-                        }
-                    });
-
-                    AlertDialog informDialog = builder.create();
-                    informDialog.show();
-                }
+                new UpdateSavingGoalsAsync(getActivity(), flag, currentUsername)
+                        .execute(currentUserID, args.getString("goalID"), input);
             }
         });
 
@@ -341,5 +295,43 @@ public class SavingGoalsEditFragment extends Fragment {
 
         AlertDialog confirmDialog = builder.create();
         confirmDialog.show();
+    }
+
+    public void updateResult(String result, final String flag) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("True")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Update success!");
+
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    if (flag.equals("UpdateGoalName")) {
+
+                        goalName.setText("Current goal name is: " + input);
+                        editGoalName.getText().clear();
+                    } else if (flag.equals("UpdateAmount")) {
+
+                        cost.setText("Current saving goal is: $" + input);
+                        editCost.getText().clear();
+                    } else if (flag.equals("UpdateDeadline")) {
+
+                        deadline.setText("Current deadline is: " + input);
+                        editDeadline.getText().clear();
+                    } else if (flag.equals("UpdatePriority")) {
+
+                        priority.setText("Current priority is: " + input);
+                    }
+                }
+            });
+
+            AlertDialog informDialog = builder.create();
+            informDialog.show();
+        }
     }
 }
