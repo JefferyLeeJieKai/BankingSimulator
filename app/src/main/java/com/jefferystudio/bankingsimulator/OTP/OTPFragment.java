@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
+import com.jefferystudio.bankingsimulator.BankNote.IssueNotesAsync;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.UserSettings;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.TransferFundsPackage.TransferAmountFragment;
@@ -72,6 +75,12 @@ public class OTPFragment extends Fragment {
                         getActivity().setResult(Activity.RESULT_OK,intent);
                         getActivity().finish();
                     }
+                    else if(args.getString("flag").equals("IssueNotes")) {
+
+                        new IssueNotesAsync(getActivity(), args.getString("userID"),
+                                args.getString("accountholderCreds"), args.getString("totalAmount"))
+                                .execute(args.getString("userName"));
+                    }
                 }
                 else {
 
@@ -102,6 +111,22 @@ public class OTPFragment extends Fragment {
 
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_layout, transferFrag)
+                            .commit();
+                }
+                else if(args.getString("flag").equals("ChangeLimit")) {
+
+                    Intent intent = new Intent();
+                    args.putString("accountType", "AccountHolder");
+                    intent.putExtras(args);
+                    getActivity().setResult(Activity.RESULT_CANCELED,intent);
+                    getActivity().finish();
+                }
+                else if(args.getString("flag").equals("IssueNotes")) {
+
+                    Fragment issueNotesFrag = new IssueBanknoteFragment();
+                    issueNotesFrag.setArguments(args);
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, issueNotesFrag)
                             .commit();
                 }
             }

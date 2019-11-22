@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.PreLogin;
+import com.jefferystudio.bankingsimulator.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -129,6 +131,13 @@ public class RegistrationAsync extends AsyncTask<String, String, String> {
 
             AlertDialog quitDialog = builder.create();
             quitDialog.show();
+        }
+        else if(resultArray[0].equals("Success") && flag.equals("fromBanker")) {
+
+            RegistrationFragment fragment = (RegistrationFragment) ((HomeScreenBanker)activity).getSupportFragmentManager()
+                    .findFragmentById(R.id.frame_layout);
+
+            fragment.updateStudentList();
         }
     }
 }

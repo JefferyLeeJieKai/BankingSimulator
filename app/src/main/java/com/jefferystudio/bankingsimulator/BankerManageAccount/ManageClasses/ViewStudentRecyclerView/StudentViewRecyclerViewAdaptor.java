@@ -108,6 +108,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                         args.putString("userName", userName);
                         args.putString("classID", classID);
                         args.putString("className", className);
+                        args.putString("accountType", "Banker");
                         checkPersonalParticularFrag.setArguments(args);
 
                         ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()
@@ -127,6 +128,7 @@ public class StudentViewRecyclerViewAdaptor extends RecyclerView.Adapter<Student
                         args.putString("userName", userName);
                         args.putString("classID", classID);
                         args.putString("className", className);
+                        args.putString("accountType", "Banker");
                         checkSavingGoalsFrag.setArguments(args);
 
                         ((HomeScreenBanker)context).getSupportFragmentManager().beginTransaction()

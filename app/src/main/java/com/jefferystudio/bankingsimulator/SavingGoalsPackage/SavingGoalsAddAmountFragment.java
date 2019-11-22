@@ -225,7 +225,7 @@ public class SavingGoalsAddAmountFragment extends Fragment {
                     Fragment viewAllSavingGoalsFrag = new SavingGoalsAllFragment();
                     args.putString("userID", args.getString("userID"));
                     args.putString("userName", args.getString("userName"));
-                    args.putString("currentBalance", args.getString("currentBalance"));
+                    args.putString("accountType", args.getString("accountType"));
                     viewAllSavingGoalsFrag.setArguments(args);
 
                     getActivity().getSupportFragmentManager().beginTransaction()

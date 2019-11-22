@@ -93,6 +93,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                 args.putString("userName", classEntry.getUsername());
                 args.putString("classID", classEntry.getClassID());
                 args.putString("className", classEntry.getClassName());
+                args.putString("accountType", "Banker");
 
                 Fragment editStudents = new ViewStudentFragment();
                 editStudents.setArguments(args);
@@ -113,6 +114,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                 args.putString("userName", classEntry.getUsername());
                 args.putString("classID", classEntry.getClassID());
                 args.putString("className", classEntry.getClassName());
+                args.putString("accountType", "Banker");
 
                 Fragment editClass = new EditClassFragment();
                 editClass.setArguments(args);

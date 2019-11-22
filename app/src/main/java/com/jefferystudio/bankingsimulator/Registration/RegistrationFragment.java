@@ -42,6 +42,7 @@ public class RegistrationFragment extends Fragment {
     private EditText dobBox;
     private Spinner roleBox;
     private String verifyResult;
+    private String username;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -114,7 +115,7 @@ public class RegistrationFragment extends Fragment {
     public void checkAllInput() {
 
         String email = emailBox.getText().toString().trim();
-        String username = usernameBox.getText().toString().trim();
+        username = usernameBox.getText().toString().trim();
         username = username.toLowerCase();
 
         ArrayList<String> errorList = new ArrayList<>();
@@ -208,72 +209,60 @@ public class RegistrationFragment extends Fragment {
         }
         else if(errorList.size() == 0) {
 
-            String result1 = "";
-            String result2= "";
-
-            try {
-
-                result1 = new RegistrationAsync(getActivity())
-                        .execute(name, email, username, password, gender, dob, role)
-                        .get(5000, TimeUnit.MILLISECONDS);
+            new RegistrationAsync(getActivity())
+                        .execute(name, email, username, password, gender, dob, role, "fromBanker");
                 //Toast.makeText(getActivity(), role, Toast.LENGTH_LONG).show();
-                String[] resultArray1 = result1.split(",");
-
-                result2 = new UpdateStudentListAsync(getActivity(), args.getString("userID"), username,
-                                                     args.getString("classID"), args.getString("className"))
-                              .execute()
-                              .get(5000, TimeUnit.MILLISECONDS);
-
-                String[] resultArray2 = result2.split(",");
-
-                if(resultArray1[0].equals("Success") && resultArray2[0].equals("Success")) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                    builder.setTitle("DigiBank Alert");
-                    builder.setMessage("Account created successfully." +
-                                       "\nA confirmation email will be send to the registered email shortly." +
-                                       "\nDo you want to add another student?");
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            Fragment viewStudentFrag = new ViewStudentFragment();
-                            viewStudentFrag.setArguments(args);
-                            getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.frame_layout, viewStudentFrag)
-                                    .commit();
-                        }
-                    });
-
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            Fragment homeFrag = new HomeFragmentBanker();
-                            Bundle newArgs = new Bundle();
-                            newArgs.putString("userID", args.getString("userID"));
-                            newArgs.putString("userName", args.getString("userName"));
-                            homeFrag.setArguments(args);
-                            getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.frame_layout, homeFrag)
-                                    .commit();
-                        }
-                    });
-
-                    AlertDialog quitDialog = builder.create();
-                    quitDialog.show();
-                }
-            }
-            catch(Exception e) {
-
-            }
         }
     }
 
-    public void returnVerification(String result) {
+    public void updateStudentList() {
 
-        verifyResult = result;
+        new UpdateStudentListAsync(getActivity(), args.getString("userID"), username,
+                args.getString("classID"), args.getString("className")).execute();
+    }
+
+    public void updateResult(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("Success")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Account created successfully." +
+                    "\nA confirmation email will be send to the registered email shortly." +
+                    "\nDo you want to add another student?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment viewStudentFrag = new ViewStudentFragment();
+                    viewStudentFrag.setArguments(args);
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, viewStudentFrag)
+                            .commit();
+                }
+            });
+
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment homeFrag = new HomeFragmentBanker();
+                    Bundle newArgs = new Bundle();
+                    newArgs.putString("userID", args.getString("userID"));
+                    newArgs.putString("userName", args.getString("userName"));
+                    homeFrag.setArguments(args);
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, homeFrag)
+                            .commit();
+                }
+            });
+
+            AlertDialog quitDialog = builder.create();
+            quitDialog.show();
+        }
     }
 }

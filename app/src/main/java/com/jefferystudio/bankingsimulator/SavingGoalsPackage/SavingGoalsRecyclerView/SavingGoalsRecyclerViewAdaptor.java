@@ -149,6 +149,7 @@ public class SavingGoalsRecyclerViewAdaptor extends RecyclerView.Adapter<SavingG
                     args.putString("itemCost", savingGoal.getItemCost());
                     args.putString("deadLine", savingGoal.getDeadline());
                     args.putString("priority", savingGoal.getPriority());
+                    args.putString("accountType", "AccountHolder");
 
                     Fragment editGoalFrag = new SavingGoalsEditFragment();
                     editGoalFrag.setArguments(args);

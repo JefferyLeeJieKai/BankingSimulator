@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 import com.jefferystudio.bankingsimulator.BankNote.IssueNotesRecyclerView.IssueNotesRecyclerViewAdaptor;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
+import com.jefferystudio.bankingsimulator.OTP.OTPFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
@@ -83,78 +84,16 @@ public class IssueBanknoteFragment extends Fragment {
                     float totalAmount = (2 * Float.valueOf(twodollars)) + (5 * Float.valueOf(fivedollars)) +
                             (10 * Float.valueOf(tendollars)) + (50 * Float.valueOf(fiftydollars));
 
-                    String result = "";
+                    args.putString("accountholderCreds", accountholderCreds);
+                    args.putString("totalAmount", Float.toString(totalAmount));
+                    args.putString("flag", "IssueNotes");
 
-                    try {
+                    Fragment otpFrag = new OTPFragment();
+                    otpFrag.setArguments(args);
 
-                        result = new IssueNotesAsync(getActivity(), userID, accountholderCreds,
-                                                     Float.toString(totalAmount))
-                                 .execute()
-                                .get(5000, TimeUnit.MILLISECONDS);
-                    }
-                    catch(Exception e) {
-
-                    }
-
-                    String[] resultArray = result.split(",");
-
-                    if(resultArray[0].equals("Success")) {
-
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setTitle("DigiBank Alert");
-                        builder.setMessage("Notes are issued successfully.\n" +
-                                           "Do you want to issue another set?");
-
-                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                                accountholderCredsInput.getText().clear();
-                                twoDollarsInput.getText().clear();
-                                fiveDollarsInput.getText().clear();
-                                tenDollarsInput.getText().clear();
-                                fiftyDollarsInput.getText().clear();
-
-                                new RetrieveNotesAsync(getActivity(), userID, "viewBanker", issuedNotesView).execute();
-                            }
-                        });
-
-                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                                Bundle newArgs = new Bundle();
-                                newArgs.putString("userID", args.getString("userID"));
-                                newArgs.putString("userName", args.getString("userName"));
-
-                                Fragment homeFrag = new HomeFragmentBanker();
-                                homeFrag.setArguments(newArgs);
-                                getActivity().getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.frame_layout, homeFrag)
-                                        .commit();
-                            }
-                        });
-
-                        AlertDialog alert = builder.create();
-                        alert.show();
-                    }
-                    else if(resultArray[0].equals("Fail")) {
-
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setTitle("DigiBank Alert");
-                        builder.setMessage(resultArray[1]);
-
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                                accountholderCredsInput.getText().clear();
-                            }
-                        });
-
-                        AlertDialog alert = builder.create();
-                        alert.show();
-                    }
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, otpFrag)
+                            .commit();
                 }
                 else {
 

@@ -101,6 +101,7 @@ public class SavingGoalsViewFragment extends Fragment {
                     newArgs.putString("userID", args.getString("userID"));
                     newArgs.putString("userName", args.getString("userName"));
                     newArgs.putString("currentBalance", args.getString("currentBalance"));
+                    newArgs.putString("accountType", "AccountHolder");
                     viewAllSavingGoalsFrag.setArguments(newArgs);
 
                     getActivity().getSupportFragmentManager().beginTransaction()
@@ -115,6 +116,7 @@ public class SavingGoalsViewFragment extends Fragment {
                     newArgs.putString("userName", args.getString("bankerUsername"));
                     newArgs.putString("classID", args.getString("classID"));
                     newArgs.putString("className", args.getString("className"));
+                    newArgs.putString("accountType", "Banker");
                     viewStudSavingGoalsFrag.setArguments(newArgs);
 
                     getActivity().getSupportFragmentManager().beginTransaction()

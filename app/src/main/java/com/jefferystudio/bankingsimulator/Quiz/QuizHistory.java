@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
@@ -24,6 +25,7 @@ public class QuizHistory extends AppCompatActivity {
     private CircleImageView profilePic;
     private Button backbtn;
     private Bundle args;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,5 +58,9 @@ public class QuizHistory extends AppCompatActivity {
 
             }
         });
+
+        recyclerView = recyclerView.findViewById(R.id.quizResultDetailsRv);
+        new GetQuizDetailsAsync(this, "GetScores", recyclerView)
+                .execute( args.getString("userID"), args.getString("userName"));
     }
 }

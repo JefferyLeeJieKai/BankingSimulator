@@ -65,6 +65,7 @@ public class HomeFragmentUser extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment_user, container, false);
 
         args = getArguments();
+        args.putString("accountType", "AccountHolder");
 
         profilePic = view.findViewById(R.id.profilephotomain);
         try {

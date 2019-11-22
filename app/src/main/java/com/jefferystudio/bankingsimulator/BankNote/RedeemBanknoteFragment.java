@@ -56,10 +56,7 @@ public class RedeemBanknoteFragment extends Fragment {
             public void onClick(View v) {
 
                 Fragment homeFrag = new HomeFragmentUser();
-                Bundle homeBundle = new Bundle();
-                homeBundle.putString("userID", userID);
-                homeBundle.putString("userName", args.getString("userName"));
-                homeFrag.setArguments(homeBundle);
+                homeFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, homeFrag)

@@ -52,9 +52,7 @@ public class ViewTransactionsFragment extends Fragment {
             public void onClick(View v) {
 
                 Fragment homeFrag = new HomeFragmentUser();
-                Bundle homeBundle = new Bundle();
-                homeBundle.putString("userID", currentUserID);
-                homeFrag.setArguments(homeBundle);
+                homeFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, homeFrag)

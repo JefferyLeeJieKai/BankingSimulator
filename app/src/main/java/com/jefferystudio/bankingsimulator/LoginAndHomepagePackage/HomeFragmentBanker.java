@@ -67,6 +67,7 @@ public class HomeFragmentBanker extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment_banker, container, false);
 
         args = getArguments();
+        args.putString("accountType", "Banker");
 
         bankerList = new ArrayList<>();
         new RetriveBankerListAsync(getActivity()).execute(args.getString("userID"));

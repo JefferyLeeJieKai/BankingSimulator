@@ -5,6 +5,10 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
+import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.Registration.RegistrationFragment;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -20,6 +24,7 @@ public class UpdateStudentListAsync extends AsyncTask<String, String, String>{
     private String username;
     private String classID;
     private String className;
+    private String flag;
 
     public UpdateStudentListAsync(Context context, String bankerID, String username, String classID,
                                   String className) {
@@ -90,5 +95,10 @@ public class UpdateStudentListAsync extends AsyncTask<String, String, String>{
 
         progDialog.dismiss();
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+
+        RegistrationFragment fragment = (RegistrationFragment) ((HomeScreenBanker)context).getSupportFragmentManager()
+                    .findFragmentById(R.id.frame_layout);
+
+        fragment.updateResult(result);
     }
 }

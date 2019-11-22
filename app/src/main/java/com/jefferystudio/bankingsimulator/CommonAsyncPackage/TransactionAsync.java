@@ -251,6 +251,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     Bundle newArgs = new Bundle();
                     newArgs.putString("userID", userID);
                     newArgs.putString("userName", userName);
+                    newArgs.putString("accountType", "AccountHolder");
 
                     if(flag.equals("DepositUser")) {
 
@@ -291,6 +292,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     Bundle args = new Bundle();
                     args.putString("userID", userID);
                     args.putString("userName", userName);
+                    args.putString("accountType", "AccountHolder");
                     homeFrag.setArguments(args);
 
                     homeScreenUserActivity.getSupportFragmentManager().beginTransaction()
@@ -328,6 +330,7 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
                     Bundle args = new Bundle();
                     args.putString("userID", bankerID);
                     args.putString("userName", userName);
+                    args.putString("accountType", "Banker");
                     homeFrag.setArguments(args);
 
                     homeScreenBankerActivity.getSupportFragmentManager().beginTransaction()
