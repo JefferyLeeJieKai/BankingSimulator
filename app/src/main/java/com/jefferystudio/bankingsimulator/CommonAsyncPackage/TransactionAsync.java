@@ -341,7 +341,6 @@ public class TransactionAsync extends AsyncTask <String, String, String> {
             new UpdateSavingGoalsAsync(context, "SaveMoney", userName)
                         .execute(userID, goalID, amountToUpdate);
 
-
         }
         else if(resultArray[0].equals("False")) {
 

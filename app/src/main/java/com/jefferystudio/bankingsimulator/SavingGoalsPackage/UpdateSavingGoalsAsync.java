@@ -104,7 +104,17 @@ public class UpdateSavingGoalsAsync extends AsyncTask<String, String, String> {
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         progDialog.dismiss();
 
-        SavingGoalsAddAmountFragment fragment = (SavingGoalsAddAmountFragment) ((HomeScreenUser)context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-        fragment.updateResult(result);
+        if(flag.equals("SaveMoney")) {
+
+            SavingGoalsAddAmountFragment fragment = (SavingGoalsAddAmountFragment)((HomeScreenUser) context)
+                                                    .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+            fragment.updateResult(result);
+        }
+        else {
+
+            SavingGoalsEditFragment fragment = (SavingGoalsEditFragment)((HomeScreenUser) context)
+                                               .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+            fragment.updateResult(result, flag);
+        }
     }
 }

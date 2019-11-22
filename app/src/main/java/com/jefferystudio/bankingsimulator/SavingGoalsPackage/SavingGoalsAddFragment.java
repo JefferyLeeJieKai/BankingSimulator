@@ -3,11 +3,13 @@ package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -212,5 +214,84 @@ public class SavingGoalsAddFragment extends Fragment {
         }
 
         return result;
+    }
+
+    public void updateResult(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("True")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage(resultArray[1] + " Do you want to key in a new goal?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    savingGoalAmount.getEditText().getText().clear();
+                    savingGoalName.getEditText().getText().clear();
+                    etDate.getText().clear();
+                    priority.setSelection(0);
+                }
+
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment homeFrag = new HomeFragmentUser();
+                    Bundle args = new Bundle();
+                    args.putString("userID", currentID);
+                    args.putString("userName", userName);
+                    homeFrag.setArguments(args);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, homeFrag)
+                            .commit();
+                }
+            });
+
+            AlertDialog quitDialog = builder.create();
+            quitDialog.show();
+        }
+        else if(resultArray[0].equals("False")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage(resultArray[1] + " Do you want to retry your action?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                }
+
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Fragment homeFrag = new HomeFragmentUser();
+                    Bundle args = new Bundle();
+                    args.putString("userID", currentID);
+                    args.putString("userName", userName);
+                    homeFrag.setArguments(args);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_layout, homeFrag)
+                            .commit();
+                }
+            });
+
+            AlertDialog quitDialog = builder.create();
+            quitDialog.show();
+        }
     }
 }
