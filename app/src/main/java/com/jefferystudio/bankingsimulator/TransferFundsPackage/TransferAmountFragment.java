@@ -22,6 +22,7 @@ import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
 import com.jefferystudio.bankingsimulator.OTP.OTPFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.CheckUserExistsAsync;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -81,22 +82,7 @@ public class TransferAmountFragment extends Fragment{
                 currentPayee = payee.getEditText().getText().toString().trim();
                 input = amountToTransfer.getEditText().getText().toString().trim();
 
-                if(!validatePayee() | !validateAmount() || !validateLimit()) {
-
-                    return;
-                }
-                else {
-
-                   args.putString("flag", "Transfer");
-                   args.putString("payee", currentPayee);
-                   args.putString("input", input);
-                   Fragment otpFrag = new OTPFragment();
-                   otpFrag.setArguments(args);
-
-                   getActivity().getSupportFragmentManager().beginTransaction()
-                           .replace(R.id.frame_layout, otpFrag)
-                           .commit();
-                }
+                new CheckUserExistsAsync(getActivity(), payee).execute(currentPayee);
             }
         });
 
@@ -107,7 +93,6 @@ public class TransferAmountFragment extends Fragment{
     private boolean validatePayee() {
 
         boolean result = Validation.validateEmpty(currentPayee, payee);
-
         //if not empty
         if (result) {
 
@@ -141,6 +126,26 @@ public class TransferAmountFragment extends Fragment{
         }
 
         return result;
+    }
+
+    public void performCheck() {
+
+        if(!validatePayee() | !validateAmount() || !validateLimit()) {
+
+            return;
+        }
+        else {
+
+            args.putString("flag", "Transfer");
+            args.putString("payee", currentPayee);
+            args.putString("input", input);
+            Fragment otpFrag = new OTPFragment();
+            otpFrag.setArguments(args);
+
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frame_layout, otpFrag)
+                    .commit();
+        }
     }
 
     /*
