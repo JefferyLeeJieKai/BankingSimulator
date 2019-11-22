@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
@@ -10,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
@@ -34,7 +36,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     private TextInputLayout passwordTextBox;
     private String username;
     private ArrayList<String> errorList = new ArrayList<String>();
-    private LoginScreen test;
+    private Dialog dialog;
     private TextView progressBar;
 
     public SignInAsync(Context context, TextInputLayout usernameTextBox, TextInputLayout passwordTextBox) {
@@ -47,8 +49,11 @@ public class SignInAsync extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
 
-        ((LoginScreen)context).setContentView(R.layout.loadingicon);
-        progressBar = ((LoginScreen)context).findViewById(R.id.text_view);
+        dialog = new Dialog(context, android.R.style.Theme_Light);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.loadingicon);
+        progressBar = dialog.findViewById(R.id.text_view);
+        dialog.show();
     }
 
     @Override
@@ -190,7 +195,7 @@ public class SignInAsync extends AsyncTask<String, String, String> {
         //Toast.makeText(context, errorList.get(0).toString(), Toast.LENGTH_LONG).show();
 
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-        ((LoginScreen)context).setContentView(R.layout.login_screen);
+        dialog.dismiss();
         progressBar.setVisibility(View.GONE);
 
         String[] resultArray = result.split(",");
