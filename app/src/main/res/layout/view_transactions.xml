@@ -10,19 +10,15 @@
     <TextView
         android:id="@+id/textView"
         app:layout_widthPercent="80%"
-        app:layout_heightPercent="9%"
+        app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
         android:text="TRANSACTIONS"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
+        android:padding="3dp"
+        android:gravity="center"
         android:textColor="#000000"
-        app:autoSizeTextType="uniform"  />
+        app:autoSizeTextType="uniform"
+          />
 
     <View
         android:id="@+id/line1"
@@ -79,44 +75,57 @@
     //display all transactions
     <android.support.v7.widget.RecyclerView
         android:id="@+id/transactionsDetailsRv"
-        android:layout_below="@+id/line2"
         app:layout_widthPercent="90%"
         app:layout_heightPercent="35%"
         android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="2%" />
+        app:layout_marginTopPercent="48%" />
 
     <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/transactionsDetailsRv"
+        android:id="@+id/date"
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="20%"
+        app:layout_marginLeftPercent="30%"
+        android:gravity="center"
         android:layout_below="@+id/profileview"
         app:layout_marginTopPercent="6%"
         android:text="Description"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="10%"
+        android:layout_alignLeft="@id/transactionsDetailsRv"
+        android:layout_below="@+id/profileview"
+        app:layout_marginTopPercent="6%"
+        android:text="Date"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/Amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="14%"
         android:layout_below="@+id/profileview"
-        android:layout_marginLeft="220dp"
+        android:layout_alignRight="@+id/transactionsDetailsRv"
+        app:layout_marginRightPercent="10%"
         app:layout_marginTopPercent="6%"
         android:text="Amount"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
 
     <View
         android:id="@+id/line2"
         android:layout_width="fill_parent"
         android:layout_height="0.5dp"
-        android:layout_below="@+id/description"
+        android:layout_below="@+id/date"
         app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 
     <Button
         android:id="@+id/backbtn"
-        android:layout_alignLeft="@id/textView"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         app:layout_marginBottomPercent="7%"
         app:layout_widthPercent="80%"
