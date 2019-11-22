@@ -28,6 +28,7 @@ public class IssueBanknoteFragment extends Fragment {
     private EditText tenDollarsInput;
     private EditText fiftyDollarsInput;
     private Button issueBankNote;
+    private Button backButton;
     private RecyclerView issuedNotesView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -171,6 +172,20 @@ public class IssueBanknoteFragment extends Fragment {
                     AlertDialog alert = builder.create();
                     alert.show();
                 }
+            }
+        });
+
+        backButton = view.findViewById(R.id.buttonback);
+        backButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Fragment homeFrag = new HomeFragmentBanker();
+                homeFrag.setArguments(args);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, homeFrag)
+                        .commit();
             }
         });
 
