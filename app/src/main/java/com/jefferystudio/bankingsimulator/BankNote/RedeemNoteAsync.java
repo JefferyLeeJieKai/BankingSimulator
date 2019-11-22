@@ -3,6 +3,11 @@ package com.jefferystudio.bankingsimulator.BankNote;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
+
+import com.jefferystudio.bankingsimulator.BankNote.RedeemNotesRecyclerView.RedeemNotesRecyclerViewAdaptor;
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
+import com.jefferystudio.bankingsimulator.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -75,5 +80,12 @@ public class RedeemNoteAsync extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
+
+        RedeemBanknoteFragment fragment = (RedeemBanknoteFragment)((HomeScreenUser)context).getSupportFragmentManager()
+                                          .findFragmentById(R.id.frame_layout);
+
+        RecyclerView recyclerView = fragment.getView().findViewById(R.id.detailsRv);
+        RedeemNotesRecyclerViewAdaptor adapter = (RedeemNotesRecyclerViewAdaptor)recyclerView.getAdapter();
+        adapter.updateRedeemedAmount(result);
     }
 }
