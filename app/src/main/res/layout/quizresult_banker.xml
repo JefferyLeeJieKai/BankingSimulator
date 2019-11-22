@@ -79,12 +79,12 @@
         android:layout_centerHorizontal="true"
         app:layout_heightPercent="32%"
         app:layout_marginTopPercent="46%"
-        app:layout_widthPercent="85%" />
+        app:layout_widthPercent="75%" />
 
     <TextView
         android:id="@+id/descriptionquiz"
         android:layout_alignLeft="@id/quizResultDetailsRv"
-        android:text="Quiz"
+        android:text="User"
         app:layout_heightPercent="3%"
         app:layout_widthPercent="11%"
         app:layout_marginTopPercent="41%"
@@ -93,13 +93,13 @@
 
     <TextView
         android:id="@+id/quizresult"
-        android:text="Search"
         android:layout_alignRight="@id/quizResultDetailsRv"
-        app:layout_heightPercent="3%"
-        android:layout_width="wrap_content"
-        app:layout_marginTopPercent="41%"
+        android:text="Result"
         android:textColor="#000000"
-        app:autoSizeTextType="uniform"/>
+        app:autoSizeTextType="uniform"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="41%"
+        app:layout_widthPercent="10%" />
 
     <View
         android:layout_width="fill_parent"

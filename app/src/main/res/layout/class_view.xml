@@ -26,6 +26,41 @@
         android:background="#000000"
         android:paddingBottom="10dip" />
 
+    <TextView
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="19%"
+        android:layout_below="@+id/title"
+        android:layout_alignLeft="@id/classDetailsRv"
+        app:layout_marginTopPercent="5%"
+        android:gravity="center_vertical"
+        android:text="Class Name"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform"
+        />
+
+    <TextView
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="30%"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        app:layout_marginTopPercent="5%"
+        android:text="No. of students"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="25%"
+        android:layout_below="@+id/title"
+        android:layout_alignRight="@+id/classDetailsRv"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="5%"
+        android:gravity="center_vertical"
+        android:text="Manage class"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/classDetailsRv"
         app:layout_widthPercent="90%"
