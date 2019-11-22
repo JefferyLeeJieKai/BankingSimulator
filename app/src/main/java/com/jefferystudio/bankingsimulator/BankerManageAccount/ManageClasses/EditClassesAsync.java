@@ -42,7 +42,7 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
 
         StringBuffer sb = new StringBuffer("");
 
-        if(flag.equals("DeleteClassFragment")) {
+        if(flag.equals("DeleteClass")) {
 
             String classID = args[0];
 
@@ -150,6 +150,6 @@ public class EditClassesAsync extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }

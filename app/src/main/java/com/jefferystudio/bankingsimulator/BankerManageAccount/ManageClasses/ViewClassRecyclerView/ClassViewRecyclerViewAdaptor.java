@@ -144,7 +144,7 @@ public class ClassViewRecyclerViewAdaptor extends RecyclerView.Adapter<ClassView
                          String returnMessage = "";
                          try {
 
-                             returnMessage = new EditClassesAsync(context, "DeleteClassFragment")
+                             returnMessage = new EditClassesAsync(context, "DeleteClass")
                                              .execute(classEntry.getClassID())
                                              .get(5000, TimeUnit.MILLISECONDS);
 

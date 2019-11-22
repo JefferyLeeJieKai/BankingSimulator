@@ -170,7 +170,7 @@ public class HomeFragmentBanker extends Fragment {
             @Override
             public void onClick(View v){
                 Fragment viewClassFrag = new ViewClassFragment();
-               viewClassFrag.setArguments(args);
+                viewClassFrag.setArguments(args);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, viewClassFrag);
                 transaction.commit();
