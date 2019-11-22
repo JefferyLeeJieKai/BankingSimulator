@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.ChangePassword;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.FingerprintSettingAsync;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
+import com.jefferystudio.bankingsimulator.OTP.OTPActivity;
 import com.jefferystudio.bankingsimulator.R;
 
 
@@ -38,9 +39,12 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
     private float dailyLimit;
     private float currentLimit;
     private int currentPosition;
+    private String truncatedLimit;
+    private float newCurrentLimit;
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String FINGER_LOCK = "fingerLock";
+    public static final int OTP_CODE = 200;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,7 +72,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
                 if(position != currentPosition) {
 
                     String newLimit = adapterView.getItemAtPosition(position).toString();
-                    final String truncatedLimit = newLimit.substring(1);
+                    /*final String*/ truncatedLimit = newLimit.substring(1);
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("DigiBank Alert");
                     builder.setMessage("Do you want to set daily limit to: " + newLimit + "?");
@@ -79,15 +83,20 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
                             float newLimitFloat = Float.valueOf(truncatedLimit);
                             float currentLimitDiff = newLimitFloat - dailyLimit;
-                            float newCurrentLimit = currentLimit + currentLimitDiff;
+                            newCurrentLimit = currentLimit + currentLimitDiff;
 
                             if (newCurrentLimit < 0) {
 
                                 newCurrentLimit = 0;
                             }
 
-                            new DailyLimitAsync(context, "UpdateLimit", dailyLimitSpinner).execute(args.getString("userID"), truncatedLimit,
-                                    Float.toString(newCurrentLimit));
+                            /*new DailyLimitAsync(context, "UpdateLimit", dailyLimitSpinner).execute(args.getString("userID"), truncatedLimit,
+                                    Float.toString(newCurrentLimit));*/
+                            Intent intent = new Intent(context, OTPActivity.class);
+                            args.putString("accountType", "OTP");
+                            args.putString("flag", "ChangeLimit");
+                            intent.putExtras(args);
+                            startActivityForResult(intent, OTP_CODE);
                         }
                     });
 
@@ -268,5 +277,22 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
     public String getCurrentDailyLimit() {
 
         return Float.toString(dailyLimit);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent result) {
+
+        super.onActivityResult(requestCode, resultCode, result);
+
+        if (requestCode == OTP_CODE) {
+
+            if (resultCode == RESULT_CANCELED) {
+
+
+            } else if (resultCode == RESULT_OK) {
+
+                new DailyLimitAsync(context, "UpdateLimit", dailyLimitSpinner).execute(args.getString("userID"), truncatedLimit,
+                        Float.toString(newCurrentLimit));
+            }
+        }
     }
 }

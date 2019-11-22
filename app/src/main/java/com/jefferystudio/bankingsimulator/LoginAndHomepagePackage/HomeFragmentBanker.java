@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.BankNote.IssueBanknoteFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CreateClassFragment;
@@ -21,6 +22,7 @@ import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.Dele
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.EditClassFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.ViewClassFragment;
 import com.jefferystudio.bankingsimulator.BankerManageAccount.account_create_ah1;
+import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetriveBankerListAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.DepositPackage.DepositBankerFragment;
 import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
@@ -30,6 +32,7 @@ import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.BankerSe
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -51,6 +54,7 @@ public class HomeFragmentBanker extends Fragment {
     private ImageButton btncreateacc;
     private ImageButton btnissuenotes;
     private CircleImageView profilePic;
+    private ArrayList<String> bankerList;
 
     public HomeFragmentBanker(){
 
@@ -63,6 +67,11 @@ public class HomeFragmentBanker extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment_banker, container, false);
 
         args = getArguments();
+
+        bankerList = new ArrayList<>();
+        new RetriveBankerListAsync(getActivity()).execute(args.getString("userID"));
+        args.putStringArrayList("BankerList", bankerList);
+
         greetingsMsg = view.findViewById(R.id.textView4);
         greetingsMsg.setText("Welcome to KidzSmart, " + args.getString("userName") + " (Banker)");
 
@@ -212,5 +221,22 @@ public class HomeFragmentBanker extends Fragment {
 
 
         return view;
+    }
+
+    public void updateBankerList(String result) {
+
+        try {
+            String[] resultArray = result.split(",");
+
+            for (int i = 0; i < resultArray.length; i += 2) {
+
+                String entry = resultArray[i + 1] + "     AccountNo: " + resultArray[i];
+                bankerList.add(entry);
+            }
+        }
+        catch(Exception e) {
+
+            Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
+        }
     }
 }

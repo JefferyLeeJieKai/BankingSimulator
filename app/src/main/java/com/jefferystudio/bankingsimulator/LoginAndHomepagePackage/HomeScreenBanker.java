@@ -37,7 +37,6 @@ public class HomeScreenBanker extends AppCompatActivity {
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
     private Fragment fragment;
-    private ArrayList<String> bankerList;
     private ImageButton buttontransfer;
     private Bundle args;
     private String userID;
@@ -54,10 +53,6 @@ public class HomeScreenBanker extends AppCompatActivity {
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
         context = this;
-
-        bankerList = new ArrayList<>();
-        new RetriveBankerListAsync(this).execute(userID);
-        args.putStringArrayList("BankerList", bankerList);
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(homeScreenToolbar);
@@ -318,22 +313,5 @@ public class HomeScreenBanker extends AppCompatActivity {
             quitDialog.show();
         }
 
-    }
-
-    public void updateBankerList(String result) {
-
-        try {
-            String[] resultArray = result.split(",");
-
-            for (int i = 0; i < resultArray.length; i += 2) {
-
-                String entry = resultArray[i + 1] + "     AccountNo: " + resultArray[i];
-                bankerList.add(entry);
-            }
-        }
-        catch(Exception e) {
-
-            Toast.makeText(this, result, Toast.LENGTH_LONG).show();
-        }
     }
 }

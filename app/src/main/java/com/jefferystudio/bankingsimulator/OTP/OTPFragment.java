@@ -1,5 +1,6 @@
 package com.jefferystudio.bankingsimulator.OTP;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -65,11 +66,11 @@ public class OTPFragment extends Fragment {
                     }
                     else if(args.getString("flag").equals("ChangeLimit")) {
 
-                        Intent intent = new Intent(getActivity(), UserSettings.class);
+                        Intent intent = new Intent();
+                        args.putString("accountType", "AccountHolder");
                         intent.putExtras(args);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                        startActivity(intent);
+                        getActivity().setResult(Activity.RESULT_OK,intent);
+                        getActivity().finish();
                     }
                 }
                 else {

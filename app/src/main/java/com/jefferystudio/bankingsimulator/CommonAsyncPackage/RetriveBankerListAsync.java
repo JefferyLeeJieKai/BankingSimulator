@@ -4,7 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
+import com.jefferystudio.bankingsimulator.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -78,6 +80,9 @@ public class RetriveBankerListAsync extends AsyncTask <String, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-        ((HomeScreenBanker)context).updateBankerList(result);
+        HomeFragmentBanker homeFrag = (HomeFragmentBanker)((HomeScreenBanker)context)
+                .getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+
+        homeFrag.updateBankerList(result);
     }
 }

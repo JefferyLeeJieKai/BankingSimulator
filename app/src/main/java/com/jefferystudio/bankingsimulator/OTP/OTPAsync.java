@@ -93,6 +93,10 @@ public class OTPAsync extends AsyncTask<String, String, String> {
 
             fragment = ((HomeScreenBanker)context).getSupportFragmentManager().findFragmentById(R.id.frame_layout);
         }
+        else if(flag.equals("OTP")) {
+
+            fragment = ((OTPActivity)context).getSupportFragmentManager().findFragmentById(R.id.otpFrame);
+        }
 
         ((OTPFragment)fragment).getActualVerifcationCode(result);
     }
