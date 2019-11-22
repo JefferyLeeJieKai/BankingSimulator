@@ -14,15 +14,19 @@
         app:layout_heightPercent="7%"
         app:layout_marginTopPercent="2%"
         android:layout_centerHorizontal="true"
-        android:text="VIEW SAVING GOALS"
-        android:elevation="20dp"
-        android:shadowColor="#666666"
-        android:shadowDx="20"
-        android:shadowDy="20"
-        android:fontFamily="@font/titan_one"
-        android:shadowRadius="20"
+        android:text="ACCOUNT HOLDER PARTICULARS"
+        android:padding="3dp"
+        android:gravity="center"
         android:textColor="#000000"
         app:autoSizeTextType="uniform" />
+
+    <View
+        android:layout_below="@id/particularstitle"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        app:layout_marginTopPercent="2%"
+        android:background="#000000"
+        android:paddingBottom="10dip" />
 
     <TextView
         android:id="@+id/textView3"
@@ -31,6 +35,7 @@
         android:layout_alignLeft="@+id/particularstitle"
         app:layout_heightPercent="42%"
         app:layout_widthPercent="80%"
+        app:layout_marginTopPercent="7%"
         android:background="#CCEEEEEE"/>
 
     <TextView
@@ -39,9 +44,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/particularstitle"
-        app:layout_marginTopPercent="2%"
+        app:layout_marginTopPercent="9%"
         app:layout_marginLeftPercent="1%"
-        android:text="Student ID: "
+        android:text="Account ID: "
         android:textColor="#000000" />
 
     <TextView
@@ -50,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/textView3"
         android:layout_below="@+id/particularstitle"
-        app:layout_marginTopPercent="2%"
+        app:layout_marginTopPercent="9%"
         android:textColor="#000000" />
 
     <TextView
@@ -165,13 +170,15 @@
     <Button
         android:id="@+id/buttonback"
         app:layout_widthPercent="80%"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        app:layout_marginTopPercent="2%"
+        app:layout_heightPercent="7%"
+        android:layout_alignLeft="@+id/title"
         android:layout_centerHorizontal="true"
+        app:layout_marginBottomPercent="7%"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/buttonblue"
-        android:textColor="@color/buttonWord"
-        android:fontFamily="@font/titan_one"
+        android:textColor="@color/loginButtonText"
+        android:padding="12dp"
+        app:autoSizeTextType="uniform"
         android:text="BACK" />
 
 </android.support.percent.PercentRelativeLayout>
