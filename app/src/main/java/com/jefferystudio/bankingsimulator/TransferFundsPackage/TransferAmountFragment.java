@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
+import com.jefferystudio.bankingsimulator.OTP.OTPFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
 
@@ -32,6 +33,7 @@ public class TransferAmountFragment extends Fragment{
 
     private Bundle args;
     private String currentID;
+    private String currentUser;
     private String currentPayee;
     private TextView userID;
     private TextView currentLimit;
@@ -47,6 +49,7 @@ public class TransferAmountFragment extends Fragment{
 
         args = getArguments();
         currentID = args.getString("userID");
+        currentUser = args.getString("userName");
 
         userID = view.findViewById(R.id.payerLbl);
         userID.setText(currentID);
@@ -84,23 +87,15 @@ public class TransferAmountFragment extends Fragment{
                 }
                 else {
 
-                    String result = "";
+                   args.putString("flag", "Transfer");
+                   args.putString("payee", currentPayee);
+                   args.putString("input", input);
+                   Fragment otpFrag = new OTPFragment();
+                   otpFrag.setArguments(args);
 
-                    try {
-
-                        result = new TransactionAsync(getActivity(), "TransferFundsUser", args.getString("userName"))
-                                .execute(currentID, currentPayee, input)
-                                .get(5000, TimeUnit.MILLISECONDS);
-                    } catch (Exception e) {
-
-                    }
-
-                    String[] resultArray = result.split(",");
-
-                    if (resultArray[0].equals("True")) {
-
-                        new UpdateTransAsync(getActivity(), "TransferFunds").execute(currentID, input, currentPayee);
-                    }
+                   getActivity().getSupportFragmentManager().beginTransaction()
+                           .replace(R.id.frame_layout, otpFrag)
+                           .commit();
                 }
             }
         });

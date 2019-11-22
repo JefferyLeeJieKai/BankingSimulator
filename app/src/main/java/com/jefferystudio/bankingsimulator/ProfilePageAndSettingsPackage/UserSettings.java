@@ -38,6 +38,8 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
     private float dailyLimit;
     private float currentLimit;
     private int currentPosition;
+    private float newCurrentLimit;
+    private String truncatedLimit;
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String FINGER_LOCK = "fingerLock";
@@ -68,7 +70,7 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
                 if(position != currentPosition) {
 
                     String newLimit = adapterView.getItemAtPosition(position).toString();
-                    final String truncatedLimit = newLimit.substring(1);
+                    truncatedLimit = newLimit.substring(1);
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("DigiBank Alert");
                     builder.setMessage("Do you want to set daily limit to: " + newLimit + "?");
@@ -79,15 +81,18 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
 
                             float newLimitFloat = Float.valueOf(truncatedLimit);
                             float currentLimitDiff = newLimitFloat - dailyLimit;
-                            float newCurrentLimit = currentLimit + currentLimitDiff;
+                            newCurrentLimit = currentLimit + currentLimitDiff;
 
                             if (newCurrentLimit < 0) {
 
                                 newCurrentLimit = 0;
                             }
 
-                            new DailyLimitAsync(context, "UpdateLimit", dailyLimitSpinner).execute(args.getString("userID"), truncatedLimit,
-                                    Float.toString(newCurrentLimit));
+                            Intent intent = new Intent(getApplicationContext(), HomeScreenUser.class);
+                            intent.putExtras(args);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                            startActivity(intent);
                         }
                     });
 
@@ -268,5 +273,13 @@ public class UserSettings extends AppCompatActivity implements CompoundButton.On
     public String getCurrentDailyLimit() {
 
         return Float.toString(dailyLimit);
+    }
+
+    public void onRestart() {
+
+        super.onRestart();
+
+        new DailyLimitAsync(context, "UpdateLimit", dailyLimitSpinner).execute(args.getString("userID"), truncatedLimit,
+                Float.toString(newCurrentLimit));
     }
 }
