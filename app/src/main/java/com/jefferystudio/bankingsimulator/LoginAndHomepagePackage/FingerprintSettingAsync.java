@@ -104,7 +104,7 @@ public class FingerprintSettingAsync extends AsyncTask<Bundle, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-        
+
         if(flag.equals("enablefingerprintUser")) {
 
             ((UserSettings)context).fingerprintEnabledResult(result);

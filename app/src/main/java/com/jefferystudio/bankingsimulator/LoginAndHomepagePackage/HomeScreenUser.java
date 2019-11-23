@@ -323,15 +323,4 @@ public class HomeScreenUser extends AppCompatActivity {
         AlertDialog quitDialog = builder.create();
         quitDialog.show();
     }
-
-    public void onRestart() {
-
-        super.onRestart();
-
-        Fragment otpFragment = new OTPFragment();
-        args.putString("flag", "ChangeLimit");
-        otpFragment.setArguments(args);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, otpFragment).commit();
-    }
 }
