@@ -236,7 +236,7 @@ public class HomeFragmentBanker extends Fragment {
         }
         catch(Exception e) {
 
-            Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
         }
     }
 }

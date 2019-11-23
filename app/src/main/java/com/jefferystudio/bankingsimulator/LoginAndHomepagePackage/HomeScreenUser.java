@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -39,6 +41,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import java.io.File;
 import java.io.FileInputStream;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeScreenUser extends AppCompatActivity {
 
     private DrawerLayout drawer;
@@ -48,9 +52,8 @@ public class HomeScreenUser extends AppCompatActivity {
     private Bundle args;
     private String userID;
     private String currentBalance;
-    private ImageButton btnprofile;
+    private CircleImageView btnprofile;
     private Context context;
-    private ImageButton profilePic;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -75,24 +78,10 @@ public class HomeScreenUser extends AppCompatActivity {
 
             @Override
             public void onDrawerClosed(View drawerView) {
+
                 super.onDrawerClosed(drawerView);
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
-                profilePic = (ImageButton)findViewById(R.id.profileBtn);
-                try {
-                    ContextWrapper cw = new ContextWrapper(getApplication());
-                    File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-                    File profilePicFile = new File(directory, "ProfilePicture.jpg");
-                    Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
-                    profilePic.setImageBitmap(picture);
-                }
-                catch(Exception e) {
-
-                }
             }
-
-
-
         };
 
         drawer.addDrawerListener(toggle);
@@ -155,96 +144,6 @@ public class HomeScreenUser extends AppCompatActivity {
                     fragment.setArguments(args);
                 }
 
-                /*
-                else if(item.getItemId() == R.id.enableFingerprint) {
-
-                    SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
-
-                    if(pref.getString("userID", "NotFound").equals("NotFound")) {
-
-                        SharedPreferences myPrefs = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = myPrefs.edit();
-                        editor.putString("userID", args.getString("userID"));
-                        editor.putString("username", args.getString("userName"));
-                        editor.apply();
-
-                        String result = "";
-
-                        try {
-
-                            result = new FingerprintLoginAsync(context, "enablefingerprint", args.getString("userID"))
-                                    .execute()
-                                    .get(5000, TimeUnit.MILLISECONDS);
-                        }
-                        catch(Exception e) {
-
-                        }
-
-                        String[] resultArray = result.split(",");
-
-                        if(resultArray[0].equals("Success")) {
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-                            builder.setTitle("DigiBank Alert");
-                            builder.setMessage("Fingerprint enabled!");
-
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                                public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                                }
-                            });
-
-                            AlertDialog fingerprintSettingsDialog = builder.create();
-                            fingerprintSettingsDialog.show();
-                        }
-                    }
-                    else {
-
-                        SharedPreferences myPrefs = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = myPrefs.edit();
-                        editor.clear();
-                        editor.apply();
-
-                        String result = "";
-
-                        try {
-
-                            result = new FingerprintLoginAsync(context, "disablefingerprint", args.getString("userID"))
-                                    .execute()
-                                    .get(5000, TimeUnit.MILLISECONDS);
-                        }
-                        catch(Exception e) {
-
-                        }
-
-                        String[] resultArray = result.split(",");
-
-                        if(resultArray[0].equals("Success")) {
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-                            builder.setTitle("DigiBank Alert");
-                            builder.setMessage("Fingerprint disabled!");
-
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                                public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                                }
-                            });
-
-                            AlertDialog fingerprintSettingsDialog = builder.create();
-                            fingerprintSettingsDialog.show();
-                        }
-                    }
-                }
-
-               */
-
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, fragment);
                 transaction.commit();
@@ -255,17 +154,27 @@ public class HomeScreenUser extends AppCompatActivity {
             }
         });
 
-        btnprofile = (ImageButton) navigationView.getHeaderView(0).findViewById(R.id.profileBtn);
+        btnprofile = navigationView.getHeaderView(0).findViewById(R.id.profileBtn);
+        SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+        if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
 
-        btnprofile.setOnClickListener(new View.OnClickListener() {
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            imageLoader.displayImage(pref.getString("imageLink", "NotFound"), btnprofile);
+        }
+        btnprofile.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onTouch(View view, MotionEvent event) {
 
-                Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
-                intent.putExtras(args);
-                startActivity(intent);
-                drawer.closeDrawer(Gravity.START);
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
+                    intent.putExtras(args);
+                    startActivity(intent);
+                    drawer.closeDrawer(Gravity.START);
 
+                    return true;
+                }
+
+                return false;
             }
         });
     }

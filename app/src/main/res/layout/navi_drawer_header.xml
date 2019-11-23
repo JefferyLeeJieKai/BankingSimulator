@@ -12,13 +12,12 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:padding="1dp"
         android:layout_marginTop="20dp"
-        android:scaleType="fitCenter"
         android:background="@drawable/displayphoto" />
 
     <TextView
