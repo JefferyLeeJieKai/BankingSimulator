@@ -60,6 +60,7 @@ public class QuizHistoryBanker extends Fragment {
             }
         });
 
+        /*
         profilePic = view.findViewById(R.id.profilephoto);
         try {
 
@@ -72,6 +73,8 @@ public class QuizHistoryBanker extends Fragment {
         catch(Exception e) {
 
         }
+
+         */
 
         students = view.findViewById(R.id.quizResultDetailsRv);
         new GetQuizDetailsAsync(getActivity(), "GetStudents", students)

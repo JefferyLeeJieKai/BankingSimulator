@@ -20,6 +20,7 @@
         />
 
     <View
+        android:id="@+id/line1"
         android:layout_below="@id/title"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
@@ -29,82 +30,46 @@
 
 
     //display account holder's profile
-    <View
-        android:id="@+id/viewbox"
-        app:layout_widthPercent="85%"
-        app:layout_heightPercent="19%"
-        app:layout_marginTopPercent="15%"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/emptyrect" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilephoto"
-        app:layout_widthPercent="27%"
-        app:layout_heightPercent="15%"
-        android:layout_alignLeft="@id/title"
-        app:layout_marginTopPercent="17%"
-        android:backgroundTint="#D3D3D3"
-        android:background="@drawable/accountcircle"
-        app:civ_border_color="#FFFFFF"
-        app:civ_border_width="0dp"
-        />
-
-    <TextView
-        android:id="@+id/usernameLbl"
-        android:layout_alignRight="@id/title"
-        android:layout_alignTop="@id/viewbox"
-        app:layout_marginTopPercent="5%"
-        app:layout_widthPercent="47%"
-        app:layout_heightPercent="4%"
-        android:textColor="#000000"
-        android:padding="3dp"
-        app:autoSizeTextType="uniform" />
-
-    <TextView
-        android:id="@+id/balanceLbl"
-        android:layout_alignRight="@id/title"
-        android:layout_alignTop="@id/viewbox"
-        app:layout_marginTopPercent="10%"
-        app:layout_widthPercent="47%"
-        app:layout_heightPercent="4%"
-        android:textColor="#000000"
-        android:padding="3dp"
-        app:autoSizeTextType="uniform" />
 
     //display all transactions
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/quizResultDetailsRv"
-        android:layout_alignTop="@id/title"
         android:layout_centerHorizontal="true"
-        app:layout_heightPercent="32%"
-        app:layout_marginTopPercent="46%"
+        android:layout_below="@id/line2"
+        app:layout_heightPercent="52%"
+        app:layout_marginTopPercent="3%"
         app:layout_widthPercent="75%" />
 
     <TextView
         android:id="@+id/descriptionquiz"
         android:layout_alignLeft="@id/quizResultDetailsRv"
+        android:layout_below="@+id/line1"
         android:text="User"
         app:layout_heightPercent="3%"
         app:layout_widthPercent="11%"
-        app:layout_marginTopPercent="41%"
+        app:layout_marginTopPercent="6%"
         android:textColor="#000000"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/quizresult"
         android:layout_alignRight="@id/quizResultDetailsRv"
-        android:text="Result"
+        android:layout_below="@id/line1"
+        android:text="View Result"
         android:textColor="#000000"
         app:autoSizeTextType="uniform"
         app:layout_heightPercent="3%"
-        app:layout_marginTopPercent="41%"
-        app:layout_widthPercent="10%" />
+        app:layout_marginTopPercent="6%"
+        app:layout_widthPercent="20%" />
 
     <View
+        android:id="@+id/line2"
         android:layout_width="fill_parent"
         android:layout_height="0.5dp"
+        android:layout_below="@+id/descriptionquiz"
         android:layout_centerHorizontal="true"
-        app:layout_marginTopPercent="45%"
+        app:layout_marginTopPercent="2%"
         android:background="#000000"
         android:paddingBottom="10dip" />
 

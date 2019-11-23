@@ -19,8 +19,9 @@
         android:id="@+id/viewScores"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginRight="35dp"
         android:background="@drawable/ic_search_black_24dp"
-        android:backgroundTint="#A9A9A9"
+        android:backgroundTint="#000000"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         />
