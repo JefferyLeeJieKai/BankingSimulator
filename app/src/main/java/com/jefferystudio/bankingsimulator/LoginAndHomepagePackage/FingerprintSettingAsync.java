@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.BankerSettings;
@@ -45,11 +46,11 @@ public class FingerprintSettingAsync extends AsyncTask<Bundle, String, String> {
 
         progDialog = new ProgressDialog(context);
 
-        if(flag.equals("enablefingerprint")) {
+        if(flag.equals("enablefingerprintUser") || flag.equals("enablefingerprintBanker")) {
 
             progDialog.setMessage("Handling fingerprint enable request");
         }
-        else if(flag.equals("disablefingerprint")) {
+        else if(flag.equals("disablefingerprintUser") || flag.equals("disablefingerprintBanker")) {
 
             progDialog.setMessage("Handling fingerprint disable request");
         }
@@ -103,7 +104,7 @@ public class FingerprintSettingAsync extends AsyncTask<Bundle, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-
+        
         if(flag.equals("enablefingerprintUser")) {
 
             ((UserSettings)context).fingerprintEnabledResult(result);
