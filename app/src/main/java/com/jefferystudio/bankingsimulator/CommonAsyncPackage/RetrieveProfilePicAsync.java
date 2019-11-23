@@ -52,10 +52,10 @@ public class RetrieveProfilePicAsync extends AsyncTask<String, String, String> {
 
         try {
 
-            URL url = new URL(link);
-            URLConnection connection = url.openConnection();
+            //URL url = new URL(link);
+            //URLConnection connection = url.openConnection();
 
-            InputStream inputStream = connection.getInputStream();
+            InputStream inputStream = new java.net.URL(link).openStream();
             bitmap = BitmapFactory.decodeStream(inputStream);
             inputStream.close();
 

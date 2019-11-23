@@ -3,6 +3,7 @@ package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import com.jefferystudio.bankingsimulator.Quiz.QuizHistoryBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBankerFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.BankerSettings;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -87,19 +89,13 @@ public class HomeFragmentBanker extends Fragment {
         //btncreateacc = view.findViewById(R.id.btncreateacc);
         btnissuenotes = view.findViewById(R.id.btnissuenotes);
 
-        profilePic = view.findViewById(R.id.profilephotomain);
-        try {
-            ContextWrapper cw = new ContextWrapper(getActivity());
-            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.png");
-            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
-            profilePic.setImageBitmap(picture);
+        profilePic = view.findViewById(R.id.profilephoto);
+        SharedPreferences pref = getActivity().getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+        if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
+
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            imageLoader.displayImage(pref.getString("imageLink", "NotFound"), profilePic);
         }
-        catch(Exception e) {
-
-        }
-
-
 
         btnsettings.setOnClickListener(new View.OnClickListener() {
             @Override

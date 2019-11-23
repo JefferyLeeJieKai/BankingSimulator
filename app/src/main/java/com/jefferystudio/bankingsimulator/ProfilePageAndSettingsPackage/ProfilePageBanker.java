@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
 import com.jefferystudio.bankingsimulator.ImageCropper.ImageCropActivity;
 import com.jefferystudio.bankingsimulator.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -95,19 +97,12 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
             });
 
         profilePic = (CircleImageView)findViewById(R.id.profilephoto);
-        try {
+        SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+        if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
 
-            ContextWrapper cw = new ContextWrapper(getApplication());
-            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.jpg");
-            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
-            profilePic.setImageBitmap(picture);
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            imageLoader.displayImage(pref.getString("imageLink", "NotFound"), profilePic);
         }
-        catch(Exception e) {
-
-        }
-
-
     }
 
     public void openDialogName(){
@@ -156,33 +151,11 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                    ContextWrapper cw = new ContextWrapper(context);
-                    File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-                    File file = new File(directory, "ProfilePicture.jpg");
+                    SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+                    if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
 
-                    String result = "";
-                    try {
-
-                        result = new RetrieveProfilePicAsync(context, file, errorList)
-                                .execute("https://www.kidzsmartapp.com/ProfilePicsUpload/" + userID + ".jpg")
-                                .get(5000, TimeUnit.MILLISECONDS);
-                    }
-                    catch(Exception e) {
-
-                    }
-
-                    String[] resultArray = result.split(",");
-
-                    if(resultArray[0].equals("Success")) {
-
-                        try {
-
-                            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(file));
-                            profilepic.setImageBitmap(picture);
-                        }
-                        catch(Exception e) {
-
-                        }
+                        ImageLoader imageLoader = ImageLoader.getInstance();
+                        imageLoader.displayImage(pref.getString("imageLink", "NotFound"), profilePic);
                     }
                 }
             });

@@ -3,6 +3,7 @@ package com.jefferystudio.bankingsimulator.LoginAndHomepagePackage;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -28,6 +29,7 @@ import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactio
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.UserSettings;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAHFragment;
 import com.jefferystudio.bankingsimulator.SavingGoalsPackage.GoalsPage;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -67,17 +69,12 @@ public class HomeFragmentUser extends Fragment {
         args = getArguments();
         args.putString("accountType", "AccountHolder");
 
-        profilePic = view.findViewById(R.id.profilephotomain);
-        try {
+        profilePic = view.findViewById(R.id.profilephoto);
+        SharedPreferences pref = getActivity().getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+        if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
 
-            ContextWrapper cw = new ContextWrapper(getActivity());
-            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.jpg");
-            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
-            profilePic.setImageBitmap(picture);
-        }
-        catch(Exception e) {
-
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            imageLoader.displayImage(pref.getString("imageLink", "NotFound"), profilePic);
         }
 
         greetingsMsg = view.findViewById(R.id.textView4);

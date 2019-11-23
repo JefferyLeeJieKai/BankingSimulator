@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -100,7 +101,7 @@ public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
 
         if (resultArray[0].equals("True")) {
 
-            publishProgress("60");
+            publishProgress("70");
 
             Intent intent = null;
 
@@ -114,45 +115,32 @@ public class FingerprintLoginAsync extends AsyncTask<Bundle, String, String> {
 
             }
 
+            publishProgress("85");
+
             if(!resultArray[2].equals("NoImage")) {
 
+                publishProgress("100");
 
-                ContextWrapper cw = new ContextWrapper(context);
-                File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-                File file = new File(directory, "ProfilePicture.jpg");
+                SharedPreferences myPrefs = context.getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = myPrefs.edit();
+                editor.putString("imageLink", resultArray[2]);
+                editor.apply();
 
-                String catchString = "";
+                intent.putExtras(args);
 
-                try {
+                context.startActivity(intent);
 
-                    catchString = new RetrieveProfilePicAsync(context, file, errorList)
-                            .execute(resultArray[2])
-                            .get(5000, TimeUnit.MILLISECONDS);
+                ((Activity) context).finish();
 
-                    publishProgress("90");
-
-                }
-                catch (Exception e) {
-
-
-                }
-
-                //String[] catchStringArray = catchString.split(",");
-
-                //if(catchStringArray[0].equals("Success")) {
-
-                    publishProgress("100");
-
-                    intent.putExtras(args);
-
-                    //progDialog.dismiss();
-
-                    context.startActivity(intent);
-
-                    ((Activity) context).finish();
-                //}
             }
             else {
+
+                publishProgress("100");
+
+                SharedPreferences myPrefs = context.getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = myPrefs.edit();
+                editor.putString("imageLink", "NoImage");
+                editor.apply();
 
                 intent.putExtras(args);
 

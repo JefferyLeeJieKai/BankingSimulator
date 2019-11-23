@@ -33,6 +33,8 @@ import com.jefferystudio.bankingsimulator.TransferFundsPackage.TransferAmountFra
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsFragment;
 import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAHFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.ProfilePage;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,6 +60,9 @@ public class HomeScreenUser extends AppCompatActivity {
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
         context = this;
+
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
+        ImageLoader.getInstance().init(config);
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(homeScreenToolbar);

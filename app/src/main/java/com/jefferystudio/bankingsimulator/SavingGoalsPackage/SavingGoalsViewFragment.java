@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator.SavingGoalsPackage;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.jefferystudio.bankingsimulator.BankerManageAccount.ManageClasses.CheckSavingGoalsFragment;
 import com.jefferystudio.bankingsimulator.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -80,15 +82,11 @@ public class SavingGoalsViewFragment extends Fragment {
         savingsBar.setProgress(percentage);
 
         profilePic = view.findViewById(R.id.profilephoto);
-        try {
-            ContextWrapper cw = new ContextWrapper(getActivity());
-            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.jpg");
-            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
-            profilePic.setImageBitmap(picture);
-        }
-        catch(Exception e) {
+        SharedPreferences pref = getActivity().getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+        if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
 
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            imageLoader.displayImage(pref.getString("imageLink", "NotFound"), profilePic);
         }
 
         backbtn.setOnClickListener(new View.OnClickListener() {

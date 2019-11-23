@@ -2,6 +2,7 @@ package com.jefferystudio.bankingsimulator.DepositPackage;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeFragmentUs
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -64,15 +66,11 @@ public class DepositConfirmUserFragment extends Fragment {
         TextViewdate.setText(date);
 
         profilePic = view.findViewById(R.id.profilephoto);
-        try {
-            ContextWrapper cw = new ContextWrapper(getActivity());
-            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-            File profilePicFile = new File(directory, "ProfilePicture.jpg");
-            Bitmap picture = BitmapFactory.decodeStream(new FileInputStream(profilePicFile));
-            profilePic.setImageBitmap(picture);
-        }
-        catch(Exception e) {
+        SharedPreferences pref = getActivity().getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+        if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
 
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            imageLoader.displayImage(pref.getString("imageLink", "NotFound"), profilePic);
         }
 
         confirmButton.setOnClickListener(new View.OnClickListener() {

@@ -29,6 +29,8 @@ import com.jefferystudio.bankingsimulator.DepositPackage.DepositBankerFragment;
 import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.ProfilePageBanker;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.ViewTransactionsPackage.ViewTransactionsBankerFragment;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.util.ArrayList;
 
@@ -52,6 +54,9 @@ public class HomeScreenBanker extends AppCompatActivity {
         userID = args.getString("userID");
         currentBalance = args.getString("currentBalance");
         context = this;
+
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
+        ImageLoader.getInstance().init(config);
 
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(homeScreenToolbar);

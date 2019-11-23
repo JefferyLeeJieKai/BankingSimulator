@@ -59,7 +59,7 @@ public class QuizHistoryBankerScoreView extends Fragment {
 
 
 
-        profilePic = view.findViewById(R.id.profilephotomain);
+        profilePic = view.findViewById(R.id.profilephoto);
         try {
             ContextWrapper cw = new ContextWrapper(getActivity());
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
