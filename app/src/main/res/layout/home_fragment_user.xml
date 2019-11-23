@@ -15,7 +15,7 @@
         android:layout_height="match_parent" >
 
 
-        <RelativeLayout
+        <android.support.percent.PercentRelativeLayout
             android:id="@+id/relativeLayout1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
@@ -27,10 +27,11 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profilephoto"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginLeft="250dp"
+                app:layout_widthPercent="28%"
+                app:layout_heightPercent="88%"
+                app:layout_marginTopPercent="7%"
+                app:layout_marginLeftPercent="64%"
+                android:layout_alignLeft="@id/textView4"
                 android:backgroundTint="#D3D3D3"
                 android:background="@drawable/accountcircle"
                 app:civ_border_color="#FFFFFF"
@@ -55,7 +56,7 @@
                 android:textColor="#FFFFFF"
                 app:autoSizeTextType="uniform" />
 
-        </RelativeLayout>
+        </android.support.percent.PercentRelativeLayout>
 
         <RelativeLayout
             android:id="@+id/relativeLayout2"
