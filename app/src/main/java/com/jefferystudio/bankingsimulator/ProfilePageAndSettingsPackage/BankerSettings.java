@@ -103,40 +103,7 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
                 editor.putString("username", args.getString("userName"));
                 editor.apply();
 
-                String result = "";
-
-                try {
-
-                    result = new FingerprintSettingAsync(this, "enablefingerprint", args.getString("userID"))
-                            .execute()
-                            .get(5000, TimeUnit.MILLISECONDS);
-                }
-                catch(Exception e) {
-
-                }
-
-                String[] resultArray = result.split(",");
-
-                if(resultArray[0].equals("Success")) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-                    builder.setTitle("DigiBank Alert");
-                    builder.setMessage("Fingerprint enabled!");
-                    updateFingerUnlock(true);
-                    fingerEnable.setText("FINGERPRINT ENABLED");
-
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                        }
-                    });
-
-                    AlertDialog fingerprintSettingsDialog = builder.create();
-                    fingerprintSettingsDialog.show();
-                }
+                new FingerprintSettingAsync(this, "enablefingerprintBanker", args.getString("userID")).execute();
             }
         }
 
@@ -146,43 +113,8 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
             editor.clear();
             editor.apply();
 
-            String result = "";
-
-            try {
-
-                result = new FingerprintSettingAsync(this, "disablefingerprint", args.getString("userID"))
-                        .execute()
-                        .get(5000, TimeUnit.MILLISECONDS);
-            }
-            catch(Exception e) {
-
-            }
-
-            String[] resultArray = result.split(",");
-
-            if(resultArray[0].equals("Success")) {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-                builder.setTitle("DigiBank Alert");
-                builder.setMessage("Fingerprint disabled!");
-                updateFingerUnlock(false);
-                fingerEnable.setText("FINGERPRINT DISABLED");
-
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                    }
-                });
-
-                AlertDialog fingerprintSettingsDialog = builder.create();
-                fingerprintSettingsDialog.show();
-            }
+            new FingerprintSettingAsync(this, "disablefingerprintBanker", args.getString("userID")).execute();
         }
-
-
     }
 
     private void updateFingerUnlock(boolean locknew) {
@@ -206,6 +138,58 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
 
         else if (lock == false){
             fingerEnable.setText("FINGERPRINT DISABLED");
+        }
+    }
+
+    public void fingerprintEnabledResult(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("Success")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Fingerprint enabled!");
+            updateFingerUnlock(true);
+            fingerEnable.setText("FINGERPRINT ENABLED");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                }
+            });
+
+            AlertDialog fingerprintSettingsDialog = builder.create();
+            fingerprintSettingsDialog.show();
+        }
+    }
+
+    public void fingerprintDisabledResult(String result) {
+
+        String[] resultArray = result.split(",");
+
+        if(resultArray[0].equals("Success")) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("DigiBank Alert");
+            builder.setMessage("Fingerprint disabled!");
+            updateFingerUnlock(false);
+            fingerEnable.setText("FINGERPRINT DISABLED");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                }
+            });
+
+            AlertDialog fingerprintSettingsDialog = builder.create();
+            fingerprintSettingsDialog.show();
         }
     }
 }

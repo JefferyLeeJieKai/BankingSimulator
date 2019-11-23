@@ -10,23 +10,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.jefferystudio.bankingsimulator.CommonAsyncPackage.TransactionAsync;
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateBalanceAsync;
-import com.jefferystudio.bankingsimulator.CommonAsyncPackage.UpdateTransAsync;
 import com.jefferystudio.bankingsimulator.OTP.OTPFragment;
 import com.jefferystudio.bankingsimulator.R;
 import com.jefferystudio.bankingsimulator.Validation;
-import com.jefferystudio.bankingsimulator.WithdrawalPackage.CheckUserExistsAsync;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

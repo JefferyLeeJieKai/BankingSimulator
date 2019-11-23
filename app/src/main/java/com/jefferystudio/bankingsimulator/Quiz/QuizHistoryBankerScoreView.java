@@ -47,7 +47,7 @@ public class QuizHistoryBankerScoreView extends Fragment {
                 Bundle newArgs = new Bundle();
                 newArgs.putString("userID", args.getString("bankerID"));
                 newArgs.putString("userName", args.getString("bankerUsername"));
-                quizHistoryStudFrag.setArguments(args);
+                quizHistoryStudFrag.setArguments(newArgs);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, quizHistoryStudFrag)

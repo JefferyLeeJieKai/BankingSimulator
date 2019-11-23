@@ -17,6 +17,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,7 +48,7 @@ import com.jefferystudio.bankingsimulator.ImageCropper.PhotoView.RotationSeekBar
 /**
  * @author GT
  */
-public class ImageCropActivity extends Activity {
+public class ImageCropActivity extends AppCompatActivity {
 
     public static final String TAG = "ImageCropActivity";
     private static final int ANCHOR_CENTER_DELTA = 10;
@@ -82,11 +84,17 @@ public class ImageCropActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         args = getIntent().getExtras();
         userID = args.getString("userID");
         setContentView(R.layout.activity_image_crop);
         mContentResolver = getContentResolver();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle(null);
         mImageView = (PhotoView) findViewById(R.id.iv_photo);
         mCropOverlayView = (CropOverlayView) findViewById(R.id.crop_overlay);
         btnFromGallery = (Button) findViewById(R.id.btnFromGallery);
@@ -480,5 +488,11 @@ public class ImageCropActivity extends Activity {
         setResult(RESULT_CANCELED, intent);
 
         finish();
+    }
+
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

@@ -9,8 +9,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 import com.jefferystudio.bankingsimulator.CommonAsyncPackage.RetrieveProfilePicAsync;
+import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.BankerSettings;
+import com.jefferystudio.bankingsimulator.ProfilePageAndSettingsPackage.UserSettings;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -42,7 +45,16 @@ public class FingerprintSettingAsync extends AsyncTask<Bundle, String, String> {
     protected void onPreExecute() {
 
         progDialog = new ProgressDialog(context);
-        progDialog.setMessage("Handling fingerprint enable/disable request");
+
+        if(flag.equals("enablefingerprintUser") || flag.equals("enablefingerprintBanker")) {
+
+            progDialog.setMessage("Handling fingerprint enable request");
+        }
+        else if(flag.equals("disablefingerprintUser") || flag.equals("disablefingerprintBanker")) {
+
+            progDialog.setMessage("Handling fingerprint disable request");
+        }
+
         progDialog.setIndeterminate(false);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setCancelable(false);
@@ -89,8 +101,25 @@ public class FingerprintSettingAsync extends AsyncTask<Bundle, String, String> {
     }
 
     @Override
-    protected void onPostExecute(String s) {
+    protected void onPostExecute(String result) {
 
         progDialog.dismiss();
+
+        if(flag.equals("enablefingerprintUser")) {
+
+            ((UserSettings)context).fingerprintEnabledResult(result);
+        }
+        else if(flag.equals("disablefingerprintUser")) {
+
+            ((UserSettings)context).fingerprintDisabledResult(result);
+        }
+        else if(flag.equals("enablefingerprintBanker")) {
+
+            ((BankerSettings)context).fingerprintEnabledResult(result);
+        }
+        else if(flag.equals("disablefingerprintBanker")) {
+
+            ((BankerSettings)context).fingerprintDisabledResult(result);
+        }
     }
 }
