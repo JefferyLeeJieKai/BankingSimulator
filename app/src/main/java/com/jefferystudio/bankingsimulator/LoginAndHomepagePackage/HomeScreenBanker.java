@@ -126,13 +126,8 @@ public class HomeScreenBanker extends AppCompatActivity {
                     fragment.setArguments(args);
                 }
 
-                 */
-                else if(item.getItemId() == R.id.createAHAccount) {
 
-                    fragment = new account_create_ah1();
-                    fragment.setArguments(args);
-                }
-                /*
+                
                 else if(item.getItemId() == R.id.enableFingerprint) {
 
                     SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
