@@ -32,17 +32,12 @@ import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDialogListener {
+public class ProfilePage extends AppCompatActivity {
 
     private Bundle args;
     private Context context;
-    private ImageView profilepic;
     private TextView profilebtn;
     private static final int PICK_IMAGE = 100;
-    private TextView getlblname;
-    private TextView getlblemail;
-    private ImageButton editNamebtn;
-    private ImageButton editEmailbtn;
     private ArrayList<String> errorList = new ArrayList<>();
     private String userID;
     private CircleImageView profilePic;
@@ -61,11 +56,11 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
         setSupportActionBar(homeScreenToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        profilebtn = (TextView)findViewById(R.id.editbtn);
+        profilebtn = (TextView) findViewById(R.id.editbtn);
 
-        profilePic = (CircleImageView)findViewById(R.id.profilephoto);
+        profilePic = (CircleImageView) findViewById(R.id.profilephoto);
         SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
-        if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
+        if (!pref.getString("imageLink", "NotFound").equals("NoImage")) {
 
             ImageLoader imageLoader = ImageLoader.getInstance();
             imageLoader.displayImage(pref.getString("imageLink", "NotFound"), profilePic);
@@ -78,56 +73,7 @@ public class ProfilePage extends AppCompatActivity implements Dialog.ExampleDial
                 openGallery();
             }
         });
-
-        getlblname = findViewById(R.id.lblname);
-        getlblemail = findViewById(R.id.lblemail);
-        editNamebtn = findViewById(R.id.modeEditName);
-        editEmailbtn = findViewById(R.id.modeEditEmail);
-
-
-        editNamebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                openDialogName();
-            }
-        });
-
-        editEmailbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                openDialogEmail();
-            }
-        });
-
     }
-
-    public void openDialogName(){
-        Dialog dialog = new Dialog();
-        dialog.show(getSupportFragmentManager(), "dialog");
-    }
-
-    public void openDialogEmail(){
-        DialogEmail dialogemail = new DialogEmail();
-        dialogemail.show(getSupportFragmentManager(), "dialogEmail");
-    }
-
-    @Override
-    public void applyTextsName(String name) {
-
-        getlblname.setTextColor(Color.parseColor("#000000"));
-        getlblname.setText(name);
-    }
-
-
-    public void applyTextsEmail(String email) {
-
-        getlblemail.setTextColor(Color.parseColor("#000000"));
-        getlblemail.setText(email);
-    }
-
-
 
     private void openGallery(){
 

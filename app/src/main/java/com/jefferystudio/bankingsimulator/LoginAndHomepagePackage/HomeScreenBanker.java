@@ -152,7 +152,7 @@ public class HomeScreenBanker extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent event) {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
+                    Intent intent = new Intent(getApplicationContext(), ProfilePageBanker.class);
                     intent.putExtras(args);
                     startActivity(intent);
                     drawer.closeDrawer(Gravity.START);

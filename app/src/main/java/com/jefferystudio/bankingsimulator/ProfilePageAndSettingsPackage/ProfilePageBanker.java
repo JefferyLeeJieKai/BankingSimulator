@@ -36,7 +36,7 @@ import java.util.concurrent.TimeUnit;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class ProfilePageBanker extends AppCompatActivity implements Dialog.ExampleDialogListener {
+public class ProfilePageBanker extends AppCompatActivity {
 
     private Bundle args;
     private Context context;
@@ -68,33 +68,12 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
         profilebtn = findViewById(R.id.editbtn);
         profilepic = findViewById(R.id.profilephoto);
 
-        getlblname = findViewById(R.id.lblname);
-        getlblemail = findViewById(R.id.lblemail);
-        editNamebtn = findViewById(R.id.modeEditName);
-        editEmailbtn = findViewById(R.id.modeEditEmail);
-
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openGallery();
             }
         });
-
-            editNamebtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    openDialogName();
-                }
-            });
-
-            editEmailbtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    openDialogEmail();
-                }
-            });
 
         profilePic = (CircleImageView)findViewById(R.id.profilephoto);
         SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
@@ -104,30 +83,6 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
             imageLoader.displayImage(pref.getString("imageLink", "NotFound"), profilePic);
         }
     }
-
-    public void openDialogName(){
-        Dialog dialog = new Dialog();
-        dialog.show(getSupportFragmentManager(), "dialog");
-    }
-
-    public void openDialogEmail(){
-        DialogEmail dialog = new DialogEmail();
-        dialog.show(getSupportFragmentManager(), "dialogEmail");
-    }
-
-    @Override
-    public void applyTextsName(String name) {
-
-        getlblname.setTextColor(Color.parseColor("#000000"));
-        getlblname.setText(name);
-    }
-
-    public void applyTextsEmail(String email) {
-
-        getlblemail.setTextColor(Color.parseColor("#000000"));
-        getlblemail.setText(email);
-    }
-
 
     private void openGallery(){
 
@@ -171,5 +126,4 @@ public class ProfilePageBanker extends AppCompatActivity implements Dialog.Examp
         onBackPressed();
         return super.onSupportNavigateUp();
     }
-
 }
