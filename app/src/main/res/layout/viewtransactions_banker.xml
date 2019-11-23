@@ -35,11 +35,22 @@
         android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/date"
         android:layout_alignLeft="@id/transactionsDetailsRv"
         android:layout_alignTop="@id/textView"
         app:layout_heightPercent="3%"
-        app:layout_widthPercent="40%"
+        app:layout_widthPercent="15%"
+        app:layout_marginTopPercent="15%"
+        android:text="Date"
+        android:textColor="#000000"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/textView"
+        app:layout_heightPercent="3%"
+        app:layout_widthPercent="25%"
         app:layout_marginTopPercent="15%"
         android:text="Description"
         android:textColor="#000000"
@@ -50,7 +61,7 @@
         android:layout_alignRight="@id/transactionsDetailsRv"
         android:layout_alignTop="@id/textView"
         app:layout_heightPercent="3%"
-        app:layout_widthPercent="30%"
+        app:layout_widthPercent="15%"
         app:layout_marginTopPercent="15%"
         android:text="Amount"
         android:textColor="#000000" />
