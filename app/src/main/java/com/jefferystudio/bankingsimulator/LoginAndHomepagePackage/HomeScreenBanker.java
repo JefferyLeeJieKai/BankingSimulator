@@ -37,6 +37,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeScreenBanker extends AppCompatActivity {
 
     private DrawerLayout drawer;
@@ -46,7 +48,7 @@ public class HomeScreenBanker extends AppCompatActivity {
     private Bundle args;
     private String userID;
     private String currentBalance;
-    private ImageButton btnprofile;
+    private CircleImageView btnprofile;
     private Context context;
 
     protected void onCreate(Bundle savedInstanceState) {
