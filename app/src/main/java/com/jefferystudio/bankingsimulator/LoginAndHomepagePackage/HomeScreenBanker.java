@@ -127,7 +127,7 @@ public class HomeScreenBanker extends AppCompatActivity {
                 }
 
 
-                
+
                 else if(item.getItemId() == R.id.enableFingerprint) {
 
                     SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
