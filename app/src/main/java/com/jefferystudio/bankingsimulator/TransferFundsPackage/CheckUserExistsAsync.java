@@ -1,4 +1,4 @@
-package com.jefferystudio.bankingsimulator.WithdrawalPackage;
+package com.jefferystudio.bankingsimulator.TransferFundsPackage;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -84,7 +84,7 @@ public class CheckUserExistsAsync extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
 
         progDialog.dismiss();
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         String[] resultArray = result.split(",");
 
         if(resultArray[0].equals("False")) {
