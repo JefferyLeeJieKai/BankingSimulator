@@ -7,14 +7,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenBanker;
 import com.jefferystudio.bankingsimulator.LoginAndHomepagePackage.HomeScreenUser;
 import com.jefferystudio.bankingsimulator.R;
+import com.jefferystudio.bankingsimulator.WithdrawalPackage.WithdrawalAHFragment;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,12 +34,11 @@ public class QuizHistoryBankerScoreView extends Fragment {
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.quizresult_banker, container, false);
+        View view = inflater.inflate(R.layout.quiz_bankersearch, container, false);
 
         args = getArguments();
 
-        backbtn = view.findViewById(R.id.backBtn);
-
+        /*
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +54,10 @@ public class QuizHistoryBankerScoreView extends Fragment {
                         .commit();
             }
         });
+
+         */
+
+
 
         profilePic = view.findViewById(R.id.profilephotomain);
         try {
