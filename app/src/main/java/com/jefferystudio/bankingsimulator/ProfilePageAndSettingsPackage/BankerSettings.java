@@ -29,7 +29,6 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
     private Switch switchbtn;
     private Button backbtn;
     private Button btnchange;
-    private Button datetimebtn;
     private Bundle args;
     private TextView fingerEnable;
     private Boolean lock;
@@ -47,7 +46,6 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
         switchbtn = (Switch)findViewById(R.id.switch1);
         backbtn = (Button) findViewById(R.id.btnback);
         btnchange = (Button) findViewById(R.id.changepass);
-        datetimebtn = (Button) findViewById(R.id.btndatetime);
         fingerEnable = findViewById(R.id.fingerOnOff);
         loadFinger();
 
@@ -64,16 +62,7 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
                 finish();
             }
         });
-
-        datetimebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(getApplicationContext(), Settings.class);
-                startActivity(intent);
-            }
-        });
-
+        
         btnchange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
