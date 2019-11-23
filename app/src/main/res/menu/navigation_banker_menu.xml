@@ -39,11 +39,6 @@
             android:title="Issue Banknotes">
         </item>
 
-        <item
-            android:id="@+id/createAHAccount"
-            android:title="Create Account">
-        </item>
-
         <!--
         <item
             android:id="@+id/enableFingerprint"
