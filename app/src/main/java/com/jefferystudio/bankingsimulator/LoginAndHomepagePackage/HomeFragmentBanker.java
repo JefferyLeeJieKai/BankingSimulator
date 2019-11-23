@@ -51,7 +51,7 @@ public class HomeFragmentBanker extends Fragment {
     private ImageButton btneditclass;
     private ImageButton btndeleteclass;
     private ImageButton btnviewclass;
-    private ImageButton btncreateacc;
+    //private ImageButton btncreateacc;
     private ImageButton btnissuenotes;
     private CircleImageView profilePic;
     private ArrayList<String> bankerList;
@@ -84,7 +84,7 @@ public class HomeFragmentBanker extends Fragment {
         btneditclass = view.findViewById(R.id.editclassbtn);
         btndeleteclass = view.findViewById(R.id.deleteclassbtn);
         btnviewclass = view.findViewById(R.id.viewclassbtn);
-        btncreateacc = view.findViewById(R.id.btncreateacc);
+        //btncreateacc = view.findViewById(R.id.btncreateacc);
         btnissuenotes = view.findViewById(R.id.btnissuenotes);
 
         profilePic = view.findViewById(R.id.profilephotomain);
@@ -152,6 +152,7 @@ public class HomeFragmentBanker extends Fragment {
             }
         });
 
+        /*
         btncreateacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -163,6 +164,8 @@ public class HomeFragmentBanker extends Fragment {
 
             }
         });
+
+         */
 
         btncreateclass.setOnClickListener(new View.OnClickListener() {
             @Override

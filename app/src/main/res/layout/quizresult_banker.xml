@@ -43,7 +43,6 @@
         app:layout_heightPercent="15%"
         android:layout_alignLeft="@id/title"
         app:layout_marginTopPercent="17%"
-        app:layout_marginLeftPercent="3%"
         android:backgroundTint="#D3D3D3"
         android:background="@drawable/accountcircle"
         app:civ_border_color="#FFFFFF"
