@@ -62,7 +62,7 @@ public class BankerSettings extends AppCompatActivity implements CompoundButton.
                 finish();
             }
         });
-        
+
         btnchange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

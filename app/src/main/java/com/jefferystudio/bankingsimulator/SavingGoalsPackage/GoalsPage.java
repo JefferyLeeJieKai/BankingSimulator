@@ -69,6 +69,7 @@ public class GoalsPage extends Fragment {
             public void onClick(View view) {
 
                 Fragment homeFrag = new HomeFragmentUser();
+                homeFrag.setArguments(args);
 
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, homeFrag)

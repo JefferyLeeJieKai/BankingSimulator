@@ -63,6 +63,9 @@ public class HomeScreenBanker extends AppCompatActivity {
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
         ImageLoader.getInstance().init(config);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        btnprofile = navigationView.getHeaderView(0).findViewById(R.id.profileBtn);
+
         Toolbar homeScreenToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(homeScreenToolbar);
         getSupportActionBar().setTitle("KidzSmart Bank");
@@ -77,6 +80,13 @@ public class HomeScreenBanker extends AppCompatActivity {
 
                 super.onDrawerClosed(drawerView);
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+                SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
+                if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
+
+                    ImageLoader imageLoader = ImageLoader.getInstance();
+                    imageLoader.displayImage(pref.getString("imageLink", "NotFound"), btnprofile);
+                }
             }
 
         };
@@ -93,7 +103,6 @@ public class HomeScreenBanker extends AppCompatActivity {
         homeTrans.replace(R.id.frame_layout, fragment);
         homeTrans.commit();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -140,13 +149,6 @@ public class HomeScreenBanker extends AppCompatActivity {
             }
         });
 
-        btnprofile = navigationView.getHeaderView(0).findViewById(R.id.profileBtn);
-        SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
-        if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
-
-            ImageLoader imageLoader = ImageLoader.getInstance();
-            imageLoader.displayImage(pref.getString("imageLink", "NotFound"), btnprofile);
-        }
         btnprofile.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
