@@ -84,6 +84,9 @@ public class HomeScreenUser extends AppCompatActivity {
 
                 super.onDrawerClosed(drawerView);
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            }
+
+            public void onDrawerOpened(View drawView) {
 
                 SharedPreferences pref = getSharedPreferences("userLoginPref", Context.MODE_PRIVATE);
                 if(!pref.getString("imageLink", "NotFound").equals("NoImage")) {
